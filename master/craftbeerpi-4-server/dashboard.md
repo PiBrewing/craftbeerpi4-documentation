@@ -228,11 +228,7 @@ Then select the widget you have uploaded in the properties on the right side. As
 
 ![The selected SVG item is shown in the dashboard](../../.gitbook/assets/cbpi4-dasboard-fermenter-konus.png)
 
-Now you can add, as already shown for the brewing setup a name for your Fermenter. You need to add a target temp item and select the kettle you have assigned as fermenter.
-
-{% hint style="info" %}
-If you want to run a kettle as fermenter, you need to install the [fermenter hysteresis plugin ](hardware.md#setting-up-the-hardware-for-fermentation)as fermentation is currently not directly supported by CraftbeerPi 4. You need to set the FermenterHysteresis as Kettle logic for a kettle that should act as fermenter.
-{% endhint %}
+Now you can add, as already shown for the brewing setup a name for your Fermenter. This time you need to add a fermenter target temp item and select the fermenter you did set up in the hardware section.
 
 ![Adding a target temp item to your fermenter](../../.gitbook/assets/cbpi4-dashboard-fermenter-target.png)
 
@@ -240,11 +236,11 @@ You also need to add a sensor to your fermenter to display the current temperatu
 
 ![Sensor has been added to your fermenter](../../.gitbook/assets/cbpi-dashboard-fermenter-sensor.png)
 
-Afterwards add a kettle control item to the dashboard and select the fermenter as kettle. You can select the size and the orientation for the control item.
+Afterwards add a fermenter control item to the dashboard and select the fermenter. You can select the size and the orientation for the control item. 
 
 ![Kettle control has been added](../../.gitbook/assets/cbpi4-dashboard-fermenter-controller.png)
 
-Now you can add also led items to display the activity of the heating or cooling actor. You need to select the corresponding actors for the led items (e.g. red: heater, blue: Gcooler). The cooling actor will be the agitator of the control item as there is currently no separate control item for fermenters.
+Now you can add also led items to display the activity of the heating or cooling actor. You need to select the corresponding actors for the led items (e.g. red: heater, blue: cooler). 
 
 ![Fermenter with led items added](../../.gitbook/assets/cbpi4-dashboard-fermenter-led.png)
 
