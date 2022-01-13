@@ -27,6 +27,13 @@ The following tables will show the settings grouped into different topics.
 | Temperature Unit         | Global setting for temperature unit F or C                   |
 | Current Dashboard Number | Used by the system. No change on user side required          |
 | Max number of Dashboards | Maximum number of dashboards that can be used (1 - 10)       |
+| CSVLOGFILES              | Yes / No: Write sensor data to csv log files                 |
+| INFLUXDB                 | Yes / No: Forward sensor data to influxdb (up to V1.8.x)     |
+| INFLUXDBADDR             | IP address of your influxdb server                           |
+| INFLUXDBNAME             | Name of the influxdb database the sensor data should be sent |
+| INFLUXDBPORT             | Port of the influxdb server (typically 8086)                 |
+| INFLUXDBPWD              | Influxdb password in case your server is configured to require a password |
+| INFLUXDBUSER             | Influxdb password in case your server is configured to require a user |
 
 ### Recipe creation settings
 
