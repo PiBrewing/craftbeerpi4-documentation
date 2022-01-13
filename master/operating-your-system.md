@@ -92,7 +92,7 @@ When the step is completed, the system will raise a notification that the brewin
 
 ## Use the system for fermentation
 
-CraftbeerPi4 supports also fermentation iwth the Fermenter hardware and a corresponding fermenter logic. A simple fermentation hystersis logic is included with the server, but users can also write their own fermenter logic and install them as a plugin
+CraftbeerPi4 supports also fermentation with the Fermenter hardware and a corresponding fermenter logic. A simple fermentation hystersis logic is included with the server, but users can also write their own fermenter logic and install them as a plugin
 
 The integrated logic has some special settings for fermentation and you need to adapt just a few settings for each batch. Details on the other parameters have been already described [here](craftbeerpi-4-server/hardware.md#setting-up-the-hardware-for-fermentation). &#x20;
 
@@ -110,7 +110,7 @@ In the dashboard example above you can see two fermenters that can be operated i
 
 You need to set the TargetTemp to the desired temp for your fermentation via the fermenter control item. There is currently no possibility to run step based fermentation.&#x20;
 
-In this example the target temperature was defined at 12°C. If you have now assigned the femrenter control item to the Speidel fermenter as described [here](craftbeerpi-4-server/dashboard.md#creating-a-simple-fermenter-dashboard), you just need to click on the car symbol to start the Automode.
+In this example the target temperature was defined at 10°C. If you have now assigned the femrenter control item to the Speidel fermenter as described [here](craftbeerpi-4-server/dashboard.md#creating-a-simple-fermenter-dashboard), you just need to click on the car symbol to start the Automode.
 
 ![Speidel Fermenter is working in Automode](../.gitbook/assets/cbpi4-operating-fermenter-automode.png)
 
