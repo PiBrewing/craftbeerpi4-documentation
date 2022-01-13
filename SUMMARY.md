@@ -1,0 +1,16 @@
+# Table of contents
+
+* [Craftbeerpi4](README.md)
+  * [Server Installation](master/server-installation.md)
+  * [Plugin installation](master/plugin-installation.md)
+  * [Configuration](master/configuration/README.md)
+    * [Dashboard](master/configuration/dashboard.md)
+    * [Mash Profile](master/configuration/mash-profile.md)
+    * [Hardware](master/configuration/hardware.md)
+    * [Settings](master/configuration/settings.md)
+    * [Analytics](master/configuration/analytics.md)
+    * [Plugins](master/configuration/plugins.md)
+    * [Recipe Upload](master/configuration/recipe-upload.md)
+    * [System](master/configuration/system.md)
+    * [About](master/configuration/about.md)
+  * [Development](master/development.md)
