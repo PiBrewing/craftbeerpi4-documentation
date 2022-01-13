@@ -228,7 +228,7 @@ Then select the widget you have uploaded in the properties on the right side. As
 
 ![The selected SVG item is shown in the dashboard](../../.gitbook/assets/cbpi4-dasboard-fermenter-konus.png)
 
-Now you can add, as already shown for the brewing setup a name for your Fermenter. This time you need to add a fermenter target temp item and select the fermenter you did set up in the hardware section.
+Now you can add, as already shown for the brewing setup a name for your Fermenter. This time you need to add a fermenter target temp item instead of the kettle target temp intem and select the fermenter you did set up in the hardware section.
 
 ![Adding a target temp item to your fermenter](../../.gitbook/assets/cbpi4-dashboard-fermenter-target.png)
 
