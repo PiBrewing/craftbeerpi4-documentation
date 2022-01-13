@@ -190,7 +190,7 @@ cbpi/notification
 ```
 
 {% hint style="info" %}
-Some things had to be changed as the payload size was just too large for smaller devices / libraries. Therefore, each sensor, actor, kettle, fermenter,.... has on topic under a main topic for sensorupdates, actorupdates, kettleupdates,...
+Some things had to be changed as the payload size was just too large for smaller devices / libraries. Therefore, each sensor, actor, kettle, fermenter,.... has one topic under a main topic for sensorupdates, actorupdates, kettleupdates,...
 This has been tested extensively with the so called [MQTTDeviceV2](https://innuendopi.github.io/MQTTDevice2/) but also [V4](https://innuendopi.github.io/MQTTDevice4/).
 {% endhint %}
 
