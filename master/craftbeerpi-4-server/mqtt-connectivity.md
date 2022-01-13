@@ -167,7 +167,7 @@ Kettles can be seen under:
 
 ```
 cbpi/kettleupdate/{kettleid}
-''' 
+```
 
 for each kettle.
 
@@ -175,19 +175,19 @@ Fermenters are using this topic:
 
 ```
 cbpi/fermenterupdate/{fermenterid}
-''' 
+```
 
 Step information is updated under this topic:
 
 ```
 cbpi/stepupdate/{stepid}
-''' 
+```
 
 and notifications the the topic:
 
 ```
 cbpi/notification
-''' 
+```
 
 {% hint style="info" %}
 Some things had to be changed as the payload size was just too large for smaller devices / libraries. Therefore, each sensor, actor, kettle, fermenter,.... has on topic under a main topic for sensorupdates, actorupdates, kettleupdates,...
