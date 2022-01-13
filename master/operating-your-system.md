@@ -92,16 +92,13 @@ When the step is completed, the system will raise a notification that the brewin
 
 ## Use the system for fermentation
 
-As already mentioned in the [hardware section](craftbeerpi-4-server/hardware.md#setting-up-the-hardware-for-fermentation), CraftbeerPi 4 does not yet have a Fermenter Class. However, you can use the system for fermentation if you have installed the [Fermenter Hysteresis Plugin ](https://github.com/avollkopf/cbpi4-FermenterHysteresis)and use it as logic for a regular kettle.
+CraftbeerPi4 supports also fermentation iwth the Fermenter hardware and a corresponding fermenter logic. A simple fermentation hystersis logic is included with the server, but users can also write their own fermenter logic and install them as a plugin
 
-![Kettles with FermenterHysteresis Logic](../.gitbook/assets/cbpi4-operating-fermenter-hardware.png)
-
-The logic has some special settings for fermentation and you need to adapt just a few settings for each batch. Details on the other parameters have been already described [here](craftbeerpi-4-server/hardware.md#setting-up-the-hardware-for-fermentation). &#x20;
+The integrated logic has some special settings for fermentation and you need to adapt just a few settings for each batch. Details on the other parameters have been already described [here](craftbeerpi-4-server/hardware.md#setting-up-the-hardware-for-fermentation). &#x20;
 
 * If you want to start the fermenter logic automatically during reboot, you need to set AutoStart to 'Yes'. If you are not fermenting in your fermenter, the setting should be switched back to 'No'.
-* You need to set the TargetTemp to the desired temp for your fermentation. There is currently no possibility to set different temperatures for individual times.&#x20;
-* The BrewName can be set but will be only shown in the [modded LCDisplay Plugin ](https://github.com/avollkopf/cbpi4-LCDisplay)during fermentation.
-* The sensor property is only relevant, if you use the modded LCDisplay Plugin. Here you can select for instance an iSpindle Sensor and your Gravity is shown on the LCDisplay
+* The BrewName can be set in the logic but will be only shown in the [modded LCDisplay Plugin ](https://github.com/avollkopf/cbpi4-LCDisplay)during fermentation.
+* The additional sensor property is only relevant, if you use the modded LCDisplay Plugin. Here you can select for instance an iSpindle Sensor and your Gravity is shown on the LCDisplay
 
 ![Fermenter Hysteresis Settings](../.gitbook/assets/cbpi4-operating-fermenter-hysteresis.png)
 
@@ -111,12 +108,14 @@ You need to save your settings and go back to your [dashboard, where you did set
 
 In the dashboard example above you can see two fermenters that can be operated in parallel. If you have more, you can also define more fermenters.
 
-Above the Settings for the Speidel Fermenter have been shown. The target temperature was defined at 18°C. If you have now assigned the kettle control item to the Speidel fermenter as described [here](craftbeerpi-4-server/dashboard.md#creating-a-simple-fermenter-dashboard), you just need to clock on the car symbol to start the Automode.
+You need to set the TargetTemp to the desired temp for your fermentation via the fermenter control item. There is currently no possibility to run step based fermentation.&#x20;
+
+In this example the target temperature was defined at 12°C. If you have now assigned the femrenter control item to the Speidel fermenter as described [here](craftbeerpi-4-server/dashboard.md#creating-a-simple-fermenter-dashboard), you just need to click on the car symbol to start the Automode.
 
 ![Speidel Fermenter is working in Automode](../.gitbook/assets/cbpi4-operating-fermenter-automode.png)
 
-As soon, as the Automode is started, the target temp will change to the value you have specified in the logic settings. If you restart the system and have enabled Fermenter Autostart in the logic, the Automode will be started with the target temp specified in the logic settings.
+As soon, as the Automode is started, the logic will switch on the actor for cooling or heating to get to the desired target temp. If you restart the system and have enabled Fermenter Autostart in the logic, the Automode will be started with the target temp specified in the logic settings.
 
 {% hint style="info" %}
-There is currently no other way to run a fermentation. However, tests over a multiple batches have shown, that it is running very stable. Implementation of a fermenter class/item is work in progress, but there is currently no timeline available.
+There is currently no other way to run a fermentation. However, tests over a multiple batches have shown, that it is running very stable. Implementation of step based fermentation is planned, but there is currently no timeline available.
 {% endhint %}
