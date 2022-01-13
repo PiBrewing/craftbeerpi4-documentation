@@ -165,7 +165,7 @@ It is also recommended adding an item for the mash steps to your dashboard. For 
 If sensor data should be displayed on the dashboard, a chart can be also added. Just select a sensor in the chart properties, define the width and height, as well as the refresh rate.
 
 {% hint style="warning" %}
-Although you add charts to the dashboard, it is not recommended. As default, sensor data is stored in csv log files and they will be read every 10 seconds. Due to log file rotation, up to 4Mb in total can be read every 10 seconds per chart (default chart refresh rate). This will drvie the cpu load up to 100% and the dashboard will become unrepsonsive. It is better to use the analytics page instead ifi you want to access the csv based logfiles. 
+Although you can add charts to the dashboard, it is not recommended. As default, sensor data is stored in csv log files and they will be read every 10 seconds. Due to log file rotation, up to 4Mb in total can be read every 10 seconds per chart (default chart refresh rate). This will drvie the cpu load up to 100% and the dashboard will become unrepsonsive. It is better to use the analytics page instead ifi you want to access the csv based logfiles. 
 {% endhint %}
 
 ![Chart has been added to dashboard](../../.gitbook/assets/cbpi4-addchart.png)
