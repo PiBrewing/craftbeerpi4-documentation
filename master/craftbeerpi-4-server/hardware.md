@@ -1,6 +1,6 @@
 # Hardware
 
-On the hardware page, you can set up your sensors, actors and kettles. As sensor, a onewire sensor comes with cbpi4. If you need other [sensors](../plugin-installation.md#sensors), you can install them with a plugin. The default Actor is the GPIO actor that is also part of cbpi4. Other actor types can be installed via a [plugin](../plugin-installation.md#actors). The default kettle logic is a simple hysteresis. If you want to use a more sophisticated kettle logic such as a PID based logic, you will also add them via a [plugin](../plugin-installation.md#kettle-controller).
+On the hardware page, you can set up your sensors, actors, kettles and fermenters. As sensor, a onewire sensor comes with cbpi4. If you need other [sensors](../plugin-installation.md#sensors), you can install them with a plugin. The default Actor is the GPIO actor that is also part of cbpi4. Other actor types can be installed via a [plugin](../plugin-installation.md#actors). The default kettle logic is a simple hysteresis. If you want to use a more sophisticated kettle logic such as a PID based logic, you will also add them via a [plugin](../plugin-installation.md#kettle-controller).
 
 ![Empty Hardware page after first start](../../.gitbook/assets/cbp4\_hardwareempty.png)
 
@@ -106,15 +106,13 @@ In the next step you should go to the [settings ](settings.md)page to define som
 
 ## Setting up the hardware for Fermentation
 
-Currently, CraftbeerPi4 has not the native capabilities to add fermenters. However, there is one Kettle Logic plugin available that is able to turn a regular kettle into a fermenter. As a first step, you will need to install the [Fermenter Hysteresis Plugin](https://github.com/avollkopf/cbpi4-FermenterHysteresis) as described in the [Plugin installation](../plugin-installation.md) part. Details can be also found on the link to the plugin.
+If you want to use your system also for fermentation, you can set up fermenters in the same way as kettles. Currently, CraftbeerPi4 has one Fermenter Logic plugin included which is based on a hysteresis logic. 
 
-The next steps are basically the same as for a regular kettle. You need to [define a sensor ](hardware.md#setting-up-a-sensor)for the temperature measurement of your fermenter. In addition you will need to [define an actor ](hardware.md#setting-up-an-actor)for heating and another actor for cooling as described above.
+Add a fermenter on the hardware page, enter a name for your fermenter and choose Fermenter Hysteresis as logic.
 
-Then add another kettle on the hardware page, enter a name for your fermenter and choose Fermenter Hysteresis as kettle logic. This will only show up if you have installed and added the p0lugin correctly to your server.
+![Adding a fermenter](../../.gitbook/assets/cbpi4-kettle-fermenterlogic.png)
 
-![Adding a Kettle as fermenter](../../.gitbook/assets/cbpi4-kettle-fermenterlogic.png)
-
-Once you have selected Fermenter Hysteresis as Logic, you will see more properties that you need to define. As mentioned, you need to define a heater and cooler for your fermenter. Then define the temperature sensor you are using for your fermenter.&#x20;
+Once you have selected Fermenter Hysteresis as Logic, you will see more properties that you need to define. The steps to set up a fermenter are basically the same as for a regular kettle. You need to [define a sensor ](hardware.md#setting-up-a-sensor)for the temperature measurement of your fermenter. In addition you will need to [define an actor ](hardware.md#setting-up-an-actor)for heating and another actor for cooling as described above.&#x20;
 
 Afterwards, you need to define the offset values for the hysteresis for both, cooler and heater.&#x20;
 
@@ -128,17 +126,21 @@ HeaterOffsetOff: Offset below the target temperature when the heater switches of
 HeaterOffsetOn has to be larger than HeaterOffsetOff
 
 
-
 CoolerOffsetOn: Offset above target temperature when the cooler switches on. E.g. 0.3 means the cooler switches on, if the current temperature is 0.3° or more above the target temperature.&#x20;
 
 CoolerOffsetOff: Offset above the target temperature when the cooler switches off. E.g. 0.1 means the cooler is switching off, if the current temperature is 0.1° above the target temp.
 
 CoolerOffsetOn has to be larger than CoolerOffsetOff
+
+BrewName: Name of your beer in femrentation. Will be for instance shown in the LCDisplay Plugin
+
+TargetTemp: Target temprature for your femrnetation process. This will be used for the automode. Howerver, you can set this also via the fermentercontrol item
+
 {% endhint %}
 
 The parameter Autostart defines if the fermentation logic should start automatically on a reboot or restart of CraftbeerPi4. You can enter a Name for your current fermentation. This will be used by the modified [LCDisplay Plugin](hardware.md#setting-up-the-hardware-for-brewing) and shown on the display for each fermenter during fermentation activity. The same is true for the second sensor. You can for instance use here a iSpindle and display the current gravity on your LCD Screen.
 
-You also need to define your fermentation target temperature in the kettle properties as this is just a workaround for fermentation with the existing system.
+You can also define your fermentation target temperature in the fermenter properties, but this can be also set via the fermenter controll on the dashboard.
 
 {% hint style="info" %}
 Don't forget to set Automode to 'No' whenever you have no active fermentation as it will switch on your logic after every restart of CraftbeerPi4
