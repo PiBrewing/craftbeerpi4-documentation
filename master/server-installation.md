@@ -1,14 +1,18 @@
 # Server Installation
 
-## How to install Craftbeerpi4 and it's user interface
+## How to install Craftbeerpi4 and it's user interface based on a clean raspbian image
+
+There is also the possibility to install the server from a pre-configured image. Details are described [here](server-installation.md#installation-of-craftbeerpi-4-from-a-pre-configured-image-to-your-sd-card).
+
+### Installation of Raspbian and preparation of the system
 
 First you will need to install Raspbian from an image. The installer can be found here: [https://www.raspberrypi.com/software/](https://www.raspberrypi.com/software/)
 
-You should enable ssh to run commands also via a ssh connection from a remote PC. Open either a bash window or login via a ssh connection to your pi. The default user name is 'pi' and the default password is 'raspberry'. For safety reasons, you should change your password. This can be done with the RaspberryPi imager in the advanced options that can be accessed with CRTL + SHIFT + X.
+You should enable ssh to run commands also via a ssh connection from a remote PC / MAC. Open either a bash window or use a terminal to login via a remote ssh connection to your pi. The default user name is 'pi' and the default password is 'raspberry'. For safety reasons, you should change your password. This can be done with the RaspberryPi imager in the advanced options that can be accessed with CRTL + SHIFT + X.
 
 Once the image has been written to the SD card, you need to place the card in your Pi and start the system. The first boot will take some time as the system will expand the image and needs to boot several times.
 
-As a first step, you should update your os. Therefore, you need to enter a few commands. These commands need to be run as root. Therefore, you need to place 'sudo' in front of the commands. You need to open a bash window or connect via ssh to your raspberry.
+Now you should update your OS. Therefore, you need to enter a few commands. These commands need to be run as root. Therefore, you need to place 'sudo' in front of the commands. Open a bash window or connect via ssh to your raspberry.
 
 ```
 sudo apt-get update
@@ -43,25 +47,29 @@ From the main menu you can also select system options to enable and configure Wi
 
 Now you can start installing the cbpi server. At this point of time, this guide will point to the forks of the server and user interface from Alexander Vollkopf, as they have the most recent code, fixes and features. You can find also plenty of plugins in the git space: [https://github.com/avollkopf?tab=repositories](https://github.com/avollkopf?tab=repositories).
 
+If you were using the full image of raspbian, the next steps are not required, as the packages are already included. On the lite image, you need to install a couple of packages, before you can install the server and user interface. Please run the following command to install the python3 package manager:
+
+```
+sudo apt-get install python3-pip
+```
+
+### Installation of CraftbeerPi 4
+
 To install craftbeerpi4 from the repo, please run the following command:
 
 ```
 sudo pip3 install https://github.com/avollkopf/craftbeerpi4/archive/master.zip
 ```
 
-The installation will take some time and it will also install the default user interface. However, to run the server with all the features, you will need to install also the latest user interface from the repo.
-
-First you need to clone the repo to your local system:
+The installation will take some time and it will also install the default user interface. However, to run the server with all the features, you will need to install also the latest user interface from the forked repo.
 
 ```
-git clone https://github.com/avollkopf/craftbeerpi4-ui/
+sudo pip3 install https://github.com/avollkopf/craftbeerpi4-ui/archive/main.zip
 ```
 
-Once cloned, you can install the user interface from the cloned directory:
-
-```
-sudo pip3 install ./craftbeerpi4-ui
-```
+{% hint style="info" %}
+There are also development branches of some repos. These branches will be used to test some new features before the code is rolled out to the master or main branch. These branches are typically working, but should not necessarily considered as stable. The installation of these branches will be described in the [development section](development.md#running-a-development-version-of-the-server).
+{% endhint %}
 
 Now you need to setup cbpi to create a config folder:
 
@@ -137,7 +145,7 @@ START
 
 ```
 
-Now try to access cbpi via the webinterface.  Therefore, enter in your browser:
+Now try to access cbpi via the webbrowser on your PI or on external client systems, like other computers or mobile devices.  Therefore, enter in your browser:
 
 > IPADDRESSOFYOURPI:8000 -> e.g. 192.168.10.100:8000
 
@@ -154,12 +162,24 @@ sudo cbpi add autostart
 The following output should be on the bash screen:
 
 ```
-Add cradtbeerpi.service to systemd
+Add craftbeerpi.service to systemd
 Copied craftbeerpi.service to /etc/systemd/system
 Created symlink /etc/systemd/system/multi-user.target.wants/craftbeerpi.service → /etc/systemd/system/craftbeerpi.service.
 Enabled craftbeerpi service
 Started craftbeerpi.service
 ```
+
+{% hint style="warning" %}
+The craftbeerpi.service file is located in your config directory and configured for the user pi. If you have installled cbpi under a different user or did run the setup in a different folder than /home/pi you need to change the craftbeerpi.service file manually.
+
+`[Service]`
+
+`WokingDirectory=/home/pi`
+
+Just replace `/home/pi` with the path hwere your config folder is located
+{% endhint %}
+
+
 
 If you want to remove the autostart during boot, simply run this command:
 
@@ -170,7 +190,7 @@ sudo cbpi remove autostart
 It will take some time to stop the server and finally you will see this output:
 
 ```
-Remove cradtbeerpi.service from systemd
+Remove craftbeerpi.service from systemd
 Stopped craftbeerpi service
 Removed /etc/systemd/system/multi-user.target.wants/craftbeerpi.service.
 Removed craftbeerpi.service as service
@@ -200,6 +220,91 @@ To restart the server as service you can either reboot or just start it as seriv
 sudo systemctl start craftbeerpi.service
 ```
 
+## Installation of Craftbeerpi 4 from a pre-configured image to your sd-card
+
+
+
+There is also the possibility to write an image with a pre-installed CraftbeerPi4 server to your sd-card. This image comes with several installed plugins.
+
+The image can be downloaded from this [link ](https://www.slammy.net/homebrewing/2021\_12\_cbpi4\_0\_0\_55\_ui\_0\_0\_23.zip)which is kindly provided by Nicolas Slammy Outrey.
+
+{% hint style="warning" %}
+Please read all information BEFORE you boot your card the first time if you want to activate WiFi on a headless system!
+{% endhint %}
+
+Current Version:
+
+```
+Server Version: 4.0.0.55
+UI Version: 0.0.23
+--------------------------------------
+List of active plugins
+- (0.0.23)      cbpi4ui
+- (0.0.2)       cbpi4-buzzer
+- (0.1.2)       cbpi4-BM_PID_SmartBoilWithPump
+- (0.0.1)       cbpi4-DependentActor
+- (0.0.1)       cbpi4-Flowmeter
+- (0.0.2)       cbpi4-GroupedActor
+- (0.0.2)       cbpi4-hx711-loadcell
+- (0.0.6)       cbpi4-iSpindle
+- (0.0.1)       cbpi4-KettleSensor
+- (0.0.6)       cbpi4-PID_AutoTune
+- (0.0.6)       cbpi4-PIDBoil
+- (0.0.10)      cbpi4-pt100x
+- (0.0.3)       cbpi4-system
+- (0.0.2)       cbpi4-FermenterHysteresis
+- (0.0.3)       cbpi4-PushOver
+- (0.0.1)       LCDisplay
+- (0.0.2)       cbpi4-PIDHerms
+- (0.0.1)       cbpi4-scd30_CO2_Sensor
+--------------------------------------
+```
+
+You can install further plugins as described in [this part](plugin-installation.md). But you can and should also deactivate plugins that you don't require.&#x20;
+
+#### The images has the following properties:
+
+* Based on Raspian full 32 bit (bullseye)&#x20;
+* Image will expand on first boot to size of sd card (Please be aware, that the system wil start several times until it is up and running)
+* Server will autostart after boot.
+* Wifi and Bluetooth are working.
+* SSH is enabled.
+* Onewire support is enabled.
+* I2C support is enabled.
+
+{% hint style="info" %}
+User: pi
+
+Password: raspberry
+{% endhint %}
+
+#### Installation:
+
+```
+1. Unzip the image. It will inflate to ~4.2Gb
+2. Write the image to a sd card with min size of 8 Gb.
+   Better would be 16 Gb or more
+3. If you want to enable Wifi on first start, 
+   you need to access the boot partition on the sd card from your PC/Mac
+	- Open the file wpa_supplicant.conf.sample
+	- Enter your SSID and your credentials at the corresponding positions
+	- Save the file and rename it -> remove the .sample at the end.
+	- Filename must be: wpa_supplicant.conf
+4. Insert the sd card into your raspberry and wait. 
+   The device will boot several times
+5. Once the server is up and running, you can access it from a browser 
+   via IP_OF_YOUR_PI:8000
+6. If you are using for instance a screen with your raspberry, 
+   you can also activate autostart of chromium with cbpi
+	- copy the chromium.desktop file from the ~/config folder 
+	   to /etc/xdg/autostart
+	-> cd ~/config
+	-> sudo cp chromium.desktop /etc/xdg/autostart
+	- If the system is asking for a password, enter your password.
+	  If you have not changed the default password enter the pasword mentioned above.
+	- On the next start, Chromium will be shown on start with the cbpi Dashboard.
+```
+
 ## Updating your server and UI from the forks
 
 ### Updating the Server
@@ -207,32 +312,176 @@ sudo systemctl start craftbeerpi.service
 If you want to update the server from my fork, you just need to run the same command as you did already for the installation of the server:
 
 ```
-sudo pip3 install https://github.com/avollkopf/craftbeerpi4/archive/master.zip
+sudo pip3 install --upgrade https://github.com/avollkopf/craftbeerpi4/archive/master.zip
 ```
 
-If new settings parameters have been added to cbpi I will handle the in the extension Configupdate and cbpi4 will add the parameters automatically during start if they are not yet in the config file.
+If new setting parameters have been added to cbpi, it will handle that in the extension Configupdate. Cbpi4 will add the parameters automatically during start if they are not yet in the config file.
 
 ### Updating the UI
 
-To update the user interface, you need to move into the directory of the cloned user interface and pull the new code with git:
+To update the user interface, you need to run again the command to install the user interface as done in the initial installation and use the upgrade flag in addition:
 
 ```
-cd craftbeerpi4-ui
-git pull
-```
-
-Once this is done, move back up one directory and run again the command to install the user interface as done in the initial installation:
-
-```
-sudo pip3 install ./craftbeerpi4-ui
+sudo pip3 install --upgrade https://github.com/avollkopf/craftbeerpi4-ui/archive/main.zip
 ```
 
 ## Other Hardware Tips
 
+### Mute your buzzer at startup
 
-
-If you are using a CraftbeerPi extension board that has a buzzer installed, the buzzer might play an annoying sound during startup. You can stop this be adding one line to the config.txt file in the boot directory. In case of the 4.0 extension board, the buzzer is connected to GPIO5. If your buzzer is connected to a different GPIO, you need to replace the 5 with the corresponding GPIO number. By adding this to the config .txt file, the GPIO will be set to out and low at boot and the signal will stop.
+If you are using a CraftbeerPi extension board that has a buzzer installed, the buzzer might play an annoying sound during startup. You can stop this by adding one line to the config.txt file in the boot directory. In case of the 4.0 extension board, the buzzer is connected to GPIO5. If your buzzer is connected to a different GPIO, you need to replace the 5 with the corresponding GPIO number. By adding this to the config .txt file, the GPIO will be set to out and low at boot and the signal will stop.
 
 ```
 gpio=5=op,dl
+```
+
+### Display your GPIO numbers with wiringPi
+
+Although, wiringpi is deprecated, it can be useful to get some insights into your pin numbering. CraftbeerPi 4 is using BCM numbers for the GPIOs and wiringpi can list them. Make sure, you have installed the latest (and last) version 2.52
+
+to install wiringPi, open a bash window and run the following commands
+
+```
+cd /tmp
+wget https://project-downloads.drogon.net/wiringpi-latest.deb
+sudo dpkg -i wiringpi-latest.deb
+```
+
+You can check the version with
+
+```
+gpio -v
+```
+
+To see the details for your hardware, just type&#x20;
+
+```
+gpio readall
+```
+
+This will show the following table
+
+```
+pi@raspberrypi:~ $ gpio readall
+ +-----+-----+---------+------+---+---Pi 4B--+---+------+---------+-----+-----+
+ | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |
+ +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+
+ |     |     |    3.3v |      |   |  1 || 2  |   |      | 5v      |     |     |
+ |   2 |   8 |   SDA.1 | ALT0 | 1 |  3 || 4  |   |      | 5v      |     |     |
+ |   3 |   9 |   SCL.1 | ALT0 | 1 |  5 || 6  |   |      | 0v      |     |     |
+ |   4 |   7 | GPIO. 7 |   IN | 1 |  7 || 8  | 1 | IN   | TxD     | 15  | 14  |
+ |     |     |      0v |      |   |  9 || 10 | 1 | IN   | RxD     | 16  | 15  |
+ |  17 |   0 | GPIO. 0 |  OUT | 1 | 11 || 12 | 0 | IN   | GPIO. 1 | 1   | 18  |
+ |  27 |   2 | GPIO. 2 |   IN | 0 | 13 || 14 |   |      | 0v      |     |     |
+ |  22 |   3 | GPIO. 3 |   IN | 0 | 15 || 16 | 0 | IN   | GPIO. 4 | 4   | 23  |
+ |     |     |    3.3v |      |   | 17 || 18 | 0 | IN   | GPIO. 5 | 5   | 24  |
+ |  10 |  12 |    MOSI |  OUT | 0 | 19 || 20 |   |      | 0v      |     |     |
+ |   9 |  13 |    MISO |   IN | 1 | 21 || 22 | 0 | OUT  | GPIO. 6 | 6   | 25  |
+ |  11 |  14 |    SCLK |  OUT | 0 | 23 || 24 | 0 | IN   | CE0     | 10  | 8   |
+ |     |     |      0v |      |   | 25 || 26 | 0 | IN   | CE1     | 11  | 7   |
+ |   0 |  30 |   SDA.0 |   IN | 1 | 27 || 28 | 1 | IN   | SCL.0   | 31  | 1   |
+ |   5 |  21 | GPIO.21 |  OUT | 0 | 29 || 30 |   |      | 0v      |     |     |
+ |   6 |  22 | GPIO.22 |  OUT | 0 | 31 || 32 | 0 | OUT  | GPIO.26 | 26  | 12  |
+ |  13 |  23 | GPIO.23 |   IN | 0 | 33 || 34 |   |      | 0v      |     |     |
+ |  19 |  24 | GPIO.24 |  OUT | 0 | 35 || 36 | 0 | OUT  | GPIO.27 | 27  | 16  |
+ |  26 |  25 | GPIO.25 |   IN | 0 | 37 || 38 | 0 | OUT  | GPIO.28 | 28  | 20  |
+ |     |     |      0v |      |   | 39 || 40 | 0 | IN   | GPIO.29 | 29  | 21  |
+ +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+
+ | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |
+ +-----+-----+---------+------+---+---Pi 4B--+---+------+---------+-----+-----+
+
+```
+
+{% hint style="info" %}
+CraftbeerPi 4 is using the BCM numbering for the GPIOs. Please use the numbers of the corresponding column for your GPIO assignment.&#x20;
+
+The numbering could also vary depending on the Pi you are using.
+{% endhint %}
+
+
+
+## Alternative setups
+
+### Docker
+
+While CraftbeerPi is primarily created to be run on a RaspberryPi you can also use a docker image to run it. It can be found in the container registry on GitHub under the name `ghcr.io/avollkopf/craftbeerpi4`.
+
+The image is currently only available for `arm64` and `amd64` architectures. If you want to run the image on a RaspberryPi make sure that you have installed a 64bit version of the operating system.
+
+The image is available under several tags:
+
+* `latest` the latest 'stable' release that is built from the master branch.
+* `v4.x.x.x` image for a specific version.
+* `dev` image for 'unstable' version built from the latest development branch.
+
+{% hint style="warning" %}
+Currently the GPIO functionality is not supported in the image. But you can use it with e.g. MQTT sensors and actors.
+{% endhint %}
+
+#### Preparing configuration data
+
+CraftBeerPi requires several configuration files in order to run correctly. Those files should not be located in the containers filesystem, because changes to those files would be lost in case the container is recreated (e.g. when upgrading to a new version).
+
+It is advisable to create the initial configuration outside of the container and use a volume mount to make them available to the container when starting it.
+
+```bash
+# create a new config folder and set the correct owner group
+mkdir config && chown :1000 config
+
+# run a temporary CraftBeerPi container to write the initial
+# configuration files in the new folder
+docker run --rm -v "$(pwd)/config:/cbpi/config" ghcr.io/avollkopf/craftbeerpi4:latest cbpi setup
+```
+
+#### Running the base image
+
+To run the image with the newly created configuration files you can use this command:
+
+```bash
+docker run -d -v "$(pwd)/config:/cbpi/config" -p 8000:8000 ghcr.io/avollkopf/craftbeerpi4:latest
+```
+
+#### Installing plugins
+
+Installing plugins has a similar requirement as the configuration files. They should survive a container recreation. This is why it's not advisable to install them in a running container but create your own `Dockerfile` for it.
+
+This `Dockerfile` can use the _official_ one as base and extends it by installing your own plugins.
+
+{% code title="Dockerfile" %}
+```docker
+FROM ghcr.io/avollkopf/craftbeerpi4:latest
+
+# Install plugins
+RUN pip3 install --no-cache-dir cbpi4-pt100x \
+    && cbpi add cbpi4-pt100x
+```
+{% endcode %}
+
+Then build your own image.
+
+```bash
+docker build . -t craftbeerpiwithplugins:latest
+```
+
+**docker-compose**
+
+Of course you can use `docker-compose` to setup your environment. You can also use your own image if you created one (see previous section).
+
+{% code title="docker-compose.yml" %}
+```yaml
+version: "3.7"
+services:
+  craftbeerpi:
+    image: ghcr.io/avollkopf/craftbeerpi4:latest
+      volumes:
+        - "./config:/cbpi/config"
+      ports:
+        - 8000:8000
+```
+{% endcode %}
+
+And then run it with
+
+```bash
+docker-compose up -d
 ```
