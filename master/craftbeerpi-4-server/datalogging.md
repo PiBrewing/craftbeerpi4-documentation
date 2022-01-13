@@ -6,7 +6,7 @@ Therefore, it is not recommended to use charts in your brewing or femrentation d
 
 To reduce the write cycles to the sd card, you could symlink the log folder also to an external hdd or even a network folder.
 
-If you are not using the log files and charts at all, it is recommended to switch of csv logging, which can be done on the settings page via the parameter CSVLOGFILES. Set this parameter to 'No'.
+If you are not using the log files and charts at all, it is recommended to switch of csv logging, which can be done on the [settings page](settings.md#global-system-parameters) via the parameter CSVLOGFILES. Set this parameter to 'No'.
 
 CraftbeerPi4 has also the possibility to forward the sensor data to an InfluxDB database. This method is way more sophisticated and recommended as it allowls the user to use and display the data for isntance with grafana. 
 
