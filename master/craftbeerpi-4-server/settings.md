@@ -35,6 +35,9 @@ The following tables will show the settings grouped into different topics.
 | INFLUXDBPWD              | Influxdb password in case your server is configured to require a password |
 | INFLUXDBUSER             | Influxdb password in case your server is configured to require a user |
 
+#### Sensor data logging
+
+
 ### Recipe creation settings
 
 These parameters are relevant if you want to create recipes automatically from external sources like beerxml files, the database from Kleiner Brauhelfer 2 or from the brewfather API.
