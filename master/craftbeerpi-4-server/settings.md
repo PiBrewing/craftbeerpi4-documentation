@@ -35,8 +35,6 @@ The following tables will show the settings grouped into different topics.
 | INFLUXDBPWD              | Influxdb password in case your server is configured to require a password |
 | INFLUXDBUSER             | Influxdb password in case your server is configured to require a user |
 
-#### Sensor data logging
-
 
 ### Recipe creation settings
 
@@ -64,3 +62,19 @@ Details on mash steps are documented in the [Mash Profile section](mash-profile.
 | steps\_mashin             | Defines the step that is used as mashin step. The difference to the MashStep is that this step heats up to the target mashin temp and stops the system afterwards. It will raise a notification to add the malt and you need to confirm to start the next step. Default: MashInStep and can be changed if a step plugin is used |
 | steps\_mashout            | Defines the step that is used as mashout step. This is not  a real mashstep but meant as notification step to remind the brewer that the mashing is completed and that he needs to start the lautering before the boil can start. Default: NotificationStep which requires a confirmation to move to the next step / boil.      |
 
+
+## Sensor data logging (CSV or InfluxDB)
+
+The data retrieved by sensors can be logged in different ways. The default is csv logging. CSV files will be stored for each sensor and the log is rotating. This means, that up to 4 csv files with 1 Mb per file can be created per sensor. Some sensors write one datapoint per second. If you have variuos sensors, plenty of write cycle will be done per second which is not good for the health of an SD card. In addition to that dashboard charts will read from those files which may drive up the CPU usage to 100% and may cause an unresponsive Interface in particular, when you are using a screen that is directly connetec to your pi.
+
+Therefore, it is not recommended to use charts in your brewing or femrentation dashboard. I recommend to use the analytics page instead.
+
+To reduce the write cycles to the sd card, you could symlink the log folder also to an external hdd or even a network folder.
+
+If you are not using the log files and charts at all, it is recommended to switch of csv logging, which can be done on the settings page via the parameter CSVLOGFILES. Set this parameter to 'No'.
+
+CraftbeerPi4 has also the possibility to forward the sensor data to an InfluxDB database. This method is way more sophisticated and recommended as it allowls the user to use and display the data for isntance with grafana. 
+
+Below is an example for the usage of Influxdb in combination with Grafana. The dashboard shows sensor data for the Kettle and two fermenters. In addition, data from the cbpi4-system plugin that monitors the CPU load, free memory and more is displayed. I am also using a SCD30 sensor to monitor the 'environmental condition' of the room (CO2, temp and rel. humidity) and display this on the same dashboard.
+
+![Example for InfluxDB usage in combination with Grafana](../../.gitbook/assets/cbpi4-grafana.png)
