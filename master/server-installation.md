@@ -220,6 +220,41 @@ To restart the server as service you can either reboot or just start it as seriv
 sudo systemctl start craftbeerpi.service
 ```
 
+## Automatically start chromium in kiosk mode at startup
+
+You can enable chromium kiosk mode via commandline. If this is enabled, chromium will start after boot in kiosk mode with craftbeerpi4.
+
+{% hint style="info" %}
+This has ben tested on the full raspbian version where chromium is installed as default. For other setups you may need to install the chromium browser manually.
+{% endhint %}
+
+To enable kiosk mode, you need to run the following command from the bash:
+
+```
+sudo cbpi add chromium
+```
+
+You will see the following output that the required file has been copied to the autostart folder:
+
+```
+Add chromium.desktop to /etc/xdg/autostart/
+Copied chromium.desktop to /etc/xdg/autostart/
+```
+
+You can also disable the kiosk mode via commandline. Therefore, you need to run the following command:
+
+```
+sudo cbpi remove chromium
+```
+
+You will see the following output that the file has been removed from the autostart folder:
+
+```
+Remove chromium.desktop from /etc/xdg/autostart/
+Deleted chromium.desktop from /etc/xdg/autostart/
+```
+
+
 ## Installation of Craftbeerpi 4 from a pre-configured image to your sd-card
 
 
