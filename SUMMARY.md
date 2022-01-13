@@ -13,6 +13,7 @@
     * [Plugins](master/craftbeerpi-4-server/plugins.md)
     * [Recipe Upload](master/craftbeerpi-4-server/recipe-upload.md)
     * [System](master/craftbeerpi-4-server/system.md)
+    * [Sensor Data logging](master/craftbeerpi-4-server/datalogging.md)
     * [MQTT connectivity](master/craftbeerpi-4-server/mqtt-connectivity.md)
     * [About](master/craftbeerpi-4-server/about.md)
   * [Operating your system](master/operating-your-system.md)
