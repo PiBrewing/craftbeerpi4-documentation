@@ -104,7 +104,7 @@ Now you need to save the kettle and can see it also on the hardware page.
 
 In the next step you should go to the [settings ](settings.md)page to define some global settings incl. your default mashtun and boil kettle but also the temperature units. Afterwards you can start to add your hardware to the [dashboard](dashboard.md).
 
-## Setting up the hardware for Fermentation
+### Setting up a Fermenter
 
 If you want to use your system also for fermentation, you can set up fermenters in the same way as kettles. Currently, CraftbeerPi4 has one Fermenter Logic plugin included which is based on a hysteresis logic. 
 
