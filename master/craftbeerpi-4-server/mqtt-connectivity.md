@@ -121,11 +121,13 @@ You also need to send a power value between 0 and 100 as raw value in the payloa
 
 Craftbeerpi is continuously sending status updates on all sensors and actors via mqtt
 
-Sensors ar updated via:
+Sensordata is updated via:
 
 ```
-cbpi/sensor/2Sn46Fc6jRGvES9MuQXHdG/update
+cbpi/sensordata/2Sn46Fc6jRGvES9MuQXHdG
 ```
+
+Each sensor is updated as separate topic where only the sensor ID is varying
 
 This is an example for the cbpi sensor `2Sn46Fc6jRGvES9MuQXHdG`. The payload for a sensor update has the following content:
 
@@ -139,10 +141,10 @@ This is an example for the cbpi sensor `2Sn46Fc6jRGvES9MuQXHdG`. The payload for
 Status of actors are shown in this topic:
 
 ```
-cbpi/actor/QD7WjbFHWyGKMCCFai4uSW
+cbpi/actorupdate/QD7WjbFHWyGKMCCFai4uSW
 ```
 
-Wehre the payload shows the current status of the actor:
+Also here, each actor has it's own topic where only the actor id is different. The payload shows the current status of the actor:
 
 ```
 {
@@ -160,3 +162,35 @@ Wehre the payload shows the current status of the actor:
 ```
 
 'state' represents the status of the actor. 'true' means that the actor is on, while 'false' represents the off status of an actor. 'power' shows the current power setting of the actor in %
+
+Kettles can be seen under:
+
+```
+cbpi/kettleupdate/{kettleid}
+''' 
+
+for each kettle.
+
+Fermenters are using this topic:
+
+```
+cbpi/fermenterupdate/{fermenterid}
+''' 
+
+Step information is updated under this topic:
+
+```
+cbpi/stepupdate/{stepid}
+''' 
+
+and notifications the the topic:
+
+```
+cbpi/notification
+''' 
+
+{% hint style="info" %}
+Some things had to be changed as the payload size was just too large for smaller devices / libraries. Therefore, each sensor, actor, kettle, fermenter,.... has on topic under a main topic for sensorupdates, actorupdates, kettleupdates,...
+This has been tested extensively with the so called [MQTTDeviceV2](https://innuendopi.github.io/MQTTDevice2/) but also [V4](https://innuendopi.github.io/MQTTDevice4/).
+{% endhint %}
+
