@@ -66,9 +66,9 @@ This will copy the fermenter.svg file into the widgets subdirectory, and you sho
 Klaus, a member of the German Hobbybrauerforum has created a set of svg items that can be used for CraftbeerPi4. The corresponding thread can be found [here](https://hobbybrauer.de/forum/viewtopic.php?f=58\&t=29038).
 
 A zip file with recent svg items can be downloaded from below.
-
-
 {% endhint %}
+
+{% file src="../../.gitbook/assets/CraftbeerPi4v0.944Icons-kalausr.zip" %}
 
 ## Creating a simple single kettle brew dashboard
 
