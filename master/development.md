@@ -239,3 +239,5 @@ CraftbeerPi4 provides flexibility as Plgins can be written for different purpose
 | Actor                    | Allows addition of different actor types / hardware                      | <p>[cbpi4-GroupedActor](https://github.com/avollkopf/cbpi4-GroupedActor)</p><p>[cbpi-PCF8574-GPIO](https://github.com/avollkopf/cbpi4-PCF8574-GPIO)</p> |
 | Kettle Logic             | Allows to create a kettle logic that fits for your system requirements   | [cbpi4-PIDBoil](https://github.com/avollkopf/cbpi4-PIDBoil) |
 | Fermenter Logic          | Allows to create a fermenter logic that fits for your system requirements | <p>No example yet</p><p>Builtin FermenterHysteresis</p> |
+| Mash Steps               | Allows to add mash steps that users may require / adapt to their needs   | [cbpi4-BM_Steps](https://github.com/avollkopf/cbpi4-BM_Steps) |
+| Notifications            | Allos users to define callback functions that forward cbpi notifications to other message services or a buzzer | <p>[cbpi4-Pushover](https://github.com/avollkopf/cbpi4-PushOver)</p><p>[cbpi4-buzzer](https://github.com/avollkopf/cbpi4-buzzer)</p> |
