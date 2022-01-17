@@ -66,8 +66,7 @@ sudo pip3 install -e ./craftbeerpi4
 Development of plugins and server is recommende to be done in a virtual environemnt ot on a separate system / sd-card. This allows you to create / modify code and test it without the risk to harm your running system.
 
 {% hint style="info" %} 
-How to create virtual env in Python
-https://docs.python.org/3/tutorial/venv.html 
+How to create virtual env in [Python](https://docs.python.org/3/tutorial/venv.html)
 {% endhint %}
 
 If you choose to follow the path of the virtual enviroment, you need to ensure that all relevant python packages for the venv are installen and then you need to run the following commands to activate your venv.
