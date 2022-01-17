@@ -257,7 +257,7 @@ The following table will describe show you the clasess.
 | CBPiKettleLogic       | Required to create a new Kettle Logic type                                                             |
 | CBPiFermenterLogic    | Required to create a new Fermenter Logic type                                                             |
 | CBPiStep              | Required to create new MashSteps                                                                       |
-| CBPIExtension         | Required for various purposes such as addition of cbpi setting prameters, definition of http endpoints or startup of additional hardware |
+| CBPiExtension         | Required for various purposes such as addition of cbpi setting prameters, definition of http endpoints or startup of additional hardware |
 
 
 
