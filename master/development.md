@@ -61,7 +61,7 @@ sudo pip3 install -e ./craftbeerpi4
 ```
 
 
-## Setting up a development environment&#x20;
+## Setting up a virtual environment for development&#x20;
 
 Development of plugins and server is recommende to be done in a virtual environemnt ot on a separate system / sd-card. This allows you to create / modify code and test it without the risk to harm your running system.
 
@@ -244,20 +244,39 @@ CraftbeerPi4 provides flexibility as Plgins can be written for different purpose
 | Automated Recipe Creation | Allows users to adapt the automated recipe creation process (xml, kbh or brewfather) to their requirements. | [cbpi4-RecipeImport](https://github.com/avollkopf/cbpi4-RecipeImport)|
 | Other Functions           | Allows users to add other functionalities such as an LCD Display        | [cbpi4-LCDisplay](https://github.com/avollkopf/cbpi4-LCDisplay) |
 
-## Plugin Classes
+### Plugin Classes
 
 CraftbeerPi4 has different classes defiuned that you need to create a Sensor, Actor, Logic,.....
 
 The following table will describe show you the clasess.
 
-| Class                 |  Usage                                                                                                 |
-| --------------------- | ------------------------------------------------------------------------------------------------------ |
-| CBPiSensor            | Required for all type of sensors. For some functions the class CBPiExtension might be required in addition | 
-| CBPiActor             | Required for all type of actors. For some functions the class CBPiExtension might be required in addition |
-| CBPiKettleLogic       | Required to create a new Kettle Logic type                                                             |
-| CBPiFermenterLogic    | Required to create a new Fermenter Logic type                                                             |
-| CBPiStep              | Required to create new MashSteps                                                                       |
-| CBPiExtension         | Required for various purposes such as addition of cbpi setting prameters, definition of http endpoints or startup of additional hardware |
+| Class                 | Properties |  Usage                                                                                                 |
+| --------------------- | ---------- |------------------------------------------------------------------------------------------------------ |
+| CBPiSensor            | Yes | Required for all type of sensors. For some functions the class CBPiExtension might be required in addition | 
+| CBPiActor             | Yes | Required for all type of actors. For some functions the class CBPiExtension might be required in addition |
+| CBPiKettleLogic       | Yes | Required to create a new Kettle Logic type                                                             |
+| CBPiFermenterLogic    | Yes | Required to create a new Fermenter Logic type                                                             |
+| CBPiStep              | Yes | Required to create new MashSteps                                                                       |
+| CBPiExtension         | No | Required for various purposes such as addition of cbpi setting prameters, definition of http endpoints or startup of additional hardware |
 
+### Plugin Properties
 
+If you want to add for instance a new onewire sensor, you need to select the sensor id, define a name, an Interval and an offset, if required. This is done via so called properties.
 
+![Empty Mash Profile window](../.gitbook/assets/cbpi4-plugin-properties-example.png)
+
+The Sensor Name and Sensor Type will be always required, even if you don't add properties to your plugin. However, the other porperties need to be added via  @parameters right in front of your class. Properties can be added to all plugins except for the CBPiExtension.
+
+```
+@parameters([Property.Select(label="Sensor", options=getSensors()), 
+             Property.Number(label="offset",configurable = True, default_value = 0, description="Sensor Offset (Default is 0)"),
+             Property.Select(label="Interval", options=[1,5,10,30,60], description="Interval in Seconds")])
+class OneWire(CBPiSensor):
+```
+
+If you don't want to add properties for your sensor leave the @ parameters empty:
+
+```
+@parameters([])
+class YourNewSensor(CBPiSensor):
+```
