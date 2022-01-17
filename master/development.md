@@ -236,5 +236,4 @@ CraftbeerPi4 provides flexibility as Plgins can be written for different purpose
 | Type                    | Description                                                               | Example |
 | ------------------------ | ------------------------------------------------------------------------ |-------- |
 | Sensor                   | Allows addition of differnet sensor types besies onwore temp sensor      | [cbpi4-pt100x](https://github.com/avollkopf/cbpi4-pt100x) |
-| Actor                    | Allows addition of different actor types / hardware                      | [cbpi4-GroupedActor](https://github.com/avollkopf/cbpi4-GroupedActor)
-[cbpi-PCF8574-GPIO](https://github.com/avollkopf/cbpi4-PCF8574-GPIO) |
+| Actor                    | Allows addition of different actor types / hardware                      | <p>[cbpi4-GroupedActor](https://github.com/avollkopf/cbpi4-GroupedActor)</p><p>[cbpi-PCF8574-GPIO](https://github.com/avollkopf/cbpi4-PCF8574-GPIO)</p> |
