@@ -84,4 +84,42 @@ Inside your virtual environment you need to  install the server or anything else
 
 ## Creating new Plugins
 
-&#x20;Under Construction
+CraftbeerPi4 has the capability to create a plugin template for the development of your own plugin. You just need to run the following command:
+
+```
+cbpi create {PLUGINNAME}
+```
+
+This will create a folder with a template for your plugin and configures ith with your PLUGINNAME
+
+If you run for instance
+
+```
+cbpi create cbpi4-testplugin
+```
+
+A Plugin with the name cbpi4-testplugin will be created and you will see the following output:
+
+```
+
+Plugin cbpi4-testplugin created! See https://craftbeerpi.gitbook.io/craftbeerpi4/development how to run your plugin
+
+Happy Development! Cheers
+
+```
+
+CraftbeeerPi4 is creating a folder with the name cbpi4-testplugin whcih has the follwoing structure:
+
+```
+pi@raspberrypi:~ $ cd cbpi4-testplugin/
+pi@raspberrypi:~/cbpi4-testplugin $ ll
+insgesamt 52
+drwxr-xr-x 3 pi pi  4096 17. Jan 11:47 cbpi4-testplugin
+-rw-r--r-- 1 pi pi 35149 17. Jan 11:47 LICENSE
+-rw-r--r-- 1 pi pi    80 17. Jan 11:47 MANIFEST.in
+-rw-r--r-- 1 pi pi    30 17. Jan 11:47 README.md
+-rw-r--r-- 1 pi pi   446 17. Jan 11:47 setup.py
+```
+
+
+
