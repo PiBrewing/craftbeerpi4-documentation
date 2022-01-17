@@ -229,3 +229,10 @@ drwxr-xr-x 2 pi pi 4096 17. Jan 11:47 static
 
 The config.yaml is created automatically and should not be changed. The static folder is typically not required and can be removed in most of the cases. The `__init__.py` file contains the code of your plugin.
 
+### Plugin Types
+
+CraftbeerPi4 provides flexibility as Plgins can be written for different purposes. The following plugin types are currently supported:
+
+| Type                    | Description                                                               | Example |
+| ------------------------ | ------------------------------------------------------------------------ |-------- |
+| Sensor                   | Allows addition of differnet snesor types besies onwore temp sensor      | [cbpi4-pt100x](https://github.com/avollkopf/cbpi4-pt100x) |
