@@ -108,6 +108,8 @@ Happy Development! Cheers
 
 ```
 
+### Plugin folder structure
+
 CraftbeeerPi4 is creating a folder with the name cbpi4-testplugin which has the follwoing structure:
 
 ```
@@ -121,5 +123,109 @@ drwxr-xr-x 3 pi pi  4096 17. Jan 11:47 cbpi4-testplugin
 -rw-r--r-- 1 pi pi   446 17. Jan 11:47 setup.py
 ```
 
+The main folder conatins the LICENSE file and a MANIFEST file where you do not need to change anything. The README.md file will be seen if you upload your plugin to a github repo. This file should be edited with the required information on how to install, configure and use your plugin.
 
+The sub-folder `cbpi4-testplugin` ist the folder, where the plugin code is located.
+
+
+#### Plugin setup.py file
+
+The setup.py file contains some information for the plugin installation such as version number and other required packages. You need to edit this file accoridingly. Additional information on how to use setuptools can be found [here](https://docs.python.org/3.9/distutils/setupscript.html).
+
+The setup.py file looks like this:
+
+```
+from setuptools import setup
+
+setup(name='cbpi4-testplugin',
+      version='0.0.1',
+      description='CraftBeerPi Plugin',
+      author='',
+      author_email='',
+      url='',
+      include_package_data=True,
+      package_data={
+        # If any package contains *.txt or *.rst files, include them:
+      '': ['*.txt', '*.rst', '*.yaml'],
+      'cbpi4-testplugin': ['*','*.txt', '*.rst', '*.yaml']},
+      packages=['cbpi4-testplugin'],
+     )
+```
+
+You should change the version number whenever you modify/update your plugin. You should also enter some information in the description (e.g. Sensor Plugin). As author you can enter your name and in the email your email if you want. The URL should be filled with the homepage of your plugin which is typically the url of your github repo. 
+
+You can also specify required python packages that will be installed during the installation of your plugin. In addition, it is recommended to andd a few lines that will help to display the README.md file also on the pypi.org page if you decide to create also a pacage for pypi.org that can be installed later just via:
+
+```
+sudo pip3 install cbpi4-testplugin
+```
+
+Below is an example of a setup.py for a plugin, which is also available on the [pypi.org](https://pypi.org/project/cbpi4-scd30-CO2-Sensor/) page and can be installed directly from there.
+
+
+```
+from setuptools import setup
+
+# read the contents of your README file
+from os import path
+this_directory = path.abspath(path.dirname(__file__))
+with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
+
+setup(name='cbpi4-scd30_CO2_Sensor',
+      version='0.0.3',
+      description='CraftBeerPi4 Plugin for SCD30 based CO2 Sensor',
+      author='Alexander Vollkopf',
+      author_email='avollkopf@web.de',
+      url='https://github.com/avollkopf/cbpi4-scd30-co2-sensor',
+      license='GPLv3',
+      include_package_data=True,
+      package_data={
+        # If any package contains *.txt or *.rst files, include them:
+      '': ['*.txt', '*.rst', '*.yaml'],
+      'cbpi4-scd30_CO2_Sensor': ['*','*.txt', '*.rst', '*.yaml']},
+      packages=['cbpi4-scd30_CO2_Sensor'],
+        install_requires=[
+        'cbpi>=4.0.0.33',
+        'smbus2',
+        'scd30_i2c',
+  ],
+  long_description=long_description,
+  long_description_content_type='text/markdown'
+
+     )
+```
+
+One section has been added to read the content of the readme file and provied it at the end of the setup.py as 'long_description'. There is also a parameter 'install_requires' which can be filled with additional packages that are required for the plugin. This plugin requires for instance in addition to cbpi the packages 'smbus2' and 'scd30_i2c'.
+
+#### Creation of plugin package and upload to pypi.org
+
+Once you have written your plugin and uploaded it to your github repo, you can also create a package on the pypi.org page. Therefore, you need to create an acoount on pypi.org and install the [twine package](https://twine.readthedocs.io/en/stable/).
+
+In the main folder of your plugin you need to run the following command to create a distribution package:
+
+```
+sudo python setup.py sdist
+```
+
+Once the apckage is created, you can upload it with twine:
+
+```
+sudo twine upload dist/*
+```
+
+### Plugin code folder
+
+If you change into the sub folder of your main plugin directory, you can edit the plugin code. The code folder structre looks like this:
+
+```
+pi@raspberrypi:~/cbpi4-testplugin $ cd cbpi4-testplugin/
+pi@raspberrypi:~/cbpi4-testplugin/cbpi4-testplugin $ ll
+insgesamt 12
+-rw-r--r-- 1 pi pi   33 17. Jan 11:47 config.yaml
+-rw-r--r-- 1 pi pi 1881 17. Jan 11:47 __init__.py
+drwxr-xr-x 2 pi pi 4096 17. Jan 11:47 static
+```
+
+The config.yaml is created automatically and should not be changed. The static folder is typically not required and can be removed in most of the cases. The `__init__.py` file contains the code of your plugin.
 
