@@ -246,7 +246,7 @@ CraftbeerPi4 provides flexibility as Plgins can be written for different purpose
 
 ### Plugin Classes
 
-CraftbeerPi4 has different classes defiuned that you need to create a Sensor, Actor, Logic,.....
+CraftbeerPi4 has defined different classes, that you need to create a Sensor, Actor, Logic,.....
 
 The following table will describe show you the clasess.
 
@@ -280,3 +280,24 @@ If you don't want to add properties for your sensor leave the @ parameters empty
 @parameters([])
 class YourNewSensor(CBPiSensor):
 ```
+
+The following properties are available:
+
+| Property            | Description                                                         |
+| ------------------- | ------------------------------------------------------------------- |
+| Property.Select     | The user can select some pre-defined options                        |
+| Property.Number     | The user can enter a number (e.g. offset value for a sensor)        |
+| Property.Text       | The user can enter a string / text                                  |
+| Property.Sensor     | The user can select a sensor that should be used for the plugin     |
+| Property.Actor      | The user can select an actor that should be used in the plugin (e.g. in a step) |
+| Property.Kettle     | The user can select a kettle that should be used in the plugin (e.g. in a step) |
+| Property.Fermenter  | The user can select a femrenter that should be used in the plugin   |
+
+{% hint style="info" %} 
+Some properties will be used as default for the different plugin classes. 
+- A Kettle will for instance always require a kettle logic, a sensor, a heater (actor) and an agotator (actor).
+- A Fermenter will always require a logic, a heater, a cooler, a sensor, a brewname and a target temp.
+
+- Only the properties you want to ise in addition have to be specified in the @parameters.
+{% endhint %}
+
