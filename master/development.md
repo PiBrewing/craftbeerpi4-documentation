@@ -319,7 +319,7 @@ Allthough you can specify a default_value inside the property, it is currently n
 `Property.Sensor("FermenterTemp",description="Select Fermenter Temp Sensor that you want to provide to TCP Server")`
 
 #### Property.Actor
-`Property.Actor(label="Actor", description="Actor can trigger a valve for the cooldwon to target temperature")`
+`Property.Actor(label="Actor", description="Actor can trigger a valve for the cooldown to target temperature")`
 
 #### Property.Kettle
 `Property.Kettle(label="Kettle")`
