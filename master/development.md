@@ -160,7 +160,7 @@ You can also specify required python packages that will be installed during the 
 sudo pip3 install cbpi4-testplugin
 ```
 
-Below is an example of a setup.py for a plugin, which is also available on the [pypi.org](https://pypi.org/project/cbpi4-scd30-CO2-Sensor/) page and can be installed directly from there.
+Below is an example of a setup.py for a [plugin](https://pypi.org/project/cbpi4-scd30-CO2-Sensor/), which is also available on the pypi.org page and can be installed directly from there.
 
 
 ```
