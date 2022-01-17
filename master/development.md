@@ -41,7 +41,7 @@ If you want to use the development branch, you need to checkout this branch from
 git checkout development
 ```
 
-The you can check again which branch is used as describe above.
+Afterwards you can check again which branch is used as describe above.
 
 To install the server now, you have two possibilities. 
 
