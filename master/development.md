@@ -331,11 +331,13 @@ You can define the label content to your requirements. Labels are used to access
 
 
 If you have for instance specified a parameter with the label ´offset´ in your parameters:
+
 `Property.Number(label="offset",configurable = True, default_value = 0, description="Sensor Offset (Default is 0)")`
 
 You can retrieve this parameter for the particular instance of your plugin via:
+
 `self.offset = float(self.props.get("offset",0))`
 
-The variable `self.offset` will de set to the offset parameter, if defined. Otherwise it will be 0 as default
+The variable `self.offset` will be set to the offset parameter, if defined. Otherwise it will be 0 as default.
 
 More details will be shown in a few examples at a later point of time.
