@@ -45,13 +45,16 @@ Afterwards you can check again which branch is used as describe above.
 
 To install the server now, you have two possibilities. 
 
-1. You can either install it as package:
+1. You can either install it as package.
+2. You can install the server for development. This will have the effect, that every change in the code will take effect as soon as you start the server.
+
+Package installation:
 
 ```
 sudo pip3 install ./craftbeerpi4
 ```
 
-2. You can install the server for development. This will have the effect, that every change in the code will take effect as soon as you start the server.
+Development installation:
 
 ```
 sudo pip3 install -e ./craftbeerpi4
