@@ -303,7 +303,7 @@ Some properties will be used as default for the different plugin classes.
 ### Examples for Property types
 
 {% hint style="info" %} 
-You can specify a default_value inside the property. But at this is currently not used.
+Allthough you can specify a default_value inside the property, it is currently not used. You need specify the default value in the `self.props.get` function (see below).
 {% endhint %}
 
 #### Property.Select
@@ -335,5 +335,7 @@ If you have for instance specified a parameter with the label ´offset´ in your
 
 You can retrieve this parameter for the particular instance of your plugin via:
 `self.offset = float(self.props.get("offset",0))`
+
+The variable `self.offset` will de set to the offset parameter, if defined. Otherwise it will be 0 as default
 
 More details will be shown in a few examples at a later point of time.
