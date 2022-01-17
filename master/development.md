@@ -297,7 +297,14 @@ The following properties are available:
 Some properties will be used as default for the different plugin classes. 
 - A Kettle will for instance always require a kettle logic, a sensor, a heater (actor) and an agotator (actor).
 - A Fermenter will always require a logic, a heater, a cooler, a sensor, a brewname and a target temp.
-
-- Only the properties you want to ise in addition have to be specified in the @parameters.
+- Only the properties you want to use in addition have to be specified in the @parameters.
 {% endhint %}
+
+#### Examples for Propertytypes
+
+##### Property.Select
+`Property.Select("Type", options=["Temperature", "Gravity/Angle", "Battery", "RSSI"], description="Select which type of data to register for this sensor. For Angle, Polynomial has to be left empty")`
+
+
+
 
