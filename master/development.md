@@ -108,7 +108,7 @@ Happy Development! Cheers
 
 ```
 
-CraftbeeerPi4 is creating a folder with the name cbpi4-testplugin whcih has the follwoing structure:
+CraftbeeerPi4 is creating a folder with the name cbpi4-testplugin which has the follwoing structure:
 
 ```
 pi@raspberrypi:~ $ cd cbpi4-testplugin/
