@@ -274,7 +274,7 @@ The Sensor Name and Sensor Type will be always required, even if you don't add p
 class OneWire(CBPiSensor):
 ```
 
-If you don't want to add properties for your sensor leave the @ parameters empty:
+If you want to add multiple properties, you need to separate them with a `,`. If you don't want to add properties for your sensor leave the @ parameters empty:
 
 ```
 @parameters([])
@@ -300,11 +300,40 @@ Some properties will be used as default for the different plugin classes.
 - Only the properties you want to use in addition have to be specified in the @parameters.
 {% endhint %}
 
-#### Examples for Propertytypes
+### Examples for Property types
 
-##### Property.Select
+{% hint style="info" %} 
+You can specify a default_value inside the property. But at this is currently not used.
+{% endhint %}
+
+#### Property.Select
 `Property.Select("Type", options=["Temperature", "Gravity/Angle", "Battery", "RSSI"], description="Select which type of data to register for this sensor. For Angle, Polynomial has to be left empty")`
 
+#### Property.Number
+`Property.Number(label="offset",configurable = True, default_value = 0, description="Sensor Offset (Default is 0)")`
+
+#### Property.Text
+`Property.Text(label="iSpindle", configurable=True, description="Enter the name of your iSpindel")`
+
+#### Property.Sensor
+`Property.Sensor("FermenterTemp",description="Select Fermenter Temp Sensor that you want to provide to TCP Server")`
+
+#### Property.Actor
+`Property.Actor(label="Actor", description="Actor can trigger a valve for the cooldwon to target temperature")`
+
+#### Property.Kettle
+`Property.Kettle(label="Kettle")`
+
+#### Property.Fermenter
+`Property.Fermenter(label="Fermenter")`
+
+You can define the label content to your requirements. Labels are used to access the property in the plugin.
 
 
+If you have for instance specified a parameter with the label ´offset´ in your parameters:
+`Property.Number(label="offset",configurable = True, default_value = 0, description="Sensor Offset (Default is 0)")`
 
+You can retrieve this parameter for the particular instance of your plugin via:
+`self.offset = float(self.props.get("offset",0))`
+
+More details will be shown in a few examples at a later point of time.
