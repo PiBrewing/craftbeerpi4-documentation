@@ -243,3 +243,21 @@ CraftbeerPi4 provides flexibility as Plgins can be written for different purpose
 | Notifications            | Allows users to define callback functions that forward cbpi notifications to other message services or a buzzer | <p>[cbpi4-Pushover](https://github.com/avollkopf/cbpi4-PushOver)</p><p>[cbpi4-buzzer](https://github.com/avollkopf/cbpi4-buzzer)</p> |
 | Automated Recipe Creation | Allows users to adapt the automated recipe creation process (xml, kbh or brewfather) to their requirements. | [cbpi4-RecipeImport](https://github.com/avollkopf/cbpi4-RecipeImport)|
 | Other Functions           | Allows users to add other fucntionalities such as an LCD Display        | [cbpi4-LCDisplay](https://github.com/avollkopf/cbpi4-LCDisplay) |
+
+## Plugin Classes
+
+CraftbeerPi4 has different classes defiuned that you need to create a Sensor, Actor, Logic,.....
+
+The following table will describe show you the clasess.
+
+| Class                 |  Usage                                                                                                 |
+| --------------------- | ------------------------------------------------------------------------------------------------------ |
+| CBPiSensor            | Required for all type of sensors. For some functions the class CBPiExtension might be required in addition | 
+| CBPiActor             | Required for all type of actors. For some functions the class CBPiExtension might be required in addition |
+| CBPiKettleLogic       | Required to create a new Kettle Logic type                                                             |
+| CBPiFermenterLogic    | Required to create a new Fermenter Logic type                                                             |
+| CBPiStep              | Required to create new MashSteps                                                                       |
+| CBPIExtension         | Required for various purposes such as addition of cbpi setting prameters, definition of http endpoints or startup of additional hardware |
+
+
+
