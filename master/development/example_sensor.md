@@ -40,7 +40,7 @@ Typically you send the update to both, the user interface (or websocket) and mqt
 
 However, for some plugins it might be usefull to update the user interface with a higher freqency than mqtt. This is for instance used in the iSpindle plugin, where new values are retrieved for instance only every 15 mninutes. In this case, the web interface would be also updated only every 15 minutes when a new value has been received. If you reload the webpage, the sensor would remain empty until the next value has been send. This is ok for mqtt, but not for the web interface.
 
-To avoid this, you can add a `False` to the function which will only update the web interface but not mqtt: `self.push_update(self.value, False)`. This ensures a frequent update of the web interface but reduces mqtt traffic significantly. DDetails will be shown in the another example. 
+To avoid this, you can add a `False` to the function which will only update the web interface but not mqtt: `self.push_update(self.value, False)`. This ensures a frequent update of the web interface but reduces mqtt traffic significantly. Details will be shown in the another example. 
 {% endhint %}
 
 The last function is really important and should not be forgotten. otherwise you may end up in a sever that does not respond dur to 100% CPU load. `await asyncio.sleep(1)` ensures, that the fucntion will wait 1 second until it starts over.
