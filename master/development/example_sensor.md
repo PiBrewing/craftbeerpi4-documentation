@@ -16,7 +16,7 @@ from cbpi.api import parameters, CBPiSensor
 
 As already described in the [plugin properties section](plugin\_development.md#plugin-properties), you should specify sensor properties if required in the `@parameter` part. Then, you define your sensor class by using the `CBPiSensor` class type.
 
-The first function inside the class is the initialization of the sensor. You need to pay attentino the the name of your sensor class does match the name in the super `function`. If you change the name for your sensor class, you also need to change the name insode the `super` fucntion. It is required, to use unique names for your sensor plugins. Defining two different classes with the same name will cause issues.
+The first function inside the class is the initialization of the sensor. You need to pay attentino the the name of your sensor class does match the name in the super `function`. If you change the name for your sensor class, you also need to change the name insode the `super` function. It is required, to use unique names for your sensor plugins. Defining two different classes with the same name will cause issues.
 
 ```
 @parameters([])
