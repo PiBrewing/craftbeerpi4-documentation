@@ -19,6 +19,7 @@
   * [Operating your system](master/operating-your-system.md)
   * [Development](master/development/development.md)
     * [Plugin Development](master/development/plugin_development.md)
+      * [Sensor Plugin Example](master/development/example_sensor.md)
   * [Recommended Hardware](master/recommended-hardware.md)
   * [Examples](master/examples/README.md)
     * [Example System 1](master/examples/example-system-1.md)
