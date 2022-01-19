@@ -14,7 +14,9 @@ import random
 from cbpi.api import parameters, CBPiSensor
 ```
 
-As already described in the [plugin properties section](plugin\_development.md#plugin-properties)
+As already described in the [plugin properties section](plugin\_development.md#plugin-properties), you should specify sensor properties if required in the `@parameter` part. Then, you define your sensor class by using the `CBPiSensor` class type.
+
+The first function inside the class is the initialization of the sensor. You need to pay attentino the the name of your sensor class does match the name in the super `function`. If you change the name for your sensor class, you also need to change the name insode the `super` fucntion. It is required, to use unique names for your sensor plugins. Defining two different classes with the same name will cause issues.
 
 ```
 @parameters([])
@@ -24,6 +26,12 @@ class CustomSensor(CBPiSensor):
         super(CustomSensor, self).__init__(cbpi, id, props)
         self.value = 0
 ```
+
+The next part in the sensor plugin is the `run` function which is always required as it continuously reads the sensor values and can write them to the log file or sends them to the user interface or mqtt brookers. The function has to be asynchronous as the server should not stop other tasks and wait for the sensor reading.
+
+The `while` loop will ensure, that data is being read continuously. Sensor values have to be stored in `self.value` as other fucntions will use that variable. In this example, a random value between 10 and 100 will be generated.
+
+The `self.log_data(self.value)` function will log data to a csv log file and / or to an influxdb. This depends on how you [configured your server](../craftbeerpi-4-server/datalogging.md).
 
 ```
     async def run(self):
