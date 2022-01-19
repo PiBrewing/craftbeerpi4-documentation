@@ -425,7 +425,7 @@ def setup(cbpi):
 
 Here, both plugin classes will be registered during cbpi startup.
 
-You can also put multiple 'plugins' into one plugin module. Below is a [step plugin](https://github.com/avollkopf/cbpi4-BM_Steps) shown as example. In this case, various steps have been put together. 
+You can also put multiple 'modules' into one plugin. Below is a [step plugin](https://github.com/avollkopf/cbpi4-BM_Steps) shown as example. In this case, various steps have been put together. 
 
 ```
 ...
