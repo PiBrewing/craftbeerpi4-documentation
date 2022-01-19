@@ -330,6 +330,10 @@ class SCD30Sensor(CBPiSensor):
 ...
 ```
 
+{% hint style="info" %} 
+When initializing the module with `super` you need to pay attentio that you also adapt the name for your module. In this case it is `SCD30Sensor`. -> `super(SCD30Sensor, self).__init__(cbpi, id, props)`
+{% endhint %}
+
 As mentioned, you need to register both Plugin classes to run the sensor plugin as the sensor will require the CBPiExtension to retreive data and this needs to be started during cbpi startup. The registration is done at the end of the plugin with the setup function:
 
 ```
@@ -339,7 +343,11 @@ def setup(cbpi):
     pass
 ```
 
-Here, both plugin classes will be registered during cbpi startup.
+Here, both plugin classes will be registered during cbpi startup. 
+
+{% hint style="info" %} 
+The registration requires two strings. The first is the name or label you will see in the software when you select the Sensor. In this case it is for instance 'SCD30 Sensor'. It should be a unique name for your plugin. The second one has to match the class you have defined for your module. In this example is is `SCD30Sensor`.
+{% endhint %}
 
 You can also put multiple 'modules' into one plugin. Below is a [step plugin](https://github.com/avollkopf/cbpi4-BM_Steps) shown as example. In this case, various steps have been put together. 
 
