@@ -179,7 +179,7 @@ The following table will describe show you the clasess.
 
 If you want to add for instance a new onewire sensor, you need to select the sensor id, define a name, an Interval and an offset, if required. This is done via so called properties.
 
-![Empty Mash Profile window](../.gitbook/assets/cbpi4-plugin-properties-example.png)
+![Empty Mash Profile window](../../.gitbook/assets/cbpi4-plugin-properties-example.png)
 
 The Sensor Name and Sensor Type will be always required, even if you don't add properties to your plugin. However, the other porperties need to be added via  @parameters right in front of your class. Properties can be added to all plugins except for the CBPiExtension.
 
