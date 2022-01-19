@@ -14,7 +14,7 @@ import random
 from cbpi.api import parameters, CBPiSensor
 ```
 
-As already described in the [plugin properties section](development.md#-plugin-properties)
+As already described in the [plugin properties section](plugin_development.md#-plugin-properties)
 
 ```
 @parameters([])
