@@ -331,7 +331,7 @@ class SCD30Sensor(CBPiSensor):
 ```
 
 {% hint style="info" %} 
-When initializing the module with `super` you need to pay attentio that you also adapt the name for your module. In this case it is `SCD30Sensor`. -> `super(SCD30Sensor, self).__init__(cbpi, id, props)`
+When initializing the module with `super` you need to pay attentio that you also adapt the name for your module. In this case it is `SCD30Sensor` -> `super(SCD30Sensor, self).__init__(cbpi, id, props)`
 {% endhint %}
 
 As mentioned, you need to register both Plugin classes to run the sensor plugin as the sensor will require the CBPiExtension to retreive data and this needs to be started during cbpi startup. The registration is done at the end of the plugin with the setup function:
