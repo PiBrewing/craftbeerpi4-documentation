@@ -18,6 +18,7 @@
     * [About](master/craftbeerpi-4-server/about.md)
   * [Operating your system](master/operating-your-system.md)
   * [Development](master/development.md)
+    * [Plugin Development](master/plugin_development.md)
   * [Recommended Hardware](master/recommended-hardware.md)
   * [Examples](master/examples/README.md)
     * [Example System 1](master/examples/example-system-1.md)
