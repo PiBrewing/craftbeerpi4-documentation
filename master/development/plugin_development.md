@@ -1,88 +1,4 @@
-# Development
-
-## Running a development version of the server
-
-At least the server and some of the plugins have currently development branches in the GIT repo that can be installed to test new features or bug fixes. The development branch is primarily used to updated the software and run tests, before it is rolled out to the main branch which is more stable.
-
-To install for instance the development branch of the server, you need to run the following command:
-
-```
-sudo pip3 install https://github.com/avollkopf/craftbeerpi4/archive/development.zip
-```
-
-The only difference to the installation of the master branch is that main.zip is replaced with development.zip. If you want to upgrade from an existing installation, you should add the flag `--upgrade`.
-
-```
-sudo pip3 install --upgrade https://github.com/avollkopf/craftbeerpi4/archive/development.zip
-```
-
-To revert back to the master branch, just run the commands for [updating your server](server-installation.md#updating-the-server).
-
-## Cloning the server to your local drive and install it from there
-
-For development, it can be also important to have the server code on your local harddrive and install it from there. Therefore, you need to clone the repo in a first step:
-
-```
-git clone https://github.com/avollkopf/craftbeerpi4
-```
-
-This will pull a local copy of the server software to your harddrive.
-
-Typically, the master branch will be pulled. You can check this with once you navigated into the craftbeerpi4 directory:
-
-```
-cd craftbeerpi4
-git branch
-```
-
-If you want to use the development branch, you need to checkout this branch from within the craftbeerp4 directory:
-
-```
-git checkout development
-```
-
-Afterwards you can check again which branch is used as describe above.
-
-To install the server now, you have two possibilities. 
-
-1. You can either install it as package.
-2. You can install the server for development. This will have the effect, that every change in the code will take effect as soon as you start the server.
-
-Package installation:
-
-```
-sudo pip3 install ./craftbeerpi4
-```
-
-Development installation:
-
-```
-sudo pip3 install -e ./craftbeerpi4
-```
-
-
-## Setting up a virtual environment for development&#x20;
-
-Development of plugins and server is recommende to be done in a virtual environemnt ot on a separate system / sd-card. This allows you to create / modify code and test it without the risk to harm your running system.
-
-{% hint style="info" %} 
-How to create virtual env in [Python](https://docs.python.org/3/tutorial/venv.html)
-{% endhint %}
-
-If you choose to follow the path of the virtual enviroment, you need to ensure that all relevant python packages for the venv are installen and then you need to run the following commands to activate your venv.
-
-```
-python3 -m venv venv
-source venv/bin/activate
-```
-
-Now you can either install the server as described in this manual inside you virtual environment or you can clone the server to your local system and install it from there.
-
-{% hint style="info" %} 
-Inside your virtual environment you need to  install the server or anything else without sudo!
-{% endhint %}
-
-## Creating new Plugins
+# Creating new Plugins
 
 CraftbeerPi4 has the capability to create a plugin template for the development of your own plugin. You just need to run the following command:
 
@@ -108,7 +24,7 @@ Happy Development! Cheers
 
 ```
 
-### Plugin folder structure
+## Plugin folder structure
 
 CraftbeeerPi4 is creating a folder with the name cbpi4-testplugin which has the follwoing structure:
 
@@ -128,7 +44,7 @@ The main folder conatins the LICENSE file and a MANIFEST file where you do not n
 The sub-folder `cbpi4-testplugin` ist the folder, where the plugin code is located.
 
 
-#### Plugin setup.py file
+### Plugin setup.py file
 
 The setup.py file contains some information for the plugin installation such as version number and other required packages. You need to edit this file accoridingly. Additional information on how to use setuptools can be found [here](https://docs.python.org/3.9/distutils/setupscript.html).
 
@@ -198,7 +114,7 @@ setup(name='cbpi4-scd30_CO2_Sensor',
 
 One section has been added to read the content of the readme file and provied it at the end of the setup.py as 'long_description'. There is also a parameter 'install_requires' which can be filled with additional packages that are required for the plugin. This plugin requires for instance in addition to cbpi the packages 'smbus2' and 'scd30_i2c'.
 
-#### Creation of plugin package and upload to pypi.org
+### Creation of plugin package and upload to pypi.org
 
 Once you have written your plugin and uploaded it to your github repo, you can also create a package on the pypi.org page. Therefore, you need to create an acoount on pypi.org and install the [twine package](https://twine.readthedocs.io/en/stable/).
 
@@ -214,7 +130,7 @@ Once the apckage is created, you can upload it with twine:
 sudo twine upload dist/*
 ```
 
-### Plugin code folder
+## Plugin code folder
 
 If you change into the sub folder of your main plugin directory, you can edit the plugin code. The code folder structre looks like this:
 
@@ -229,7 +145,7 @@ drwxr-xr-x 2 pi pi 4096 17. Jan 11:47 static
 
 The config.yaml is created automatically and should not be changed. The static folder is typically not required and can be removed in most of the cases. The `__init__.py` file contains the code of your plugin.
 
-### Plugin Types
+## Plugin Types
 
 CraftbeerPi4 provides flexibility as Plgins can be written for different purposes. The following plugin types are currently supported:
 
@@ -244,7 +160,7 @@ CraftbeerPi4 provides flexibility as Plgins can be written for different purpose
 | Automated Recipe Creation | Allows users to adapt the automated recipe creation process (xml, kbh or brewfather) to their requirements. | [cbpi4-RecipeImport](https://github.com/avollkopf/cbpi4-RecipeImport)|
 | Other Functions           | Allows users to add other functionalities such as an LCD Display        | [cbpi4-LCDisplay](https://github.com/avollkopf/cbpi4-LCDisplay) |
 
-### Plugin Classes
+## Plugin Classes
 
 CraftbeerPi4 has defined different classes, that you need to create a Sensor, Actor, Logic,.....
 
@@ -259,7 +175,7 @@ The following table will describe show you the clasess.
 | CBPiStep              | Yes | Required to create new MashSteps                                                                       |
 | CBPiExtension         | No | Required for various purposes such as addition of cbpi setting prameters, definition of http endpoints or startup of additional hardware |
 
-### Plugin Properties
+## Plugin Properties
 
 If you want to add for instance a new onewire sensor, you need to select the sensor id, define a name, an Interval and an offset, if required. This is done via so called properties.
 
@@ -300,31 +216,31 @@ Some properties will be used as default for the different plugin classes.
 - Only the properties you want to use in addition have to be specified in the @parameters.
 {% endhint %}
 
-### Examples for Property types
+## Examples for Property types
 
 {% hint style="info" %} 
 Allthough you can specify a default_value inside the property, it is currently not used. You need specify the default value in the `self.props.get` function (see below).
 {% endhint %}
 
-#### Property.Select
+### Property.Select
 `Property.Select("Type", options=["Temperature", "Gravity/Angle", "Battery", "RSSI"], description="Select which type of data to register for this sensor. For Angle, Polynomial has to be left empty")`
 
-#### Property.Number
+### Property.Number
 `Property.Number(label="offset",configurable = True, default_value = 0, description="Sensor Offset (Default is 0)")`
 
-#### Property.Text
+### Property.Text
 `Property.Text(label="iSpindle", configurable=True, description="Enter the name of your iSpindel")`
 
-#### Property.Sensor
+### Property.Sensor
 `Property.Sensor("FermenterTemp",description="Select Fermenter Temp Sensor that you want to provide to TCP Server")`
 
-#### Property.Actor
+### Property.Actor
 `Property.Actor(label="Actor", description="Actor can trigger a valve for the cooldown to target temperature")`
 
-#### Property.Kettle
+### Property.Kettle
 `Property.Kettle(label="Kettle")`
 
-#### Property.Fermenter
+### Property.Fermenter
 `Property.Fermenter(label="Fermenter")`
 
 You can define the label content to your requirements. Labels are used to access the property in the plugin.
@@ -342,7 +258,7 @@ The variable `self.offset` will be set to the offset parameter, if defined. Othe
 
 More details will be shown in a few examples at a later point of time.
 
-### Plugin registration
+## Plugin registration
 
 Every Plugin that you create needs t be registered during cbpi startup. This requires a few lines of code at the end of each plugin. If you create for instance one plugin that requires for instance a CBPiExtension class to check if setting parameters are available or have been added to the cbpi config or needs to start sensor hardware, you need to register this extension as well, as the sensor plugin itself.
 
