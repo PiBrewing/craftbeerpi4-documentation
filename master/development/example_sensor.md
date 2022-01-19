@@ -33,6 +33,18 @@ The `while` loop will ensure, that data is being read continuously. Sensor value
 
 The `self.log_data(self.value)` function will log data to a csv log file and / or to an influxdb. This depends on how you [configured your server](../craftbeerpi-4-server/datalogging.md).
 
+The `self.push_update(self.value)` function is updating the web interface as well as mqtt sensordata messages if mqtt is enabled. 
+
+{% hint style="info" %} 
+Typically you send the update to both, the user interface (or websocket) and mqtt which is the default for the `self.push_upate()` function in the sensor class.
+
+However, for some plugins it might be usefull to update the user interface with a higher freqency than mqtt. This is for instance used in the iSpindle plugin, where new values are retrieved for instance only every 15 mninutes. In this case, the web interface would be also updated only every 15 minutes when a new value has been received. If you reload the webpage, the sensor would remain empty until the next value has been send. This is ok for mqtt, but not for the web interface.
+
+To avoid this, you can add a `False` to the function which will only update the web interface but not mqtt: `self.push_update(self.value, False)`. This ensires a frequent update of the web interface but reduces mqtt traffic significantly. DDetails will be shown in the another example. 
+{% endhint %}
+
+The last function is really important and should not be forgotten. otherwise you may end up in a sever that does not respond dur to 100% CPU load. `await asyncio.sleep(1)` ensures, that the fucntion will wait 1 second until it starts over.
+
 ```
     async def run(self):
         while self.running:
@@ -43,10 +55,14 @@ The `self.log_data(self.value)` function will log data to a csv log file and / o
             await asyncio.sleep(1)
 ```
 
+The `get_state` fucntions also essentaial as it might be used by oter sever routines. It returns the current sensor value and should not be removed.
+
 ```
     def get_state(self):
         return dict(value=self.value)
 ```
+
+Finally, the plugin needs to be registered as it has been already described in the [plugin development part]((plugin\_development.md#plugin-registration)
 
 ```
 def setup(cbpi):
