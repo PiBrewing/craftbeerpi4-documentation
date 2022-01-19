@@ -1,7 +1,9 @@
 ## Examples for sensor plugins
 
-I want to show you some examples on how to write a sensor plugin. I will start with the example of the custom sensor which is included in the server itself and is very simple.
+I want to show you some examples on how to write a sensor plugin. I will start with the example of the dummysensor which is included in the server itself and is very simple.
 
+
+First, you will need to import the packaes you require for your plugin. As plenty of functions need to be processed asynchronus, you willalways need to import asyncio. You will also need to import the CBPiSensor from the cbpi api
 ```
 # -*- coding: utf-8 -*-
 import asyncio
@@ -9,6 +11,8 @@ import random
 
 from cbpi.api import parameters, CBPiSensor
 ```
+
+
 
 ```
 @parameters([])
