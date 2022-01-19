@@ -341,3 +341,130 @@ You can retrieve this parameter for the particular instance of your plugin via:
 The variable `self.offset` will be set to the offset parameter, if defined. Otherwise it will be 0 as default.
 
 More details will be shown in a few examples at a later point of time.
+
+### Plugin registration
+
+Every Plugin that you create needs t be registered during cbpi startup. This requires a few lines of code at the end of each plugin. If you create for instance one plugin that requires for instance a CBPiExtension class to check if setting parameters are available or have been added to the cbpi config or needs to start sensor hardware, you need to register this extension as well, as the sensor plugin itself.
+
+One example is the [cbpi4-scd30-co2-sensor](https://github.com/avollkopf/cbpi4-scd30-co2-sensor). Before the sensor can be started / used, the hardware needs to be initialized which is done with the CBPiExtension class:
+
+```
+class SCD30_Config(CBPiExtension):
+
+    def __init__(self,cbpi):
+        self.cbpi = cbpi
+        self._task = asyncio.create_task(self.init_sensor())
+
+    async def init_sensor(self):
+        global SCD30_Active
+        SCD30_Active=False
+...
+...
+...
+        if ready is not None:    
+            ...
+            ...
+            ...
+            loop = asyncio.get_event_loop()
+            try:
+                asyncio.ensure_future(self.ReadSensor())
+                loop.run_forever()
+            finally:
+                loop.close()
+...
+...
+...
+    async def ReadSensor(self):
+        logging.info("Starting scd30 ReadSensor Loop")
+        global cache
+        while True:
+            if self.scd30.get_data_ready():
+                measurement = self.scd30.read_measurement()
+                if measurement is not None:
+                    co2, temp, rh = measurement
+                    timestamp = time.time()
+                    cache = {'Time': timestamp,'Temperature': temp, 'CO2': co2, 'RH': rh}
+                await asyncio.sleep(self.Interval)
+            else:
+                await asyncio.sleep(0.2)
+```
+
+While SCD30_Config is initializing, it creates a task `self.init_sensor()` which is initializing the hardware and starts a routine `ReadSensor` that is reading the sensor with the frequency defined in the plugin settings. This routine is writnig data into a cache including a timestamp.
+
+The sensor module itself is just reading the cache and if data with a new timestamp is available, it will update the sensor value and pushs it to the user interface and mqtt and loggs the data.
+
+```
+@parameters([Property.Select("Type", options=["CO2", "Temperature", "Relative Humidity"], description="Select type of data to register for this sensor.")])
+class SCD30Sensor(CBPiSensor):
+    
+    def __init__(self, cbpi, id, props):
+        super(SCD30Sensor, self).__init__(cbpi, id, props)
+...
+...
+...
+    async def run(self):
+        while self.running is True:
+            try:
+                if (float(cache['Time']) > float(self.time_old)):
+                    self.time_old = float(cache['Time'])
+                    if self.Type == "CO2":
+                        self.value = round(float(cache['CO2']),2)
+...
+...
+...
+```
+
+As mentioned, you need to register both Plugin classes to run the sensor plugin as the sensor will require the CBPiExtension to retreive data and this needs to be started during cbpi startup. The registration is done at the end of the plugin with the setup function:
+
+```
+def setup(cbpi):
+    cbpi.plugin.register("SCD30 Sensor", SCD30Sensor)
+    cbpi.plugin.register("SDC30 Config", SCD30_Config)
+    pass
+```
+
+Here, both plugin classes will be registered during cbpi startup.
+
+You can also put multiple 'plugins' into one plugin module. Below is a [step plugin](https://github.com/avollkopf/cbpi4-BM_Steps) shown as example. In this case, various steps have been put together. 
+
+```
+...
+...
+@parameters([Property.Number(label="Temp", configurable=True),
+             Property.Sensor(label="Sensor"),
+             Property.Kettle(label="Kettle"),
+             Property.Select(label="AutoMode",options=["Yes","No"], description="Switch Kettlelogic automatically on and off -> Yes")])
+class BM_MashInStep(CBPiStep):
+...
+...
+...
+@parameters([Property.Number(label="Timer", description="Time (Default: Minutes)", configurable=True),
+    Property.Select(label="TimeUnit",options=["Min","Sec"], description="Specify timer units (Empty: Min)"),
+            Property.Actor(label="Actor")])
+class BM_ActorStep(CBPiStep):
+...
+...
+...
+```
+
+Each of the steps need to be registered individually:
+
+```
+def setup(cbpi):
+    '''
+    This method is called by the server during startup 
+    Here you need to register your plugins at the server
+    :param cbpi: the cbpi core 
+    :return: 
+    '''    
+    cbpi.plugin.register("BM_BoilStep", BM_BoilStep)
+    cbpi.plugin.register("BM_Cooldown", BM_Cooldown)
+    cbpi.plugin.register("BM_MashInStep", BM_MashInStep)
+    cbpi.plugin.register("BM_MashStep", BM_MashStep)
+    cbpi.plugin.register("BM_ActorStep", BM_ActorStep)
+    cbpi.plugin.register("BM_SimpleStep", BM_SimpleStep)
+```
+
+This comes in handy asas you just need to create one plugin with mupltiple modules. It is just important that you register every module.
+
+
