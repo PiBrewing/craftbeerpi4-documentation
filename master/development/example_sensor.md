@@ -62,7 +62,7 @@ The `get_state` fucntions also essentaial as it might be used by oter sever rout
         return dict(value=self.value)
 ```
 
-Finally, the plugin needs to be registered as it has been already described in the [plugin development part]((plugin\_development.md#plugin-registration)
+Finally, the plugin needs to be registered as it has been already described in the [plugin development part](plugin\_development.md#plugin-registration)
 
 ```
 def setup(cbpi):
