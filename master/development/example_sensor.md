@@ -116,6 +116,7 @@ async def calcGravity(polynom, tilt, unitsGravity):
 ```
 
 
+This plugin uses more properties for the configuration and assignment of the iSpindle data. The user can also enter a polynomial fucntion that is used for the calculation of the gravity. Therefore, the text property is used. In addition to that the user can select a sensor. Data from this sensor can be retrieved by external sources, whenever the send a http request to a specified http endpoint.
 
 ```
 @parameters([Property.Text(label="iSpindle", configurable=True, description="Enter the name of your iSpindel"),
@@ -123,7 +124,10 @@ async def calcGravity(polynom, tilt, unitsGravity):
              Property.Text(label="Polynomial", configurable=True, description="Enter your iSpindel polynomial. Use the variable tilt for the angle reading from iSpindel. Does not support ^ character."),
              Property.Select("Units", options=["SG", "Brix", "°P"], description="Displays gravity reading with this unit if the Data Type is set to Gravity. Does not convert between units, to do that modify your polynomial."),
              Property.Sensor("FermenterTemp",description="Select Fermenter Temp Sensor that you want to provide to TCP Server")])
+```
 
+
+```
 class iSpindle(CBPiSensor):
     
     def __init__(self, cbpi, id, props):
@@ -133,7 +137,9 @@ class iSpindle(CBPiSensor):
         self.Polynomial = self.props.get("Polynomial", "tilt")
         self.temp_sensor_id = self.props.get("FermenterTemp", None)
         self.time_old = 0
+```
 
+```
     def get_unit(self):
         if self.props.get("Type") == "Temperature":
             return "°C" if self.get_config_value("TEMP_UNIT", "C") == "C" else "°F"
@@ -145,7 +151,9 @@ class iSpindle(CBPiSensor):
             return "dB"
         else:
             return " "
+```
 
+```
     async def run(self):
         global cache
         global fermenter_temp
@@ -168,7 +176,9 @@ class iSpindle(CBPiSensor):
 
     def get_state(self):
         return dict(value=self.value)
+```
 
+```
 class iSpindleEndpoint(CBPiExtension):
     
     def __init__(self, cbpi):
@@ -182,7 +192,9 @@ class iSpindleEndpoint(CBPiExtension):
         # register component for http, events
         # In addtion the sub folder static is exposed to access static content via http
         self.cbpi.register(self, "/api/hydrometer/v1/data")
+```
 
+```
     async def run(self):
         await self.get_spindle_sensor()
 
@@ -222,8 +234,9 @@ class iSpindleEndpoint(CBPiExtension):
         except:
             rssi = 0
         cache[key] = {'Time': time,'Temperature': temp, 'Angle': angle, 'Battery': battery, 'RSSI': rssi}
+```
 
-
+```
     @request_mapping(path='/gettemp/{SpindleID}', method="POST", auth_required=False)
     async def get_fermenter_temp(self, request):
         SpindleID = request.match_info['SpindleID']
@@ -246,7 +259,8 @@ class iSpindleEndpoint(CBPiExtension):
                     else:
                         sensor_value = None
                     return sensor_value
-
+```
+```
 def setup(cbpi):
     cbpi.plugin.register("iSpindle", iSpindle)
     cbpi.plugin.register("iSpindleEndpoint", iSpindleEndpoint)
