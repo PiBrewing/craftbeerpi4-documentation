@@ -10,7 +10,9 @@ Not all systems will show all the information. This will depend on the OS and yo
 
 ### System Settings
 
-You can restart or shut the server down (currently only working under linux). You can also download a backup of your CraftbeerPi 4 server configuration or restore a config. The backup function will create a zip file of the config that you can download.
+1. You can restart or shut the server down (currently only working under linux). 
+
+2. You can also download a backup of your CraftbeerPi 4 server configuration or restore a config. The backup function will create a zip file of the config that you can download.
 
 ![Backup function will provide zip file for download](../../.gitbook/assets/cbpi4-settings-backup.png)
 
@@ -29,3 +31,5 @@ If you want to restore your config, just click on the restore button and select 
 {% hint style="warning" %}
 You need to restart the Server, before the restored settings will take effect.
 {% endhint %}
+
+3. You can download the cbpi logfile to look for issues. This will also help troubleshooting and if you ask for help. You need to select a timeframe and hit the downloadd button. This will download a zip file with some information on the server configuration and the log file for the specified timeframe. If you experience for instance issues with plugins, you should restart your server and download afterwards the logfile of the last hour this will help to identify issues with plugins that do not load correctly. See also [Troubleshooting](troubleshooting.md)
