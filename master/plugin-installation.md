@@ -163,7 +163,7 @@ The tables below shows the plugins that are currently available by type. At this
 
 |                           | Description                                                | Link                                                                  |
 | ------------------------- | ---------------------------------------------------------- | --------------------------------------------------------------------- |
-| cbpi4-FermenterHysteresis | Kettle Controller that allows to use a Kettle as Fermenter | [GitHub Link](https://github.com/avollkopf/cbpi4-FermenterHysteresis) |
+| Example plugin to be created | Hysteresis included in cbpi4 > 4.0.1.0 |  |
 
 ### Display
 
