@@ -126,6 +126,7 @@ This plugin uses more properties for the configuration and assignment of the iSp
              Property.Sensor("FermenterTemp",description="Select Fermenter Temp Sensor that you want to provide to TCP Server")])
 ```
 
+Once the properties have been defined, you need to initialize the sensor plugin. In this step, you should also define your variables for the properites with the `self.props.get("PROPERTY", DEFAULT_VALUE)` method. With `PROPERTY`, you specify / access the property, you specified in the `@parameters`section. If the property has not been defined, or the user has not entered a value in the sensor setup page, you can / should specify a default value in the function which is used if no value has been entered for this parameter.
 
 ```
 class iSpindle(CBPiSensor):
@@ -138,6 +139,8 @@ class iSpindle(CBPiSensor):
         self.temp_sensor_id = self.props.get("FermenterTemp", None)
         self.time_old = 0
 ```
+
+
 
 ```
     def get_unit(self):
