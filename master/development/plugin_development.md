@@ -395,6 +395,10 @@ This comes in handy as you just need to create one plugin with mupltiple modules
 
 Some plugins will require global cbpi settings. You can add them during the startup of your plugin. The plugin can check if the setting is available. If not, the plugin can add the global setting to cbpi. You will need to add the class CBPiExtension to your plugin and handle that task within this class.
 
+{% hint style="info" %} 
+Don't forget to register your extension separately from your plugin as described [above](#plugin-registration)
+{% endhint %}
+
 The example below shows an example, where the plugin starts with the CBPiExtension class to add an intervall to the global cbpi settings. In this case, a task will be created the initializes the senor. During the initialization, the task will run the funtion scd30_intervall. This function could be also directly included into the initialization task / function.
 
 ```
