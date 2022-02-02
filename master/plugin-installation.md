@@ -181,3 +181,4 @@ The tables below shows the plugins that are currently available by type. At this
 | cbpi4-RecipeImport | Example Plugin to customize automated recipe creation    | [GitHub Link](https://github.com/avollkopf/cbpi4-RecipeImport) |
 | cbpi4-buzzer       | Activates buzzer on cbpi4 messages                       | [GitHub Link](https://github.com/avollkopf/cbpi4-buzzer)       |
 | cbpi4-PushOver     | Forwards cbpi4 messages to Pushover push message service | [GitHub Link](https://github.com/avollkopf/cbpi4-PushOver)     |
+| cbpi4-TelegramPushNotifications     | Telegram Push Notifications for Craftbeerpi 4 | [GitHub Link](https://github.com/pascal1404/cbpi4-TelegramPushNotifications)     |
