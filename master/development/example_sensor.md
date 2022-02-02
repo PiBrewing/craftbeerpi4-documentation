@@ -55,7 +55,7 @@ The last function is really important and should not be forgotten. otherwise you
             await asyncio.sleep(1)
 ```
 
-The `get_state` fucntions also essential as it might be used by oter sever routines. It returns the current sensor value and should not be removed.
+The `get_state` function is also essential as it might be used by oter sever routines. It returns the current sensor value and should not be removed.
 
 ```
     def get_state(self):
@@ -126,7 +126,7 @@ This plugin uses more properties for the configuration and assignment of the iSp
              Property.Sensor("FermenterTemp",description="Select Fermenter Temp Sensor that you want to provide to TCP Server")])
 ```
 
-Once the properties have been defined, you need to initialize the sensor plugin. In this step, you should also define your variables for the properites with the `self.props.get("PROPERTY", DEFAULT_VALUE)` method. With `PROPERTY`, you specify / access the property, you specified in the `@parameters`section. If the property has not been defined, or the user has not entered a value in the sensor setup page, you can / should specify a default value in the function which is used if no value has been entered for this parameter.
+Once the properties have been defined, it is mandatory to initialize the sensor plugin. In this step, you should also define your variables for the properites with the `self.props.get("PROPERTY", DEFAULT_VALUE)` method. With `PROPERTY`, you specify / access the property, you specified in the `@parameters`section. If the property has not been defined, or the user has not entered a value in the sensor setup page, you can / should specify a default value in the function which is used if no value has been entered for this parameter.
 
 ```
 class iSpindle(CBPiSensor):
@@ -140,21 +140,11 @@ class iSpindle(CBPiSensor):
         self.time_old = 0
 ```
 
+You will also need to add the run function as this is the function that is 'reading' your sensor data and is pushsing the data to the web interface or mqtt with `self.push_update(self.value)`. It can also log the data with the fucntion `self.log_data(self.value)`. More details on pushing the data are described above.
 
+This plugin is a bit more complex as it reads the sensor data from a cache which is updated by another function. A timestamp is updated in the cache, whenever the cache is filled with new values. The `run` function is checking, if the timestamp has been updated. Whenever this is the case, it reads the new sensor value and will push it to the web socket and mqtt with the `self.push_update(self.value)` function. In addition, the nw value will be logged.
 
-```
-    def get_unit(self):
-        if self.props.get("Type") == "Temperature":
-            return "°C" if self.get_config_value("TEMP_UNIT", "C") == "C" else "°F"
-        elif self.props.get("Type") == "Gravity/Angle":
-            return self.props.Units
-        elif self.props.get("Type") == "Battery":
-            return "V"
-        elif self.props.get("Type") == "RSSI":
-            return "dB"
-        else:
-            return " "
-```
+If the timestamp has not been updated, the push_update function will be only called with a `False` -> `self.push_update(self.Value, False)`. In this case, only the web interface will be updated, but not the mqtt broker. This is usefull for sensors like the iSpindle, as they report new values only every 15 minutes or so. If an existing value is available, the web interface will be updated frequently. Otherwise, the user would not see the current vlaue when pages are switched.
 
 ```
     async def run(self):
@@ -181,6 +171,8 @@ class iSpindle(CBPiSensor):
         return dict(value=self.value)
 ```
 
+As mentioned before, the data for this sensor will be retrieved via http and a cahce is being updated whenever a new value is send to the server. Therefore, a http endpoint needs to be registered in the cbpi server. This is done with another CBPiExtension class. Also in this case, the CBPiExtension classe needs to be registered in addition to your sensor class at the end of the plugin.
+
 ```
 class iSpindleEndpoint(CBPiExtension):
     
@@ -198,9 +190,7 @@ class iSpindleEndpoint(CBPiExtension):
 ```
 
 ```
-    async def run(self):
-        await self.get_spindle_sensor()
-
+ 
     @request_mapping(path='', method="POST", auth_required=False)
     async def http_new_value3(self, request):
         import time
@@ -239,30 +229,7 @@ class iSpindleEndpoint(CBPiExtension):
         cache[key] = {'Time': time,'Temperature': temp, 'Angle': angle, 'Battery': battery, 'RSSI': rssi}
 ```
 
-```
-    @request_mapping(path='/gettemp/{SpindleID}', method="POST", auth_required=False)
-    async def get_fermenter_temp(self, request):
-        SpindleID = request.match_info['SpindleID']
-        sensor_value = await self.get_spindle_sensor(SpindleID)
-        data = {'Temp': sensor_value}
-        return  web.json_response(data=data)
 
-    async def get_spindle_sensor(self, iSpindleID = None):
-        self.sensor = self.sensor_controller.get_state()
-        for id in self.sensor['data']:
-            if id['type'] == 'iSpindle':
-                name= id['props']['iSpindle']
-                if name == iSpindleID:
-                    try:
-                        sensor= id['props']['FermenterTemp']
-                    except:
-                        sensor = None
-                    if sensor is not None:
-                        sensor_value = self.cbpi.sensor.get_sensor_value(sensor).get('value')
-                    else:
-                        sensor_value = None
-                    return sensor_value
-```
 ```
 def setup(cbpi):
     cbpi.plugin.register("iSpindle", iSpindle)
