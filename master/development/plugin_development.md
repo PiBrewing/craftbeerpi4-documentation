@@ -389,6 +389,52 @@ def setup(cbpi):
     cbpi.plugin.register("BM_SimpleStep", BM_SimpleStep)
 ```
 
-This comes in handy asas you just need to create one plugin with mupltiple modules. It is just important that you register every module.
+This comes in handy as you just need to create one plugin with mupltiple modules. It is just important that you register every module.
+
+## Adding cbpi settings from plugins
+
+Some plugins will require global cbpi settings. You can add them during the startup of your plugin. The plugin can check if the setting is available. If not, the plugin can add the global setting to cbpi. You will need to add the class CBPiExtension to your plugin and handle that task within this class.
+
+The example below shows an example, where the plugin starts with the CBPiExtension class to add an intervall to the global cbpi settings. In this case, a task will be created the initializes the senor. During the initialization, the task will run the funtion scd30_intervall. This function could be also directly included into the initialization task / function.
+
+```
+class SCD30_Config(CBPiExtension):
+
+    def __init__(self,cbpi):
+        self.cbpi = cbpi
+        self._task = asyncio.create_task(self.init_sensor())
+
+    async def init_sensor(self):
+        ...
+        await self.scd30_interval()
+...
+```
+The function is checking, if the paramter `scd30_interval` is already existing in the global cbpi settings. If not, the function `self.cbpi.config.get("scd30_intervall", None)` will return `None`.
+
+In this case, the function will add this parameter with the function `self.cbpi.config.add(....)`. 
+- The first parameter in this function will define the parameter name `"scd30_interval"`. 
+- The second parameter will define the intiial value  
+- The third parameter will define the type of the parameter (They are like the [plugin property types](#examples-for-property-types))
+ 
+```
+...
+    async def scd30_interval(self):
+        global scd30_interval
+        scd30_interval = self.cbpi.config.get("scd30_interval", None)
+        if scd30_interval is None:
+            logger.info("INIT scd30_intervall")
+            try:
+                await self.cbpi.config.add("scd30_interval", 5, ConfigType.SELECT, "SCD30 Readout Interval", [{"label": "2s","value": 2},
+                                                                                                            {"label": "5s", "value": 5},
+                                                                                                            {"label": "10s", "value": 10},
+                                                                                                            {"label": "15s", "value": 15},
+                                                                                                            {"label": "30s", "value": 30},
+                                                                                                            {"label": "60s", "value": 60}])
+                scd30_interval = self.cbpi.config.get("scd30_interval", None)
+            except:
+                logger.warning('Unable to update database')
+...
+```
+
 
 
