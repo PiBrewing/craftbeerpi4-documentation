@@ -415,7 +415,9 @@ In this case, the function will add this parameter with the function `self.cbpi.
 - The first parameter in this function will define the parameter name `"scd30_interval"`. 
 - The second parameter will define the intiial value  
 - The third parameter will define the type of the parameter (They are like the [plugin property types](#examples-for-property-types))
- 
+- The next parameter specifies the explanation for this parameter that is shown on the settings page.
+- In case of `ConfigType.SELECT` you will also specify the options as another parameter. 
+
 ```
 ...
     async def scd30_interval(self):
@@ -435,6 +437,6 @@ In this case, the function will add this parameter with the function `self.cbpi.
                 logger.warning('Unable to update database')
 ...
 ```
-
+You can see plenty of examples on how to add global cbpi settings in the `ConfigUpdate` extension that comes with cbpi. This can be found [here](https://github.com/avollkopf/craftbeerpi4/blob/master/cbpi/extension/ConfigUpdate/__init__.py).
 
 
