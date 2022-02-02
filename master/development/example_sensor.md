@@ -55,7 +55,7 @@ The last function is really important and should not be forgotten. otherwise you
             await asyncio.sleep(1)
 ```
 
-The `get_state` fucntions also essentaial as it might be used by oter sever routines. It returns the current sensor value and should not be removed.
+The `get_state` fucntions also essential as it might be used by oter sever routines. It returns the current sensor value and should not be removed.
 
 ```
     def get_state(self):
