@@ -441,6 +441,6 @@ In this case, the function will add this parameter with the function `self.cbpi.
                 logger.warning('Unable to update database')
 ...
 ```
-You can see plenty of examples on how to add global cbpi settings in the `ConfigUpdate` extension that comes with cbpi. This can be found [here](https://github.com/avollkopf/craftbeerpi4/blob/master/cbpi/extension/ConfigUpdate/__init__.py).
+You can see plenty of examples on how to add global cbpi settings in the `ConfigUpdate` extension, that comes with cbpi. This can be found [here](https://github.com/avollkopf/craftbeerpi4/blob/master/cbpi/extension/ConfigUpdate/__init__.py).
 
 
