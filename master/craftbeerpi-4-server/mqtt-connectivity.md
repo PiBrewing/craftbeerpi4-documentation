@@ -188,6 +188,9 @@ and notifications the the topic:
 ```
 cbpi/notification
 ```
+### Craftbeerpi can send Kettle and Femrenterupdates on a defined frequency
+
+Some devices (e.g. [MQTTDeviceV4](https://innuendopi.github.io/MQTTDevice4/)) may require more frequent updates on kettle or fermenter. Therefore, the server has the ability to push updates for kettle and fermenter with a defined frequency even if there are no changes in the payload. This frequency can be defined with on the cbpi [settings page](settings.md) with the parameter `MQTTUpdate`
 
 {% hint style="info" %}
 Some things had to be changed as the payload size was just too large for smaller devices / libraries. Therefore, each sensor, actor, kettle, fermenter,.... has one topic under a main topic for sensorupdates, actorupdates, kettleupdates,...
