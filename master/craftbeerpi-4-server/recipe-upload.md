@@ -8,12 +8,14 @@ CraftbeerPi 4 has the possibility to create recipes automatically. There are thr
 
     If you are using an application that can export files in the beerxml standard (e.G. [Beersmith](http://beersmith.com)), you can upload the beerxml based file to CraftbeerPi4 and create a recipe from the file.
 
-2.  JSON recipe files from [MaischeMalzundMehr](https://www.maischemalzundmehr.de/)
+2.  JSON recipe files from [MaischeMalzundMehr](https://www.maischemalzundmehr.de/):
+
     You can upload JSON based recipe files from the [MuMM](https://www.maischemalzundmehr.de/) page like the beerxml files and create a CraftbeerPi4 recipe
 
 3.  [Kleiner Brauhelfer 2 ](https://github.com/kleiner-brauhelfer/kleiner-brauhelfer-2)(KBH2) database file:
 
     You can also upload the sqlite database file to CraftbeerPi 4 and select any recipe from the database to create a local CraftbeerPi 4 recipe automatically and start brewing
+    
 4.  Brewfather API (Paid BF Premium account required):
 
     If you have a paid Brewfather Premium account you need to go to settings and create an API Key that allows you to read recipes. The brewfather app will provide you a user id and an api key. You need to enter both strings into the corresponding parameters in the [CraftbeerPi settings.](settings.md#recipe-creation-settings) Don't forget to hit the save button on the settings page.
