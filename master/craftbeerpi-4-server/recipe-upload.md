@@ -2,7 +2,7 @@
 
 ## Overview
 
-CraftbeerPi 4 has the possibility to create recipes automatically. There are three different possibilities to create a recipe.
+CraftbeerPi 4 has the possibility to create recipes automatically. There are different possibilities to create a recipe.
 
 1.  beerxml Files:
 
@@ -15,7 +15,7 @@ CraftbeerPi 4 has the possibility to create recipes automatically. There are thr
 3.  [Kleiner Brauhelfer 2 ](https://github.com/kleiner-brauhelfer/kleiner-brauhelfer-2)(KBH2) database file:
 
     You can also upload the sqlite database file to CraftbeerPi 4 and select any recipe from the database to create a local CraftbeerPi 4 recipe automatically and start brewing
-    
+
 4.  Brewfather API (Paid BF Premium account required):
 
     If you have a paid Brewfather Premium account you need to go to settings and create an API Key that allows you to read recipes. The brewfather app will provide you a user id and an api key. You need to enter both strings into the corresponding parameters in the [CraftbeerPi settings.](settings.md#recipe-creation-settings) Don't forget to hit the save button on the settings page.
