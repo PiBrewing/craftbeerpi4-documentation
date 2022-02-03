@@ -14,4 +14,4 @@ To activate this functionality, you need to adapt the [settings](settings.md#glo
 
 Below is an example for the usage of Influxdb in combination with Grafana. The dashboard shows sensor data for the Kettle and two fermenters. In addition, data from the cbpi4-system plugin that monitors the CPU load, free memory and more is displayed. I am also using a SCD30 sensor to monitor the 'environmental condition' of the room (CO2, temp and rel. humidity) and display this on the same dashboard.
 
-![Example for InfluxDB usage in combination with Grafana](../../.gitbook/assets/cbpi4-grafana.png)
+![Example for InfluxDB usage in combination with Grafana](../../.gitbook/assets/cbpi4-grafana.pn)
