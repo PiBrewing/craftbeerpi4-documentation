@@ -138,6 +138,7 @@ The tables below shows the plugins that are currently available by type. At this
 | cbpi4-scd30-co2-sensor | Temp, Rel. Humidity and CO2 sensor (I2C based) | [GitHub Link](https://github.com/avollkopf/cbpi4-scd30-co2-sensor) |
 | cbpi4-iSpindle         | Sensor that collects data from the iSpindle    | [GitHub Link](https://github.com/avollkopf/cbpi4-iSpindle)         |
 | cbpi4-KettleSensor     | Collects targettemp and kettle power           | [GitHub Link](https://github.com/avollkopf/cbpi4-KettleSensor)     |
+| cbpi4-dht22-temp-hum-sensor | Sensor for Reltive humidity and temperature | [GITHub Link](https://github.com/DanZee/cbpi4-dht22-temp-hum-sensor) |
 
 ### Actors
 
