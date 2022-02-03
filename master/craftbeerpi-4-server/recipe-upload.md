@@ -25,9 +25,9 @@ The recipe upload page has one upload button where you can upload the xml file o
 ![Recipe upload window](../../.gitbook/assets/cbpi4-recipe-upload.png)
 
 {% hint style="info" %}
-You can only upload one xml file at a time. If you upload another xml file, the first xml file will be replaced.
+You can only upload one xml or JSON file at a time. If you upload another xml or JSON file, the first xml or JSON file will be replaced.
 
-If you create a recipe from the xml file, you can save the recipe in the local recipe book and upload another xml file to create a new recipe. Also this recipe can be saved in the local recipe book.
+If you create a recipe from the file, you can save the recipe in the local recipe book and upload another file to create a new recipe. Also this recipe can be saved in the local recipe book.
 {% endhint %}
 
 {% hint style="info" %}
