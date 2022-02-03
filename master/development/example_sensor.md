@@ -171,7 +171,9 @@ If the timestamp has not been updated, the push_update function will be only cal
         return dict(value=self.value)
 ```
 
-As mentioned before, the data for this sensor will be retrieved via http and a cahce is being updated whenever a new value is send to the server. Therefore, a http endpoint needs to be registered in the cbpi server. This is done with another CBPiExtension class. Also in this case, the CBPiExtension classe needs to be registered in addition to your sensor class at the end of the plugin.
+As mentioned before, the data for this sensor will be retrieved via http and a cache is being updated whenever a new value is send to the server. Therefore, a http endpoint needs to be registered in the cbpi server. This is done with another CBPiExtension class. Also in this case, the CBPiExtension classe needs to be registered in addition to your sensor class at the end of the plugin.
+
+This is done with the command `self.cbpi.register(self, "{PATH}")`. `{PATH}` is the link, wehre the server is listening to for this extension.
 
 ```
 class iSpindleEndpoint(CBPiExtension):
@@ -188,6 +190,12 @@ class iSpindleEndpoint(CBPiExtension):
         # In addtion the sub folder static is exposed to access static content via http
         self.cbpi.register(self, "/api/hydrometer/v1/data")
 ```
+
+In a next step you need to map defined points where the external programms can send or retrieve data or actions. This is done with `@request_mapping(path='', method="POST", auth_required=False)`. In this case, `path` is empty which means, that the path willwhich has been registered before will be used without any further extension. The method `POST` means, that the external program needs to post something which ends up in a `request` in the corresponding fucntion. For now, authentication is always disabled.
+
+The following function has to hanle the mapped request and contains all the required code to ahndle the request. It could alos access other functions. In this case, it tries to retrieve JSON data from the request. If the data is available, it fills the cache. A `key` is defined based on the iSpindle name that the `run` function in the sensor class can assign the data to the correct sensor. A timestamp is assigned to the corresponding key in the cache. This help the sensor plugin to identify, if new data is available. All the required data from the JSON package will be added to the cache for this particular spimdle vie the `key`.
+
+The sensor plugin reads the cache continuoulsy and compares the timestamp with a reference if the cache is populated with new data, the sensor plugin will push it to the log and via mqtt.
 
 ```
  
@@ -229,6 +237,7 @@ class iSpindleEndpoint(CBPiExtension):
         cache[key] = {'Time': time,'Temperature': temp, 'Angle': angle, 'Battery': battery, 'RSSI': rssi}
 ```
 
+Finally, all the modules need to be registered as described earlier.
 
 ```
 def setup(cbpi):
