@@ -68,7 +68,7 @@ Klaus, a member of the German Hobbybrauerforum has created a set of svg items th
 A zip file with recent svg items can be downloaded from below.
 {% endhint %}
 
-{% file src="../../.gitbook/assets/CraftbeerPi4v0.944Icons-kalausr.zip" %}
+{% file src="../../.gitbook/assets/CraftbeerPi4-SVG-Icons-kalausr-v0.953.zip" %}
 
 ## Creating a simple single kettle brew dashboard
 
