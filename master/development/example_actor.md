@@ -260,7 +260,7 @@ Now the code is cycling through each actor of the `self.actors` array and is swi
         await self.cbpi.actor.actor_update(self.id,self.power)
 ```
 
-The `off`function is also required to switch the grouped actor off. The fucntion cycles through the array of actors and is switching each individual actor off. Afterwards, it sets ste `self.state` variable to `False`.
+The `off()` function is also required to switch the grouped actor off. The fucntion cycles through the array of actors and is switching each individual actor off. Afterwards, it sets ste `self.state` variable to `False`.
 
 ```
     async def off(self):
@@ -269,14 +269,14 @@ The `off`function is also required to switch the grouped actor off. The fucntion
         self.state = False
 ```
 
-The `get_state` fucntion is required and the same for each actor plugin.
+The `get_state()` function is required and the same for each actor plugin.
 
 ```
     def get_state(self):
         return self.state
 ```
 
-The `set_power`function is required as described above and in this case it also cycles through each actor of the actor array and sets the power. Afterwards, it updates the power fro the grouped actor itself with `await self.cbpi.actor.actor_update(self.id,self.power)`
+The `set_power()` function is required as described above and in this case it also cycles through each actor of the actor array and sets the power. Afterwards, it updates the power fro the grouped actor itself with `await self.cbpi.actor.actor_update(self.id,self.power)`
 
 ```
     async def set_power(self, power):
