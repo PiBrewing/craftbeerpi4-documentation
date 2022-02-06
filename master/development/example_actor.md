@@ -38,7 +38,7 @@ if (mode == None):
     GPIO.setmode(GPIO.BCM)
 ```
 
-Right before your Actor class, you need to pecify the plugin/actor properties such as GPIO pin or if the actor should be low or high on active (inverted). These properties  can be selected or changed for each instance of an actor. 
+Right before your Actor class, you need to specify the plugin/actor properties such as GPIO pin or if the actor should be low or high on active (inverted). These properties  can be selected or changed for each instance of an actor. 
 
 ```
 @parameters([Property.Select(label="GPIO", options=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27]), 
@@ -53,7 +53,9 @@ Then you start the Actor class itself
 class GPIOActor(CBPiActor):
 ```
 
+For actors, but also for Sensors you have the possibility to specify actions that can be triggered from the dashboard. This is done via `@action("{NAME}", parameters=[...])`. Parameters are specified in the same way as you do it for the plugin parameters. The example below shows you an example on how to set the poer for an actor.
 
+This is followed by the corresponding fucntion that shall be triggered by the action. The parameters are directly assigned via the `label` of the action prameter (e.g. `Power` like in this example). In this case, the parameter power will be defined by the action and the action will call the `self.set_power()` function and will change the power for the actor
 
 ```
     # Custom property which can be configured by the user
@@ -67,7 +69,7 @@ class GPIOActor(CBPiActor):
         await self.set_power(self.power)      
 ```
 
-
+For some actors (e.g. relaisboards) it is important to specify, if the actor is active on high or low (inverted). With such a fucntion, you can invert the state of the GPIO.
 
 ```
     def get_GPIO_state(self, state):
@@ -80,7 +82,7 @@ class GPIOActor(CBPiActor):
 
 ```
 
-
+All Actor plugins require the `on_start` fucntion to define initial variables for the actor instance. When the actor instance is starting, you collect the required information from the parameter definition and you set the GPIO as output and set the GPIO / actor to `off` with `GPIO.output(self.gpio, self.get_GPIO_state(0))`. The `get_GPIO_state` function returns a `0` or `1` which depends on the `inverted` setting. The `self.state` is set to `False` on start which. All other fnctions in the server can retrieve that status of the actor with the get_state function, which returns the state. 
 
 ```
     async def on_start(self):
@@ -93,7 +95,7 @@ class GPIOActor(CBPiActor):
         self.state = False
 ```
 
-
+The `on` function is also required. It defines, what is done to switch the actor on. Even if the actor has no possibility to vary the power, the `power=None`is required in the definition of this function. If the actor has not the possibility to specify the power, you don't need the code with respect to the power setting and you don't need to call the `self.set_power` function. Afterwards, the GPIO is set to on (status depending on the inverrted setting) and the `self.state` is set to `True` to let the system know, that the actor is on. The actor will now run with the specified power or with 100%.
 
 ```
     async def on(self, power = None):
@@ -109,7 +111,7 @@ class GPIOActor(CBPiActor):
 
 ```
 
-
+You will also need to specify the `off` function to switch the actor off. Power settings are not required for this function. It isl also essential to set the state of the actor to `False`.
 
 ```
     async def off(self):
@@ -118,14 +120,14 @@ class GPIOActor(CBPiActor):
         self.state = False
 ```
 
-
+As mentioned before, server functions need to read the state of the actor. Therefore, the `get_state` function is required for all actors.
 
 ```
     def get_state(self):
         return self.state
 ```
 
-
+The run fucntion is also required for all actors. It can be more or less empty and contain just the `while self.running == True:` loop with an `await asyncio.sleep(1)`. However, this function is used here for proportional heating to emulate PWM. One could also call it "poor man's PWM". In the parameter section, the user could select the parameter `SamplingTime` which defines the the the time for one heat cycle. If the time is for instance 5 seconds and the power is set to 60% the function will switch the heater on for 3 seconds and turns it off for 2 seconds. These times vary with the power setting. The `run` function is continuously running, while the actor is available in the system. The proportional heating is done, as long as `self.state = True`.
 
 ```
     async def run(self):
@@ -145,7 +147,7 @@ class GPIOActor(CBPiActor):
                 await asyncio.sleep(1)
 ```
 
-
+The `set_power()`is also essential for each actor. The set power function just sets the `self.power` parameter and sends an update to the websoket and via mqtt with `await self.cbpi.actor.actor_update(self.id,power)`. However, if your actor has no power capabilities, you can leave the function basically empty and just leave the `pass` in.
 
 ```
     async def set_power(self, power):
@@ -154,7 +156,7 @@ class GPIOActor(CBPiActor):
         pass
 ```
 
-
+Finally, you need to register your plugin with the `setup(cbpi)` function.
 
 ```
 def setup(cbpi):
