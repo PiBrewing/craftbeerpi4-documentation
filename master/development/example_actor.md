@@ -55,7 +55,11 @@ class GPIOActor(CBPiActor):
 
 For actors, but also for Sensors you have the possibility to specify actions that can be triggered from the dashboard. This is done via `@action("{NAME}", parameters=[...])`. Parameters are specified in the same way as you do it for the plugin parameters. The example below shows you an example on how to set the poer for an actor.
 
-This is followed by the corresponding fucntion that shall be triggered by the action. The parameters are directly assigned via the `label` of the action prameter (e.g. `Power` like in this example). In this case, the parameter power will be defined by the action and the action will call the `self.set_power()` function and will change the power for the actor
+This is followed by the corresponding fucntion that shall be triggered by the action. The parameters are directly assigned via the `label` of the action prameter (e.g. `Power` like in this example). In this case, the parameter power will be defined by the action and the action will call the `self.set_power()` function and will change the power for the actor. The fucntion checks, if the value is not below 0 or above 100. Otherwise the min value of 0 or the max value of 100 will be set
+
+{% hint style="info" %}
+Power for an actor can be only between 0 and 100. The value has to be an `int`.
+{% endhint %}
 
 ```
     # Custom property which can be configured by the user
@@ -167,4 +171,134 @@ def setup(cbpi):
     :return: 
     '''
     cbpi.plugin.register("GPIOActor", GPIOActor)
+```
+
+## Grouped Actor example
+
+This example shows you how to combine individual actors to one actor. This can be helpfull if you havefor instance multiple heating elements that are triggered with one SSR per heating elements and you want to combine them to one element.
+
+You start again to import the required packages
+
+```
+# -*- coding: utf-8 -*-
+import logging
+import asyncio
+from cbpi.api import *
+from cbpi.api.base import CBPiBase
+
+logger = logging.getLogger(__name__)
+```
+
+Afterwards, you need to define the parameters for the plugin. In this case, you define the actors, you want to combine (in this example you can combine up to 8 actors).
+
+```
+@parameters([Property.Actor(label="Actor01", description="Select an actor to be controlled by this group."),
+            Property.Actor(label="Actor02", description="Select an actor to be controlled by this group."),
+            Property.Actor(label="Actor03", description="Select an actor to be controlled by this group."),
+            Property.Actor(label="Actor04", description="Select an actor to be controlled by this group."),
+            Property.Actor(label="Actor05", description="Select an actor to be controlled by this group."),
+            Property.Actor(label="Actor06", description="Select an actor to be controlled by this group."),
+            Property.Actor(label="Actor07", description="Select an actor to be controlled by this group."),
+            Property.Actor(label="Actor08", description="Select an actor to be controlled by this group.")])
+```
+
+Now you need to define your actor class and you can define actions (e.g. Power settings) that will be applied to all actors in the group in this case.
+
+```
+class GroupedActor(CBPiActor):
+
+    # Custom property which can be configured by the user
+    @action("Set Power", parameters=[Property.Number(label="Power", configurable=True,description="Power Setting [0-100]")])
+    async def setpower(self,Power = 100 ,**kwargs):
+        self.power=int(Power)
+        if self.power < 0:
+            self.power = 0
+        if self.power > 100:
+            self.power = 100           
+        await self.set_power(self.power)   
+```
+
+The `on_start()` function is required and will define an arry of the actor group based on the actors defined in the parameters above. The power is set to 100% as default value.
+
+```
+    def on_start(self):
+        self.state = False
+        self.actors = []
+        self.power = 100
+        logging.info("GROUPED ACTOR")
+        if self.props.get("Actor01", None) is not None:
+            self.actors.append(self.props.get("Actor01"))
+        if self.props.get("Actor02", None) is not None:
+            self.actors.append(self.props.get("Actor02"))
+        if self.props.get("Actor03", None) is not None:
+            self.actors.append(self.props.get("Actor03"))
+        if self.props.get("Actor04", None) is not None:
+            self.actors.append(self.props.get("Actor04"))
+        if self.props.get("Actor05", None) is not None:
+            self.actors.append(self.props.get("Actor05"))
+        if self.props.get("Actor06", None) is not None:
+            self.actors.append(self.props.get("Actor06"))
+        if self.props.get("Actor07", None) is not None:
+            self.actors.append(self.props.get("Actor07"))
+        if self.props.get("Actor08", None) is not None:
+            self.actors.append(self.props.get("Actor08"))
+        pass
+```
+
+As described in the former example, you have to define the `on` function which also needs the `power=None` parameter.  In this case, the dependent actors may have power settings. Therefore, you need to use this parameter. However, if it is not psecified when another fucntion is calling the `on` function, the default value of 100 is used that has been defined in the `on_start()` function of this plugin.
+
+Now the code is cycling through each actor of the `self.actors` array and is switching each individual actor on with the defined power from `self.power`. Once this is done, `self.state` for the grouped actor is set to `True` and the status of the grouped actor is updated with `await self.cbpi.actor.actor_update(self.id,self.power)`.
+
+```
+    async def on(self, power=None):
+        if power is not None:
+            self.power = power
+
+        for actor in self.actors:
+            await self.cbpi.actor.on(actor,self.power)
+        self.state = True
+        await self.cbpi.actor.actor_update(self.id,self.power)
+```
+
+The `off`function is also required to switch the grouped actor off. The fucntion cycles through the array of actors and is switching each individual actor off. Afterwards, it sets ste `self.state` variable to `False`.
+
+```
+    async def off(self):
+        for actor in self.actors:
+            await self.cbpi.actor.off(actor)
+        self.state = False
+```
+
+The `get_state` fucntion is required and the same for each actor plugin.
+
+```
+    def get_state(self):
+        return self.state
+```
+
+The `set_power`function is required as described above and in this case it also cycles through each actor of the actor array and sets the power. Afterwards, it updates the power fro the grouped actor itself with `await self.cbpi.actor.actor_update(self.id,self.power)`
+
+```
+    async def set_power(self, power):
+        self.power = power
+        for actor in self.actors:
+            await self.cbpi.actor.set_power(actor,self.power)
+
+        await self.cbpi.actor.actor_update(self.id,self.power)
+        pass
+```
+
+The `run()` function is required, but is not doing anything. Therefore, the pass is added to the function.
+
+```
+    async def run(self):
+        pass
+```
+
+Finally, the plugin needs to be registered as described several times.
+
+```
+def setup(cbpi):
+    cbpi.plugin.register("Grouped Actor", GroupedActor)
+    pass
 ```
