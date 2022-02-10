@@ -26,7 +26,20 @@ Happy Development! Cheers
 
 ## Plugin folder structure
 
-CraftbeeerPi4 is creating a folder with the name cbpi4-testplugin which has the follwoing structure:
+CraftbeeerPi4 is creating a folder with the name cbpi4-testplugin.
+
+{ % hint style="info" % } 
+It is recommended to install the plugin for testing with the `-e` option
+
+`sudo pip3 install -e ./cbpi4-testplugin`
+
+You will also need to add the plugin with  `cbpi add cbpi4-testplugin` to activate the pulgin in cbpi. Changes of your code will immediately take effect w/o re-installatin of the plugin when you restart cbpi. 
+
+You should also stop the server as service and runn it in manual mode with `sudo cbpi start`to see the log outputs or errors directly on the screen.
+
+{ % endhint % }
+
+If you navigate into the folder, you will see the  follwoing structure:
 
 ```
 pi@raspberrypi:~ $ cd cbpi4-testplugin/
@@ -43,6 +56,11 @@ The main folder conatins the LICENSE file and a MANIFEST file where you do not n
 
 The sub-folder `cbpi4-testplugin` ist the folder, where the plugin code is located.
 
+{ % hint style="info" % } 
+
+`sudo pip3 install -e ./cbpi4-testplugin`
+
+{ % endhint % }
 
 ### Plugin setup.py file
 
@@ -75,15 +93,6 @@ You can also specify required python packages that will be installed during the 
 ```
 sudo pip3 install cbpi4-testplugin
 ```
-
-{ % hint style="info" % } 
-
-```
-sudo pip3 install -e ./cbpi4-testplugin
-```
-
-{ % endhint % }
-
 
 Below is an example of a setup.py for a [plugin](https://pypi.org/project/cbpi4-scd30-CO2-Sensor/), which is also available on the pypi.org page and can be installed directly from there.
 
