@@ -56,12 +56,6 @@ The main folder conatins the LICENSE file and a MANIFEST file where you do not n
 
 The sub-folder `cbpi4-testplugin` ist the folder, where the plugin code is located.
 
-{ % hint style="info" % } 
-
-`sudo pip3 install -e ./cbpi4-testplugin`
-
-{ % endhint % }
-
 ### Plugin setup.py file
 
 The setup.py file contains some information for the plugin installation such as version number and other required packages. You need to edit this file accoridingly. Additional information on how to use setuptools can be found [here](https://docs.python.org/3.9/distutils/setupscript.html).
