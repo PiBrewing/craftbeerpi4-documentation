@@ -28,7 +28,7 @@ Happy Development! Cheers
 
 CraftbeeerPi4 is creating a folder with the name cbpi4-testplugin.
 
-{ % hint style="info" % } 
+{% hint style="info" %} 
 It is recommended to install the plugin for testing with the `-e` option
 
 `sudo pip3 install -e ./cbpi4-testplugin`
@@ -37,7 +37,7 @@ You will also need to add the plugin with  `cbpi add cbpi4-testplugin` to activa
 
 You should also stop the server as service and runn it in manual mode with `sudo cbpi start`to see the log outputs or errors directly on the screen.
 
-{ % endhint % }
+{% endhint %}
 
 If you navigate into the folder, you will see the  follwoing structure:
 
