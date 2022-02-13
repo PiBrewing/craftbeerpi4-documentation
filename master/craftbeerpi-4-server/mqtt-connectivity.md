@@ -24,7 +24,79 @@ version: 4.0.8
 
 ```
 
+{% hint style="info" %}
+`mqtt_host` can be set to `localhost` if the MQTT broker is also running on your pi
+{% endhint %}
+
 You need to set mqtt to True and adapt the other settings to your mqtt infrastructure. Once this has been changed and saved, you need to restart cbpi.
+
+{% hint style="warning" %}
+The craftbeerpi server does not provide the mqtt infrastructure. It just can connect to a MQTT broker. If you have not set up a mqtt broker in you home network (e.g. a NAS or other server), you need to install and set up a broker on your pi. The is described [here](#install-an-mqtt-broker-on-your-raspberry-pi).
+{% endhint %}
+
+### Install and configure an MQTT broker on your raspberry pi
+
+First you need to install the MQTT broker:
+
+`sudo apt-get install mosquitto`
+
+{% hint style="info" %}
+The mosquitto application acts as MQTT broker that can receive messages / instructions from the CraftbeerPi4 server and other devices (e.g. the [mqttdevie](https://innuendopi.github.io/MQTTDevice4/)) can read/receive them. It can also receive sensor data or commands from other devices and the CraftbeerPi4 server can read them. The application basically acts as central communication point between devices that use the MQTT protocol.
+{% endhint %}
+
+Now you need to configure you MQTT broker that CratbeerPi but laso the other devices can send and recieve messages via the broker. Two methods are possible. The first one does not require a password and is only recommended during set up for testing. The second method will require passwords and a user for the MQTT broker.
+
+#### Method 1 allows anonymous access to the MQTT broker (only recommended to test your setup)
+
+You need to edit the mosquitto config file.
+
+`sudo nano /etc/mosquitto/mosquitto.conf`
+
+Add the following two lines at the top of the config file:
+
+```
+allow_anonymous true
+port 1883
+```
+
+With this method you don't need to enter a user or password in craftbeerpi or other devices for the MQTT broker
+
+#### Method 2 uses basic authentication and is recommended for a 'productive' system
+
+Navigate to the mosquitteo app folder:
+
+`cd /etc/mosquitto`
+
+And create passwword for the user pi:
+
+`sudo mosquitto_passwd -c passwdfile pi`
+
+Now you need to enter the password you want to use twice.
+
+Afterwards, you need to edit your mosquitto config file.
+
+`sudo nano /etc/mosquitto/mosquitto.conf`
+
+And add three lines to the top of the file.
+
+```
+allow_anonymous false 
+port 1883 
+password_file /etc/mosquitto/passwdfile
+```
+
+Once the file has been saved, you need to restart the MQTT broker:
+
+`sudo systemctl restart mosquitto`
+
+And adapt the comfig file of your cbpi server as described [here](#mqtt-connectivity).
+
+The mqtt user should be set tp `pi` or whatever user you have defined for mosquitto and the password needs to be set to the password you have defined above.
+
+After restart you should see a line in the [cbpi log](../craftbeerpi-4-server/system.md) that confimrs the connection to the MQTT broker:
+`Jan 25 13:54:10 raspberrypi cbpi[360]: 2022-01-25:13:54:10,513 INFO     [satellite_controller.py:128] MQTT Connected to 192.168.163.67:1883`
+
+
 
 ### Using CraftbeerPi to read / trigger external MQTT devices
 
