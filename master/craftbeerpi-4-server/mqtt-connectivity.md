@@ -96,7 +96,9 @@ The mqtt user should be set tp `pi` or whatever user you have defined for mosqui
 After restart you should see a line in the [cbpi log](../craftbeerpi-4-server/system.md) that confimrs the connection to the MQTT broker:
 `Jan 25 13:54:10 raspberrypi cbpi[360]: 2022-01-25:13:54:10,513 INFO     [satellite_controller.py:128] MQTT Connected to 192.168.163.67:1883`
 
-
+{% hint style="info" %}
+If you want to analyze the MQTT communcation in more detail you can also install the [MQTT explorer](http://mqtt-explorer.com/) on your PC. This allows you to analyze the MQTT messages in more detail.
+{% endhint %}
 
 ### Using CraftbeerPi to read / trigger external MQTT devices
 
