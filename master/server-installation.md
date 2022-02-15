@@ -261,7 +261,7 @@ Deleted chromium.desktop from /etc/xdg/autostart/
 
 There is also the possibility to write an image with a pre-installed CraftbeerPi4 server to your sd-card. This image comes with several installed plugins.
 
-The image can be downloaded from this [link ](http://www.slammy.net/homebrewing/2022\_02\_cbpi4\_0\_1\_16\_ui\_0\_1\_2.zip) which is kindly provided by Nicolas Slammy Outrey.
+The image can be downloaded from this [link ](http://www.slammy.net/homebrewing/2022_02_cbpi4_0_1_16_ui_0_1_2.zip) which is kindly provided by Nicolas Slammy Outrey.
 
 {% hint style="warning" %}
 Please read all information BEFORE you boot your card the first time if you want to activate WiFi on a headless system!
