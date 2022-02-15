@@ -261,7 +261,7 @@ Deleted chromium.desktop from /etc/xdg/autostart/
 
 There is also the possibility to write an image with a pre-installed CraftbeerPi4 server to your sd-card. This image comes with several installed plugins.
 
-The image can be downloaded from this [link ](https://www.slammy.net/homebrewing/2021\_12\_cbpi4\_0\_0\_55\_ui\_0\_0\_23.zip)which is kindly provided by Nicolas Slammy Outrey.
+The image can be downloaded from this [link ](http://www.slammy.net/homebrewing/2022\_02\_cbpi4\_0\_1\_16\_ui\_0\_1\_2.zip) which is kindly provided by Nicolas Slammy Outrey.
 
 {% hint style="warning" %}
 Please read all information BEFORE you boot your card the first time if you want to activate WiFi on a headless system!
@@ -270,28 +270,31 @@ Please read all information BEFORE you boot your card the first time if you want
 Current Version:
 
 ```
-Server Version: 4.0.0.55
-UI Version: 0.0.23
+Server Version: 4.0.1.16
+UI Version: 0.1.2
 --------------------------------------
 List of active plugins
-- (0.0.23)      cbpi4ui
+- (0.1.2)       cbpi4ui
 - (0.0.2)       cbpi4-buzzer
-- (0.1.2)       cbpi4-BM_PID_SmartBoilWithPump
+- (0.1.3)       cbpi4-BM_PID_SmartBoilWithPump
 - (0.0.1)       cbpi4-DependentActor
 - (0.0.1)       cbpi4-Flowmeter
 - (0.0.2)       cbpi4-GroupedActor
 - (0.0.2)       cbpi4-hx711-loadcell
-- (0.0.6)       cbpi4-iSpindle
-- (0.0.1)       cbpi4-KettleSensor
-- (0.0.6)       cbpi4-PID_AutoTune
+- (0.0.8)       cbpi4-iSpindle
+- (0.0.5)       cbpi4-KettleSensor
+- (0.0.8)       cbpi4-PID_AutoTune
 - (0.0.6)       cbpi4-PIDBoil
-- (0.0.10)      cbpi4-pt100x
-- (0.0.3)       cbpi4-system
-- (0.0.2)       cbpi4-FermenterHysteresis
+- (0.1.1)       cbpi4-pt100x
+- (0.0.5)       cbpi4-system
 - (0.0.3)       cbpi4-PushOver
-- (0.0.1)       LCDisplay
+- (0.0.2)       LCDisplay
 - (0.0.2)       cbpi4-PIDHerms
 - (0.0.1)       cbpi4-scd30_CO2_Sensor
+- (0.0.3)       cbpi4-BLEHydrom
+- (0.0.3)       cbpi4-PCF8574-GPIO
+- (0.0.3)       cbpi4-GroupedPowerActor
+- (0.0.1)       cbpi4-GembirdUSB
 --------------------------------------
 ```
 
@@ -316,7 +319,7 @@ Password: raspberry
 #### Installation:
 
 ```
-1. Unzip the image. It will inflate to ~4.2Gb
+1. Unzip the image. It will inflate to ~7 Gb
 2. Write the image to a sd card with min size of 8 Gb.
    Better would be 16 Gb or more
 3. If you want to enable Wifi on first start, 
