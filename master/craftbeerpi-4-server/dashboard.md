@@ -68,7 +68,7 @@ Klaus, a member of the German Hobbybrauerforum has created a set of svg items th
 A zip file with recent svg items can be downloaded from below.
 {% endhint %}
 
-{% file src="../../.gitbook/assets/CraftbeerPi4-SVG-Icons-kalausr-v0.957.zip" %}
+{% file src="../../.gitbook/assets/CraftbeerPi4-SVG-Icons-kalausr-v0.960.zip" %}
 
 The image below gives you an overview on the svg items in the zip.
 
