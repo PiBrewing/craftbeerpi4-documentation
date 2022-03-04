@@ -228,6 +228,10 @@ You can enable chromium kiosk mode via commandline. If this is enabled, chromium
 This has ben tested on the full raspbian version where chromium is installed as default. For other setups you may need to install the chromium browser manually.
 {% endhint %}
 
+{% hint style="warning" %}
+With Chromium 98 on bullseye (32 and 64 bit), Chromium might start with a white screen and won't load the server on startup. If you experience this issue you need to disable hardware acceleration in Chromium settings
+{% endhint %}
+
 To enable kiosk mode, you need to run the following command from the bash:
 
 ```
