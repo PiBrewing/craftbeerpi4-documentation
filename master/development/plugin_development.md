@@ -8,6 +8,10 @@ cbpi create {PLUGINNAME}
 
 This will create a folder with a template for your plugin and configures ith with your PLUGINNAME
 
+{% hint style="warning" %}
+Plugin names **must** start with `cbpi`. Otherwise cbpi won't load them at startup.
+{% endhint %}
+
 If you run for instance
 
 ```

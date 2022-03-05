@@ -72,7 +72,7 @@ To remove the plugin from the cbpi server, just type in case of the cbpi4-pt100x
 sudo pip3 uninstall cbpi4-pt100x
 ```
 
-## How to show the active plugins?
+## How to show the installed/active plugins?
 
 If you want to see the active plugins, you have two possibilities. The first option is from the command line. Just type:
 
