@@ -9,10 +9,10 @@ description: Information on how to install Plugins
 Craftbeerpi4 comes with very basic functionality but has the possibility to use plugins provided by the community. Therefore, it has a huge flexibility as Sensors, Actors Controllers, Recipe creation plugins but also Push Messages and Displays can be added to each users need (The user just needs to write his plugin or needs to find someone who is providing it).
 
 {% hint style="info" %}
-There is currently no possibility to install plugins automatically via the integrated plugin page. All plugins need to be installed and activated via the path described below. The plugin page does only show the active plugins that the user has installed and activated.
+There is currently no possibility to install plugins automatically via the integrated plugin page. All plugins need to be installed via the path described below. The plugin page does only show the installed plugins.
 {% endhint %}
 
-CraftbeerPi4 comes for instance with a Onewire sensor, but some users prefer a PT100/PT1000 sensor.  Therefore, a variety of plugins is already available and below is an example on how to install a PT100/PT1000 sensor plugin.&#x20;
+CraftbeerPi4 comes for instance with a Onewire sensor, but some users prefer a PT100/PT1000 sensor.  Therefore, a variety of plugins is already available and below is an example on how to install a PT100/PT1000 sensor plugin.
 
 Some plugins have been made available via pypi.org and can be installed directly from there. Other plugins need to be installed directly from GitHub. The cbpi4-pt100X plugin is available on both platforms. Typically, the latest version is available on GitHub and will be released a bit later via pypi.org as package
 
@@ -22,7 +22,7 @@ Installation from pypi.org is quite simple. Just type the following command:
 sudo pip3 install cbpi4-pt100x
 ```
 
-The plugin and it's dependent packages will be installed on your system but still needs to be activated in cbpi.
+The plugin and it's dependent packages will be installed on your system and cbpi will detect it automatically.
 
 The other way to install the plugin is directly from GitHub:
 
@@ -32,18 +32,12 @@ sudo pip3 install https://github.com/avollkopf/cbpi4-pt100x/archive/main.zip
 
 Also here, the plugin and the dependent packages will be installed automatically.
 
-Whether you have installed the plugin via pypi.org or from GitHub, you will need to activate the plugin afterwards in cbpi with the following command:
-
-```
-cbpi add cbpi4-pt100x
-```
-
 Once this is completed, you need to restart cbpi or reboot your server.
 
 {% hint style="info" %}
 To get some detailed information about the plugin configuration and how to connect/install your sensor, you should have always a look at the plugin page on GitHub or pypi.org. I always try to add the most important information in the corresponding README.
 
-For the cbpi4-pt100x plugin, you can find the information [here](https://github.com/avollkopf/cbpi4-pt100x) on GitHub or you search for cbpi4-pt100x on the pypi.org site.&#x20;
+For the cbpi4-pt100x plugin, you can find the information [here](https://github.com/avollkopf/cbpi4-pt100x) on GitHub or you search for cbpi4-pt100x on the pypi.org site.
 {% endhint %}
 
 {% hint style="info" %}
@@ -72,10 +66,10 @@ sudo pip3 install --upgrade https://github.com/avollkopf/cbpi4-pt100x/archive/ma
 If you want to remove a plugin you need to be careful. Before you remove the plugin from the server, you need to ensure that the plugin is not in use in any of your Hardware items and the dashboard as this may cause errors and can prevent the server from starting
 {% endhint %}
 
-To remove or better disable the plugin from the cbpi server, just type in case of the cbpi4-pt100x plugin:
+To remove the plugin from the cbpi server, just type in case of the cbpi4-pt100x plugin:
 
 ```
-cbpi remove cbpi4-pt100x
+sudo pip3 uninstall cbpi4-pt100x
 ```
 
 ## How to show the active plugins?
@@ -83,35 +77,33 @@ cbpi remove cbpi4-pt100x
 If you want to see the active plugins, you have two possibilities. The first option is from the command line. Just type:
 
 ```
-sudo cbpi plugins
+cbpi plugins
 ```
 
 This will show you a list of the installed plugins incl. the version:
 
 ```
---------------------------------------
-List of active plugins
-- (0.0.19)      cbpi4ui
-- (0.0.3)       cbpi4-BM_PID_SmartBoilWithPump
-- (0.0.9)       cbpi4-BM_Steps
-- (0.0.2)       cbpi4-buzzer
-- (0.0.3)       cbpi4-iSpindle
-- (0.0.4)       cbpi4-PID_AutoTune
-- (0.0.10)      cbpi4-pt100x
-- (0.0.3)       cbpi4-PushOver
-- (0.0.2)       cbpi4-FermenterHysteresis
-- (0.0.1)       LCDisplay
-- (0.0.2)       cbpi4-system
-- (0.0.1)       cbpi4-RecipeImport
-- (0.0.1)       cbpi4-GroupedActor
-- (0.0.1)       cbpi4-scd30_CO2_Sensor
-- (0.0.1)       cbpi4-hx711-loadcell
-- (0.0.1)       cbpi4-DependentActor
-- (0.0.2)       cbpi4-PIDBoil
-- (0.0.1)       cbpi4-GPIODependentActor
-- (0.0.1)       cbpi4-PIDHerms
-- (0.0.1)       cbpi4-Flowmeter
---------------------------------------
+---------------------
+Welcome to CBPi
+---------------------
+
+ List of active plugins
+
+ Name                            Version    Author                             Homepage                                                     Summary
+------------------------------  ---------  ---------------------------------  -----------------------------------------------------------  ---------------------------------------------------------------------------
+cbpi4-LCDisplay                 0.0.3      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-LCDisplay                 CraftBeerPi4 LCD Plugin Mod
+cbpi4-PushOver                  0.0.3      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-PushOver                  CraftBeerPi4 Plugin to forward Notifications to Pushover Push Notifications
+cbpi4-buzzer                    0.0.2      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-buzzer                    CraftBeerPi4 Buzzer Plugin
+cbpi4ui                         0.2.0a4    Manuel Fritsch                     http://web.craftbeerpi.com                                   CraftBeerPi User Interface
+cbpi4-pt100x                    0.1.1      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-pt100x                    CraftBeerPi4 PT100/PT1000 Sensor Plugin
+cbpi4-BM-PID-SmartBoilWithPump  0.1.1      ['Alexander Vollkopf', 'Guy Lev']  https://github.com/avollkopf/cbpi4-BM_PID_SmartBoilWithPump  CraftBeerPi4 PID Kettle Logic Plugin
+cbpi4-iSpindle                  0.0.7      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-iSpindle                  CraftBeerPi4 iSpindle Sensor Plugin
+cbpi4-PID-AutoTune              0.0.8      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-PIDAutoTune               CraftBeerPi4 Kettle Logic for PID Auto Tune
+cbpi4-scd30-CO2-Sensor          0.0.3      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-scd30-co2-sensor          CraftBeerPi4 Plugin for SCD30 based CO2 Sensor
+cbpi4-KettleSensor              0.0.5      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-KettleSensor              CraftBeerPi4 Plugin to add Sensor parameters for your Kettle and Fermenter
+cbpi4-BLEHydrom                 0.0.4      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-BLEHydrom                 CraftBeerPi4 Plugin for Hydrom and Tilt (BLE connection)
+cbpi4-system                    0.0.3      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-system                    CraftBeerPi4 Plugin for system fucntions
+
 
 ```
 
