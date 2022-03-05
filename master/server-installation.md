@@ -8,6 +8,10 @@ There is also the possibility to install the server from a pre-configured image.
 
 First you will need to install Raspbian from an image. The installer can be found here: [https://www.raspberrypi.com/software/](https://www.raspberrypi.com/software/)
 
+{% hint style="info" %}
+CraftbeerPi4 requires python 3.9 and it is recommended to install it on bullseye. It has been tested on the 32 bit version but users have reported it is also working on 64 bit bullseye.
+{% endhint %}
+
 You should enable ssh to run commands also via a ssh connection from a remote PC / MAC. Open either a bash window or use a terminal to login via a remote ssh connection to your pi. The default user name is 'pi' and the default password is 'raspberry'. For safety reasons, you should change your password. This can be done with the RaspberryPi imager in the advanced options that can be accessed with CRTL + SHIFT + X.
 
 Once the image has been written to the SD card, you need to place the card in your Pi and start the system. The first boot will take some time as the system will expand the image and needs to boot several times.
@@ -55,16 +59,32 @@ sudo apt-get install python3-pip
 
 ### Installation of CraftbeerPi 4
 
-To install craftbeerpi4 from the repo, please run the following command:
+The installation of CraftbeerPi4 is done with the package installer for python (pip3). You can install the server directly from pypi.org with the following cxommand:
 
 ```
-sudo pip3 install https://github.com/avollkopf/craftbeerpi4/archive/master.zip
+sudo pip3 install cbpi
 ```
 
-The installation will take some time and it will also install the default user interface. However, to run the server with all the features, you will need to install also the latest user interface from the forked repo.
+To install craftbeerpi4 from the repo which can be newer once 9in a while, please run the following command:
 
 ```
-sudo pip3 install https://github.com/avollkopf/craftbeerpi4-ui/archive/main.zip
+sudo pip3 install https://github.com/craftbeerpi/craftbeerpi4/archive/master.zip
+```
+
+The installation will take some time and it will also install the default user interface. 
+
+To upgrade the user interface separately, you can run:
+
+```
+sudo pip3 install cbpi4ui
+```
+
+However, this is typically not required.
+
+There could be a newer version of the user interface in the repo and you could install this also directly from the repo.
+
+```
+sudo pip3 install https://github.com/craftbeerpi/craftbeerpi4-ui/archive/main.zip
 ```
 
 {% hint style="info" %}
@@ -156,7 +176,7 @@ If you see the empty dashboard of Craftbeerpi4, you were successful. Now you can
 If you want to autostart the server when the pi is booting, you can enable that with the following command:
 
 ```
-sudo cbpi add autostart
+sudo cbpi autostart on
 ```
 
 The following output should be on the bash screen:
@@ -184,7 +204,7 @@ Just replace `/home/pi` with the path hwere your config folder is located
 If you want to remove the autostart during boot, simply run this command:
 
 ```
-sudo cbpi remove autostart
+sudo cbpi autostart off
 ```
 
 It will take some time to stop the server and finally you will see this output:
@@ -196,6 +216,12 @@ Removed /etc/systemd/system/multi-user.target.wants/craftbeerpi.service.
 Removed craftbeerpi.service as service
 Deleted craftbeerpi.service from /etc/systemd/system
 
+```
+
+To see the status of cbpi autostart, you can run the following command:
+
+```
+sudo cbpi autostart status
 ```
 
 If you want to stop the server (running as service) for some reason (e.g. debugging), you can stop the server with the following command:
@@ -235,7 +261,7 @@ With Chromium 98 on bullseye (32 and 64 bit), Chromium might start with a white 
 To enable kiosk mode, you need to run the following command from the bash:
 
 ```
-sudo cbpi add chromium
+sudo cbpi chromium on
 ```
 
 You will see the following output that the required file has been copied to the autostart folder:
@@ -248,7 +274,7 @@ Copied chromium.desktop to /etc/xdg/autostart/
 You can also disable the kiosk mode via commandline. Therefore, you need to run the following command:
 
 ```
-sudo cbpi remove chromium
+sudo cbpi chromium off
 ```
 
 You will see the following output that the file has been removed from the autostart folder:
@@ -258,9 +284,13 @@ Remove chromium.desktop from /etc/xdg/autostart/
 Deleted chromium.desktop from /etc/xdg/autostart/
 ```
 
+You can also see the status for Chromium kiosk mode if you run the following command:
+
+```
+sudo cbpi chromium status
+```
 
 ## Installation of Craftbeerpi 4 from a pre-configured image to your sd-card
-
 
 
 There is also the possibility to write an image with a pre-installed CraftbeerPi4 server to your sd-card. This image comes with several installed plugins.
@@ -351,10 +381,16 @@ Password: raspberry
 
 ### Updating the Server
 
-If you want to update the server from my fork, you just need to run the same command as you did already for the installation of the server:
+If you want to update the server, you just need to run the same command as you did already for the installation of the server but should add the flag `--upgrade`:
 
 ```
-sudo pip3 install --upgrade https://github.com/avollkopf/craftbeerpi4/archive/master.zip
+sudo pip3 install --upgrade cbpi
+```
+
+Or from the repo:
+
+```
+sudo pip3 install --upgrade https://github.com/craftbeerpi/craftbeerpi4/archive/master.zip
 ```
 
 If new setting parameters have been added to cbpi, it will handle that in the extension Configupdate. Cbpi4 will add the parameters automatically during start if they are not yet in the config file.
@@ -364,7 +400,13 @@ If new setting parameters have been added to cbpi, it will handle that in the ex
 To update the user interface, you need to run again the command to install the user interface as done in the initial installation and use the upgrade flag in addition:
 
 ```
-sudo pip3 install --upgrade https://github.com/avollkopf/craftbeerpi4-ui/archive/main.zip
+sudo pip3 install --upgrade cbpi4ui
+```
+
+Or from the repo:
+
+```
+sudo pip3 install --upgrade https://github.com/craftbeerpi/craftbeerpi4-ui/archive/main.zip
 ```
 
 ## Other Hardware Tips
