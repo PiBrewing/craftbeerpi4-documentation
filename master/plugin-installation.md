@@ -12,7 +12,7 @@ Craftbeerpi4 comes with very basic functionality but has the possibility to use 
 There is currently no possibility to install plugins automatically via the integrated plugin page. All plugins need to be installed via the path described below. The plugin page does only show the installed plugins.
 {% endhint %}
 
-CraftbeerPi4 comes for instance with a Onewire sensor, but some users prefer a PT100/PT1000 sensor.  Therefore, a variety of plugins is already available and below is an example on how to install a PT100/PT1000 sensor plugin.
+CraftbeerPi4 comes for instance with a Onewire temperature sensor, but some users prefer a PT100/PT1000 sensor. Therefore, a variety of plugins is already available and below is an example on how to install a PT100/PT1000 sensor plugin.
 
 Some plugins have been made available via pypi.org and can be installed directly from there. Other plugins need to be installed directly from GitHub. The cbpi4-pt100X plugin is available on both platforms. Typically, the latest version is available on GitHub and will be released a bit later via pypi.org as package
 
@@ -51,7 +51,7 @@ If there is a new version of a plugin you can simply re-install the plugin or ru
 #### Re-Installation:
 
 ```
-sudo pip3 install https://github.com/avollkopf/cbpi4-pt100x/archive/main.zip
+sudo pip3 install --force-reinstall https://github.com/avollkopf/cbpi4-pt100x/archive/main.zip
 ```
 
 #### Upgrade:
@@ -59,7 +59,9 @@ sudo pip3 install https://github.com/avollkopf/cbpi4-pt100x/archive/main.zip
 ```
 sudo pip3 install --upgrade https://github.com/avollkopf/cbpi4-pt100x/archive/main.zip
 ```
-
+{% hint style="info" %}
+The update/upgrade or re-installation can be also done cia pypi.org if the plugin has been published there via the plugin name as shown above.
+{% endhint %}
 ## How to remove a plugin?
 
 {% hint style="info" %}
@@ -110,7 +112,7 @@ cbpi4-system                    0.0.3      Alexander Vollkopf                 ht
 The second option is directly from the user interface. Just click on the menu button on the top left and select Plugins. This will show this page which is still in development. However, you can see the active plugins and if the developer has added the corresponding information to his plugin, you can go directly to the corresponding webpage of the Plugin.
 
 {% hint style="info" %}
-At this point of time you can't install, activate or deactivate plugins on this page. It only shows the plugins you have installed and activated via command line.
+You can't install, activate or deactivate plugins on this page. It only shows the plugins you have installed and activated via command line.
 {% endhint %}
 
 ![CraftbeerPi4 Plugin Page](../.gitbook/assets/cbpi4-Plugins.png)
@@ -137,6 +139,7 @@ The tables below shows the plugins that are currently available by type. At this
 | Name                     | Description                                                        | Link                                                                 |
 | ------------------------ | ------------------------------------------------------------------ | -------------------------------------------------------------------- |
 | cbpi4-GoupedActor        | Allows to group Actors                                             | [GitHub Link](https://github.com/avollkopf/cbpi4-GroupedActor)       |
+| cbpi4-GoupedPowerActor        | Allows to group Actors and ramp the power linear over the individual actors | [GitHub Link](https://github.com/avollkopf/cbpi4-GroupedPowerActor)       |
 | cpbi4-DependentActor     | Allows to switch actors dependent on the state of other actors     | [GitHub Link](https://github.com/avollkopf/cbpi4-DependentActor)     |
 | cbpi4-GPIODependentActor | Allows to switch actors dependent on the state GPIO Inputs (alpha) | [GitHub Link](https://github.com/avollkopf/cbpi4-GPIODependentActor) |
 | cbpi4-pca9685            | PCA9685 I2C PWM Actor Plugin for CraftBeerPi4                      | [GitHub Link](https://github.com/jtubb/cbpi4-pca9685)                |
