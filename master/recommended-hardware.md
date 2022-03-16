@@ -10,6 +10,10 @@ The latest version of Raspberry Pi is Raspberry Pi 4 Model B.
 
 With this version, you can choose your RAM from 2gB to 8gB. The 2gB version is sufficient to run CBPI V4.
 
+{% hint style="info" %}
+I have tested a CraftbeerPi4 Installation on a Pi Zero W. Allthough a bit slow during startup, tThe server seems to be working. However, memory might be a limiting factor and you should definitely not think about installing and running Chromium on the Zero. This will keep the CPU quite busy.
+{% endhint %}
+
 For further information on Raspberry Pi, please have a look there : [https://www.raspberrypi.com/products/raspberry-pi-4-model-b/](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
 
 We also recommend to use a stable power supply, at least 15W USB-C power supply. For about 10 dollars, you'll buy the official raspberry power supply :).
