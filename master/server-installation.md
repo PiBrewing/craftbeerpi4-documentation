@@ -45,17 +45,15 @@ Select Interface options to enable I2C, Onewire support or whatever you need.
 
 From the main menu you can also select system options to enable and configure Wifi.
 
-![System Options](<../.gitbook/assets/System Options.png>)
-
-
-
-Now you can start installing the cbpi server. At this point of time, this guide will point to the forks of the server and user interface from Alexander Vollkopf, as they have the most recent code, fixes and features. You can find also plenty of plugins in the git space: [https://github.com/avollkopf?tab=repositories](https://github.com/avollkopf?tab=repositories).
+![System Options](<../.gitbook/assets/System Options.png>) 
 
 If you were using the full image of raspbian, the next steps are not required, as the packages are already included. On the lite image, you need to install a couple of packages, before you can install the server and user interface. Please run the following command to install the python3 package manager:
 
 ```
 sudo apt-get install python3-pip
 ```
+
+Now you can start installing the cbpi server.
 
 ### Installation of CraftbeerPi 4
 
@@ -65,7 +63,7 @@ The installation of CraftbeerPi4 is done with the package installer for python (
 sudo pip3 install cbpi
 ```
 
-To install craftbeerpi4 from the repo which can be newer once 9in a while, please run the following command:
+To install craftbeerpi4 from the repo which can be newer once in a while, please run the following command:
 
 ```
 sudo pip3 install https://github.com/craftbeerpi/craftbeerpi4/archive/master.zip
@@ -169,7 +167,7 @@ Now try to access cbpi via the webbrowser on your PI or on external client syste
 
 > IPADDRESSOFYOURPI:8000 -> e.g. 192.168.10.100:8000
 
-If you see the empty dashboard of Craftbeerpi4, you were successful. Now you can go back to the bash window and press CTRL + C to stop the server.&#x20;
+If you see the empty dashboard of Craftbeerpi4, you were successful. Now you can go back to the bash window and press CTRL + C to stop the server.
 
 ## Automatically start the server as service
 
@@ -251,11 +249,11 @@ sudo systemctl start craftbeerpi.service
 You can enable chromium kiosk mode via commandline. If this is enabled, chromium will start after boot in kiosk mode with craftbeerpi4.
 
 {% hint style="info" %}
-This has ben tested on the full raspbian version where chromium is installed as default. For other setups you may need to install the chromium browser manually.
+This has been tested on the full raspbian version where chromium is installed as default. For other setups you may need to install the chromium browser manually.
 {% endhint %}
 
 {% hint style="warning" %}
-With Chromium 98 on bullseye (32 and 64 bit), Chromium might start with a white screen and won't load the server on startup. If you experience this issue you need to disable hardware acceleration in Chromium settings
+With Chromium 98 on bullseye (32 and 64 bit), Chromium might start with a white screen and won't load the server on startup. If you experience this issue you need to disable hardware acceleration in Chromium settings.
 {% endhint %}
 
 To enable kiosk mode, you need to run the following command from the bash:
@@ -488,7 +486,7 @@ The numbering could also vary depending on the Pi you are using.
 
 ### Docker
 
-While CraftbeerPi is primarily created to be run on a RaspberryPi you can also use a docker image to run it. It can be found in the container registry on GitHub under the name `ghcr.io/avollkopf/craftbeerpi4`.
+While CraftbeerPi is primarily created to be run on a RaspberryPi you can also use a docker image to run it. It can be found in the container registry on GitHub under the name `ghcr.io/craftbeerpi/craftbeerpi4`.
 
 The image is currently only available for `arm64` and `amd64` architectures. If you want to run the image on a RaspberryPi make sure that you have installed a 64bit version of the operating system.
 
@@ -514,7 +512,7 @@ mkdir config && chown :1000 config
 
 # run a temporary CraftBeerPi container to write the initial
 # configuration files in the new folder
-docker run --rm -v "$(pwd)/config:/cbpi/config" ghcr.io/avollkopf/craftbeerpi4:latest cbpi setup
+docker run --rm -v "$(pwd)/config:/cbpi/config" ghcr.io/craftbeerpi/craftbeerpi4:latest cbpi setup
 ```
 
 #### Running the base image
@@ -522,7 +520,7 @@ docker run --rm -v "$(pwd)/config:/cbpi/config" ghcr.io/avollkopf/craftbeerpi4:l
 To run the image with the newly created configuration files you can use this command:
 
 ```bash
-docker run -d -v "$(pwd)/config:/cbpi/config" -p 8000:8000 ghcr.io/avollkopf/craftbeerpi4:latest
+docker run -d -v "$(pwd)/config:/cbpi/config" -p 8000:8000 ghcr.io/craftbeerpi/craftbeerpi4:latest
 ```
 
 #### Installing plugins
@@ -533,7 +531,7 @@ This `Dockerfile` can use the _official_ one as base and extends it by installin
 
 {% code title="Dockerfile" %}
 ```docker
-FROM ghcr.io/avollkopf/craftbeerpi4:latest
+FROM ghcr.io/craftbeerpi/craftbeerpi4:latest
 
 # Install plugins
 RUN pip3 install --no-cache-dir cbpi4-pt100x \
@@ -556,7 +554,7 @@ Of course you can use `docker-compose` to setup your environment. You can also u
 version: "3.7"
 services:
   craftbeerpi:
-    image: ghcr.io/avollkopf/craftbeerpi4:latest
+    image: ghcr.io/craftbeerpi/craftbeerpi4:latest
       volumes:
         - "./config:/cbpi/config"
       ports:
