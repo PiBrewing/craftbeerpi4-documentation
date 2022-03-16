@@ -34,7 +34,7 @@ The Pi has different options to connect a display.&#x20;
 
 The first possibility is HDMI. Raspberry Pi 4 uses micro HDMI ports (2) so you need one cable to connect to one display via Raspberry Pi 4's micro HDMI ports. Whereas it is possible to use a touch screen, we recommend to use a classic LCD screen. It will be easier to set up and use CBPI. &#x20;
 
-The second option is the installation of a display that is connected to the [DSI ](https://de.wikipedia.org/wiki/Display\_Serial\_Interface)interface of the raspberry. There are several displays available. The original raspberry display has only 7" with a touch screen included but is working pretty reliable if you use also the multiple dashboard function.
+The second option is the installation of a display that is connected to the [DSI](https://de.wikipedia.org/wiki/Display\_Serial\_Interface)interface of the raspberry. There are several displays available. The original raspberry display has only 7" with a touch screen included but is working pretty reliable if you use also the multiple dashboard function.
 
 ## CBPI Extension board
 
