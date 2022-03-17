@@ -18,31 +18,31 @@ Afterwards, the recipe editor will open and you can add a description for the re
 
 Now you need to add steps to the recipe. Therefore, you need to click on the '+' symbol on the right side of the fermenter steps label.
 
-![Mash Profile with a new empty step](../../.gitbook/assets/cbpi4-mashprofile-addstep.png)
+![Mash Profile with a new empty step](../../.gitbook/assets/cbpi4-fermenterprofile-addstep.png)
 
 To edit the added step, you need to click on the 'down arrow' at the right side of the step. This will open an interactive menu for the step.
 
-![Mash Profile with step in Edit mode](../../.gitbook/assets/cbpi4-mashprofile-recipe-editor2.png)
+![Mash Profile with step in Edit mode](../../.gitbook/assets/cbpi4-fermenterprofile-recipe-editor2.png)
 
 Now you need to select a mash step type which is currently labelled as 'Logic'. Therefore, you need to click on the Logic drop down menu and you will see the available step types.
 
-![Mash Step type selection](../../.gitbook/assets/cbpi4-mashprofile-stepselection.png)
+![Mash Step type selection](../../.gitbook/assets/cbpi4-fermenterprofile-stepselection.png)
 
-CraftbeerPi 4 comes with a pre-defined set of mash steps that can be added to a mash profile. Additional steps can be added via plugins. Some examples will be described in the [Development ](../development.md#creating-new-plugins)part.
+CraftbeerPi 4 comes with a pre-defined set of fermenter steps that can be added to a fermenter recipe. Additional steps can be added via plugins. Some examples will be described in the [Development](../development.md#creating-new-plugins) part.
 
-The table below summarizes the function and parameters for the standard mash steps that come with CraftbeerPi 4.
+The table below summarizes the function and parameters for the standard fermenter steps that come with CraftbeerPi 4.
 
 {% hint style="info" %}
-All Steps have the name filed and you should enter a name for each step. e.g. MashIn, MashStep1, Boilstep, ... as this information can be used in other plugins (e.g. LCDisplay)
+All Steps have the name field and you should enter a name for each step. e.g. RampTo Target, MainFermentation1, MainFermentation2, ... as this information can be used in other plugins (e.g. LCDisplay)
 {% endhint %}
 
 |                  | Description   | Parameters  |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| FermenterTargetTempStep       | Heats up or cools down to the target temp. Sends notification, when temp is reached and moves to next step. This can be used as first step to bbring wort to temp for yeast pitching.       | <p><strong>Temp:</strong> Target Temp for Step</p><p><strong>Sensor:</strong> Sensor to be used for this step</p><p><strong>Notification:</strong> Notification text that can be specified by user</p><p><strong>AutoMode:</strong> If yes: Kettle Logic will be switched on/off when step starts/stops</p>                                                                                                                                                                                                                                                                                                   |
-| FermenterStep         | Heats up or cools down to the target temp and runs until Timer is done.                                                                                                                        | <p><strong>TimeD:</strong> Time in days for Timer</p><strong>TimeH:</strong> Time in hours for Timer</p><strong>TimeM:</strong> Time in hours for Timer</p><p><strong>Temp:</strong> Target Temp for FermenterStep</p><p><strong>Sensor:</strong> Sensor to be used for this step</p><p><strong>AutoMode:</strong> If yes: Kettle Logic will be switched on/off when step starts/stops<p>                                                                                                                                                                                                                                              |
-| FermenterNotificationStep | Sends a Notification and can wait on user input. Can be used as step between two other steps with a required user input or at the end to inform the user that the fermentation is completed             | <p><strong>Notification:</strong> Notification text that can be specified by user</p><p><strong>AutoNext:</strong> If set to 'No', step is waiting for user input to move to next step. Otherwise, next step is automatically started.</p>                                                                                                                                                                                                                                                                                                                                                    |
+| ---------------- | ------------- | ----------- |
+| FermenterTargetTempStep | Heats up or cools down to the target temp. Sends notification, when temp is reached and moves to next step. This can be used as first step to bbring wort to temp for yeast pitching. | <p><strong>Temp:</strong> Target Temp for Step</p><p><strong>Sensor:</strong> Sensor to be used for this step</p><p><strong>Notification:</strong> Notification text that can be specified by user</p><p><strong>AutoMode:</strong> If yes: Kettle Logic will be switched on/off when step starts/stops</p> |
+| FermenterStep | Heats up or cools down to the target temp and runs until Timer is done. | <p><strong>TimeD:</strong> Time in days for Timer</p><strong>TimeH:</strong> Time in hours for Timer</p><strong>TimeM:</strong> Time in hours for Timer</p><p><strong>Temp:</strong> Target Temp for FermenterStep</p><p><strong>Sensor:</strong> Sensor to be used for this step</p><p><strong>AutoMode:</strong> If yes: Kettle Logic will be switched on/off when step starts/stops<p> |
+| FermenterNotificationStep | Sends a Notification and can wait on user input. Can be used as step between two other steps with a required user input or at the end to inform the user that the fermentation is completed. | <p><strong>Notification:</strong> Notification text that can be specified by user</p><p><strong>AutoNext:</strong> If set to 'No', step is waiting for user input to move to next step. Otherwise, next step is automatically started.</p> |
 
-## Write your first simple recipe
+## Write your first simple fermenter recipe
 
 As described above, the basic data has been entered and the first step has been added to your recipe. Now you need to select a step type. I recommend to start with a MashInStep as this steps will heat up your water to the target temperature and sends a notification when the temperature is reached and will wait for a user input before moving to the next step. This allows you to add the malt at the mash-in temperature.
 
