@@ -6,7 +6,7 @@ On the CraftbeerPi 4 fermenter profile page, you can create recipes manually and
 
 Now click on the recipe book button to open the recipe book. This will be empty when you open it for the first time.
 
-![Empty recipe book](../../.gitbook/assets/cbpi4-fermenterprofile-recipe-editor.png)
+![Empty Recipe Book](../../.gitbook/assets/cbpi4-fermenterprofile-recipe-editor.png)
 
 To create a new recipe, click on the '+' at the top right. An interactive menu will open where you can enter the Name of your recipe. 
 
@@ -14,7 +14,7 @@ To create a new recipe, click on the '+' at the top right. An interactive menu w
 
 Afterwards, the recipe editor will open and you can add a description for the recipe
 
-![Basic data fields for a new recipe](../../.gitbook/assets/cbpi4-mashprofile-recipe-editor.png)
+![Create a recipe](../../.gitbook/assets/cbpi4-fermenterprofile-recipe-editor.png)
 
 Now you need to add steps to the recipe. Therefore, you need to click on the '+' symbol on the right side of the fermenter steps label.
 
