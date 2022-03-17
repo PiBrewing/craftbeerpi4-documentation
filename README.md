@@ -4,6 +4,14 @@ description: Software for brewing and fermenting beer
 
 # Craftbeerpi4
 
+#### Versions:
+
+Documentation: 1.3
+
+Valid for 
+- Server: 4.0.3
+- User Interface: 0.2.0.5
+
 ## Craftbeerpi 4 overview
 
 Craftbeerpi4 is an open source software solution developed by Manuel Fritsch to control the brewing and fermentation of beer and maybe more in the future. The server side is based on python 3 and the front end on a react / Material UI interface. The hardware is focused on the RapsberryPi as this board has plenty of GPIO's to read sensors and control actors. However, it is also possible to connect other sensors and actors via http connection. Therefore, plugins are required.
