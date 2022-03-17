@@ -83,6 +83,10 @@ If you click on the back button 'left arrow' at the top, you will see your recip
 
 If you click on the recipe, you come back to the edit screen. At the top of the recipe edit screen is also a fermenter icon. You can send the recipe now to a fermenter by clicking on the fermenter icon. 
 
+{% hint Style="info" %}
+I recommend to store some basic recipes with global names Like 'Lager @ 9°C' as recipe name in the fermenter recipe book. Right before sending the recipe to the femrenter, just change the name to your current beername but don't save the recipe to the book. Just click on the send button. The recipe book will have still the more generic recipe name, but the Fermenter and the corresponding step wiget in the dahsboard will show the beername of your current fermentation.
+{% endhint %}
+
 ![Full recipe with all steps and fermenter icon](../../.gitbook/assets/cbpi4-fermenterprofile-fullrecipe_icon.png)
 
 A window will open where you need to select the fermenter, to which you want to send the recipe. 
