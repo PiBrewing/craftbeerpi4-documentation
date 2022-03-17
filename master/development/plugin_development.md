@@ -17,7 +17,7 @@ Plugin Creation
 ? Plugin Name:  testplugin
 ```
 
-In this example, the pluginname `Test` has been entered. CraftbeerPi4 will add a suffix `cbpi4_` as this is required to identify the plugins during startup
+In this example, the pluginname `testplugin` has been entered. CraftbeerPi4 will add a suffix `cbpi4_` as this is required to identify the plugins during startup
 
 The software will create a folder with a template for your plugin and configures it with `cbpi4_testplugin` (from this example)
 
