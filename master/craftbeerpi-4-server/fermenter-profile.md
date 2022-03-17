@@ -44,49 +44,39 @@ All Steps have the name field and you should enter a name for each step. e.g. Ra
 
 ## Write your first simple fermenter recipe
 
-As described above, the basic data has been entered and the first step has been added to your recipe. Now you need to select a step type. I recommend to start with a MashInStep as this steps will heat up your water to the target temperature and sends a notification when the temperature is reached and will wait for a user input before moving to the next step. This allows you to add the malt at the mash-in temperature.
+As described above, the basic data has been entered and the first step has been added to your recipe. Now you need to select a step type. I recommend to start with a FermenterTargetTemp step as this step will bring your wort to the desired temp at which you want to pitch the yeast. It sends a notification when the temperature is reached (You need to specify the text) and will automatically move to the next step.
 
-You need to set the targeted mashin temperature and select the sensor and Kettle you want to use for this step. You should also specify a notification that is send when the target temperature is reached. I also recommend to set AutoMode to Yes.&#x20;
+You need to set the targeted temperature and you can select the sensor you want to use for this step. You should also specify a notification that is send when the target temperature is reached. I also recommend to set AutoMode to Yes.
 
 {% hint style="info" %}
-AutoMode set to 'Yes' will switch on the kettle logic when a step starts and switch it off at the end of the step. This is the recommended setting for your mash and boil steps
+AutoMode set to 'Yes' will switch on the fermenter logic when a step starts and switch it off at the end of the step. This is the recommended setting for your steps.
 {% endhint %}
 
-![MashIn Step](../../.gitbook/assets/cbpi4-masprofile-mashin.png)
+![Ramp to target temp Step](../../.gitbook/assets/cbpi4-fermenterprofile-cooldown.png)
 
-Now you need to add a mash step and define the temperature for the first mash step which can be the same as the mashin step. Just click again on the '+' symbol to add an empty step and select MashStep as Logic. In this step you will need to define a timer in minutes and select your temperature sensor and kettle. Also here I recommend to use the automode setting. The timer will start counting, once the target temperature is reached.
+Now you need to add a step and define the temperature for the first fermentation step which can be the same as the first step step. Just click again on the '+' symbol to add an empty step and select FermenterStep as Logic. In this step you will need to define a timer in days, hours and minutes and select your temperature sensor. Also here I recommend to use the automode setting. The timer will start counting, once the target temperature is reached.
 
-![First Mash step](../../.gitbook/assets/cbpi4-mashprofile-mash1.png)
+{% hint Style="info" %}
+The three parameters for days, hours and minutes will add up. You can leave also some fileds empty and it will be counted as 0.
+{% endhint %}
 
-In this example we add another mash step at a higher temperature. The procedure to add another step is the same as before. Define name, temperature, time and select your sensor and kettle. Set Automode to 'yes'
+![First fermentation step](../../.gitbook/assets/cbpi4-fermenterprofile-mainfermentation.png)
 
-![Second Mash Step](../../.gitbook/assets/cbpi4-mashprofile-mash2.png)
+In this example we add another step at a higher temperature. The procedure to add another step is the same as before. Define name, temperature, time and select your sensor. Set Automode to 'yes'
 
-Afterwards, we add a mashout step which is also a regular mashstep at 78°C for 5 minutes. The other options will be the same as in the first two mash steps.
+![Second fermentation Step](../../.gitbook/assets/cbpi4-fermenterprofile-mainfermentation2.png)
 
-![Mashou step](../../.gitbook/assets/cbpi4-mashprofile-mashout.png)
+Afterwards, we add a step at 16°C to reduce the diacetyl. The other options will be the same as in the first two fermentation steps.
 
-Now it is recommended to add a Notification step for the lautering process before you can move to the boilstep. This step is based on a Notification step. Just select the notification step, enter some text for the notification and set AutoNext to 'No'. This will raise a pop-up message that needs to be confirmed before the system is moving to the next step.
-
-![Lautering step based on the Notification step](../../.gitbook/assets/cbpi4-mashprofile-lautering.png)
-
-As next step, you need to add a boilstep. In this step you need to define a couple of more parameters compared to the mash steps. However, the first few parameters are the same. You need to define the name, time, temperature. Then you need to select your sensor and kettle which can be for instance different from the mash kettle if your boil takes place in a different kettle. The lid alert flag can be set to yes. In this case the system will send a notification shortly before boiling temperature to remove the lid. AutoMode should e set again to 'Yes'. If your recipe has first wort hops included, you can set the First Wirt flag to yes. This will send a notification to add hops once you start this step. You can also define up to 6 hop/misc alarms. The time is the remaining boil time for the hops.
-
-![Boilstep with hop alarms](../../.gitbook/assets/cbpi4-mashprofile-boil.png)
-
-After the boilstep, it is recommended to add a waitstep that can be used as Whirpool. Just enter 15 minutes or your desired time for this step.
-
-![Whirlpool based on Waitstep](../../.gitbook/assets/cbpi4-mashprofile-whirlpool.png)
-
-Finally, you can add a cooldown step for the active cool down of your wort. You need to specify a target temperature, select your sensor and kettle. You can also specify an actor that is triggered by this step (e.g. a magnetic valve that toggles the cooling water). If an actor is specified, the step will turn the actor on at start and turn it off, when the target cooldown temperature is reached. The step will also send a notification, when the target temperature is reached. It also tries to predict the time, when the target temperature is reached. However, this is currently not very accurate.
-
-![Cooldown step.](../../.gitbook/assets/cbpi4-mashprofile-cooldown.png)
+![Diacetyl step](../../.gitbook/assets/cbpi4-fermenterprofile-diacetylstep.png)
 
 Below you can see now the full recipe with all steps. You can move a step up or down with the up/down arrows on the right side. You can delete a step by clicking on the recycle bin button and you can edit a step by clicking on the down arrow as described above.
 
-![Full recipe with all steps](../../.gitbook/assets/cbpi4-mashprofile-fullrecipe.png)
+![Full recipe with all steps](../../.gitbook/assets/cbpi4-fermenterprofile-fullrecipe.png)
 
-Now you should save your recipe to the recipe book by clicking on the save button at the top right. If you click on the back button 'left arrow' at the top, you will see your recipe book with your first recipe. If you click on the recipe, you come back to the edit screen.&#x20;
+Now you should save your recipe to the recipe book by clicking on the save button at the top right. 
+
+If you click on the back button 'left arrow' at the top, you will see your recipe book with your first recipe. If you click on the recipe, you come back to the edit screen.
 
 ![Recipe Book](../../.gitbook/assets/cbpi4-recipebook-firstrecipe.png)
 
