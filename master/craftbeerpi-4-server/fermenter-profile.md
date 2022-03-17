@@ -1,6 +1,6 @@
 # Fermenter Profile
 
-On the CraftbeerPi 4 mash profile page, you can create recipes manually and send them to the mash step item for brewing. You can also store them in a recipe book and use them at a later point of time. You can also clone recipes or modify existing recipes. There is also the possibility to import recipes via beerxml files, from the database of 'Kleiner Brauhelfer 2' or directly via the Brewfather API (Paid premium account required). This part will be described in the [Recipe Upload](recipe-upload.md) section. If there is no active recipe defined, an empty window will open from where you can access the recipe book.
+On the CraftbeerPi 4 fermenter profile page, you can create recipes manually and send them to the fermenter step widget of a defined fermenter. You can also store them in a recipe book and use them at a later point of time for the same or different fermenters. You can also clone recipes or modify existing recipes. If there is no active recipe defined, an empty window will open from where you can access the recipe book.
 
 ![Empty Mash Profile window](../../.gitbook/assets/cbpi4-dashboard-fermenter-saved.png)
 
@@ -8,11 +8,15 @@ Now click on the recipe book button to open the recipe book. This will be empty 
 
 ![Empty recipe book](../../.gitbook/assets/cbpi4-fermenterprofile-recipe-editor.png)
 
-To create a new recipe, click on the '+' at the top right. An interactive menu will open where you can enter the Name of your recipe and a description. The brewer field will be filled with the brewer you entered on the [settings page](settings.md#global-system-parameters).&#x20;
+To create a new recipe, click on the '+' at the top right. An interactive menu will open where you can enter the Name of your recipe. 
+
+![Create a new fermenterrecipe](../../.gitbook/assets/cbpi4-fermenterprofile-recipe-newname.png)
+
+Afterwards, the recipe editor will open and you can add a description for the recipe
 
 ![Basic data fields for a new recipe](../../.gitbook/assets/cbpi4-mashprofile-recipe-editor.png)
 
-Now you need to add steps to the recipe. Therefore, you need to click on the '+' symbol on the right side of the Brew Steps label.
+Now you need to add steps to the recipe. Therefore, you need to click on the '+' symbol on the right side of the fermenter steps label.
 
 ![Mash Profile with a new empty step](../../.gitbook/assets/cbpi4-mashprofile-addstep.png)
 
