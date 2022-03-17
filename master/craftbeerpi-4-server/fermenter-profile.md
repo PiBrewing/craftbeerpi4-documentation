@@ -6,11 +6,11 @@ On the CraftbeerPi 4 mash profile page, you can create recipes manually and send
 
 Now click on the recipe book button to open the recipe book. This will be empty when you open it for the first time.
 
-![Empty recipe book](../../.gitbook/assets/cbpi4-mashprofile-recipes.png)
+![Empty recipe book](../../.gitbook/assets/cbpi4-fermenterprofile-recipe-editor.png)
 
 To create a new recipe, click on the '+' at the top right. An interactive menu will open where you can enter the Name of your recipe and a description. The brewer field will be filled with the brewer you entered on the [settings page](settings.md#global-system-parameters).&#x20;
 
-![Basic data fields for a new recipe](../../.gitbook/assets/cbpi4-fermenterprofile-recipe-editor.png)
+![Basic data fields for a new recipe](../../.gitbook/assets/cbpi4-mashprofile-recipe-editor.png)
 
 Now you need to add steps to the recipe. Therefore, you need to click on the '+' symbol on the right side of the Brew Steps label.
 
