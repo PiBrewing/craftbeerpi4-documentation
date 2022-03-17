@@ -8,6 +8,8 @@ To install for instance a development branch of the server, you need to look int
 
 ![Install other branch](../../.gitbook/assets/cbpi4-de-installbranch.png)
 
+
+
 to run the following command:
 
 ```
