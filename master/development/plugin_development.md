@@ -22,7 +22,7 @@ In this example, the pluginname `testplugin` has been entered. CraftbeerPi4 will
 The software will create a folder with a template for your plugin and configures it with `cbpi4_testplugin` (from this example)
 
 ```
-Plugin cbpi4_Test created!
+Plugin cbpi4_testplugin created!
 
 Developer Documentation: https://openbrewing.gitbook.io/craftbeerpi4_support/readme/development
 
