@@ -8,19 +8,19 @@ To install for instance a development branch of the server, you need to look int
 
 ![Install other branch](../../.gitbook/assets/cbpi4-dev-installbranch.png)
 
-
-
-to run the following command:
+In this example the server has for instance a branch called `development_fermentersteps`. To install this particular branch, you need to run the following command:
 
 ```
-sudo pip3 install https://github.com/avollkopf/craftbeerpi4/archive/development.zip
+sudo pip3 install https://github.com/craftbeerpi/craftbeerpi4/archive/development_fermentersteps.zip
 ```
 
-The only difference to the installation of the master branch is that main.zip is replaced with development.zip. If you want to upgrade from an existing installation, you should add the flag `--upgrade`.
+The only difference to the installation of the master branch is that master.zip is replaced with development_fermentersteps.zip as the brnach has this name. If you want to upgrade from an existing installation, you should add the flag `--upgrade`.
 
 ```
-sudo pip3 install --upgrade https://github.com/avollkopf/craftbeerpi4/archive/development.zip
+sudo pip3 install --upgrade https://github.com/avollkopf/craftbeerpi4/archive/development_fermentersteps.zip
 ```
+
+If you want to install another existing branch, you need to check the available brnaches and adapt the link acordingly.
 
 To revert back to the master branch, just run the commands for [updating your server](server-installation.md#updating-the-server).
 
@@ -29,7 +29,7 @@ To revert back to the master branch, just run the commands for [updating your se
 For development, it can be also important to have the server code on your local harddrive and install it from there. Therefore, you need to clone the repo in a first step:
 
 ```
-git clone https://github.com/avollkopf/craftbeerpi4
+git clone https://github.com/craftbeerpi/craftbeerpi4
 ```
 
 This will pull a local copy of the server software to your harddrive.
@@ -41,10 +41,10 @@ cd craftbeerpi4
 git branch
 ```
 
-If you want to use the development branch, you need to checkout this branch from within the craftbeerp4 directory:
+If you want to use for instance the development_fermentersteps branch, you need to checkout this branch from within the craftbeerp4 directory:
 
 ```
-git checkout development
+git checkout development_fermentersteps
 ```
 
 Afterwards you can check again which branch is used as describe above.
@@ -65,7 +65,9 @@ Development installation:
 ```
 sudo pip3 install -e ./craftbeerpi4
 ```
-
+{% hint tyle="info" %}
+The `-e` option allows you to change the code in the server and it will have a direct effect without the requirement of a new isntallation of the server. This is useful if you want to develop the server itself.
+{% endhint %}
 
 ## Setting up a virtual environment for development&#x20;
 
