@@ -109,8 +109,8 @@ If you want to save your changed recipe as new recipe, click on the ave button. 
 
 
 
-If you select now the Dashboard on your main menu and select the [Fermentation dashboard ](dashboard.md#creating-a-simple-single-kettle-brew-dashboard)you defined earlier, you will see that the active recipe is now also shown in your mash steps item.
+If you go now to the Dashboard on your main menu and select the [Fermentation dashboard ](dashboard.md#creating-a-simple-fermenter-dashboard)you defined earlier, you will see that the active recipe is now also shown in your fermenter steps widget.
 
-![Brewing dashboard with active recipe](../../.gitbook/assets/cbpi4-dashboard-activerecipe.png)
+![Brewing dashboard with active recipe](../../.gitbook/assets/cbpi4-dashboard-activefermenterrecipe.png)
 
-As mentioned above, there is also a way to automatically create recipes. This will be shown in the [Recipe Upload section.](recipe-upload.md) How to run now a recipe will be shown in the section [Operating your system](../operating-your-system.md).
+How to run now a recipe will be shown in the section [Operating your system](../operating-your-system.md).
