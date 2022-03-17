@@ -76,11 +76,22 @@ Below you can see now the full recipe with all steps. You can move a step up or 
 
 Now you should save your recipe to the recipe book by clicking on the save button at the top right. 
 
-If you click on the back button 'left arrow' at the top, you will see your recipe book with your first recipe. If you click on the recipe, you come back to the edit screen.
+If you click on the back button 'left arrow' at the top, you will see your recipe book with your recipe. In this example you can see already multiple recipes in the recipe book 
 
-![Recipe Book](../../.gitbook/assets/cbpi4-recipebook-firstrecipe.png)
+![Recipe Book](../../.gitbook/assets/cbpi4-fermenterrecipebook-firstrecipe.png)
 
-At the top of the recipe edit screen is also a mash paddle. If you want to set the recipe you loaded as active recipe, you need to click the mash paddle and the recipe is loaded and you can use it for brewing. A different window will open and you can basically start brewing by clicking on the start button. Also in this window, you can edit your recipe parameters or delete steps. You can also move steps up or down.
+
+If you click on the recipe, you come back to the edit screen. At the top of the recipe edit screen is also a fermenter icon. You can send the recipe now to a fermenter by clicking on the fermenter icon. 
+
+![Full recipe with all steps and fermenter icon](../../.gitbook/assets/cbpi4-fermenterprofile-fullrecipe_icon.png)
+
+A window will open where you need to select the fermenter, to which you want to send the recipe. 
+
+![Send recipe to fermenter](../../.gitbook/assets/cbpi4-fermenterprofile-sendtofermenter.png)
+
+Select your fermenter and click on the send button.
+
+A different window will open and you can basically start brewing by clicking on the start button. Also in this window, you can edit your recipe parameters or delete steps. You can also move steps up or down.
 
 ![Active recipe on the mash profile page](../../.gitbook/assets/cbpi4-mashprofile-activerecipe.png)
 
