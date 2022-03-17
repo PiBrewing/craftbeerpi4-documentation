@@ -6,7 +6,7 @@ At least the server and some of the plugins have development branches in the GIT
 
 To install for instance a development branch of the server, you need to look into the github repo if other branches than the master branch are available. The example below shows you the branches that are currently avaialble for the cratbeerpi4 code in the craftbeerpi organization repo.
 
-![Install other branch](../../.gitbook/assets/cbpi4-de-installbranch.png)
+![Install other branch](../../.gitbook/assets/cbpi4-dev-installbranch.png)
 
 
 
