@@ -145,6 +145,7 @@ The tables below shows the plugins that are currently available by type. At this
 | cbpi4-pca9685            | PCA9685 I2C PWM Actor Plugin for CraftBeerPi4                      | [GitHub Link](https://github.com/jtubb/cbpi4-pca9685)                |
 | cbpi4-http-actor         | Generic Craftbeerpi4 HTTP Actor Plugin                             | [GitHub Link](https://github.com/hurra/cbpi4-http-actor)             |
 | cbpi4-PCF8574-GPIO       | Extend PI's GPIO Actors by 8 via I2C device                        | [GitHub Link](https://github.com/avollkopf/cbpi4-PCF8574-GPIO)       |
+| cbpi4-TriacHatActor     | Plugin for using Waveshare's 2CH Triac Hat for controlling actors in CraftBeerPi | [GitHub Link](https://github.com/netanelklein/cbpi4-TriacHatActor)
 
 ### Kettle Controller
 
@@ -174,6 +175,7 @@ The tables below shows the plugins that are currently available by type. At this
 | Name               | Description                                              | Link                                                           |
 | ------------------ | -------------------------------------------------------- | -------------------------------------------------------------- |
 | cbpi4-BM\_Steps    | Example Plugin for custom Mash steps                     | [GitHub Link](https://github.com/avollkopf/cbpi4-BM\_Steps)    |
+| cbpi4\_Fermenterstep | Plugin for Additional Fermentersteps                   | [GitHub Link](https://github.com/avollkopf/cbpi4\_Fermenterstep)    |
 | cbpi4-RecipeImport | Example Plugin to customize automated recipe creation    | [GitHub Link](https://github.com/avollkopf/cbpi4-RecipeImport) |
 | cbpi4-buzzer       | Activates buzzer on cbpi4 messages                       | [GitHub Link](https://github.com/avollkopf/cbpi4-buzzer)       |
 | cbpi4-PushOver     | Forwards cbpi4 messages to Pushover push message service | [GitHub Link](https://github.com/avollkopf/cbpi4-PushOver)     |
