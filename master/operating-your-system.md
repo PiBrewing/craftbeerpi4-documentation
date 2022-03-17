@@ -97,7 +97,7 @@ CraftbeerPi4 supports also fermentation with the Fermenter hardware, a correspon
 The integrated logic has some special settings for fermentation and you need to adapt just a few settings for each batch. Details on the other parameters have been already described [here](craftbeerpi-4-server/hardware.md#setting-up-the-hardware-for-fermentation).
 
 * If you want to start the fermenter automatically during reboot, you need to set AutoStart to 'Yes'. If you are not fermenting in your fermenter, the setting should be switched back to 'No' or you should clear the fermenter profile for this fermenter that no steps are in the rofle that could be started.
-* The BrewName can be set in the recipe and will be shown in the [modded LCDisplay Plugin ](https://github.com/avollkopf/cbpi4-LCDisplay)during fermentation but also on thop of the fermenter step widget.
+* The BrewName does not need to be set here as it will  be be set in the recipe and will be shown in the [modded LCDisplay Plugin ](https://github.com/avollkopf/cbpi4-LCDisplay)during fermentation but also on thop of the fermenter step widget.
 * The additional sensor property in the logic is only relevant, if you use the modded LCDisplay Plugin. Here you can select for instance an iSpindle Sensor and your Gravity is shown on the LCDisplay
 
 ![Fermenter Hysteresis Settings](../.gitbook/assets/cbpi4-operating-fermenter-hysteresis.png)
