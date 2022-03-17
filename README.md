@@ -9,8 +9,8 @@ description: Software for brewing and fermenting beer
 Documentation: 1.3
 
 Valid for 
-- Server: 4.0.3
-- User Interface: 0.2.0.5
+- Server: 4.0.3.X
+- User Interface: 0.2.X
 
 ## Craftbeerpi 4 overview
 
