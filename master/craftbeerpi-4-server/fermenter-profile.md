@@ -113,4 +113,4 @@ If you go now to the Dashboard on your main menu and select the [Fermentation da
 
 ![Brewing dashboard with active recipe](../../.gitbook/assets/cbpi4-dashboard-activefermenterrecipe.png)
 
-How to run now a recipe will be shown in the section [Operating your system](../operating-your-system.md).
+How to run now a recipe will be shown in the section [Operating your system](../operating-your-system.md#use-the-system-for-fermentation).
