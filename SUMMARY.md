@@ -7,6 +7,7 @@
   * [CraftbeerPi 4 Server](master/craftbeerpi-4-server/README.md)
     * [Dashboard](master/craftbeerpi-4-server/dashboard.md)
     * [Mash Profile](master/craftbeerpi-4-server/mash-profile.md)
+    * [Fermenter Profile](master/craftbeerpi-4-server/fermenter-profile.md)
     * [Hardware](master/craftbeerpi-4-server/hardware.md)
     * [Settings](master/craftbeerpi-4-server/settings.md)
     * [Analytics](master/craftbeerpi-4-server/analytics.md)
