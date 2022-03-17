@@ -8,7 +8,7 @@ Now click on the recipe book button to open the recipe book. This will be empty 
 
 ![Empty Recipe Book](../../.gitbook/assets/cbpi4-fermenterprofile-empty.png)
 
-To create a new recipe, click on the '+' at the top right. An interactive menu will open where you can enter the Name of your recipe. 
+To create a new recipe, click on the '+' at the top right. An interactive menu will open where you can enter the Name of your recipe and click on the create button. 
 
 ![Create a new fermenterrecipe](../../.gitbook/assets/cbpi4-fermenterprofile-recipe-newname.png)
 
