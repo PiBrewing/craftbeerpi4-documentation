@@ -253,10 +253,14 @@ Now you can add also led items to display the activity of the heating or cooling
 
 ![Fermenter with led items added](../../.gitbook/assets/cbpi4-dashboard-fermenter-led.png)
 
+Finally, add a fermenterstep widget to your fermenter dashboard. This is basically the same as for the kettle. Howerver, for this widget you need to select the fermenter for which this widget triggers fermenter steps.
+
+![Fermenter with steps added](../../.gitbook/assets/cbpi4-fermenter-steps.png)
+
 Save your dashboard and lock it.
 
 ![Saved fermenter dashboard](../../.gitbook/assets/cbpi4-dashboard-fermenter-saved.png)
 
-Now you can switch between both dashboards to focus on brewing or fermentation.
+The empty recipe widget will bring you to the fermenter recipe book, where you can create or select existing recipes for this fermenter. Now you can switch between both dashboards to focus on brewing or fermentation.
 
 How to operate the fermenter will be shown in the section [Operating your system](../operating-your-system.md).
