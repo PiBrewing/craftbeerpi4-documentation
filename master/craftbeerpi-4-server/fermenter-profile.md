@@ -87,7 +87,7 @@ If you click on the recipe, you come back to the edit screen. At the top of the 
 I recommend to store some basic recipes with global names Like 'Lager @ 9°C' as recipe name in the fermenter recipe book. Right before sending the recipe to the femrenter, just change the name to your current beername but don't save the recipe to the book. Just click on the send button. The recipe book will have still the more generic recipe name, but the Fermenter and the corresponding step wiget in the dahsboard will show the beername of your current fermentation.
 {% endhint %}
 
-![Full recipe with all steps and fermenter icon](../../.gitbook/assets/cbpi4-fermenterprofile-fullrecipe_icon.png)
+![Full recipe with all steps and fermenter icon](../../.gitbook/assets/cbpi4-fermenterprofile-fullrecipe\_icon.png)
 
 A window will open where you need to select the fermenter, to which you want to send the recipe. 
 
@@ -95,11 +95,21 @@ A window will open where you need to select the fermenter, to which you want to 
 
 Select your fermenter and click on the send button.
 
-A different window will open and you can basically start brewing by clicking on the start button. Also in this window, you can edit your recipe parameters or delete steps. You can also move steps up or down.
+{% hint Style="info" %}
+If you have created a recipe for fermenter A and stored it in the recipe book and want to sent it at a later point of time to fermenter B, you don't need to take care of the temp sensors you may have specified. The send function will update the temp sensors with the correct IDs of the fermenter you send the recipe to.
+{% endhint %}
 
-![Active recipe on the mash profile page](../../.gitbook/assets/cbpi4-mashprofile-activerecipe.png)
+A different window will open and you can basically start brewing by clicking on the start button. Also in this window, you can edit your recipe parameters or delete steps. You can also move steps up or down. 
 
-If you select now the Dashboard on your main menu and select the [Brewing dashboard ](dashboard.md#creating-a-simple-single-kettle-brew-dashboard)you defined earlier, you will see that the active recipe is now also shown in your mash steps item.
+![Active recipe on the mash profile page](../../.gitbook/assets/cbpi4-fermenterprofile-activerecipe.png)
+
+If you want to save your changed recipe as new recipe, click on the ave button. If you want to get back to the recipe book, you need to click on the recipe book icon on the top right. You can also select one of your fermenters from the drop down menu to see the active recipe for other fermenters.
+
+![Active recipe on the mash profile page](../../.gitbook/assets/cbpi4-fermenterprofile\_selectfermenter.png)
+
+
+
+If you select now the Dashboard on your main menu and select the [Fermentation dashboard ](dashboard.md#creating-a-simple-single-kettle-brew-dashboard)you defined earlier, you will see that the active recipe is now also shown in your mash steps item.
 
 ![Brewing dashboard with active recipe](../../.gitbook/assets/cbpi4-dashboard-activerecipe.png)
 
