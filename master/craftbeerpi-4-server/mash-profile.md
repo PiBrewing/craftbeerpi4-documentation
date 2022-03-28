@@ -99,4 +99,4 @@ If you select now the Dashboard on your main menu and select the [Brewing dashbo
 
 ![Brewing dashboard with active recipe](../../.gitbook/assets/cbpi4-dashboard-activerecipe.png)
 
-As mentioned above, there is also a way to automatically create recipes. This will be shown in the [Recipe Upload section.](recipe-upload.md) How to run now a recipe will be shown in the section [Operating your system](../operating-your-system.md).
+As mentioned above, there is also a way to automatically create recipes. This will be shown in the [Recipe Upload section.](recipe-upload.md) How to run now a recipe will be shown in the section [Operating your system](../operating-your-system.md#use-the-system-for-brewing).

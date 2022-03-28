@@ -3,49 +3,53 @@
 CraftbeerPi4 has the capability to create a plugin template for the development of your own plugin. You just need to run the following command:
 
 ```
-cbpi create {PLUGINNAME}
+cbpi create
 ```
 
-This will create a folder with a template for your plugin and configures ith with your PLUGINNAME
-
-If you run for instance
+Craftbeerpi4 will ask you for a pluginname.
 
 ```
-cbpi create cbpi4-testplugin
+---------------------
+Welcome to CBPi
+---------------------
+Plugin Creation
+
+? Plugin Name:  testplugin
 ```
 
-A Plugin with the name cbpi4-testplugin will be created and you will see the following output:
+In this example, the pluginname `testplugin` has been entered. CraftbeerPi4 will add a suffix `cbpi4_` as this is required to identify the plugins during startup
+
+The software will create a folder with a template for your plugin and configures it with `cbpi4_testplugin` (from this example)
 
 ```
+Plugin cbpi4_testplugin created!
 
-Plugin cbpi4-testplugin created! See https://craftbeerpi.gitbook.io/craftbeerpi4/development how to run your plugin
+Developer Documentation: https://openbrewing.gitbook.io/craftbeerpi4_support/readme/development
 
-Happy Development! Cheers
-
+Happy developing! Cheers
 ```
 
 ## Plugin folder structure
 
-CraftbeeerPi4 is creating a folder with the name cbpi4-testplugin.
+CraftbeeerPi4 is creating a folder with the name cbpi4_testplugin.
 
 {% hint style="info" %} 
 It is recommended to install the plugin for testing with the `-e` option
 
-`sudo pip3 install -e ./cbpi4-testplugin`
+`sudo pip3 install -e ./cbpi4_testplugin`
 
-You will also need to add the plugin with  `cbpi add cbpi4-testplugin` to activate the plugin in cbpi. Changes of your code will immediately take effect w/o re-installation of the plugin when you restart cbpi. 
+Changes of your code will immediately take effect w/o re-installation of the plugin when you restart cbpi. 
 
 You should also stop the server as service and runn it in manual mode with `sudo cbpi start`to see the log outputs or errors directly on the screen.
-
 {% endhint %}
 
 If you navigate into the folder, you will see the  follwoing structure:
 
 ```
-pi@raspberrypi:~ $ cd cbpi4-testplugin/
+pi@raspberrypi:~ $ cd cbpi4_testplugin/
 pi@raspberrypi:~/cbpi4-testplugin $ ll
 insgesamt 52
-drwxr-xr-x 3 pi pi  4096 17. Jan 11:47 cbpi4-testplugin
+drwxr-xr-x 3 pi pi  4096 17. Jan 11:47 cbpi4_testplugin
 -rw-r--r-- 1 pi pi 35149 17. Jan 11:47 LICENSE
 -rw-r--r-- 1 pi pi    80 17. Jan 11:47 MANIFEST.in
 -rw-r--r-- 1 pi pi    30 17. Jan 11:47 README.md
@@ -54,7 +58,7 @@ drwxr-xr-x 3 pi pi  4096 17. Jan 11:47 cbpi4-testplugin
 
 The main folder conatins the LICENSE file and a MANIFEST file where you do not need to change anything. The README.md file will be seen if you upload your plugin to a github repo. This file should be edited with the required information on how to install, configure and use your plugin.
 
-The sub-folder `cbpi4-testplugin` ist the folder, where the plugin code is located.
+The sub-folder `cbpi4_testplugin` is the folder, where the plugin code is located.
 
 ### Plugin setup.py file
 
@@ -65,7 +69,7 @@ The setup.py file looks like this:
 ```
 from setuptools import setup
 
-setup(name='cbpi4-testplugin',
+setup(name='cbpi4_testplugin',
       version='0.0.1',
       description='CraftBeerPi Plugin',
       author='',
@@ -75,8 +79,8 @@ setup(name='cbpi4-testplugin',
       package_data={
         # If any package contains *.txt or *.rst files, include them:
       '': ['*.txt', '*.rst', '*.yaml'],
-      'cbpi4-testplugin': ['*','*.txt', '*.rst', '*.yaml']},
-      packages=['cbpi4-testplugin'],
+      'cbpi4_testplugin': ['*','*.txt', '*.rst', '*.yaml']},
+      packages=['cbpi4_testplugin'],
      )
 ```
 
@@ -85,7 +89,7 @@ You should change the version number whenever you modify/update your plugin. You
 You can also specify required python packages that will be installed during the installation of your plugin. In addition, it is recommended to andd a few lines that will help to display the README.md file also on the pypi.org page if you decide to create also a pacage for pypi.org that can be installed later just via:
 
 ```
-sudo pip3 install cbpi4-testplugin
+sudo pip3 install cbpi4_testplugin
 ```
 
 Below is an example of a setup.py for a [plugin](https://pypi.org/project/cbpi4-scd30-CO2-Sensor/), which is also available on the pypi.org page and can be installed directly from there.
@@ -147,8 +151,8 @@ sudo twine upload dist/*
 If you change into the sub folder of your main plugin directory, you can edit the plugin code. The code folder structre looks like this:
 
 ```
-pi@raspberrypi:~/cbpi4-testplugin $ cd cbpi4-testplugin/
-pi@raspberrypi:~/cbpi4-testplugin/cbpi4-testplugin $ ll
+pi@raspberrypi:~/cbpi4-testplugin $ cd cbpi4_testplugin/
+pi@raspberrypi:~/cbpi4_testplugin/cbpi4_testplugin $ ll
 insgesamt 12
 -rw-r--r-- 1 pi pi   33 17. Jan 11:47 config.yaml
 -rw-r--r-- 1 pi pi 1881 17. Jan 11:47 __init__.py

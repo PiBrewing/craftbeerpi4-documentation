@@ -92,13 +92,13 @@ When the step is completed, the system will raise a notification that the brewin
 
 ## Use the system for fermentation
 
-CraftbeerPi4 supports also fermentation with the Fermenter hardware and a corresponding fermenter logic. A simple fermentation hystersis logic is included with the server, but users can also write their own fermenter logic and install them as a plugin
+CraftbeerPi4 supports also fermentation with the Fermenter hardware, a corresponding fermenter logic and fermenter steps. A simple fermentation hystersis logic is included with the server, but users can also write their own fermenter logic and install them as a plugin. A couple of simple fermentation steps are included and also here, users can create / add steps via plugins.
 
-The integrated logic has some special settings for fermentation and you need to adapt just a few settings for each batch. Details on the other parameters have been already described [here](craftbeerpi-4-server/hardware.md#setting-up-the-hardware-for-fermentation). &#x20;
+The integrated logic has some special settings for fermentation and you need to adapt just a few settings for each batch. Details on the other parameters have been already described [here](craftbeerpi-4-server/hardware.md#setting-up-the-hardware-for-fermentation).
 
-* If you want to start the fermenter logic automatically during reboot, you need to set AutoStart to 'Yes'. If you are not fermenting in your fermenter, the setting should be switched back to 'No'.
-* The BrewName can be set in the logic but will be only shown in the [modded LCDisplay Plugin ](https://github.com/avollkopf/cbpi4-LCDisplay)during fermentation.
-* The additional sensor property is only relevant, if you use the modded LCDisplay Plugin. Here you can select for instance an iSpindle Sensor and your Gravity is shown on the LCDisplay
+* If you want to start the fermenter automatically during reboot, you need to set AutoStart to 'Yes'. In this case, the fermenter will start with the last step and the remaining time. If you are not fermenting in your fermenter, the setting should be switched back to 'No' or you should clear the fermenter profile for this fermenter that no steps are in the rofle that could be started.
+* The BrewName does not need to be set here as it will  be be set in the recipe and will be shown in the [modded LCDisplay Plugin ](https://github.com/avollkopf/cbpi4-LCDisplay)during fermentation but also on thop of the fermenter step widget.
+* The additional sensor property in the logic is only relevant, if you use the modded LCDisplay Plugin. Here you can select for instance an iSpindle Sensor and your Gravity is shown on the LCDisplay
 
 ![Fermenter Hysteresis Settings](../.gitbook/assets/cbpi4-operating-fermenter-hysteresis.png)
 
@@ -106,16 +106,20 @@ You need to save your settings and go back to your [dashboard, where you did set
 
 ![Fermenter dashboard](../.gitbook/assets/cbpi4-operating-fermenter.png)
 
-In the dashboard example above you can see two fermenters that can be operated in parallel. If you have more, you can also define more fermenters.
+In the dashboard example above you can see a dashboard with one fermenters and the fermenterstep widget where a recipe has been loaded. If you have multiple fermenters, you can add them to the same dashboard or use one dashboard per femrenter. You just need to pay attention that you assign the widgets such as control or steps to the correct fermenter you want to control.
 
-You need to set the TargetTemp to the desired temp for your fermentation via the fermenter control item. There is currently no possibility to run step based fermentation.&#x20;
-
-In this example the target temperature was defined at 10°C. If you have now assigned the femrenter control item to the Speidel fermenter as described [here](craftbeerpi-4-server/dashboard.md#creating-a-simple-fermenter-dashboard), you just need to click on the car symbol to start the Automode.
-
-![Speidel Fermenter is working in Automode](../.gitbook/assets/cbpi4-operating-fermenter-automode.png)
-
-As soon, as the Automode is started, the logic will switch on the actor for cooling or heating to get to the desired target temp. If you restart the system and have enabled Fermenter Autostart in the logic, the Automode will be started with the target temp specified in the logic settings.
+If you have not yet created or loaded a recipe for this fermenter, you need to create / load a recicpe from the [fermenterprofile / recipebook](craftbeerpi-4-server/fermenter-profile.md).
 
 {% hint style="info" %}
-There is currently no other way to run a fermentation. However, tests over a multiple batches have shown, that it is running very stable. Implementation of step based fermentation is planned, but there is currently no timeline available.
+There is no need to set the TargetTemp as this is done by the recipe. However, you could set the target temp and click on the auto symbol to run the fermenterlogic w/o any steps. The logic will ramp the temp to the desired target temp and keeps it until you stop the logic. However, this is not the recommended scenario to operate your fermenter.
 {% endhint %}
+
+
+To start the fermenterprocess, you just need to clock on the play button like it is already described for brewing and the steps for the specified fermenter will start and the steps will set parameters such as target temp automatically. If you enabled also Automode in the fermenter steps, the logci will also start automatically.
+
+![SS Brewtech Fermenter is working in Automode](../.gitbook/assets/cbpi4-operating-fermenter-automode.png)
+
+As soon, as the Automode is started, the logic will switch on the actor for cooling or heating to get to the desired target temp. If you restart the system and have enabled Fermenter Autostart in the logic, the Automode will be started with the last step and the remaining step time.
+
+Some steps have also step actions and you can access them or the step properties by clicking on the step itself. You can also pause, resume or move directly to the next step via the step widget in the same way as it has been described for the brewing.
+

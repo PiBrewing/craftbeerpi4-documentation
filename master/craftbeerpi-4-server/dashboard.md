@@ -20,6 +20,15 @@ Afterwards, the dashboard is in edit mode and will show some additional features
 
 On the left side, you see a menu that shows the available items you can add to the dashboard. At the top right, you see the current dashboard number you are editing. Next to the number you see a save symbol. You need to click on this symbol to save your changes before you lock the dashboard with the lock symbol on the right. On the right side you see a settings part where you can edit the settings for the active item you are working on. All the sections will be explained in the following parts.
 
+{% hint style="info" %}
+You can acces the dashboards also directly which is usefull, if you want to use for instance bookmarks for your kettle or fermenter dashboard. Therefore, you need to add `/fixdash/X` behind the address in your browser where `X`is the number of your dashboard.
+
+If you want to access for instance dashboardd number 3 on you server the is running on 'localhost', you just need to enter `http://localhost:8000/cbpi_ui/static/index.html#/fixdash/3` as address and you can directly access dashboard 3.
+
+Please note, that you cannot edit the dashboard, when you are using the direct links.
+{% endhint %}
+
+
 ## Item Menu
 
 {% hint style="info" %}
@@ -41,9 +50,10 @@ Many Item Names are not displayed on the dashboard. Nevertheless, you should spe
 | Clock               | Adds a clock                                                                                                                               | <p>Name: specifies a name for the Clock item (not displayed).</p><p>Size: Textsize of the item.</p><p>Showdate: shows clock with date if set to yes.</p><p>Color: defines the color of the item</p>                                                                                                                                                              |
 | Chart               | Adds a chart to display sensor values                                                                                                      | <p>Name: specifies a name for the Chart (displayed).</p><p>Sensor: select sensor data to be displayed.</p><p>Linecolor: define the color of the data.</p><p>Refresh: Refresh rate for the chart in seconds.</p><p>Width/Height: Defines chart size.</p>                                                                                                          |
 | Calculator          | Adds a volume calculator                                                                                                                   | To be described                                                                                                                                                                                                                                                                                                                                                  |
-| Liquid              | To be described                                                                                                                            | To be described                                                                                                                                                                                                                                                                                                                                                  |
-| FermenterTargetTemp | Adds a target temperature input for a Fermenter                                                                                            | <p>Name: specifies a name for the TargetTemp (not displayed).</p><p>Fermenter: Select Fermenter for which that temp shall be displayed.</p><p>Unit: Unit that is displayed behind target temp</p><p>Size: Text Size of displayed target temp</p><p>Color: Displayed color of item</p>                                                                            |
-| FermenterControl    | Adds a control for your Fermenter                                                                                                          | <p>Name: specifies a name for the Fermenter Control item (not displayed).</p><p>Fermenter: Select the fermenter to be controlled.</p><p>Size: Select one of three sizes for the item.</p><p>Orientation: Select horizontal or vertical</p>                                                                                                                       |
+| Liquid              | Simulates the liquid level of a widget via overlay   | <p>Name: specifies a name for the Item (not displayed).</p><p>Sensor: select sensor to be linked to liquid level.</p><p>Color: define liquid overlay color.</p><p>maxvalue: define 100% value for liquid level.</p><p>Width/Height: Defines chart size.   |
+| FermenterTargetTemp | Adds a target temperature input for a Fermenter | <p>Name: specifies a name for the TargetTemp (not displayed).</p><p>Fermenter: Select Fermenter for which that temp shall be displayed.</p><p>Unit: Unit that is displayed behind target temp</p><p>Size: Text Size of displayed target temp</p><p>Color: Displayed color of item</p>                                                                            |
+| FermenterControl    | Adds a control for your Fermenter                                                                                                          | <p>Name: specifies a name for the Fermenter Control item (not displayed).</p><p>Fermenter: Select the fermenter to be controlled.</p><p>Size: Select one of three sizes for the item.</p><p>Orientation: Select horizontal or vertical<p>|
+| FermenterSteps          | Adds a Fermenterstep field (only one field per Fermenter possible)                                                                                            | <p>Name: specifies a name for the FermnenterSteps item (not displayed).</p><p>Width: defines the item width.</p><p>Stepsize: defines the text size of the steps.</p><p>Namesize: defines the recipe name textsize.</p> <p>Fermenter: specifies the femrenter for this item.</p>|
 | Pipe                | Adds a pipe that displays a flow when an actor is on                                                                                       | <p>FlowLeft: Left Flow animation if selected actor is active.</p><p>FlowRight: Right Flow animation if selected actor is active.</p>                                                                                                                                                                                                                             |
 
 ### How to add custom SVG items
@@ -252,10 +262,14 @@ Now you can add also led items to display the activity of the heating or cooling
 
 ![Fermenter with led items added](../../.gitbook/assets/cbpi4-dashboard-fermenter-led.png)
 
+Finally, add a fermenterstep widget to your fermenter dashboard. This is basically the same as for the kettle. Howerver, for this widget you need to select the fermenter for which this widget triggers fermenter steps.
+
+![Fermenter with steps added](../../.gitbook/assets/cbpi4-fermenter-steps.png)
+
 Save your dashboard and lock it.
 
 ![Saved fermenter dashboard](../../.gitbook/assets/cbpi4-dashboard-fermenter-saved.png)
 
-Now you can switch between both dashboards to focus on brewing or fermentation.
+The empty recipe widget will bring you to the fermenter recipe book, where you can create or select existing recipes for this fermenter. Now you can switch between both dashboards to focus on brewing or fermentation.
 
 How to operate the fermenter will be shown in the section [Operating your system](../operating-your-system.md).

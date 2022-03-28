@@ -10,6 +10,10 @@ The latest version of Raspberry Pi is Raspberry Pi 4 Model B.
 
 With this version, you can choose your RAM from 2gB to 8gB. The 2gB version is sufficient to run CBPI V4.
 
+{% hint style="info" %}
+I have tested a CraftbeerPi4 Installation on a Pi Zero W. Allthough a bit slow during startup, tThe server seems to be working. However, memory might be a limiting factor and you should definitely not think about installing and running Chromium on the Zero. This will keep the CPU quite busy.
+{% endhint %}
+
 For further information on Raspberry Pi, please have a look there : [https://www.raspberrypi.com/products/raspberry-pi-4-model-b/](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
 
 We also recommend to use a stable power supply, at least 15W USB-C power supply. For about 10 dollars, you'll buy the official raspberry power supply :).
@@ -30,7 +34,7 @@ The Pi has different options to connect a display.&#x20;
 
 The first possibility is HDMI. Raspberry Pi 4 uses micro HDMI ports (2) so you need one cable to connect to one display via Raspberry Pi 4's micro HDMI ports. Whereas it is possible to use a touch screen, we recommend to use a classic LCD screen. It will be easier to set up and use CBPI. &#x20;
 
-The second option is the installation of a display that is connected to the [DSI ](https://de.wikipedia.org/wiki/Display\_Serial\_Interface)interface of the raspberry. There are several displays available. The original raspberry display has only 7" with a touch screen included but is working pretty reliable if you use also the multiple dashboard function.
+The second option is the installation of a display that is connected to the [DSI](https://de.wikipedia.org/wiki/Display\_Serial\_Interface)interface of the raspberry. There are several displays available. The original raspberry display has only 7" with a touch screen included but is working pretty reliable if you use also the multiple dashboard function.
 
 ## CBPI Extension board
 
