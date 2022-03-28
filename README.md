@@ -9,8 +9,8 @@ description: Software for brewing and fermenting beer
 Documentation: 1.3
 
 Valid for 
-- Server: 4.0.4.X
-- User Interface: 0.2.1.X
+- Server: [4.0.4.X](https://github.com/craftbeerpi/craftbeerpi4/tree/development)
+- User Interface: [0.2.1.X](https://github.com/craftbeerpi/craftbeerpi4-ui/tree/development)
 
 ## Craftbeerpi 4 overview
 
