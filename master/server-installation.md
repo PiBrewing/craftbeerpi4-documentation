@@ -59,6 +59,8 @@ Now you can start installing the cbpi server.
 
 {% hint style="warning" %}
 To install cbpi directly from pypi.org, a release update needs to be done which is still pending. Therefore, yo need to run the installation as described in the [development section](development.md#running-a-development-version-of-the-server). You also need to install the developmetn branch of the user interface at this point of time to have all the functions described in this documentation.
+
+The description will be updated, as soon as the the development branch is merged into the master/main branch or a release has been published.
 {% endhint %}
 
 The installation of CraftbeerPi4 is done with the package installer for python (pip3). You can install the server directly from pypi.org with the following cxommand:
