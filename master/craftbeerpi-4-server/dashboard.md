@@ -80,7 +80,11 @@ A zip file with recent svg items can be downloaded from the corresponding [repo]
 
 The image below gives you an overview on the svg items in the zip.
 
-![SVG Items](../../.gitbook/assets/cbpi4-Icons.jpg)
+![SVG Items](../../.gitbook/assets/CraftbeerPi4_SVG_Icons.jpg)
+
+There are also SVG files for bottles.
+
+![SVG Bottles](../../.gitbook/assets/CraftbeerPi4_Flaschen.jpg)
 
 ## Creating a simple single kettle brew dashboard
 
