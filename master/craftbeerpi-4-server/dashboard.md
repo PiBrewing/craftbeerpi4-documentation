@@ -21,7 +21,7 @@ Afterwards, the dashboard is in edit mode and will show some additional features
 On the left side, you see a menu that shows the available items you can add to the dashboard. At the top right, you see the current dashboard number you are editing. Next to the number you see a save symbol. You need to click on this symbol to save your changes before you lock the dashboard with the lock symbol on the right. On the right side you see a settings part where you can edit the settings for the active item you are working on. All the sections will be explained in the following parts.
 
 {% hint style="info" %}
-You can acces the dashboards also directly which is usefull, if you want to use for instance bookmarks for your kettle or fermenter dashboard. Therefore, you need to add `/fixdash/X` behind the address in your browser where `X`is the number of your dashboard.
+You can access the dashboards also directly which is usefull, if you want to use for instance bookmarks for your kettle or fermenter dashboard. Therefore, you need to add `/fixdash/X` behind the address in your browser where `X`is the number of your dashboard.
 
 If you want to access for instance dashboardd number 3 on you server the is running on 'localhost', you just need to enter `http://localhost:8000/cbpi_ui/static/index.html#/fixdash/3` as address and you can directly access dashboard 3.
 
