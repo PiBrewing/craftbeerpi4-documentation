@@ -23,7 +23,7 @@ On the left side, you see a menu that shows the available items you can add to t
 {% hint style="info" %}
 You can access the dashboards also directly which is usefull, if you want to use for instance bookmarks for your kettle or fermenter dashboard. Therefore, you need to add `/fixdash/X` behind the address in your browser where `X`is the number of your dashboard.
 
-If you want to access for instance dashboardd number 3 on you server the is running on 'localhost', you just need to enter `http://localhost:8000/cbpi_ui/static/index.html#/fixdash/3` as address and you can directly access dashboard 3.
+If you want to access for instance dashboard number 3 on you server the is running on 'localhost', you just need to enter `http://localhost:8000/cbpi_ui/static/index.html#/fixdash/3` as address and you can directly access dashboard 3.
 
 Please note, that you cannot edit the dashboard, when you are using the direct links.
 {% endhint %}
