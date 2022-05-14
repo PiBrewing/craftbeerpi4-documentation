@@ -10,7 +10,7 @@ To install for instance a development branch of the server, you need to look int
 In this example the server has for instance a branch called `development`. To install this particular branch, you need to run the following command:
 
 ```
-sudo pip3 install https://github.com/craftbeerpi/craftbeerpi4/archive/development.zip
+sudo pip3 install https://github.com/avollkopf/craftbeerpi4/archive/development.zip
 ```
 
 The only difference to the installation of the master branch is that master.zip is replaced with development_fermentersteps.zip as the brnach has this name. If you want to upgrade from an existing installation, you should add the flag `--upgrade`.
@@ -28,7 +28,7 @@ To revert back to the master branch, just run the commands for [updating your se
 The installation of the development branch of the user interface is basically working in the same way. You just need to change the link. Everything else is working as described above.
 
 ```
-sudo pip3 install https://github.com/craftbeerpi/craftbeerpi4-ui/archive/development.zip
+sudo pip3 install https://github.com/avollkopf/craftbeerpi4-ui/archive/development.zip
 ```
 
 ## Cloning the server to your local drive and install it from there
@@ -36,7 +36,7 @@ sudo pip3 install https://github.com/craftbeerpi/craftbeerpi4-ui/archive/develop
 For development, it can be also important to have the server code on your local harddrive and install it from there. Therefore, you need to clone the repo in a first step:
 
 ```
-git clone https://github.com/craftbeerpi/craftbeerpi4
+git clone https://github.com/avollkopf/craftbeerpi4
 ```
 
 This will pull a local copy of the server software to your harddrive.
@@ -48,10 +48,10 @@ cd craftbeerpi4
 git branch
 ```
 
-If you want to use for instance the development_fermentersteps branch, you need to checkout this branch from within the craftbeerp4 directory:
+If you want to use for instance the `development` branch, you need to checkout this branch from within the craftbeerp4 directory:
 
 ```
-git checkout development_fermentersteps
+git checkout development
 ```
 
 Afterwards you can check again which branch is used as describe above.

@@ -494,7 +494,7 @@ The numbering could also vary depending on the Pi you are using.
 
 ### Docker
 
-While CraftbeerPi is primarily created to be run on a RaspberryPi you can also use a docker image to run it. It can be found in the container registry on GitHub under the name `ghcr.io/craftbeerpi/craftbeerpi4`.
+While CraftbeerPi is primarily created to be run on a RaspberryPi you can also use a docker image to run it. It can be found in the container registry on GitHub under the name `ghcr.io/avollkopf/craftbeerpi4`.
 
 The image is currently only available for `arm64` and `amd64` architectures. If you want to run the image on a RaspberryPi make sure that you have installed a 64bit version of the operating system.
 
@@ -539,7 +539,7 @@ This `Dockerfile` can use the _official_ one as base and extends it by installin
 
 {% code title="Dockerfile" %}
 ```docker
-FROM ghcr.io/craftbeerpi/craftbeerpi4:latest
+FROM ghcr.io/avollkopf/craftbeerpi4:latest
 
 # Install plugins
 RUN pip3 install --no-cache-dir cbpi4-pt100x \
@@ -562,7 +562,7 @@ Of course you can use `docker-compose` to setup your environment. You can also u
 version: "3.7"
 services:
   craftbeerpi:
-    image: ghcr.io/craftbeerpi/craftbeerpi4:latest
+    image: ghcr.io/avollkopf/craftbeerpi4:latest
       volumes:
         - "./config:/cbpi/config"
       ports:
