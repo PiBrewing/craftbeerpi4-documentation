@@ -520,7 +520,7 @@ mkdir config && chown :1000 config
 
 # run a temporary CraftBeerPi container to write the initial
 # configuration files in the new folder
-docker run --rm -v "$(pwd)/config:/cbpi/config" ghcr.io/craftbeerpi/craftbeerpi4:latest cbpi setup
+docker run --rm -v "$(pwd)/config:/cbpi/config" ghcr.io/avollkopf/craftbeerpi4:latest cbpi setup
 ```
 
 #### Running the base image
@@ -528,7 +528,7 @@ docker run --rm -v "$(pwd)/config:/cbpi/config" ghcr.io/craftbeerpi/craftbeerpi4
 To run the image with the newly created configuration files you can use this command:
 
 ```bash
-docker run -d -v "$(pwd)/config:/cbpi/config" -p 8000:8000 ghcr.io/craftbeerpi/craftbeerpi4:latest
+docker run -d -v "$(pwd)/config:/cbpi/config" -p 8000:8000 ghcr.io/avollkopf/craftbeerpi4:latest
 ```
 
 #### Installing plugins
