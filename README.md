@@ -6,11 +6,11 @@ description: Software for brewing and fermenting beer
 
 #### Versions:
 
-Documentation: 1.3
+Documentation: 1.4
 
 Valid for 
-- Server: [4.0.4.a2](https://github.com/craftbeerpi/craftbeerpi4/tree/development)
-- User Interface: [0.2.1.a4](https://github.com/craftbeerpi/craftbeerpi4-ui/tree/development)
+- Server: [4.0.6](https://pypi.org/project/cbpi4/)
+- User Interface: [0.2.2](https://pypi.org/project/cbpi4gui/)
 
 ## Craftbeerpi 4 overview
 
