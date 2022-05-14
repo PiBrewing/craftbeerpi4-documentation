@@ -390,13 +390,13 @@ Password: raspberry
 If you want to update the server, you just need to run the same command as you did already for the installation of the server but should add the flag `--upgrade`:
 
 ```
-sudo pip3 install --upgrade cbpi
+sudo pip3 install --upgrade cbpi4
 ```
 
 Or from the repo:
 
 ```
-sudo pip3 install --upgrade https://github.com/craftbeerpi/craftbeerpi4/archive/master.zip
+sudo pip3 install --upgrade https://github.com/avollkopf/craftbeerpi4/archive/master.zip
 ```
 
 If new setting parameters have been added to cbpi, it will handle that in the extension Configupdate. Cbpi4 will add the parameters automatically during start if they are not yet in the config file.
@@ -406,13 +406,13 @@ If new setting parameters have been added to cbpi, it will handle that in the ex
 To update the user interface, you need to run again the command to install the user interface as done in the initial installation and use the upgrade flag in addition:
 
 ```
-sudo pip3 install --upgrade cbpi4ui
+sudo pip3 install --upgrade cbpi4gui
 ```
 
 Or from the repo:
 
 ```
-sudo pip3 install --upgrade https://github.com/craftbeerpi/craftbeerpi4-ui/archive/main.zip
+sudo pip3 install --upgrade https://github.com/avollkopf/craftbeerpi4-ui/archive/main.zip
 ```
 
 ## Other Hardware Tips
