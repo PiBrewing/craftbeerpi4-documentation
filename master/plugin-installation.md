@@ -119,7 +119,7 @@ You can't install, activate or deactivate plugins on this page. It only shows th
 
 ## Plugin List
 
-The tables below shows the plugins that are currently available by type. At this point of time I cannot guarantee that the list os complete as I can only add the plugins to the list I am aware of.
+The tables below shows the plugins that are currently available by type. At this point of time I cannot guarantee that the list is complete as I can only add the plugins to the list I am aware of.
 
 ### Sensors
 
