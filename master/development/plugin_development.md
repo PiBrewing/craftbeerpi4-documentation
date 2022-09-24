@@ -2,7 +2,7 @@
 
 CraftbeerPi4 has the capability to create a plugin template for the development of your own plugin. You just need to run the following command:
 
-```
+```python
 cbpi create
 ```
 
@@ -66,7 +66,7 @@ The setup.py file contains some information for the plugin installation such as 
 
 The setup.py file looks like this:
 
-```
+```python
 from setuptools import setup
 
 setup(name='cbpi4_testplugin',
@@ -95,7 +95,7 @@ sudo pip3 install cbpi4_testplugin
 Below is an example of a setup.py for a [plugin](https://pypi.org/project/cbpi4-scd30-CO2-Sensor/), which is also available on the pypi.org page and can be installed directly from there.
 
 
-```
+```python
 from setuptools import setup
 
 # read the contents of your README file
@@ -199,7 +199,7 @@ If you want to add for instance a new onewire sensor, you need to select the sen
 
 The Sensor Name and Sensor Type will be always required, even if you don't add properties to your plugin. However, the other porperties need to be added via  @parameters right in front of your class. Properties can be added to all plugins except for the CBPiExtension.
 
-```
+```python
 @parameters([Property.Select(label="Sensor", options=getSensors()), 
              Property.Number(label="offset",configurable = True, default_value = 0, description="Sensor Offset (Default is 0)"),
              Property.Select(label="Interval", options=[1,5,10,30,60], description="Interval in Seconds")])
@@ -208,7 +208,7 @@ class OneWire(CBPiSensor):
 
 If you want to add multiple properties, you need to separate them with a `,`. If you don't want to add properties for your sensor leave the @ parameters empty:
 
-```
+```python
 @parameters([])
 class YourNewSensor(CBPiSensor):
 ```
@@ -280,7 +280,7 @@ Every Plugin that you create needs t be registered during cbpi startup. This req
 
 One example is the [cbpi4-scd30-co2-sensor](https://github.com/avollkopf/cbpi4-scd30-co2-sensor). Before the sensor can be started / used, the hardware needs to be initialized which is done with the CBPiExtension class:
 
-```
+```python
 class SCD30_Config(CBPiExtension):
 
     def __init__(self,cbpi):
@@ -325,7 +325,7 @@ While SCD30_Config is initializing, it creates a task `self.init_sensor()` which
 
 The sensor module itself is just reading the cache and if data with a new timestamp is available, it will update the sensor value and pushs it to the user interface and mqtt and loggs the data.
 
-```
+```python
 @parameters([Property.Select("Type", options=["CO2", "Temperature", "Relative Humidity"], description="Select type of data to register for this sensor.")])
 class SCD30Sensor(CBPiSensor):
     
@@ -352,7 +352,7 @@ When initializing the module with `super` you need to pay attentio that you also
 
 As mentioned, you need to register both Plugin classes to run the sensor plugin as the sensor will require the CBPiExtension to retreive data and this needs to be started during cbpi startup. The registration is done at the end of the plugin with the setup function:
 
-```
+```python
 def setup(cbpi):
     cbpi.plugin.register("SCD30 Sensor", SCD30Sensor)
     cbpi.plugin.register("SDC30 Config", SCD30_Config)
@@ -367,7 +367,7 @@ The registration requires two strings. The first is the name or label you will s
 
 You can also put multiple 'modules' into one plugin. Below is a [step plugin](https://github.com/avollkopf/cbpi4-BM_Steps) shown as example. In this case, various steps have been put together. 
 
-```
+```python
 ...
 ...
 @parameters([Property.Number(label="Temp", configurable=True),
@@ -389,7 +389,7 @@ class BM_ActorStep(CBPiStep):
 
 Each of the steps need to be registered individually:
 
-```
+```python
 def setup(cbpi):
     '''
     This method is called by the server during startup 
@@ -417,7 +417,7 @@ Don't forget to register your extension separately from your plugin as described
 
 The example below shows an example, where the plugin starts with the CBPiExtension class to add an intervall to the global cbpi settings. In this case, a task will be created the initializes the senor. During the initialization, the task will run the funtion scd30_intervall. This function could be also directly included into the initialization task / function.
 
-```
+```python
 class SCD30_Config(CBPiExtension):
 
     def __init__(self,cbpi):
@@ -438,7 +438,7 @@ In this case, the function will add this parameter with the function `self.cbpi.
 - The next parameter specifies the explanation for this parameter that is shown on the settings page.
 - In case of `ConfigType.SELECT` you will also specify the options as another parameter. 
 
-```
+```python
 ...
     async def scd30_interval(self):
         global scd30_interval
