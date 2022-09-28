@@ -6,7 +6,7 @@ I want to show you some examples on how to write a sensor plugin. I will start w
 
 First, you will need to import the python packages you require for your plugin. As plenty of functions need to be processed asynchronus, you will always need to import asyncio. You will also need to import the CBPiSensor from the cbpi api.
 
-```
+```python
 # -*- coding: utf-8 -*-
 import asyncio
 import random
@@ -18,7 +18,7 @@ As already described in the [plugin properties section](plugin\_development.md#p
 
 The first function inside the class is the initialization of the sensor. You need to pay attentino the the name of your sensor class does match the name in the super `function`. If you change the name for your sensor class, you also need to change the name insode the `super` function. It is required, to use unique names for your sensor plugins. Defining two different classes with the same name will cause issues.
 
-```
+```python
 @parameters([])
 class CustomSensor(CBPiSensor):
 
@@ -45,7 +45,7 @@ To avoid this, you can add a `False` to the function which will only update the 
 
 The last function is really important and should not be forgotten. otherwise you may end up in a sever that does not respond dur to 100% CPU load. `await asyncio.sleep(1)` ensures, that the fucntion will wait 1 second until it starts over.
 
-```
+```python
     async def run(self):
         while self.running:
             self.value = random.randint(10, 100)
@@ -57,14 +57,14 @@ The last function is really important and should not be forgotten. otherwise you
 
 The `get_state` function is also essential as it might be used by oter sever routines. It returns the current sensor value and should not be removed.
 
-```
+```python
     def get_state(self):
         return dict(value=self.value)
 ```
 
 Finally, the plugin needs to be registered as it has been already described in the [plugin development part](plugin\_development.md#plugin-registration)
 
-```
+```python
 def setup(cbpi):
     '''
     This method is called by the server during startup
@@ -83,7 +83,7 @@ As more fucntions are required, you need to import also more libraries in the be
 
 In the beginning a global variable `cache`is defined as dict. this is used by all parts of the plugin.
 
-```
+```python
 # -*- coding: utf-8 -*-
 import os
 import logging
@@ -101,7 +101,7 @@ cache = {}
 
 You can also specify and use fucntions outside of your sensor class. In this case, the gravity will be calulated by this fucntion. The function is called by the sensor class itself and returns the calulated gravity.
 
-```
+```python
 async def calcGravity(polynom, tilt, unitsGravity):
 	if unitsGravity == "SG":
 		rounddec = 3
@@ -118,7 +118,7 @@ async def calcGravity(polynom, tilt, unitsGravity):
 
 This plugin uses more properties for the configuration and assignment of the iSpindle data. The user can also enter a polynomial fucntion that is used for the calculation of the gravity. Therefore, the text property is used. In addition to that the user can select a sensor. Data from this sensor can be retrieved by external sources, whenever the send a http request to a specified http endpoint.
 
-```
+```python
 @parameters([Property.Text(label="iSpindle", configurable=True, description="Enter the name of your iSpindel"),
              Property.Select("Type", options=["Temperature", "Gravity/Angle", "Battery", "RSSI"], description="Select which type of data to register for this sensor. For Angle, Polynomial has to be left empty"),
              Property.Text(label="Polynomial", configurable=True, description="Enter your iSpindel polynomial. Use the variable tilt for the angle reading from iSpindel. Does not support ^ character."),
@@ -128,7 +128,7 @@ This plugin uses more properties for the configuration and assignment of the iSp
 
 Once the properties have been defined, it is mandatory to initialize the sensor plugin. In this step, you should also define your variables for the properites with the `self.props.get("PROPERTY", DEFAULT_VALUE)` method. With `PROPERTY`, you specify / access the property, you specified in the `@parameters`section. If the property has not been defined, or the user has not entered a value in the sensor setup page, you can / should specify a default value in the function which is used if no value has been entered for this parameter.
 
-```
+```python
 class iSpindle(CBPiSensor):
     
     def __init__(self, cbpi, id, props):
@@ -146,7 +146,7 @@ This plugin is a bit more complex as it reads the sensor data from a cache which
 
 If the timestamp has not been updated, the push_update function will be only called with a `False` -> `self.push_update(self.Value, False)`. In this case, only the web interface will be updated, but not the mqtt broker. This is usefull for sensors like the iSpindle, as they report new values only every 15 minutes or so. If an existing value is available, the web interface will be updated frequently. Otherwise, the user would not see the current vlaue when pages are switched.
 
-```
+```python
     async def run(self):
         global cache
         global fermenter_temp
@@ -175,7 +175,7 @@ As mentioned before, the data for this sensor will be retrieved via http and a c
 
 This is done with the command `self.cbpi.register(self, "{PATH}")`. `{PATH}` is the link, wehre the server is listening to for this extension.
 
-```
+```python
 class iSpindleEndpoint(CBPiExtension):
     
     def __init__(self, cbpi):
@@ -197,7 +197,7 @@ The following function has to hanle the mapped request and contains all the requ
 
 The sensor plugin reads the cache continuoulsy and compares the timestamp with a reference if the cache is populated with new data, the sensor plugin will push it to the log and via mqtt.
 
-```
+```python
  
     @request_mapping(path='', method="POST", auth_required=False)
     async def http_new_value3(self, request):
@@ -239,10 +239,9 @@ The sensor plugin reads the cache continuoulsy and compares the timestamp with a
 
 Finally, all the modules need to be registered as described earlier.
 
-```
+```python
 def setup(cbpi):
     cbpi.plugin.register("iSpindle", iSpindle)
     cbpi.plugin.register("iSpindleEndpoint", iSpindleEndpoint)
     pass
-
 ```
