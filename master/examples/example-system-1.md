@@ -112,7 +112,30 @@ The max Pump temperature defines, when the pump will be switched off to prevent 
 
 Finally, you need to controll / adapt some settings on the server settings page.
 
-![Global Settings](../../.gitbook/assets/cbpi4-Example1-BM-Settings-1.png)
-![Global Settings](../../.gitbook/assets/cbpi4-Example1-BM-Settings-2.png)
-![Global Settings](../../.gitbook/assets/cbpi4-Example1-BM-Settings-3.png)
-![Global Settings](../../.gitbook/assets/cbpi4-Example1-BM-Settings-4.png)
+You need to set the 'Add Mashin Step' setting to yes for automated recipe creation from Kleiner Brauhelfer, MuMM or Brewfather. In this case, the system will add a first step with a target temp of the mash step and holds the system once the target temp is reached anbd stops the pump and heating. It'll will notify you to add the malt pip/malt and hit next
+
+You should also enable the automode to start and stop the logic automatically after each step.
+
+![Global Settings 1](../../.gitbook/assets/cbpi4-Example1-BM-Settings-1.png)
+
+You don'T need to select a kettle for the boilkettle as your Braumeister is a one Kettle system. But it would not hurt, if you would select the Braumeister as Boilkettle.
+
+![Global Settings 2](../../.gitbook/assets/cbpi4-Example1-BM-Settings-2.png)
+
+For the Mash_Tun you need to select your Braumeister Kettle.
+
+![Global Settings 3](../../.gitbook/assets/cbpi4-Example1-BM-Settings-3.png)
+
+In the steps settings, you need to select the correspondign steps you want to run for your device (You could also create your own steps via a plugin). 
+
+- Boil should be clear.
+- The boil temp can be defined and is filled in for the boilstep during the automated recipe creation.
+- If you are using a cooldown sensor, select your sensr here. Otherwise the default kettle sensor will be used if no sensor is selected.
+- If you are using a colldown valve, you need to select the corresponding actor that will be used for this step.
+- The mash step should be also clear as well as the nashin step.
+
+![Global Settings 4](../../.gitbook/assets/cbpi4-Example1-BM-Settings-4.png)
+
+{% hint style="info" %}
+Details for all steps are also described in the corresponding section of this documentation
+{% endhint %}
