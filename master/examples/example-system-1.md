@@ -86,10 +86,20 @@ If you want to use an additional one wire sensor for cooldown, you need to set u
 
 ![Cooldown Sensor](../../.gitbook/assets/cbpi4-Example1-BM-Sensor_cooldown.png)
 
-Optinally, you can also install the KettleSensor plugin and add two additional virtual sensors for your Braumeister: Target Temperature and Power. These sensors can be used to display both parameters.
+The advantage is that you measure a more realistic temeprature of your wort during cooldown as the PT1000 sensor is covered and 'isolated' with trub. Below you can see the difference for the PT1000 and the Cooldown sensor.
+
+![Cooldown Sensor Data](../../.gitbook/assets/cbpi4-Example1-BM-CooldownSensor.png)
+
+Optionally, you can also install the KettleSensor plugin and add two additional virtual sensors for your Braumeister: Target Temperature and Power. These sensors can be used to display both parameters.
 
 ![TargetTemp Sensor](../../.gitbook/assets/cbpi4-Example1-BM-Sensor_TargetTemp.png)
 ![Power Sensor](../../.gitbook/assets/cbpi4-Example1-BM-Sensor_Power.png)
 
+In case you are using influxdb and Grafana integration, you can display the relevant parameters for your brewing session including the target temperatures, the heating power and the measured temepratures.
+
+![Brewing Parameters](../../.gitbook/assets/cbpi4-Example1-BM_Brewing.png)
+
+
+### Kettle configuration
 
 
