@@ -16,6 +16,10 @@
 - Just unplug pump and heater and connect it to your Relais outputs. I am using SSR for both, heater and pump. They can handle 20A @ 240V AC
 - Thats about it for the hardware part.
 
+The image below shows how you connect your Braumeister to the aforementioned plugs:
+
+![Connctors](../../.gitbook/assets/cbpi4-Example1-BM-Connectors.jpg)
+
 ## CraftbeerPi 4 Software requirements (READ FIRST)
 - You need an installation of Craftbeerpi4 with some additional plugins.
 - You will need the [cbpi4-pt100X plugin](https://github.com/avollkopf/cbpi4-pt100x) to read the temeprature values from the PT1000 and configure it to PT1000.
