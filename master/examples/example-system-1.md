@@ -33,7 +33,15 @@ Only the pump plug has a ground connection on the Braumeister side. I strongly r
 
 ![Cooldown Valve](../../.gitbook/assets/cbpi4-Example1-Cooldown-Valve.jpg)
 
-## CraftbeerPi 4 Software requirements
+- In particular the older Braumeister models have some issues with the accurate temperature readings when cooling down your wort. Theerefore, I recommend to add another temp sensor (e.g. OneWire) to your braumeister during cooldown. The second sensor for cooldown  can be configured in the CraftbeerPi 4 settings. You just need a thermowell and some parts to fix your thermowell and sensor to the middle column of your Braumeister prior ro the cooldown step. 
+
+An example for the parts is shown here:
+![Thermowell parts](../../.gitbook/assets/cbpi4-Example1-Thermowell-parts.jpg)
+
+The placement of the Thermowell with Sensor after cooldown is shown here:
+![Cooldown Example](../../.gitbook/assets/cbpi4-Example1-CooldownProbe.jpg)
+
+## CraftbeerPi 4 software requirements
 - You need an installation of Craftbeerpi4 with some additional plugins.
 - You will need the [cbpi4-pt100X plugin](https://github.com/avollkopf/cbpi4-pt100x) to read the temeprature values from the PT1000 and configure it to PT1000.
 - You will also need a [logic plugin](https://github.com/avollkopf/cbpi4-BM_PID_SmartBoilWithPump) that covers pump pause, pump stop @ 88°C, PID temperature control and much more 
@@ -42,3 +50,5 @@ Only the pump plug has a ground connection on the Braumeister side. I strongly r
 - I do recommend to install and use also the [Pushover Plugin](https://github.com/avollkopf/cbpi4-PushOver) to recieve push notifications when you need to add or remove the malt pipe or add hops. Therefore, you need to buy the [PushOver APP](https://pushover.net/) for Android or IOS
 - I also recommend to install the [Kettle Sensor Plugin](https://github.com/avollkopf/cbpi4-KettleSensor) if you want to monitor some more information.
 - If you have a buzzer connected to your system or if you are using an extension board with a buzzer, you should install and configure the [Buzzer plugin](https://github.com/avollkopf/cbpi4-buzzer) accordingly
+
+
