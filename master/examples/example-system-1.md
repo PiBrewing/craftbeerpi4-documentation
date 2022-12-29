@@ -36,9 +36,11 @@ Only the pump plug has a ground connection on the Braumeister side. I strongly r
 - In particular the older Braumeister models have some issues with the accurate temperature readings when cooling down your wort. Theerefore, I recommend to add another temp sensor (e.g. OneWire) to your braumeister during cooldown. The second sensor for cooldown  can be configured in the CraftbeerPi 4 settings. You just need a thermowell and some parts to fix your thermowell and sensor to the middle column of your Braumeister prior ro the cooldown step. 
 
 An example for the parts is shown here:
+
 ![Thermowell parts](../../.gitbook/assets/cbpi4-Example1-Thermowell-parts.jpg)
 
 The placement of the Thermowell with Sensor after cooldown is shown here:
+
 ![Cooldown Example](../../.gitbook/assets/cbpi4-Example1-CooldownProbe.jpg)
 
 ## CraftbeerPi 4 software requirements
