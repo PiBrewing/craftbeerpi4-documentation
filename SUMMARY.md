@@ -24,4 +24,4 @@
       * [Actor Plugin Example](master/development/example_actor.md)
   * [Recommended Hardware](master/recommended-hardware.md)
   * [Examples](master/examples/README.md)
-    * [Example System 1](master/examples/example-system-1.md)
+    * [Example System: Braumeister](master/examples/example-system-1.md)
