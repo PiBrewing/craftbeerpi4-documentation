@@ -107,3 +107,12 @@ Finally, you need to define a Kettle with the required logic plugin mentioned ab
 The max Pump temperature defines, when the pump will be switched off to prevent pump failure. 88C is recommended and alinged with the original Braumeister controller settings. The may bvoil output defines the power that is used for boiling. For my Braumeister 20 L , 85% is suffucuent, but you can adat this to your needs for a good boil. Max Boil Temp is the temeprature, when the max boil output will be used. Max PID temp is the temperature, until the PID settings are used. Above this temeperature, the max output is used. The rest intervall is the intervall when the pump is paused. Default is 600 (= 10 Minutes like in te braumeister controller). The Rest time is the time in seconds for how long the pump is resting. The standard Braumeister setting is 1 Minute.
 
 ![Braumeister Kettle](../../.gitbook/assets/cbpi4-Example1-BM-Kettle-Config.png)
+
+### Global CraftbeerPi4 server settings
+
+Finally, you need to controll / adapt some settings on the server settings page.
+
+![Global Settings](../../.gitbook/assets/cbpi4-Example1-BM-Settings-1.png)
+![Global Settings](../../.gitbook/assets/cbpi4-Example1-BM-Settings-2.png)
+![Global Settings](../../.gitbook/assets/cbpi4-Example1-BM-Settings-3.png)
+![Global Settings](../../.gitbook/assets/cbpi4-Example1-BM-Settings-4.png)
