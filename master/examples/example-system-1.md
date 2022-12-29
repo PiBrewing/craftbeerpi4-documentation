@@ -25,7 +25,7 @@ I have removed the original controller completely from the Braumeister:
 ![Connectors](../../.gitbook/assets/cbpi4-Example1-BM-Ground.jpg)
 
 {% hint style="warning" %}
-Only the pump plug has a ground connection. I strongly recommend to add a ground connection from the heater plug (Braumeister side) to the Braumeister Kettle! You will also need to ensure ground connection from your controller side!
+Only the pump plug has a ground connection on the Braumeister side. I strongly recommend to add a ground connection from the heater plug (Braumeister side) to the Braumeister Kettle! You will also need to ensure ground connection from your controller side!
 {% endhint %}
 
 ## CraftbeerPi 4 Software requirements (READ FIRST)
