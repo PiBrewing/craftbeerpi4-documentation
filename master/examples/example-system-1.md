@@ -54,3 +54,42 @@ The placement of the Thermowell with Sensor after cooldown is shown here:
 - If you have a buzzer connected to your system or if you are using an extension board with a buzzer, you should install and configure the [**Buzzer plugin**](https://github.com/avollkopf/cbpi4-buzzer) accordingly
 
 
+## Setup your Braumeister hardware in CraftbeerPi 4
+
+{% hint style="info" %}
+Details on how to setup your software are not ashown here, as this is already described in the other chapters. GPIO settings depend on your individual controller build. ALso the inverted setting depends on your controller hardware configuration.
+{% endhint %}
+
+### Actors
+First you should define your actors for the Braumeister. You need one for the heating element and one for the pump. In casde you want to run a magnetic valve for the automated cooldown, You need to add another actor for the magnetic valve.
+
+![Braumeister Actors](../../.gitbook/assets/cbpi4-Example1-BM-Actors.png)
+
+For the heating element you can use a PWM type actor. As frequency, you can choose something between 0.1 and 0.5 Hz. Higher frequencies are not recommended and can cause also issues in your house (e.g. flickering lights). To be on the safe side, choos 0.1 Hz.
+
+![Heating Actor](../../.gitbook/assets/cbpi4-Example1-BM-Actor-Heat.png)
+
+For the pump select a regular GPIOActor as it will be only switched on or off once in a while. You can leave the sampling time empty as it is not relevant for this actor.
+
+![Pump Actor](../../.gitbook/assets/cbpi4-Example1-BM-Actor-Pump.png)
+
+In case you are using a cooldown valve, you can configure it in the same way as the pump.
+
+### Sensors
+Now you need to define your sensors. As mentioned, the Braumeister comes with a 2 wire PT1000. As mentioned above, you need to have a corresponding board connected to your Pi and you need to install the required plugin as mentoined above.
+
+![PT1000 Sensor](../../.gitbook/assets/cbpi4-Example1-BM-Sensor_PT1000.png)
+
+Configure your sensor and coose 1000 as resistivity value and 4300 as resistivity for your reference sensor (You need to buy the correct max board for the PT1000 and not one for a PT100). Choose 2 or 4 wires in the sensor settings. The other parameters are described in detail on the plugin page.
+
+If you want to use an additional one wire sensor for cooldown, you need to set up this sensor as well. Below is an example:
+
+![Cooldown Sensor](../../.gitbook/assets/cbpi4-Example1-BM-Sensor_cooldown.png)
+
+Optinally, you can also install the KettleSensor plugin and add two additional virtual sensors for your Braumeister: Target Temperature and Power. These sensors can be used to display both parameters.
+
+![TargetTemp Sensor](../../.gitbook/assets/cbpi4-Example1-BM-Sensor_TargetTemp.png)
+![Power Sensor](../../.gitbook/assets/cbpi4-Example1-BM-Sensor_Power.png)
+
+
+
