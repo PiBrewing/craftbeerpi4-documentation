@@ -6,14 +6,14 @@ description: Software for brewing and fermenting beer
 
 #### Versions:
 
-Documentation: 1.4.1
+Documentation: 1.4.2
 
 Valid for 
-- Server: [4.0.6](https://pypi.org/project/cbpi4/)
-- User Interface: [0.2.2](https://pypi.org/project/cbpi4gui/)
+- Server: [4.0.7](https://pypi.org/project/cbpi4/)
+- User Interface: [0.2.3](https://pypi.org/project/cbpi4gui/)
 
 Requirements:
-- Python 3.9
+- Python 3.9 (Python 3.10 might also work with [this change](https://github.com/avollkopf/craftbeerpi4/commit/f13993db31a8ccb9a506eb98a8b9d673fd64b244) but I have not tested it yet)
 - Bullseye is the recommended OS
 
 ## Craftbeerpi 4 overview
