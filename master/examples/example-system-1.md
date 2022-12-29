@@ -28,7 +28,7 @@ I have removed the original controller completely from the Braumeister:
 Only the pump plug has a ground connection on the Braumeister side. I strongly recommend to add a ground connection from the heater plug (Braumeister side) to the Braumeister Kettle (Yellow/Green Cable in the image above)! You will also need to ensure ground connection from your controller side!
 {% endhint %}
 
-## CraftbeerPi 4 Software requirements (READ FIRST)
+## CraftbeerPi 4 Software requirements
 - You need an installation of Craftbeerpi4 with some additional plugins.
 - You will need the [cbpi4-pt100X plugin](https://github.com/avollkopf/cbpi4-pt100x) to read the temeprature values from the PT1000 and configure it to PT1000.
 - You will also need a [logic plugin](https://github.com/avollkopf/cbpi4-BM_PID_SmartBoilWithPump) that covers pump pause, pump stop @ 88°C, PID temperature control and much more 
