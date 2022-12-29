@@ -39,6 +39,6 @@ Only the pump plug has a ground connection on the Braumeister side. I strongly r
 - You will also need a [logic plugin](https://github.com/avollkopf/cbpi4-BM_PID_SmartBoilWithPump) that covers pump pause, pump stop @ 88°C, PID temperature control and much more 
 - The PID settings have to be optimized for your kettle with the [PIDAutotune](https://github.com/avollkopf/cbpi4-PID_AutoTune) plugin.
 - PID control switches off at 88°C and boiling will be done with reduced heater power which can be defined in the logic settings (mine is running at 85% power during boil)
-- I do recommend to install and use also the [Pushover Plugin](https://github.com/avollkopf/cbpi4-PushOver) to recieve push notifications when you need to add or remove the malt pipe or add hops. Therefore, you need to buy the PushOver APP for android or IOS
+- I do recommend to install and use also the [Pushover Plugin](https://github.com/avollkopf/cbpi4-PushOver) to recieve push notifications when you need to add or remove the malt pipe or add hops. Therefore, you need to buy the [PushOver APP](https://pushover.net/) for Android or IOS
 - I also recommend to install the [Kettle Sensor Plugin](https://github.com/avollkopf/cbpi4-KettleSensor) if you want to monitor some more information.
 - If you have a buzzer connected to your system or if you are using an extension board with a buzzer, you should install and configure the [Buzzer plugin](https://github.com/avollkopf/cbpi4-buzzer) accordingly
