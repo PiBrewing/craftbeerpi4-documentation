@@ -225,7 +225,7 @@ For the GPIOPWM Actor, the user can define a frequency and the RPi.GPIO package 
 {% endhint %}
 
 {% hint style="info" %}
-If you are runnin your system with a PID logic, the logic will switch on the actor element and adapts only the power accordicgly. Hence, the actor itself remains on but with 0 power. Therefore, leds or other indicators will show the actor as on if a PID logic is used for the kettle.
+If you are running your system with a PID logic, the logic will switch on the actor element and adapts only the power accordingly. Hence, the actor itself remains on but with 0 power. Therefore, LEDs or other indicators will show the actor as on if a PID logic is used for the kettle.
 
 ![Example of active actor with 0 power](../../.gitbook/assets/cbpi4-heater_0_Power.png)
 {% endhint %}
