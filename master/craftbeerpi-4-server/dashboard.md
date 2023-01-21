@@ -224,6 +224,12 @@ If the standard GPIO Actor is set to 100% it will work like a regular GPIO Actor
 For the GPIOPWM Actor, the user can define a frequency and the RPi.GPIO package will handle the power settings incl. the frequency. However, you should not set the frequency to high in particular if you are working with a standard SSR ([link](https://electronics.stackexchange.com/questions/436599/pwm-1hz-on-solid-state-relay)).
 {% endhint %}
 
+{% hint style="info" %}
+If you are runnin your system with a PID logic, the logic will switch on the actor element and adapts only the power accordicgly. Hence, the actor itself remains on but with 0 power. Therefore, leds or other indicators will show the actor as on if a PID logic is used for the kettle.
+
+![Example of active actor with 0 power](../../.gitbook/assets/cbpi4-heater_0_Power.png)
+{% endhint %}
+
 {% hint style="warning" %}
 The RPi.GPIO package that is used for the PWM actor can set basically all GPIOs to PWM. But you need to know that this is still a software based PWM which is not suitable to run a servo. To run a servo you will need to add other hardware and [install the cbpi4-pca9685 plugin](../plugin-installation.md#actors).
 {% endhint %}
