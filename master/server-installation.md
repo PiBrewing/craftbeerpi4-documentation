@@ -542,8 +542,8 @@ This `Dockerfile` can use the _official_ one as base and extends it by installin
 FROM ghcr.io/avollkopf/craftbeerpi4:latest
 
 # Install plugins
-RUN pip3 install --no-cache-dir cbpi4-pt100x \
-    && cbpi add cbpi4-pt100x
+RUN pip3 install --no-cache-dir cbpi4-pt100x 
+    
 ```
 {% endcode %}
 
