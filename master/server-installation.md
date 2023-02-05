@@ -244,6 +244,14 @@ Then you can start the server in manual mode to see the logging and you can stop
 sudo cbpi start
 ```
 
+{% hint style="info" %}
+With recent version of cbpi4, the default logging is done only for warnngs and errors. If you want to get a more detailed log, you need to add a paramater to the start.
+```
+sudo cbpi -d 20 start
+```
+This will increase the log level to 'info'
+{% endhint %}
+
 To restart the server as service you can either reboot or just start it as serivce directly:
 
 ```
@@ -299,7 +307,7 @@ sudo cbpi chromium status
 
 There is also the possibility to write an image with a pre-installed CraftbeerPi4 server to your sd-card. This image comes with several installed plugins.
 
-The image can be downloaded from this [link](https://www.slammy.net/homebrewing/2022_05_cbpi4_0_6_ui_0_2_2.zip) which is kindly provided by Nicolas Slammy Outrey.
+The image can be downloaded from this [link](https://www.slammy.net/homebrewing/2023_02_cbpi4_1_0_ui_0_3_2.zip) which is kindly provided by Nicolas Slammy Outrey.
 
 {% hint style="warning" %}
 Please read all information BEFORE you boot your card the first time if you want to activate WiFi on a headless system!
@@ -308,33 +316,33 @@ Please read all information BEFORE you boot your card the first time if you want
 Current Version:
 
 ```
-Server Version: 4.0.6
-UI Version: 0.2.2
+Server Version: 4.1.0
+UI Version: 0.3.2
 --------------------------------------
 List of active plugins
  Name                            Version    Author                             Homepage                                                     Summary
 ------------------------------  ---------  ---------------------------------  -----------------------------------------------------------  ---------------------------------------------------------------------------
 cbpi4-BLEHydrom                 0.0.5      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-BLEHydrom                 CraftBeerPi4 Plugin for Hydrom and Tilt (BLE connection)
-cbpi4-BM-PID-SmartBoilWithPump  0.1.5      ['Alexander Vollkopf', 'Guy Lev']  https://github.com/avollkopf/cbpi4-BM_PID_SmartBoilWithPump  CraftBeerPi4 PID Kettle Logic Plugin
+cbpi4-BM-PID-SmartBoilWithPump  0.1.6      ['Alexander Vollkopf', 'Guy Lev']  https://github.com/avollkopf/cbpi4-BM_PID_SmartBoilWithPump  CraftBeerPi4 PID Kettle Logic Plugin
 cbpi4-DependentActor            0.0.1      UNKNOWN                            UNKNOWN                                                      CraftBeerPi Plugin
 cbpi4-Flowmeter                 0.0.4      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-Flowmeter                 CraftBeerPi4 Flowsensor / Step Plugin
 cbpi4-GembirdUSB                0.0.2      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-GembirdUSB                CraftBeerPi4 Plugin for Gembird USB Power Plug
 cbpi4-GroupedActor              0.0.5      Alexander VOllkopf                 https://github.com/avollkopf/cbpi4-GroupedActor              CraftBeerPi Plugin
 cbpi4-GroupedPowerActor         0.0.6      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-GroupedPowerActor         CraftBeerPi4 Plugin to Group Actors
-cbpi4-KettleSensor              0.0.5      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-KettleSensor              CraftBeerPi4 Plugin to add Sensor parameters for your Kettle and Fermenter
-cbpi4-LCDisplay                 0.0.5      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-LCDisplay                 CraftBeerPi4 LCD Plugin Mod
+cbpi4-KettleSensor              0.0.6      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-KettleSensor              CraftBeerPi4 Plugin to add Sensor parameters for your Kettle and Fermenter
+cbpi4-LCDisplay                 0.0.9      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-LCDisplay                 CraftBeerPi4 LCD Plugin Mod
 cbpi4-PCF8574-GPIO              0.0.4      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-PCF8574-GPIO              CraftBeerPi4 PCF8574 Actor Plugin
-cbpi4-PIDBoil                   0.0.7      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-PIDBoil                   CraftBeerPi4 PID Kettle Control Plugin
+cbpi4-PIDBoil                   0.0.9      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-PIDBoil                   CraftBeerPi4 PID Kettle Control Plugin
 cbpi4-PIDHerms                  0.0.4      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-PIDHerms                  CraftBeerPi 4 Kettle Logic Plugin
 cbpi4-PID-AutoTune              0.0.10     Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-PIDAutoTune               CraftBeerPi4 Kettle Logic for PID Auto Tune
 cbpi4-PushOver                  0.0.7      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-PushOver                  CraftBeerPi4 Plugin to forward Notifications to Pushover Push Notifications
 cbpi4-buzzer                    0.0.3      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-buzzer                    CraftBeerPi4 Buzzer Plugin
-cbpi4-hx711-loadcell            0.0.2      UNKNOWN                            UNKNOWN                                                      CraftBeerPi Plugin
-cbpi4-iSpindle                  0.0.10     Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-iSpindle                  CraftBeerPi4 iSpindle Sensor Plugin
+cbpi4-hx711-loadcell            0.0.4      UNKNOWN                            UNKNOWN                                                      CraftBeerPi Plugin
+cbpi4-iSpindle                  0.0.11     Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-iSpindle                  CraftBeerPi4 iSpindle Sensor Plugin
 cbpi4-pt100x                    0.1.3      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-pt100x                    CraftBeerPi4 PT100/PT1000 Sensor Plugin
 cbpi4-scd30-CO2-Sensor          0.0.5      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-scd30-co2-sensor          CraftBeerPi4 Plugin for SCD30 based CO2 Sensor
-cbpi4-system                    0.0.7      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-system                    CraftBeerPi4 Plugin for system fucntions
-cbpi4gui                        0.2.2      Manuel Fritsch                     http://web.craftbeerpi.com                                   CraftBeerPi User Interface
+cbpi4-system                    0.0.8      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-system                    CraftBeerPi4 Plugin for system fucntions
+cbpi4gui                        0.3.2      Manuel Fritsch                     http://web.craftbeerpi.com                                   CraftBeerPi User Interface
 
 ```
 
@@ -359,9 +367,8 @@ Password: raspberry
 #### Installation:
 
 ```
-1. Unzip the image. It will inflate to ~7 Gb
-2. Write the image to a sd card with min size of 8 Gb.
-   Better would be 16 Gb or more
+1. Unzip the image. It will inflate to ~8 Gb
+2. Write the image to a sd card with min size of 16 Gb.
 3. If you want to enable Wifi on first start, 
    you need to access the boot partition on the sd card from your PC/Mac
 	- Open the file wpa_supplicant.conf.sample
