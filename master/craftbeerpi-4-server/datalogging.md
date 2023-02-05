@@ -20,3 +20,28 @@ Below is an example for the usage of Influxdb in combination with Grafana. The d
 As shown in the [dashboard](dashboard.md#item-menu) section, you can also add a grafana chart to the dashboard.
 
 ![Example of Grafana Chart in Dashboard](../../.gitbook/assets/cbpi4-grafana-chart.png)
+
+Required Parameters are described briefly in the dashboard section. Below is an example, how to set the 'url' and 'panelID' for your chart.
+
+![Grafana URL Example](../../.gitbook/assets/cbpi4-grafana-url-example.png)
+
+The url for this chart on Grafana is: ```http://192.168.163.105:3000/d/m5Lx6uYnz/craftbeerpi-4?orgId=1&viewPanel=7```
+
+You need to use the first part of the url prior to the `?` and replace the `d`with `d-solo` and enter this into the url parameter:
+
+```http://192.168.163.105:3000/d-solo/m5Lx6uYnz/craftbeerpi-4```
+
+In the panal Parameter you need to enter just the number of the panel from the original url: `7`
+
+In your grafana server, you need to adapt a few settings.
+
+1. You need to allow [embedding](https://grafana.com/docs/grafana/latest/administration/configuration/#allow_embedding) of your charts.
+2. You need to allow [external_access](https://grafana.com/docs/grafana/latest/administration/configuration/#external_enabled).  
+
+{% hint style="info" %}
+Depending on your setup on your pi, you may need to adapt also the chromium settings if the charts are displayed on another device, but not on your pi screen.
+
+In this case, you need to allow all third party cookies in chromium. You need to enter: ```chrome://settings/content```
+
+and change the cookie setting accordingly.
+{% endhint %}
