@@ -29,9 +29,11 @@ The url for this chart on Grafana is: ```http://192.168.163.105:3000/d/m5Lx6uYnz
 
 You need to use the first part of the url prior to the `?` and replace the `d`with `d-solo` and enter this into the url parameter:
 
-```http://192.168.163.105:3000/d-solo/m5Lx6uYnz/craftbeerpi-4```
+```url: http://192.168.163.105:3000/d-solo/m5Lx6uYnz/craftbeerpi-4```
 
-In the panal Parameter you need to enter just the number of the panel from the original url: `7`
+In the `panelID` Parameter you need to enter just the number of the panel from the original url: `7`
+
+```panelID: 7```
 
 In your grafana server, you need to adapt a few settings.
 
