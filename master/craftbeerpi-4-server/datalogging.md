@@ -16,6 +16,7 @@ Below is an example for the usage of Influxdb in combination with Grafana. The d
 
 ![Example for InfluxDB usage in combination with Grafana](../../.gitbook/assets/cbpi4-grafana.png)
 
+## Grafana Dashboard Chart
 As shown in the [dashboard](dashboard.md#item-menu) section, you can also add a grafana chart to the dashboard.
 
 ![Example of Grafana Chart in Dashboard](../../.gitbook/assets/cbpi4-grafana-chart.png)
