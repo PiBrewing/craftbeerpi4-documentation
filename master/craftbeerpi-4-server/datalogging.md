@@ -35,6 +35,14 @@ In the `panelID` Parameter you need to enter just the number of the panel from t
 
 ```panelID: 7```
 
+In the `timeframe` Parameter you need to enter the timeframe you want to see in the chart until 'now'. It has to be entered in the grafana syntax:
+
+```now-5m``` shows the last 5 minutes.
+
+```now-12h``` shows the last 12 hours.
+
+```now-7d``` shows the last 7 days.
+
 In your grafana server, you need to adapt a few settings.
 
 1. You need to allow [embedding](https://grafana.com/docs/grafana/latest/administration/configuration/#allow_embedding) of your charts.
