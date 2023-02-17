@@ -43,8 +43,6 @@ In the `timeframe` Parameter you need to enter the timeframe you want to see in 
 
 ```now-7d``` shows the last 7 days.
 
-```02/11/2023 12:00``` shows data from this date until now (e.g. start of fermentation)
-
 In your grafana server, you need to adapt a few settings.
 
 1. You need to allow [embedding](https://grafana.com/docs/grafana/latest/administration/configuration/#allow_embedding) of your charts.
