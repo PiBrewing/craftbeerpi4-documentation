@@ -10,7 +10,7 @@ Documentation: 1.4.3
 
 Valid for 
 - Server: [4.1.0](https://pypi.org/project/cbpi4/)
-- User Interface: [0.3.2](https://pypi.org/project/cbpi4gui/)
+- User Interface: [0.3.6](https://pypi.org/project/cbpi4gui/)
 
 Requirements:
 - Python 3.9 (Python 3.10 and 3.11 should also work -> tested in docker environment)
