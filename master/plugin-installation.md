@@ -27,7 +27,7 @@ The plugin and it's dependent packages will be installed on your system and cbpi
 The other way to install the plugin is directly from GitHub:
 
 ```
-sudo pip3 install https://github.com/avollkopf/cbpi4-pt100x/archive/main.zip
+sudo pip3 install https://github.com/PiBrewing/cbpi4-pt100x/archive/main.zip
 ```
 
 Also here, the plugin and the dependent packages will be installed automatically.
@@ -37,11 +37,11 @@ Once this is completed, you need to restart cbpi or reboot your server.
 {% hint style="info" %}
 To get some detailed information about the plugin configuration and how to connect/install your sensor, you should have always a look at the plugin page on GitHub or pypi.org. I always try to add the most important information in the corresponding README.
 
-For the cbpi4-pt100x plugin, you can find the information [here](https://github.com/avollkopf/cbpi4-pt100x) on GitHub or you search for cbpi4-pt100x on the pypi.org site.
+For the cbpi4-pt100x plugin, you can find the information [here](https://github.com/PiBrewing/cbpi4-pt100x) on GitHub or you search for cbpi4-pt100x on the pypi.org site.
 {% endhint %}
 
 {% hint style="info" %}
-Please always remember, that plugins can also add global settings during the installation that need to be set in the [settings page](craftbeerpi-4-server/settings.md). One example is for instance the [cbpi4-pushover ](https://github.com/avollkopf/cbpi-Pushover)Plugin which adds the parameters pushover\__user and pushover\__key to the global settings..
+Please always remember, that plugins can also add global settings during the installation that need to be set in the [settings page](craftbeerpi-4-server/settings.md). One example is for instance the [cbpi4-pushover ](https://github.com/PiBrewing/cbpi4-Pushover)Plugin which adds the parameters pushover\__user and pushover\__key to the global settings..
 {% endhint %}
 
 ## How to update a plugin?
@@ -51,13 +51,13 @@ If there is a new version of a plugin you can simply re-install the plugin or ru
 #### Re-Installation:
 
 ```
-sudo pip3 install --force-reinstall https://github.com/avollkopf/cbpi4-pt100x/archive/main.zip
+sudo pip3 install --force-reinstall https://github.com/PiBrewing/cbpi4-pt100x/archive/main.zip
 ```
 
 #### Upgrade:
 
 ```
-sudo pip3 install --upgrade https://github.com/avollkopf/cbpi4-pt100x/archive/main.zip
+sudo pip3 install --upgrade https://github.com/PiBrewing/cbpi4-pt100x/archive/main.zip
 ```
 {% hint style="info" %}
 The update/upgrade or re-installation can be also done cia pypi.org if the plugin has been published there via the plugin name as shown above.
@@ -93,18 +93,18 @@ Welcome to CBPi
 
  Name                            Version    Author                             Homepage                                                     Summary
 ------------------------------  ---------  ---------------------------------  -----------------------------------------------------------  ---------------------------------------------------------------------------
-cbpi4-LCDisplay                 0.0.3      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-LCDisplay                 CraftBeerPi4 LCD Plugin Mod
-cbpi4-PushOver                  0.0.3      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-PushOver                  CraftBeerPi4 Plugin to forward Notifications to Pushover Push Notifications
-cbpi4-buzzer                    0.0.2      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-buzzer                    CraftBeerPi4 Buzzer Plugin
+cbpi4-LCDisplay                 0.0.3      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-LCDisplay                 CraftBeerPi4 LCD Plugin Mod
+cbpi4-PushOver                  0.0.3      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-PushOver                  CraftBeerPi4 Plugin to forward Notifications to Pushover Push Notifications
+cbpi4-buzzer                    0.0.2      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-buzzer                    CraftBeerPi4 Buzzer Plugin
 cbpi4ui                         0.2.0a4    Manuel Fritsch                     http://web.craftbeerpi.com                                   CraftBeerPi User Interface
-cbpi4-pt100x                    0.1.1      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-pt100x                    CraftBeerPi4 PT100/PT1000 Sensor Plugin
-cbpi4-BM-PID-SmartBoilWithPump  0.1.1      ['Alexander Vollkopf', 'Guy Lev']  https://github.com/avollkopf/cbpi4-BM_PID_SmartBoilWithPump  CraftBeerPi4 PID Kettle Logic Plugin
-cbpi4-iSpindle                  0.0.7      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-iSpindle                  CraftBeerPi4 iSpindle Sensor Plugin
-cbpi4-PID-AutoTune              0.0.8      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-PIDAutoTune               CraftBeerPi4 Kettle Logic for PID Auto Tune
-cbpi4-scd30-CO2-Sensor          0.0.3      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-scd30-co2-sensor          CraftBeerPi4 Plugin for SCD30 based CO2 Sensor
-cbpi4-KettleSensor              0.0.5      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-KettleSensor              CraftBeerPi4 Plugin to add Sensor parameters for your Kettle and Fermenter
-cbpi4-BLEHydrom                 0.0.4      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-BLEHydrom                 CraftBeerPi4 Plugin for Hydrom and Tilt (BLE connection)
-cbpi4-system                    0.0.3      Alexander Vollkopf                 https://github.com/avollkopf/cbpi4-system                    CraftBeerPi4 Plugin for system fucntions
+cbpi4-pt100x                    0.1.1      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-pt100x                    CraftBeerPi4 PT100/PT1000 Sensor Plugin
+cbpi4-BM-PID-SmartBoilWithPump  0.1.1      ['Alexander Vollkopf', 'Guy Lev']  https://github.com/PiBrewing/cbpi4-BM_PID_SmartBoilWithPump  CraftBeerPi4 PID Kettle Logic Plugin
+cbpi4-iSpindle                  0.0.7      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-iSpindle                  CraftBeerPi4 iSpindle Sensor Plugin
+cbpi4-PID-AutoTune              0.0.8      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-PIDAutoTune               CraftBeerPi4 Kettle Logic for PID Auto Tune
+cbpi4-scd30-CO2-Sensor          0.0.3      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-scd30-co2-sensor          CraftBeerPi4 Plugin for SCD30 based CO2 Sensor
+cbpi4-KettleSensor              0.0.5      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-KettleSensor              CraftBeerPi4 Plugin to add Sensor parameters for your Kettle and Fermenter
+cbpi4-BLEHydrom                 0.0.4      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-BLEHydrom                 CraftBeerPi4 Plugin for Hydrom and Tilt (BLE connection)
+cbpi4-system                    0.0.3      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-system                    CraftBeerPi4 Plugin for system fucntions
 
 
 ```
@@ -125,23 +125,23 @@ The tables below shows the plugins that are currently available by type. At this
 
 | Name                   | Description                                    | Link                                                               |
 | ---------------------- | ---------------------------------------------- | ------------------------------------------------------------------ |
-| cbpi4-pt100x           | PT100/PT1000 Temp Sensor                       | [GitHub Link](https://github.com/avollkopf/cbpi4-pt100x)           |
-| cbpi4-hx711-loadcell   | hx711 based Loadcell Sensor                    | [GitHub Link](https://github.com/avollkopf/cbpi4-hx711-loadcell)   |
-| cbpi4-Flowmeter        | Hall Sensor based Flowmeter Sensor             | [GitHub Link](https://github.com/avollkopf/cbpi4-Flowmeter)        |
-| cbpi4-system           | System Sensors: Temp, CPU load, Memory         | [GitHub Link](https://github.com/avollkopf/cbpi4-system)           |
-| cbpi4-scd30-co2-sensor | Temp, Rel. Humidity and CO2 sensor (I2C based) | [GitHub Link](https://github.com/avollkopf/cbpi4-scd30-co2-sensor) |
-| cbpi4-iSpindle         | Sensor that collects data from the iSpindle    | [GitHub Link](https://github.com/avollkopf/cbpi4-iSpindle)         |
-| cbpi4-KettleSensor     | Collects targettemp and power/status for kettle / fermenter | [GitHub Link](https://github.com/avollkopf/cbpi4-KettleSensor)     |
+| cbpi4-pt100x           | PT100/PT1000 Temp Sensor                       | [GitHub Link](https://github.com/PiBrewing/cbpi4-pt100x)           |
+| cbpi4-hx711-loadcell   | hx711 based Loadcell Sensor                    | [GitHub Link](https://github.com/PiBrewing/cbpi4-hx711-loadcell)   |
+| cbpi4-Flowmeter        | Hall Sensor based Flowmeter Sensor             | [GitHub Link](https://github.com/PiBrewing/cbpi4-Flowmeter)        |
+| cbpi4-system           | System Sensors: Temp, CPU load, Memory         | [GitHub Link](https://github.com/PiBrewing/cbpi4-system)           |
+| cbpi4-scd30-co2-sensor | Temp, Rel. Humidity and CO2 sensor (I2C based) | [GitHub Link](https://github.com/PiBrewing/cbpi4-scd30-co2-sensor) |
+| cbpi4-iSpindle         | Sensor that collects data from the iSpindle    | [GitHub Link](https://github.com/PiBrewing/cbpi4-iSpindle)         |
+| cbpi4-KettleSensor     | Collects targettemp and power/status for kettle / fermenter | [GitHub Link](https://github.com/PiBrewing/cbpi4-KettleSensor)     |
 | cbpi4-dht22-temp-hum-sensor | Sensor for Reltive humidity and temperature | [GITHub Link](https://github.com/DanZee/cbpi4-dht22-temp-hum-sensor) |
 
 ### Actors
 
 | Name                     | Description                                                        | Link                                                                 |
 | ------------------------ | ------------------------------------------------------------------ | -------------------------------------------------------------------- |
-| cbpi4-GoupedActor        | Allows to group Actors                                             | [GitHub Link](https://github.com/avollkopf/cbpi4-GroupedActor)       |
-| cbpi4-GoupedPowerActor        | Allows to group Actors and ramp the power linear over the individual actors | [GitHub Link](https://github.com/avollkopf/cbpi4-GroupedPowerActor)       |
-| cpbi4-DependentActor     | Allows to switch actors dependent on the state of other actors     | [GitHub Link](https://github.com/avollkopf/cbpi4-DependentActor)     |
-| cbpi4-GPIODependentActor | Allows to switch actors dependent on the state GPIO Inputs (alpha) | [GitHub Link](https://github.com/avollkopf/cbpi4-GPIODependentActor) |
+| cbpi4-GoupedActor        | Allows to group Actors                                             | [GitHub Link](https://github.com/PiBrewing/cbpi4-GroupedActor)       |
+| cbpi4-GoupedPowerActor        | Allows to group Actors and ramp the power linear over the individual actors | [GitHub Link](https://github.com/PiBrewing/cbpi4-GroupedPowerActor)       |
+| cpbi4-DependentActor     | Allows to switch actors dependent on the state of other actors     | [GitHub Link](https://github.com/PiBrewing/cbpi4-DependentActor)     |
+| cbpi4-GPIODependentActor | Allows to switch actors dependent on the state GPIO Inputs (alpha) | [GitHub Link](https://github.com/PiBrewing/cbpi4-GPIODependentActor) |
 | cbpi4-pca9685            | PCA9685 I2C PWM Actor Plugin for CraftBeerPi4                      | [GitHub Link](https://github.com/jtubb/cbpi4-pca9685)                |
 | cbpi4-http-actor         | Generic Craftbeerpi4 HTTP Actor Plugin                             | [GitHub Link](https://github.com/hurra/cbpi4-http-actor)             |
 | cbpi4-PCF8574-GPIO       | Extend PI's GPIO Actors by 8 via I2C device                        | [GitHub Link](https://github.com/PiBrewing/cbpi4-PCF8574-GPIO)       |
@@ -151,10 +151,10 @@ The tables below shows the plugins that are currently available by type. At this
 
 | Name                               | Description                                                                                                                                       | Link                                                                         |
 | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| cbpi4-PIDBoil                      | Kettle controller with PID logic and Boil power parameter                                                                                         | [GitHub Link](https://github.com/avollkopf/cbpi4-PIDBoil)                    |
-| cbpi4-PIDHerms                     | Kettle controller with PID logic, Boil power parameter and HLT temp sensor condition                                                              | [GitHub Link](https://github.com/avollkopf/cbpi4-PIDHerms)                   |
-| cbpi4-BM\__PID\__SmartboilWithPump | Kettle controller with PID logic, Boil power parameter and automated Pump control / protection (can be used for instance for Speidel Braumeister) | [GitHub Link](https://github.com/avollkopf/cbpi4-BM\_PID\_SmartBoilWithPump) |
-| cbpi4-PID\_Autotune                | Kettle controller that can be used to determine the PID parameters for the PID based Kettle controllers                                           | [GitHub Link](https://github.com/avollkopf/cbpi4-PID\_AutoTune)              |
+| cbpi4-PIDBoil                      | Kettle controller with PID logic and Boil power parameter                                                                                         | [GitHub Link](https://github.com/PiBrewing/cbpi4-PIDBoil)                    |
+| cbpi4-PIDHerms                     | Kettle controller with PID logic, Boil power parameter and HLT temp sensor condition                                                              | [GitHub Link](https://github.com/PiBrewing/cbpi4-PIDHerms)                   |
+| cbpi4-BM\__PID\__SmartboilWithPump | Kettle controller with PID logic, Boil power parameter and automated Pump control / protection (can be used for instance for Speidel Braumeister) | [GitHub Link](https://github.com/PiBrewing/cbpi4-BM\_PID\_SmartBoilWithPump) |
+| cbpi4-PID\_Autotune                | Kettle controller that can be used to determine the PID parameters for the PID based Kettle controllers                                           | [GitHub Link](https://github.com/PiBrewing/cbpi4-PID\_AutoTune)              |
 
 ### Fermenter Controller
 
@@ -167,16 +167,16 @@ The tables below shows the plugins that are currently available by type. At this
 | Name                 | Description                                                                           | Link                                                          |
 | -------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
 | cbpi4-LCDisplay      | Allows usage of LCD Display (I2C)                                                     | [GitHub Link](https://github.com/JamFfm/cbpi4-LCDisplay)      |
-| cbpi4-LCDisplay      | Modded Fork that allows also Display of Fermentation with Fermenter Hysteresis Plugin | [GitHub Link](https://github.com/avollkopf/cbpi4-LCDisplay)   |
+| cbpi4-LCDisplay      | Modded Fork that allows also Display of Fermentation with Fermenter Hysteresis Plugin | [GitHub Link](https://github.com/PiBrewing/cbpi4-LCDisplay)   |
 | cbpi4-NEXTIONDisplay | Use Nextion Display on CraftbeerPi4                                                   | [GitHub Link](https://github.com/JamFfm/cbpi4-NEXTIONDisplay) |
 
 ### Utilities (Messaging, Custom Recipe Creation / Steps)
 
 | Name               | Description                                              | Link                                                           |
 | ------------------ | -------------------------------------------------------- | -------------------------------------------------------------- |
-| cbpi4-BM\_Steps    | Example Plugin for custom Mash steps                     | [GitHub Link](https://github.com/avollkopf/cbpi4-BM\_Steps)    |
-| cbpi4\_Fermenterstep | Plugin for Additional Fermentersteps                   | [GitHub Link](https://github.com/avollkopf/cbpi4\_Fermenterstep)    |
-| cbpi4-RecipeImport | Example Plugin to customize automated recipe creation    | [GitHub Link](https://github.com/avollkopf/cbpi4-RecipeImport) |
-| cbpi4-buzzer       | Activates buzzer on cbpi4 messages                       | [GitHub Link](https://github.com/avollkopf/cbpi4-buzzer)       |
-| cbpi4-PushOver     | Forwards cbpi4 messages to Pushover push message service | [GitHub Link](https://github.com/avollkopf/cbpi4-PushOver)     |
+| cbpi4-BM\_Steps    | Example Plugin for custom Mash steps                     | [GitHub Link](https://github.com/PiBrewing/cbpi4-BM\_Steps)    |
+| cbpi4\_Fermenterstep | Plugin for Additional Fermentersteps                   | [GitHub Link](https://github.com/PiBrewing/cbpi4\_Fermenterstep)    |
+| cbpi4-RecipeImport | Example Plugin to customize automated recipe creation    | [GitHub Link](https://github.com/PiBrewing/cbpi4-RecipeImport) |
+| cbpi4-buzzer       | Activates buzzer on cbpi4 messages                       | [GitHub Link](https://github.com/PiBrewing/cbpi4-buzzer)       |
+| cbpi4-PushOver     | Forwards cbpi4 messages to Pushover push message service | [GitHub Link](https://github.com/PiBrewing/cbpi4-PushOver)     |
 | cbpi4-TelegramPushNotifications     | Telegram Push Notifications for Craftbeerpi 4 | [GitHub Link](https://github.com/pascal1404/cbpi4-TelegramPushNotifications)     |
