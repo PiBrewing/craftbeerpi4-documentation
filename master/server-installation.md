@@ -72,7 +72,7 @@ sudo pip3 install cbpi4
 To install craftbeerpi4 from the repo which can be newer once in a while, please run the following command:
 
 ```
-sudo pip3 install https://github.com/avollkopf/craftbeerpi4/archive/master.zip
+sudo pip3 install https://github.com/PiBrewing/craftbeerpi4/archive/master.zip
 ```
 
 The installation will take some time and it will also install the user interface. 
@@ -88,7 +88,7 @@ However, this is typically not required.
 There could be a newer version of the user interface in the repo and you could install this also directly from the repo.
 
 ```
-sudo pip3 install https://github.com/avollkopf/craftbeerpi4-ui/archive/main.zip
+sudo pip3 install https://github.com/PiBrewing/craftbeerpi4-ui/archive/main.zip
 ```
 
 {% hint style="info" %}
@@ -403,7 +403,7 @@ sudo pip3 install --upgrade cbpi4
 Or from the repo:
 
 ```
-sudo pip3 install --upgrade https://github.com/avollkopf/craftbeerpi4/archive/master.zip
+sudo pip3 install --upgrade https://github.com/PiBrewing/craftbeerpi4/archive/master.zip
 ```
 
 If new setting parameters have been added to cbpi, it will handle that in the extension Configupdate. Cbpi4 will add the parameters automatically during start if they are not yet in the config file.
@@ -419,7 +419,7 @@ sudo pip3 install --upgrade cbpi4gui
 Or from the repo:
 
 ```
-sudo pip3 install --upgrade https://github.com/avollkopf/craftbeerpi4-ui/archive/main.zip
+sudo pip3 install --upgrade https://github.com/PiBrewing/craftbeerpi4-ui/archive/main.zip
 ```
 
 ## Other Hardware Tips
