@@ -501,7 +501,7 @@ The numbering could also vary depending on the Pi you are using.
 
 ### Docker
 
-While CraftbeerPi is primarily created to be run on a RaspberryPi you can also use a docker image to run it. It can be found in the container registry on GitHub under the name `ghcr.io/avollkopf/craftbeerpi4`.
+While CraftbeerPi is primarily created to be run on a RaspberryPi you can also use a docker image to run it. It can be found in the container registry on GitHub under the name `ghcr.io/PiBrewing/craftbeerpi4`.
 
 The image is currently only available for `arm64` and `amd64` architectures. If you want to run the image on a RaspberryPi make sure that you have installed a 64bit version of the operating system.
 
@@ -527,7 +527,7 @@ mkdir config && chown :1000 config
 
 # run a temporary CraftBeerPi container to write the initial
 # configuration files in the new folder
-docker run --rm -v "$(pwd)/config:/cbpi/config" ghcr.io/avollkopf/craftbeerpi4:latest cbpi setup
+docker run --rm -v "$(pwd)/config:/cbpi/config" ghcr.io/PiBrewing/craftbeerpi4:latest cbpi setup
 ```
 
 #### Running the base image
@@ -535,7 +535,7 @@ docker run --rm -v "$(pwd)/config:/cbpi/config" ghcr.io/avollkopf/craftbeerpi4:l
 To run the image with the newly created configuration files you can use this command:
 
 ```bash
-docker run -d -v "$(pwd)/config:/cbpi/config" -p 8000:8000 ghcr.io/avollkopf/craftbeerpi4:latest
+docker run -d -v "$(pwd)/config:/cbpi/config" -p 8000:8000 ghcr.io/PiBrewing/craftbeerpi4:latest
 ```
 
 #### Installing plugins
@@ -546,7 +546,7 @@ This `Dockerfile` can use the _official_ one as base and extends it by installin
 
 {% code title="Dockerfile" %}
 ```docker
-FROM ghcr.io/avollkopf/craftbeerpi4:latest
+FROM ghcr.io/PiBrewing/craftbeerpi4:latest
 
 # Install plugins
 RUN pip3 install --no-cache-dir cbpi4-pt100x 
@@ -569,7 +569,7 @@ Of course you can use `docker-compose` to setup your environment. You can also u
 version: "3.7"
 services:
   craftbeerpi:
-    image: ghcr.io/avollkopf/craftbeerpi4:latest
+    image: ghcr.io/PiBrewing/craftbeerpi4:latest
       volumes:
         - "./config:/cbpi/config"
       ports:
