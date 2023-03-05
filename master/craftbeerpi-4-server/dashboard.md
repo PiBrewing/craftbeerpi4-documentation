@@ -177,7 +177,7 @@ Actions can be shown for Sensors and Actors. In case you select 'Yes' in the pro
 
 Starting from cbpi 4.0.0.45 the GPIOActor and the GPIOPWMActor have power settings included. To change the power, you will need to activate the actions menu.
 
-Standard sensors have not defined actions. Sensor examples with actions are for instance the [flowmeter](https://github.com/avollkopf/cbpi4-Flowmeter) and [loadcell](https://github.com/avollkopf/cbpi4-hx711-loadcell) plugins where you can set the sensor reading to zero or tare the loadcell.
+Standard sensors have not defined actions. Sensor examples with actions are for instance the [flowmeter](https://github.com/PiBrewing/cbpi4-Flowmeter) and [loadcell](https://github.com/PiBrewing/cbpi4-hx711-loadcell) plugins where you can set the sensor reading to zero or tare the loadcell.
 {% endhint %}
 
 ![Actors with and w/o actions have been added to the dashboard](../../.gitbook/assets/cbpi4-addgpioactor\_power.png)

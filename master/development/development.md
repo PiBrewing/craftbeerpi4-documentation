@@ -10,13 +10,13 @@ To install for instance a development branch of the server, you need to look int
 In this example the server has for instance a branch called `development`. To install this particular branch, you need to run the following command:
 
 ```
-sudo pip3 install https://github.com/avollkopf/craftbeerpi4/archive/development.zip
+sudo pip3 install https://github.com/PiBrewing/craftbeerpi4/archive/development.zip
 ```
 
 The only difference to the installation of the master branch is that master.zip is replaced with development_fermentersteps.zip as the brnach has this name. If you want to upgrade from an existing installation, you should add the flag `--upgrade`.
 
 ```
-sudo pip3 install --upgrade https://github.com/avollkopf/craftbeerpi4/archive/development.zip
+sudo pip3 install --upgrade https://github.com/PiBrewing/craftbeerpi4/archive/development.zip
 ```
 
 If you want to install another existing branch, you need to check the available brnaches and adapt the link acordingly.
@@ -28,7 +28,7 @@ To revert back to the master branch, just run the commands for [updating your se
 The installation of the development branch of the user interface is basically working in the same way. You just need to change the link. Everything else is working as described above.
 
 ```
-sudo pip3 install https://github.com/avollkopf/craftbeerpi4-ui/archive/development.zip
+sudo pip3 install https://github.com/PiBrewing/craftbeerpi4-ui/archive/development.zip
 ```
 
 ## Cloning the server to your local drive and install it from there
@@ -36,7 +36,7 @@ sudo pip3 install https://github.com/avollkopf/craftbeerpi4-ui/archive/developme
 For development, it can be also important to have the server code on your local harddrive and install it from there. Therefore, you need to clone the repo in a first step:
 
 ```
-git clone https://github.com/avollkopf/craftbeerpi4
+git clone https://github.com/PiBrewing/craftbeerpi4
 ```
 
 This will pull a local copy of the server software to your harddrive.

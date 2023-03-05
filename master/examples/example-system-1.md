@@ -45,13 +45,13 @@ The placement of the Thermowell with Sensor after cooldown is shown here:
 
 ## CraftbeerPi 4 software requirements
 - You need an installation of Craftbeerpi4 with some additional plugins.
-- You will need the [**cbpi4-pt100X plugin**](https://github.com/avollkopf/cbpi4-pt100x) to read the temeprature values from the PT1000 and configure it to PT1000.
-- You will also need a [**logic plugin**](https://github.com/avollkopf/cbpi4-BM_PID_SmartBoilWithPump) that covers pump pause, pump stop @ 88°C, PID temperature control and much more 
-- The PID settings have to be optimized for your kettle with the [**PIDAutotune**](https://github.com/avollkopf/cbpi4-PID_AutoTune) plugin.
+- You will need the [**cbpi4-pt100X plugin**](https://github.com/PiBrewing/cbpi4-pt100x) to read the temeprature values from the PT1000 and configure it to PT1000.
+- You will also need a [**logic plugin**](https://github.com/PiBrewing/cbpi4-BM_PID_SmartBoilWithPump) that covers pump pause, pump stop @ 88°C, PID temperature control and much more 
+- The PID settings have to be optimized for your kettle with the [**PIDAutotune**](https://github.com/PiBrewing/cbpi4-PID_AutoTune) plugin.
 - PID control switches off at 88°C and boiling will be done with reduced heater power which can be defined in the logic settings (mine is running at 85% power during boil)
-- I do recommend to install and use also the [**Pushover Plugin**](https://github.com/avollkopf/cbpi4-PushOver) to recieve push notifications when you need to add or remove the malt pipe or add hops. Therefore, you need to buy the [**PushOver APP**](https://pushover.net/) for Android or IOS
-- I also recommend to install the [**Kettle Sensor Plugin**](https://github.com/avollkopf/cbpi4-KettleSensor) if you want to monitor some more information.
-- If you have a buzzer connected to your system or if you are using an extension board with a buzzer, you should install and configure the [**Buzzer plugin**](https://github.com/avollkopf/cbpi4-buzzer) accordingly
+- I do recommend to install and use also the [**Pushover Plugin**](https://github.com/PiBrewing/cbpi4-PushOver) to recieve push notifications when you need to add or remove the malt pipe or add hops. Therefore, you need to buy the [**PushOver APP**](https://pushover.net/) for Android or IOS
+- I also recommend to install the [**Kettle Sensor Plugin**](https://github.com/PiBrewing/cbpi4-KettleSensor) if you want to monitor some more information.
+- If you have a buzzer connected to your system or if you are using an extension board with a buzzer, you should install and configure the [**Buzzer plugin**](https://github.com/PiBrewing/cbpi4-buzzer) accordingly
 
 
 ## Setup your Braumeister hardware in CraftbeerPi 4
@@ -102,7 +102,7 @@ In case you are using influxdb and Grafana integration, you can display the rele
 
 ### Kettle configuration
 
-Finally, you need to define a Kettle with the required logic plugin mentioned above. Select the installed BM_PID_SmartBilWithPump plugin as logic and define a Name for your Kettle. Select the Actor you have defined as Hater for your Kettle Heater and the Pump actor as Agitator. As sensor, select the PT1000 sensor you have defined. The PID parameters need to be derived via the PID Autotune Plugin. Details on how to run the tunig are described [here](https://github.com/avollkopf/cbpi4-PID_AutoTune).
+Finally, you need to define a Kettle with the required logic plugin mentioned above. Select the installed BM_PID_SmartBilWithPump plugin as logic and define a Name for your Kettle. Select the Actor you have defined as Hater for your Kettle Heater and the Pump actor as Agitator. As sensor, select the PT1000 sensor you have defined. The PID parameters need to be derived via the PID Autotune Plugin. Details on how to run the tunig are described [here](https://github.com/PiBrewing/cbpi4-PID_AutoTune).
 
 The max Pump temperature defines, when the pump will be switched off to prevent pump failure. 88C is recommended and alinged with the original Braumeister controller settings. The may bvoil output defines the power that is used for boiling. For my Braumeister 20 L , 85% is suffucuent, but you can adat this to your needs for a good boil. Max Boil Temp is the temeprature, when the max boil output will be used. Max PID temp is the temperature, until the PID settings are used. Above this temeperature, the max output is used. The rest intervall is the intervall when the pump is paused. Default is 600 (= 10 Minutes like in te braumeister controller). The Rest time is the time in seconds for how long the pump is resting. The standard Braumeister setting is 1 Minute.
 

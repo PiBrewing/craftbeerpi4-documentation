@@ -109,7 +109,7 @@ setup(name='cbpi4-scd30_CO2_Sensor',
       description='CraftBeerPi4 Plugin for SCD30 based CO2 Sensor',
       author='Alexander Vollkopf',
       author_email='avollkopf@web.de',
-      url='https://github.com/avollkopf/cbpi4-scd30-co2-sensor',
+      url='https://github.com/PiBrewing/cbpi4-scd30-co2-sensor',
       license='GPLv3',
       include_package_data=True,
       package_data={
@@ -167,14 +167,14 @@ CraftbeerPi4 provides flexibility as Plgins can be written for different purpose
 
 | Type                    | Description                                                               | Example |
 | ------------------------ | ------------------------------------------------------------------------ |-------- |
-| Sensor                   | Allows addition of differnet sensor types besies onwore temp sensor      | <p>[cbpi4-pt100x](https://github.com/avollkopf/cbpi4-pt100x)</p><p>[cbpi4-iSpindle](https://github.com/avollkopf/cbpi4-iSpindle)</p> |
-| Actor                    | Allows addition of different actor types / hardware                      | <p>[cbpi4-GroupedActor](https://github.com/avollkopf/cbpi4-GroupedActor)</p><p>[cbpi-PCF8574-GPIO](https://github.com/avollkopf/cbpi4-PCF8574-GPIO)</p> |
-| Kettle Logic             | Allows to create a kettle logic that fits for your system requirements   | [cbpi4-PIDBoil](https://github.com/avollkopf/cbpi4-PIDBoil) |
+| Sensor                   | Allows addition of differnet sensor types besies onwore temp sensor      | <p>[cbpi4-pt100x](https://github.com/PiBrewing/cbpi4-pt100x)</p><p>[cbpi4-iSpindle](https://github.com/PiBrewing/cbpi4-iSpindle)</p> |
+| Actor                    | Allows addition of different actor types / hardware                      | <p>[cbpi4-GroupedActor](https://github.com/PiBrewing/cbpi4-GroupedActor)</p><p>[cbpi-PCF8574-GPIO](https://github.com/PiBrewing/cbpi4-PCF8574-GPIO)</p> |
+| Kettle Logic             | Allows to create a kettle logic that fits for your system requirements   | [cbpi4-PIDBoil](https://github.com/PiBrewing/cbpi4-PIDBoil) |
 | Fermenter Logic          | Allows to create a fermenter logic that fits for your system requirements | <p>No example yet</p><p>Builtin FermenterHysteresis</p> |
-| Mash Steps               | Allows to add mash steps that users may require / adapt to their needs   | [cbpi4-BM_Steps](https://github.com/avollkopf/cbpi4-BM_Steps) |
-| Notifications            | Allows users to define callback functions that forward cbpi notifications to other message services or a buzzer | <p>[cbpi4-Pushover](https://github.com/avollkopf/cbpi4-PushOver)</p><p>[cbpi4-buzzer](https://github.com/avollkopf/cbpi4-buzzer)</p> |
-| Automated Recipe Creation | Allows users to adapt the automated recipe creation process (xml, kbh or brewfather) to their requirements. | [cbpi4-RecipeImport](https://github.com/avollkopf/cbpi4-RecipeImport)|
-| Other Functions           | Allows users to add other functionalities such as an LCD Display        | [cbpi4-LCDisplay](https://github.com/avollkopf/cbpi4-LCDisplay) |
+| Mash Steps               | Allows to add mash steps that users may require / adapt to their needs   | [cbpi4-BM_Steps](https://github.com/PiBrewing/cbpi4-BM_Steps) |
+| Notifications            | Allows users to define callback functions that forward cbpi notifications to other message services or a buzzer | <p>[cbpi4-Pushover](https://github.com/PiBrewing/cbpi4-PushOver)</p><p>[cbpi4-buzzer](https://github.com/PiBrewing/cbpi4-buzzer)</p> |
+| Automated Recipe Creation | Allows users to adapt the automated recipe creation process (xml, kbh or brewfather) to their requirements. | [cbpi4-RecipeImport](https://github.com/PiBrewing/cbpi4-RecipeImport)|
+| Other Functions           | Allows users to add other functionalities such as an LCD Display        | [cbpi4-LCDisplay](https://github.com/PiBrewing/cbpi4-LCDisplay) |
 
 ## Plugin Classes
 
@@ -278,7 +278,7 @@ More details will be shown in a few examples at a later point of time.
 
 Every Plugin that you create needs t be registered during cbpi startup. This requires a few lines of code at the end of each plugin. If you create for instance one plugin that requires for instance a CBPiExtension class to check if setting parameters are available or have been added to the cbpi config or needs to start sensor hardware, you need to register this extension as well, as the sensor plugin itself.
 
-One example is the [cbpi4-scd30-co2-sensor](https://github.com/avollkopf/cbpi4-scd30-co2-sensor). Before the sensor can be started / used, the hardware needs to be initialized which is done with the CBPiExtension class:
+One example is the [cbpi4-scd30-co2-sensor](https://github.com/PiBrewing/cbpi4-scd30-co2-sensor). Before the sensor can be started / used, the hardware needs to be initialized which is done with the CBPiExtension class:
 
 ```python
 class SCD30_Config(CBPiExtension):
@@ -365,7 +365,7 @@ Here, both plugin classes will be registered during cbpi startup.
 The registration requires two strings. The first is the name or label you will see in the software when you select the Sensor. In this case it is for instance 'SCD30 Sensor'. It should be a unique name for your plugin. The second one has to match the class you have defined for your module. In this example is is `SCD30Sensor`.
 {% endhint %}
 
-You can also put multiple 'modules' into one plugin. Below is a [step plugin](https://github.com/avollkopf/cbpi4-BM_Steps) shown as example. In this case, various steps have been put together. 
+You can also put multiple 'modules' into one plugin. Below is a [step plugin](https://github.com/PiBrewing/cbpi4-BM_Steps) shown as example. In this case, various steps have been put together. 
 
 ```python
 ...
@@ -457,6 +457,6 @@ In this case, the function will add this parameter with the function `self.cbpi.
                 logger.warning('Unable to update database')
 ...
 ```
-You can see plenty of examples on how to add global cbpi settings in the `ConfigUpdate` extension, that comes with cbpi. This can be found [here](https://github.com/avollkopf/craftbeerpi4/blob/master/cbpi/extension/ConfigUpdate/__init__.py).
+You can see plenty of examples on how to add global cbpi settings in the `ConfigUpdate` extension, that comes with cbpi. This can be found [here](https://github.com/PiBrewing/craftbeerpi4/blob/master/cbpi/extension/ConfigUpdate/__init__.py).
 
 
