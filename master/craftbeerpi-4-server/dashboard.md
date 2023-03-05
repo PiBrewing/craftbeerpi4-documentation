@@ -212,14 +212,10 @@ Now you need to slide the power to the desitred value and click set to apply the
 
 After applying the new value, the actor setting has changed and the ne value is displayed inside the actor button.
 
-{% hint style="info" %}
-Although you can enter values smaller 0 or larger 100, these values will not take effect. Values smaller than 0 will be set to 0 and values larger than 100 will be set to 100.
-{% endhint %}
-
 ![MyGPIOActor has now a power value of 50%](../../.gitbook/assets/cbpi4-powerset50.png)
 
 {% hint style="info" %}
-Power settings will work for the standard GPIO Actor and for the GPIO PWM actor.
+Power settings will work for the standard GPIO Actor, the GPIO PWM actor and MQTT Actors.
 
 If the standard GPIO Actor is set to 100% it will work like a regular GPIO Actor. If the power is changed, the actor will balance the on / off state for the SamplingTime defined in the hardware setting. Tihs parameter can be set to 2 or 5 seconds.
 
