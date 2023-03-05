@@ -170,12 +170,14 @@ You also need to add a kettle control item to control your kettle in the so-call
 
 ![A Kettle control is added to the dashboard](../../.gitbook/assets/cbpi4-kettlecontrol.png)
 
-It is not required, but you can also place actor buttons for each actor on the dashboard. Just add an actor and configure it accordingly. Also, here you should define names for each of the actors, and you need to select the corresponding actor for the item. The size properties will define the text size shown for the actor, and you can select if actions are shown for the actor or not. In case you select actions to be shown for an item (in the example shown for the agitator) an extra menu is shown on the right side of the item. If the actor has power settings, the power will be displayed inside the button. Power settings can be changed from the actions menu that has to be enabled in the actor properties, when you add the actor to the dashboard.
+It is not required, but you can also place actor buttons for each actor on the dashboard. Just add an actor and configure it accordingly. Also, here you should define names for each of the actors, and you need to select the corresponding actor for the item. The size properties will define the text size shown for the actor, and you can select if actions are shown for the actor or not. In case you select actions to be shown for an item (in the example shown for the agitator) an extra menu is shown on the right side of the item. If the actor has power settings, the power will be displayed inside the button. Power settings can be changed via the power button that has to be enabled in the actor properties, when you add the actor to the dashboard.
+
+![Actor properties with activated powerslider](../../.gitbook/assets/cbpi4-powerbutton-config.png)
 
 {% hint style="info" %}
 Actions can be shown for Sensors and Actors. In case you select 'Yes' in the properties window for the item, the extra menu is displayed. When you click on the menu, a pop-up window will open with the actions defined for the item.
 
-Starting from cbpi 4.0.0.45 the GPIOActor and the GPIOPWMActor have power settings included. To change the power, you will need to activate the actions menu.
+Starting from cbpi 4.0.0.45 the GPIOActor and the GPIOPWMActor have power settings included. To change the power, you will need to activate the powerslider in the actor properties.
 
 Standard sensors have not defined actions. Sensor examples with actions are for instance the [flowmeter](https://github.com/PiBrewing/cbpi4-Flowmeter) and [loadcell](https://github.com/PiBrewing/cbpi4-hx711-loadcell) plugins where you can set the sensor reading to zero or tare the loadcell.
 {% endhint %}
@@ -200,21 +202,21 @@ Finally, press the save button to save all your changes before pressing the lock
 
 #### Changing power settings for an actor
 
-If you have added GPIO or GPIOPWM Actors to your dashboard and activated the actions menu, you will see the three dots on the right side of the actor button. Click on the three dots to open the actions menu.
+If you have added GPIO or GPIOPWM Actors to your dashboard and activated the powerslider, you will see the power symbol at the right side of the actor button. Click on the symbol to open the powerslider.
 
-![Power Actions menu for GPIO Actor](../../.gitbook/assets/cbpi4-dashboard\_brewing\_power\_action\_menu.png)
+![Power Actions menu for GPIO Actor](../../.gitbook/assets/cbpi4-powerbutton.png)
 
-Now you neet to click on the Set Power menu item to open the dialog window for changing the power of your actor.
+Now you need to slide the power to the desitred value and click set to apply the new value or cancel.
 
-![Set Power dialog window](../../.gitbook/assets/cbpi4-setpower-dialog.png)
+![Set Power dialog window](../../.gitbook/assets/cbpi4-powerslider.png)
 
-Enter a value between 0 and 100 (%) and click on the submit button to change the power for your actor. Afterwards, you need to click on the close menu itm to get back to the dashboard and you can see that the power setting has changed for your actor.
+After applying the new value, the actor setting has changed and the ne value is displayed inside the actor button.
 
 {% hint style="info" %}
 Although you can enter values smaller 0 or larger 100, these values will not take effect. Values smaller than 0 will be set to 0 and values larger than 100 will be set to 100.
 {% endhint %}
 
-![MyGPIOActor has now a power value of 70%](../../.gitbook/assets/cbpi3-dashboard-changed-power.png)
+![MyGPIOActor has now a power value of 50%](../../.gitbook/assets/cbpi4-powerset50.png)
 
 {% hint style="info" %}
 Power settings will work for the standard GPIO Actor and for the GPIO PWM actor.
