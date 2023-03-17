@@ -12,7 +12,7 @@
 - Connectors for the Sensors are recommended.
 - A drip water safe case.
 - Magnetic valves to open and close the cooling loop for the fermenter
-- Heating pad (25 Watts for 20-30 Liter Fermenter is sufficient). This may vary for your fermenters.
+- Heating pad or cable (25 Watts for 20-30 Liter Fermenter is sufficient). This may vary for your fermenters.
 - One Chiller (in my example it is a Lindr AS-40 Glycol which has the advantage that you won't need a bypass valve in case the cooling valves are all closed) 
 - Thats about it for the hardware part.
 
@@ -25,9 +25,16 @@ The next image shows the Lindr AS-40 Glycol Chiller which is hooked up to the co
 
 <img src="../../.gitbook/assets/cbpi4-mqttfermenter-linder40.jpg" height="600" alt="Lindr AS-40 Chiller">
 
-Here you can see the two magnetic valves I am using to supply my two fermenters independently with cooling solution.
+Here you can see the two magnetic valves I am using to supply my two fermenters independently with cooling solution. Each of them is connected to one of the 230 Volt Relais from the MQTTDevice setup.
 
-<img src="../../.gitbook/assets/cbpi4-mqttfermenter-valves.jpg" height="600" alt="Lindr AS-40 Chiller">
+<img src="../../.gitbook/assets/cbpi4-mqttfermenter-valves.jpg" height="600" alt="Magnetic Valves">
+
+I am using one SS Brewtech BME 7 gal and one Speidel 30 Liter Fermenter. Each femrenter is connected to one of the two cooling lines.
+
+<img src="../../.gitbook/assets/cbpi4-mqttfermenter-speidel.jpg" height="600" alt="Speidel Fermenter">
+<img src="../../.gitbook/assets/cbpi4-mqttfermenter-ssbrewtech.jpg" height="600" alt="SS Brewtech Fermenter">
+
+
 
 ## CraftbeerPi 4 software requirements
 - You need an installation of Craftbeerpi4 with some additional plugins.
