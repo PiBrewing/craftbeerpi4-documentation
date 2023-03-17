@@ -24,4 +24,5 @@
       * [Actor Plugin Example](master/development/example_actor.md)
   * [Recommended Hardware](master/recommended-hardware.md)
   * [Examples](master/examples/README.md)
-    * [Example System: Speidel Braumeister 20L (2015)](master/examples/example-system-1.md)
+    * [Example System: Speidel Braumeister 20L (2015)](master/examples/example-Braumeister.md)
+    * [Example System: MQTTDevice V4 based Fermentation](master/examples/example-mqttdeviceferment.md)
