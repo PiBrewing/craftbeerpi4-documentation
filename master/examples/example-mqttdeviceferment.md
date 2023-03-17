@@ -16,34 +16,18 @@
 - One Chiller (in my example it is a Lindr AS-40 Glycol which has the advantage that you won't need a bypass valve in case the cooling valves are all closed) 
 - Thats about it for the hardware part.
 
-The image below shows the drip water safe case from the outside:
+The image below shows the drip water safe case from the outside and the inside equipped with the ESP8266, the power supply and the relais.
 
 <img src="../../.gitbook/assets/cbpi4-mqttfermenter-mqttdevicebox.jpg" height="600" alt="Drip water safe box">
 <img src="../../.gitbook/assets/cbpi4-mqttfermenter-mqttdevice-inside.jpg" height="600" alt="Box inside">
 
-The next image shows the box from the inside equipped with the ESP8266, the power supply and the relais.
+The next image shows the Lindr AS-40 Glycol Chiller which is hooked up to the cooling loop for two fermenters.
 
+<img src="../../.gitbook/assets/cbpi4-mqttfermenter-linder40.jpg" height="600" alt="Lindr AS-40 Chiller">
 
+Here you can see the two magnetic valves I am using to supply my two fermenters independently with cooling solution.
 
-
-{% hint style="warning" %}
-Only the pump plug has a ground connection on the Braumeister side. I strongly recommend to add a ground connection from the heater plug (Braumeister side) to the Braumeister Kettle (Yellow/Green Cable in the image above)! You will also need to ensure ground connection from your controller side!
-{% endhint %}
-
-### Optional Hardware requirement
-- You can add a magnetic valve to the inlet of your colling jacket as this can be triggered during the cooldown step. It'll open, if you configure a corresponding actor as cooldown valve and set it up in your settings. When the cooldown steps starts, the valve opens and your cooling water starts to flow until your pre-configured temprature is reached. Then the valve is closing. An example picture is shwon below:
-
-![Cooldown Valve](../../.gitbook/assets/cbpi4-Example1-Cooldown-Valve.jpg)
-
-- In particular the older Braumeister models have some issues with the accurate temperature readings when cooling down your wort. Theerefore, I recommend to add another temp sensor (e.g. OneWire) to your braumeister during cooldown. The second sensor for cooldown  can be configured in the CraftbeerPi 4 settings. You just need a thermowell and some parts to fix your thermowell and sensor to the middle column of your Braumeister prior ro the cooldown step. 
-
-An example for the parts is shown here:
-
-![Thermowell parts](../../.gitbook/assets/cbpi4-Example1-Thermowell-parts.jpg)
-
-The placement of the Thermowell with Sensor after cooldown is shown here:
-
-![Cooldown Example](../../.gitbook/assets/cbpi4-Example1-CooldownProbe.jpg)
+<img src="../../.gitbook/assets/cbpi4-mqttfermenter-valves" height="600" alt="Lindr AS-40 Chiller">
 
 ## CraftbeerPi 4 software requirements
 - You need an installation of Craftbeerpi4 with some additional plugins.
