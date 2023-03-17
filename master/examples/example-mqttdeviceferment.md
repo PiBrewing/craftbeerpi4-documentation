@@ -27,7 +27,7 @@ The next image shows the Lindr AS-40 Glycol Chiller which is hooked up to the co
 
 Here you can see the two magnetic valves I am using to supply my two fermenters independently with cooling solution.
 
-<img src="../../.gitbook/assets/cbpi4-mqttfermenter-valves" height="600" alt="Lindr AS-40 Chiller">
+<img src="../../.gitbook/assets/cbpi4-mqttfermenter-valves.jpg" height="600" alt="Lindr AS-40 Chiller">
 
 ## CraftbeerPi 4 software requirements
 - You need an installation of Craftbeerpi4 with some additional plugins.
