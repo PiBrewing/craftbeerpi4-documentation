@@ -52,19 +52,19 @@ Details on how to setup your software are not shown here, as this is already des
 - Flashing of the device is not described here as it is documented on Innuendos [page](https://innuendopi.github.io/MQTTDevice4/)
 - If you have installed the mqtt broker on your pi, enter the IP adress of your pi in the corresponding setup window of the mqttdevice.
 
-![MQTT Settings](../../.gitbook/assets/cbpi4-mqttdevice-mqttsettings.png)
+<img src="../../.gitbook/assets/cbpi4-mqttdevice-mqttsettings.png" height="600" alt="MQTT Settings">
 
 You need to add a sensor or multiple sensors to your mqttdevice depending on the amount of fermenters you want to control. The topic you enter here must match the topic you enter later in your cbpi mqtt sensor settings. The other fields don't need to be changed or filled.
 
-![MQTT Sensor Settings](../../.gitbook/assets/cbpi4-mqttdevice_sensor_settings.png)
+<img src="../../.gitbook/assets/cbpi4-mqttdevice_sensor_settings.png" height="600" alt="MQTT Sensor Settings">
 
 You also need to add actors for your fermenter. In this example you basically need to add two actors per femrneter. One for Cooling and one for heating your fermenter. The example below shows one of the actors. You need to enter again one topic and you must specify one of the output pins. In this example it is 'd0'. 
 
-![MQTT Actor Settings](../../.gitbook/assets/cbpi4-mqttdevice_actor_setting.png)
+<img src="../../.gitbook/assets/cbpi4-mqttdevice_actor_setting.png" height="600" alt="MQTT Actor Settings">
 
 Once you have saved all your sensors and actors, your overview of the mqtt device web inerface lshould look like this:
 
-![MQTT Device Overview](../../.gitbook/assets/cbpi4-mqttdevice_overview.png)
+<img src="../../.gitbook/assets/cbpi4-mqttdevice_overview.png" height="600" alt="MQTT Device Overview">
 
 If you are running only one fermenter, you need to specify only one sensor and two actors.
 
@@ -72,7 +72,7 @@ If you are running only one fermenter, you need to specify only one sensor and t
 
 ![MQTT Sensor Settings](../../.gitbook/assets/cbpi4-mqtt-explorer-cbpi-mqtteviceactor.png)
 
-
+## Setup your Fermenter hardware in Craftbeerpi 4
 ### Actors
 First you should define two your actors for the Braumeister. You need one for the heating element and one for the pump. In casde you want to run a magnetic valve for the automated cooldown, You need to add another actor for the magnetic valve.
 
