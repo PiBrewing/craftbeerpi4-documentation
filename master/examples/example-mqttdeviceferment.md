@@ -25,7 +25,7 @@ The next image shows the Lindr AS-40 Glycol Chiller which is hooked up to the co
 
 <img src="../../.gitbook/assets/cbpi4-mqttfermenter-linder40.jpg" height="600" alt="Lindr AS-40 Chiller">
 
-Here you can see the two magnetic valves I am using to supply my two fermenters independently with cooling solution. Each of them is connected to one of the 230 Volt Relais from the MQTTDevice setup.
+Here you can see the two magnetic valves I am using to supply my two fermenters independently with glycol. Each of them is connected to one of the 230 Volt Relais from the MQTTDevice setup.
 
 <img src="../../.gitbook/assets/cbpi4-mqttfermenter-valves.jpg" height="600" alt="Magnetic Valves">
 
@@ -37,24 +37,25 @@ I am using one SS Brewtech BME 7 gal and one Speidel 30 Liter Fermenter. Each fe
 
 
 ## CraftbeerPi 4 software requirements
-- You need an installation of Craftbeerpi4 with some additional plugins.
-- You will need the [**cbpi4-pt100X plugin**](https://github.com/PiBrewing/cbpi4-pt100x) to read the temeprature values from the PT1000 and configure it to PT1000.
-- You will also need a [**logic plugin**](https://github.com/PiBrewing/cbpi4-BM_PID_SmartBoilWithPump) that covers pump pause, pump stop @ 88°C, PID temperature control and much more 
-- The PID settings have to be optimized for your kettle with the [**PIDAutotune**](https://github.com/PiBrewing/cbpi4-PID_AutoTune) plugin.
-- PID control switches off at 88°C and boiling will be done with reduced heater power which can be defined in the logic settings (mine is running at 85% power during boil)
-- I do recommend to install and use also the [**Pushover Plugin**](https://github.com/PiBrewing/cbpi4-PushOver) to recieve push notifications when you need to add or remove the malt pipe or add hops. Therefore, you need to buy the [**PushOver APP**](https://pushover.net/) for Android or IOS
-- I also recommend to install the [**Kettle Sensor Plugin**](https://github.com/PiBrewing/cbpi4-KettleSensor) if you want to monitor some more information.
-- If you have a buzzer connected to your system or if you are using an extension board with a buzzer, you should install and configure the [**Buzzer plugin**](https://github.com/PiBrewing/cbpi4-buzzer) accordingly
+- You need to actvate mqtt as described [here](../craftbeerpi-4-server/mqtt-connectivity.md)
+- I do recommend to install and use also the [**Pushover Plugin**](https://github.com/PiBrewing/cbpi4-PushOver) to recieve push notifications when a step is finished or a target temp is reached and you need to pitch the yeast. Therefore, you need to buy the [**PushOver APP**](https://pushover.net/) for Android or IOS
+- I also recommend to install the [**Kettle Sensor Plugin**](https://github.com/PiBrewing/cbpi4-KettleSensor) if you want to monitor some more information about your fermenter such as target temp and cooling or heating status.
 
-
-## Setup your Braumeister hardware in CraftbeerPi 4
+## Setup your Fermenter hardware in CraftbeerPi 4
 
 {% hint style="info" %}
-Details on how to setup your software are not ashown here, as this is already described in the other chapters. GPIO settings depend on your individual controller build. ALso the inverted setting depends on your controller hardware configuration.
+Details on how to setup your software are not ashown here, as this is already described in the other chapters.
 {% endhint %}
 
+## Setup your Fermenter hardware in the mqttdevice
+
+- Flashing of the device is not described here as it is documented on Innuendos [page](https://innuendopi.github.io/MQTTDevice4/)
+- If you have installed the mqtt broker on your pi, enter the IP adress of your pi in the corresponding setup window of the mqttdevice.
+
+![MQTT Settings](../../.gitbook/assets/cbpi4-mqttdevice-mqttsettings.png)
+
 ### Actors
-First you should define your actors for the Braumeister. You need one for the heating element and one for the pump. In casde you want to run a magnetic valve for the automated cooldown, You need to add another actor for the magnetic valve.
+First you should define two your actors for the Braumeister. You need one for the heating element and one for the pump. In casde you want to run a magnetic valve for the automated cooldown, You need to add another actor for the magnetic valve.
 
 ![Braumeister Actors](../../.gitbook/assets/cbpi4-Example1-BM-Actors.png)
 
