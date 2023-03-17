@@ -28,21 +28,27 @@ Click on save and the sensor will be saved and you can see it in the sensor tabl
 Starting with Craftbeerpi4 4.1.6 and the UI 0.3.10, sensors have added a DataType property. This allows STrings and DateTime values for Sensors. One example is the Alarmtimer that you can add as sensor in the hardware section which acts as Alarmtimer.
 
 Just add a Sensor to your hardware and select Alarmtimer.
+
 ![Sensor Alarmtimer settings](../../.gitbook/assets/cbpi4-alarmtimer-settings.png)
 
 Add this sensor also to the dashboard.
+
 ![Sensor Alarmtimer on Dashboard](../../.gitbook/assets/cbpi4-dashboard-alarmtimer.png)
 
 In the Sensor properties make sure, that you enabled the action menu.
+
 ![Sensor Alarmtimer Dashboard properties](../../.gitbook/assets/cbpi4-alarmtimer-properties.png)
 
 In the action menu, you can set the timer in minutes, start and stop the timer. You canalso reset the timer.
+
 ![Sensor Alarmtimer actionmenu](../../.gitbook/assets/cbpi4-alarmtimer-actionmenu.png)
 
 If you set the timer, you need to enter the time in minutes. You can also use digits.
+
 ![Sensor Alarmtimer set](../../.gitbook/assets/cbpi4-alarmtimer-set.png)
 
 When you start the timer, is is running until 0 and is raising a notfication that can be forwarded via other plugins such as pushover push messages.
+
 ![Sensor Alarmtimer running](../../.gitbook/assets/cbpi4-alarmtimer-running.png)
 
 You can add multiple timers to your hardware and dashboard and have them running in parallel.
