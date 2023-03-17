@@ -54,12 +54,19 @@ Details on how to setup your software are not shown here, as this is already des
 
 ![MQTT Settings](../../.gitbook/assets/cbpi4-mqttdevice-mqttsettings.png)
 
+You need to add a sensor or multiple sensors to your mqttdevice depending on the amount of fermenters you want to control. The topic you enter here must match the topic you enter later in your cbpi mqtt sensor settings. The other fields don't need to be changed or filled.
 
 ![MQTT Sensor Settings](../../.gitbook/assets/cbpi4-mqttdevice_sensor_settings.png)
 
+You also need to add actors for your fermenter. In this example you basically need to add two actors per femrneter. One for Cooling and one for heating your fermenter. The example below shows one of the actors. You need to enter again one topic and you must specify one of the output pins. In this example it is 'd0'. 
+
 ![MQTT Actor Settings](../../.gitbook/assets/cbpi4-mqttdevice_actor_setting.png)
 
+Once you have saved all your sensors and actors, your overview of the mqtt device web inerface lshould look like this:
+
 ![MQTT Device Overview](../../.gitbook/assets/cbpi4-mqttdevice_overview.png)
+
+If you are running only one fermenter, you need to specify only one sensor and two actors.
 
 ![MQTT Explorer](../../.gitbook/assets/cbpi4-mqtt-explorer-mqttdevice.png)
 
