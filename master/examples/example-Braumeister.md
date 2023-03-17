@@ -61,7 +61,7 @@ Details on how to setup your software are not ashown here, as this is already de
 {% endhint %}
 
 ### Actors
-First you should define your actors for the Braumeister. You need one for the heating element and one for the pump. In casde you want to run a magnetic valve for the automated cooldown, You need to add another actor for the magnetic valve.
+First you should define your actors for the Braumeister. You need one for the heating element and one for the pump. In case you want to run a magnetic valve for the automated cooldown, You need to add another actor for the magnetic valve.
 
 ![Braumeister Actors](../../.gitbook/assets/cbpi4-Example1-BM-Actors.png)
 

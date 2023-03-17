@@ -68,17 +68,23 @@ Once you have saved all your sensors and actors, your overview of the mqtt devic
 
 If you are running only one fermenter, you need to specify only one sensor and two actors.
 
-![MQTT Explorer](../../.gitbook/assets/cbpi4-mqtt-explorer-mqttdevice.png)
-
-![MQTT Sensor Settings](../../.gitbook/assets/cbpi4-mqtt-explorer-cbpi-mqtteviceactor.png)
-
 ## Setup your Fermenter hardware in Craftbeerpi 4
+
+You need to setup mqtt sensorr, actors and assign them to your fermenter logic.
 ### Actors
-First you should define two your actors for the Braumeister. You need one for the heating element and one for the pump. In casde you want to run a magnetic valve for the automated cooldown, You need to add another actor for the magnetic valve.
 
-![Braumeister Actors](../../.gitbook/assets/cbpi4-Example1-BM-Actors.png)
+First you should define your actors for the Fermenter. You need one for the heating element and one for the cooling valve.
 
-For the heating element you can use a PWM type actor. As frequency, you can choose something between 0.1 and 0.5 Hz. Higher frequencies are not recommended and can cause also issues in your house (e.g. flickering lights). To be on the safe side, choos 0.1 Hz.
+<img src="../../.gitbook/assets/cbpi4-mqttfermenter-actors.png" height="600" alt="Fermenter MQTT Actors">
+
+As actor type, MQTTActor must be selected and you need to enter a specific name for your Actor e.g. ´Speidel Cool (MQTT)´. The topic must match the topic you have entered in the mqtt device for this actor.
+
+<img src="../../.gitbook/assets/cbpi4-mqttfermenter-actorsetting.png" height="600" alt="Craftbeerpi4 MQTT Actor Setting">
+
+
+
+
+Name  The actors neeFor the heating element you can use a PWM type actor. As frequency, you can choose something between 0.1 and 0.5 Hz. Higher frequencies are not recommended and can cause also issues in your house (e.g. flickering lights). To be on the safe side, choos 0.1 Hz.
 
 ![Heating Actor](../../.gitbook/assets/cbpi4-Example1-BM-Actor-Heat.png)
 
@@ -111,6 +117,12 @@ Optionally, you can also install the KettleSensor plugin and add two additional 
 In case you are using influxdb and Grafana integration, you can display the relevant parameters for your brewing session including the target temperatures, the heating power and the measured temepratures.
 
 ![Brewing Parameters](../../.gitbook/assets/cbpi4-Example1-BM_Brewing.png)
+
+
+
+![MQTT Explorer](../../.gitbook/assets/cbpi4-mqtt-explorer-mqttdevice.png)
+
+![MQTT Sensor Settings](../../.gitbook/assets/cbpi4-mqtt-explorer-cbpi-mqtteviceactor.png)
 
 
 ### Kettle configuration
