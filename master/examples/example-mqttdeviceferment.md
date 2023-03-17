@@ -48,7 +48,6 @@ Details on how to setup your software are not shown here, as this is already des
 {% endhint %}
 
 ## Setup your Fermenter hardware in the mqttdevice
-
 - Flashing of the device is not described here as it is documented on Innuendos [page](https://innuendopi.github.io/MQTTDevice4/)
 - If you have installed the mqtt broker on your pi, enter the IP adress of your pi in the corresponding setup window of the mqttdevice.
 
@@ -62,37 +61,23 @@ You also need to add actors for your fermenter. In this example you basically ne
 
 <img src="../../.gitbook/assets/cbpi4-mqttdevice_actor_setting.png" height="600" alt="MQTT Actor Settings">
 
-Once you have saved all your sensors and actors, your overview of the mqtt device web inerface lshould look like this:
+Once you have saved all your sensors and actors, your overview of the mqtt device web inerface should look like this:
 
 <img src="../../.gitbook/assets/cbpi4-mqttdevice_overview.png" height="600" alt="MQTT Device Overview">
 
 If you are running only one fermenter, you need to specify only one sensor and two actors.
 
 ## Setup your Fermenter hardware in Craftbeerpi 4
-
 You need to setup mqtt sensorr, actors and assign them to your fermenter logic.
-### Actors
 
+### Actors
 First you should define your actors for the Fermenter. You need one for the heating element and one for the cooling valve.
 
-<img src="../../.gitbook/assets/cbpi4-mqttfermenter-actors.png" height="600" alt="Fermenter MQTT Actors">
+![Fermenter MQTT Actors](../../.gitbook/assets/cbpi4-mqttfermenter-actors.png)
 
-As actor type, MQTTActor must be selected and you need to enter a specific name for your Actor e.g. ´Speidel Cool (MQTT)´. The topic must match the topic you have entered in the mqtt device for this actor.
+As actor type, MQTTActor must be selected and you need to enter a specific name for your Actor e.g. `Speidel Cool (MQTT)`. The topic must match the topic you have entered in the mqtt device for this actor, e.g. `mqttdevice/d0`
 
-<img src="../../.gitbook/assets/cbpi4-mqttfermenter-actorsetting.png" height="600" alt="Craftbeerpi4 MQTT Actor Setting">
-
-
-
-
-Name  The actors neeFor the heating element you can use a PWM type actor. As frequency, you can choose something between 0.1 and 0.5 Hz. Higher frequencies are not recommended and can cause also issues in your house (e.g. flickering lights). To be on the safe side, choos 0.1 Hz.
-
-![Heating Actor](../../.gitbook/assets/cbpi4-Example1-BM-Actor-Heat.png)
-
-For the pump select a regular GPIOActor as it will be only switched on or off once in a while. You can leave the sampling time empty as it is not relevant for this actor.
-
-![Pump Actor](../../.gitbook/assets/cbpi4-Example1-BM-Actor-Pump.png)
-
-In case you are using a cooldown valve, you can configure it in the same way as the pump.
+![Craftbeerpi4 MQTT Actor Setting](../../.gitbook/assets/cbpi4-mqttfermenter-actorsetting.png)
 
 ### Sensors
 Now you need to define your sensors. As mentioned, the Braumeister comes with a 2 wire PT1000. As mentioned above, you need to have a corresponding board connected to your Pi and you need to install the required plugin as mentoined above.
