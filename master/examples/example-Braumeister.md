@@ -1,6 +1,6 @@
 # Example System: Speidel Braumeister 20L (2015)
 
-- This setup is working with a  a Speidel Braumeister 20 Plus (2015). It should also work with the 10  and 50 Liter models. 
+- This setup is working with a Speidel Braumeister 20 Plus (2015). It should also work with the 10  and 50 Liter models. 
 - However, for the 50 Liter model you need to figure out on how to manage the two pumps and heaters. I recommend the GroupedActor Plugin to combine two actors into one.
 
 ## Hardware requirements 
