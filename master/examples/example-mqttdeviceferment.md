@@ -92,45 +92,16 @@ Once started and logged into your mqtt broker, you can see all mqtt topics / pay
 
 ![MQTT Explorer](../../.gitbook/assets/cbpi4-mqtt-explorer-mqttdevice.png)
 
-In the image below you can see the payload for one of the actors of the mqttdevice.
+In the image below you can see the payload for one of the actors of the mqttdevice actors that is send via actorupdate from CraftbeerPi 4.
 
 ![MQTT Sensor Settings](../../.gitbook/assets/cbpi4-mqtt-explorer-cbpi-mqtteviceactor.png)
 
-
 ### Fermenter logic configuration
 
-Finally, you need to defineset up a Fermenter with the required logic. For Femrentation, CraftbeerPi 4 comes with the Fermenter Hysteresis logic which should be sufficient for almost all use cases. However, users can write their own plugins for fermenter logic.
+Finally, you need to define a Fermenter with the required logic. For Femrentation, CraftbeerPi 4 comes with the Fermenter Hysteresis logic which should be sufficient for almost all use cases. However, users can write their own plugins for fermenter logic.
+
+Specify a unique name for your femrenter, select Fermenter Hysteresis as logic. Select your defined MQTT based Heating actor as Heater and the MQTT based Cooling actor as Cooler. For the Temp sensor select the MQTT based temperature sensor that is hooked up to your MQTT device and defined in Craftbeerpi 4. In this example HeatingOffsetOn as well as CoolingOffsetOn are set to 0.2 which means that the heating element switches on, if the temperature reading is 0.2 degree below the target temp and the cooling vlave is triggered, when the temperature reading is 0.2 degree above the target temp. The 'off' values are set to 0 which means, that heating element or cooling valve are switched off, once target temp is reached. Autostart is set to yes, which triggers an autostart of the current step. If you have a step running until an end date, the same end date is the target after restart. The last sensor is just relevant if you are also using the LCD display plugin/hardware.
 
 ![Fermenter Hysteresis](../../.gitbook/assets/cbpi4-mqttfermenter-logic.png)
 
-### Global CraftbeerPi4 server settings
-
-Finally, you need to controll / adapt some settings on the server settings page.
-
-You need to set the 'Add Mashin Step' setting to yes for automated recipe creation from Kleiner Brauhelfer, MuMM or Brewfather. In this case, the system will add a first step with a target temp of the mash step and holds the system once the target temp is reached anbd stops the pump and heating. It'll will notify you to add the malt pip/malt and hit next
-
-You should also enable the automode to start and stop the logic automatically after each step.
-
-![Global Settings 1](../../.gitbook/assets/cbpi4-Example1-BM-Settings-1.png)
-
-You don'T need to select a kettle for the boilkettle as your Braumeister is a one Kettle system. But it would not hurt, if you would select the Braumeister as Boilkettle.
-
-![Global Settings 2](../../.gitbook/assets/cbpi4-Example1-BM-Settings-2.png)
-
-For the Mash_Tun you need to select your Braumeister Kettle.
-
-![Global Settings 3](../../.gitbook/assets/cbpi4-Example1-BM-Settings-3.png)
-
-In the steps settings, you need to select the correspondign steps you want to run for your device (You could also create your own steps via a plugin). 
-
-- Boil should be clear.
-- The boil temp can be defined and is filled in for the boilstep during the automated recipe creation.
-- If you are using a cooldown sensor, select your sensr here. Otherwise the default kettle sensor will be used if no sensor is selected.
-- If you are using a colldown valve, you need to select the corresponding actor that will be used for this step.
-- The mash step should be also clear as well as the nashin step.
-
-![Global Settings 4](../../.gitbook/assets/cbpi4-Example1-BM-Settings-4.png)
-
-{% hint style="info" %}
-Details for all steps are also described in the corresponding section of this documentation
-{% endhint %}
+All other informartion on fermentation is described [here](../operating-your-system.md#use-the-system-for-fermentation) and [here](../craftbeerpi-4-server/fermenter-profile.md)
