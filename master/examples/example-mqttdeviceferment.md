@@ -61,7 +61,7 @@ Details on how to setup your software are not shown here, as this is already des
 
 ![MQTT Device Overview](../../.gitbook/assets/cbpi4-mqttdevice_overview.png)
 
-![MQTT Explorer](../../.gitbook/assets/cbpi4-explorer-mqttdevice.png)
+![MQTT Explorer](../../.gitbook/assets/cbpi4-mqtt-explorer-mqttdevice.png)
 
 ![MQTT Sensor Settings](../../.gitbook/assets/cbpi4-mqtt-explorer-cbpi-mqtteviceactor.png)
 
