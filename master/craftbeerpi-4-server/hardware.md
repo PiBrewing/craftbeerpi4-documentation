@@ -25,7 +25,7 @@ The offset parameter is optional. If no value is entered, the default value of 0
 Click on save and the sensor will be saved and you can see it in the sensor table of the hardware page.
 
 {% hint style="info" %}
-Starting with Craftbeerpi4 `4.1.6` and the UI `0.3.10`, sensors have added a DataType property. This allows STrings and DateTime values for Sensors. One example is the Alarmtimer that you can add as sensor in the hardware section which acts as Alarmtimer.
+Starting with Craftbeerpi4 `4.1.6` and the UI `0.3.10`, sensors have added a DataType property. This allows Strings and DateTime values for Sensors. One example is the Alarmtimer that you can add as sensor in the hardware section which acts as Alarmtimer.
 
 Just add a Sensor to your hardware and select Alarmtimer.
 
