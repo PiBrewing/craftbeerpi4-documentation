@@ -80,43 +80,28 @@ As actor type, MQTTActor must be selected and you need to enter a specific name 
 ![Craftbeerpi4 MQTT Actor Setting](../../.gitbook/assets/cbpi4-mqttfermenter-actorsetting.png)
 
 ### Sensors
-Now you need to define your sensors. As mentioned, the Braumeister comes with a 2 wire PT1000. As mentioned above, you need to have a corresponding board connected to your Pi and you need to install the required plugin as mentoined above.
+You also need to configure mqtt actors in your Craftbeerpi4 hardware section. Add a sensor and select MQTTSensor as type. Also here you need to define a specific name for your sensor, e.g. `Speidel (MQTT)`.. The topic must match the topic on your mqtt device and you must enter `Sensor.Value` into the payload field. Timeout can be 0 to disable this function. In the example it is set to 300 and the sensor will raise an alert / notification if the sensor does not receive values for 300 seconds (5 minutes).
 
-![PT1000 Sensor](../../.gitbook/assets/cbpi4-Example1-BM-Sensor_PT1000.png)
+![Craftbeerpi4 MQTT Sensor Setting](../../.gitbook/assets/cbpi4-mqttfermenter-sensor-settings.png)
 
-Configure your sensor and coose 1000 as resistivity value and 4300 as resistivity for your reference sensor (You need to buy the correct max board for the PT1000 and not one for a PT100). Choose 2 or 4 wires in the sensor settings. The other parameters are described in detail on the plugin page.
+### MQTT Explorer
 
-If you want to use an additional one wire sensor for cooldown, you need to set up this sensor as well. Below is an example:
+To get more insight into the mqtt topics/payloads and for troubleshooting, you can download and run the [MQTT Explorer](http://mqtt-explorer.com/)
 
-![Cooldown Sensor](../../.gitbook/assets/cbpi4-Example1-BM-Sensor_cooldown.png)
-
-The advantage is that you measure a more realistic temeprature of your wort during cooldown as the PT1000 sensor is covered and 'isolated' with trub. Below you can see the difference for the PT1000 and the Cooldown sensor.
-
-![Cooldown Sensor Data](../../.gitbook/assets/cbpi4-Example1-BM-CooldownSensor.png)
-
-Optionally, you can also install the KettleSensor plugin and add two additional virtual sensors for your Braumeister: Target Temperature and Power. These sensors can be used to display both parameters.
-
-![TargetTemp Sensor](../../.gitbook/assets/cbpi4-Example1-BM-Sensor_TargetTemp.png)
-![Power Sensor](../../.gitbook/assets/cbpi4-Example1-BM-Sensor_Power.png)
-
-In case you are using influxdb and Grafana integration, you can display the relevant parameters for your brewing session including the target temperatures, the heating power and the measured temepratures.
-
-![Brewing Parameters](../../.gitbook/assets/cbpi4-Example1-BM_Brewing.png)
-
-
+Once started and logged into your mqtt broker, you can see all mqtt topics / payloads in the broker. Below is an example for the mqttdevice, configured as described above. The examples shows temepratures for two configured temperature sensors and the status for four defined actors. One of the actors is switched on, while the other three are off.
 
 ![MQTT Explorer](../../.gitbook/assets/cbpi4-mqtt-explorer-mqttdevice.png)
+
+In the image below you can see the payload for one of the actors of the mqttdevice.
 
 ![MQTT Sensor Settings](../../.gitbook/assets/cbpi4-mqtt-explorer-cbpi-mqtteviceactor.png)
 
 
-### Kettle configuration
+### Fermenter logic configuration
 
-Finally, you need to define a Kettle with the required logic plugin mentioned above. Select the installed BM_PID_SmartBilWithPump plugin as logic and define a Name for your Kettle. Select the Actor you have defined as Hater for your Kettle Heater and the Pump actor as Agitator. As sensor, select the PT1000 sensor you have defined. The PID parameters need to be derived via the PID Autotune Plugin. Details on how to run the tunig are described [here](https://github.com/PiBrewing/cbpi4-PID_AutoTune).
+Finally, you need to defineset up a Fermenter with the required logic. For Femrentation, CraftbeerPi 4 comes with the Fermenter Hysteresis logic which should be sufficient for almost all use cases. However, users can write their own plugins for fermenter logic.
 
-The max Pump temperature defines, when the pump will be switched off to prevent pump failure. 88C is recommended and alinged with the original Braumeister controller settings. The may bvoil output defines the power that is used for boiling. For my Braumeister 20 L , 85% is suffucuent, but you can adat this to your needs for a good boil. Max Boil Temp is the temeprature, when the max boil output will be used. Max PID temp is the temperature, until the PID settings are used. Above this temeperature, the max output is used. The rest intervall is the intervall when the pump is paused. Default is 600 (= 10 Minutes like in te braumeister controller). The Rest time is the time in seconds for how long the pump is resting. The standard Braumeister setting is 1 Minute.
-
-![Braumeister Kettle](../../.gitbook/assets/cbpi4-Example1-BM-Kettle-Config.png)
+![Fermenter Hysteresis](../../.gitbook/assets/cbpi4-mqttfermenter-logic.png)
 
 ### Global CraftbeerPi4 server settings
 
