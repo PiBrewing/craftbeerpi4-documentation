@@ -18,7 +18,7 @@
 
 The image below shows the drip water safe case from the outside:
 
-![Drip water safe box](../../.gitbook/assets/cbpi4-mqttfermenter-mqttdevicebox.jpg)
+![Drip water safe box]<img src="../../.gitbook/assets/cbpi4-mqttfermenter-mqttdevicebox.jpg" height="600">
 ![Connectors](../../.gitbook/assets/cbpi4-mqttfermenter-mqttdevice-inside.jpg)
 
 The next image shows the box from the inside equipped with the ESP8266, the power supply and the relais.
