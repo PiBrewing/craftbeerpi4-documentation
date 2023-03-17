@@ -24,6 +24,19 @@ The offset parameter is optional. If no value is entered, the default value of 0
 
 Click on save and the sensor will be saved and you can see it in the sensor table of the hardware page.
 
+{% hint style="info" %}
+Starting with Craftbeerpi4 4.1.6 and the UI 0.3.10, sensors have added a DataType property. This allows STrings and DateTime values for Sensors. One example is the Alarmtimer that you can add as sensor in the hardware section which acts as Alarmtimer.
+
+![Sensor Alarmtimer settings](../../.gitbook/assets/cbpi4-alarmtimer-settings.png)
+![Sensor Alarmtimer on Dashboard](../../.gitbook/assets/cbpi4-dashboard-alarmtimer.png)
+![Sensor Alarmtimer Dasgboard properties](../../.gitbook/assets/cbpi4-alarmtimer-properties.png)
+![Sensor Alarmtimer actionmenu](../../.gitbook/assets/cbpi4-alarmtimer-actionmenu.png)
+![Sensor Alarmtimer set](../../.gitbook/assets/cbpi4-alarmtimer-set.png)
+![Sensor Alarmtimer running](../../.gitbook/assets/cbpi4-alarmtimer-running.png)
+
+{% endhint %}
+
+
 ### Setting up an Actor
 
 The next step is the setup of an actor. For a Kettle you will typically need two actors. One for the heating element and one for the pump or agitator. Click on the '+' in the actor table and you will see the following window:

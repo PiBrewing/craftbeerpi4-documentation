@@ -81,6 +81,8 @@ This is a more complex example as the iSpindle is sending data via http. In addi
 
 As more fucntions are required, you need to import also more libraries in the beginning of this plugin. In particular for the http communication you will need to import the `web` part from `aiohttp`, as well as the `json` library, since the data is transferred in the json format. The `logging` module is also used, as it can be really helpfull for debugging.
 
+Starting with cbpi4 4.1.6 the Dataclass `Datatype` has been introduced for Sensors. It is recommended to import it to Sensor plugins. The UI has to be >= 0.3.10 to use this functiobnality.
+
 In the beginning a global variable `cache`is defined as dict. this is used by all parts of the plugin.
 
 ```python
@@ -93,6 +95,7 @@ from cbpi.api import *
 import re
 import time
 import json
+from cbpi.api.dataclasses import DataType
 
 logger = logging.getLogger(__name__)
 
@@ -120,13 +123,24 @@ This plugin uses more properties for the configuration and assignment of the iSp
 
 ```python
 @parameters([Property.Text(label="iSpindle", configurable=True, description="Enter the name of your iSpindel"),
-             Property.Select("Type", options=["Temperature", "Gravity/Angle", "Battery", "RSSI"], description="Select which type of data to register for this sensor. For Angle, Polynomial has to be left empty"),
+             Property.Select("Type", options=["Temperature", "Gravity/Angle", "Battery", "RSSI", "DateTime"], description="Select which type of data to register for this sensor. For Angle, Polynomial has to be left empty"),
              Property.Text(label="Polynomial", configurable=True, description="Enter your iSpindel polynomial. Use the variable tilt for the angle reading from iSpindel. Does not support ^ character."),
              Property.Select("Units", options=["SG", "Brix", "°P"], description="Displays gravity reading with this unit if the Data Type is set to Gravity. Does not convert between units, to do that modify your polynomial."),
              Property.Sensor("FermenterTemp",description="Select Fermenter Temp Sensor that you want to provide to TCP Server")])
 ```
 
 Once the properties have been defined, it is mandatory to initialize the sensor plugin. In this step, you should also define your variables for the properites with the `self.props.get("PROPERTY", DEFAULT_VALUE)` method. With `PROPERTY`, you specify / access the property, you specified in the `@parameters`section. If the property has not been defined, or the user has not entered a value in the sensor setup page, you can / should specify a default value in the function which is used if no value has been entered for this parameter.
+
+As mentioned above, datatypes have been added to the sensors and sensors can 'report' also strings and datetime values. Therefore, you have to define the self.datatype variable during initialization. The following classes are available: `Value`, `String` and `DateTime`.
+
+This example uses `DataType.DateTime` depending on the data to be reported. This allows the recording of the timestamp of the last data transfer of the spindle and the UI will display the date and time.
+
+If nothing is defined in a plugin, `DateType.VALUE` will be used as default. Old plugins don't require a change.
+
+{% hint style="info" %} 
+`DateType.STRING` is for instance used in the Alarmtimer extension that comes with the latest version of cbpi as sensor but shows a Timer.
+{% endhint %}
+
 
 ```python
 class iSpindle(CBPiSensor):
@@ -137,6 +151,7 @@ class iSpindle(CBPiSensor):
         self.key = self.props.get("iSpindle", None)
         self.Polynomial = self.props.get("Polynomial", "tilt")
         self.temp_sensor_id = self.props.get("FermenterTemp", None)
+        self.datatype = DataType.DATETIME if self.props.get("Type", None) == "DateTime" else DataType.VALUE
         self.time_old = 0
 ```
 
@@ -157,11 +172,12 @@ If the timestamp has not been updated, the push_update function will be only cal
                     self.time_old = float(cache[self.key]['Time'])
                     if self.props.get("Type") == "Gravity/Angle":
                         self.value = await calcGravity(self.Polynomial, cache[self.key]['Angle'], self.props.get("Units"))
+                    elif self.props.get("Type") == "DateTime":
+                        self.value=float(cache[self.key]['Time'])
                     else:
                         self.value = float(cache[self.key][self.props.Type])
                     self.log_data(self.value)
                     self.push_update(self.value)
-                self.push_update(self.value,False)
                 
             except Exception as e:
                 pass
