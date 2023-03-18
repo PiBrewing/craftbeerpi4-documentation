@@ -25,6 +25,7 @@ The following tables will show the settings grouped into different topics.
 | Author                   | Name of the brewer - Will be shown in the local recipes      |
 | Brewery Name             | Brewery Name. For instance shown on the LCD Display standby. |
 | Temperature Unit         | Global setting for temperature unit F or C                   |
+| Pressure Unit            | Global setting for pressure unit kPa or PSI                   |
 | Current Dashboard Number | Used by the system. No change on user side required          |
 | Max number of Dashboards | Maximum number of dashboards that can be used (1 - 10)       |
 | MQTTUpdate               | Forced MQTT Update frequency in s for Kettle and Fermenter (no changes in payload required). Restart required after change |
@@ -38,6 +39,9 @@ The following tables will show the settings grouped into different topics.
 | INFLUXDBUSER             | Influxdb password in case your server is configured to require a user or organisation in case of cloud or v2 |
 | PLAY_BUZZER              | Play buzzer sound in Web interface on Notifications          |
 | slow_pipe_animation      | Slow down dashboard pipe animation taking up close to 100% of the CPU's capacity |
+| NOTIFY_ON_ERROR          | Send Notification on Logging Error                            |
+| SENSOR_LOG_BACKUP_COUNT  | Max. number of backup logs                                   |
+| SENSOR_LOG_MAX_BYTES     | Max. number of bytes in sensor logs                           |
 
 ### Recipe creation settings
 
