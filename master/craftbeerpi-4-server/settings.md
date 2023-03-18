@@ -30,12 +30,14 @@ The following tables will show the settings grouped into different topics.
 | MQTTUpdate               | Forced MQTT Update frequency in s for Kettle and Fermenter (no changes in payload required). Restart required after change |
 | CSVLOGFILES              | Yes / No: Write sensor data to csv log files. If no, dashboard charts and analytics page will not show sensor data |
 | INFLUXDB                 | Yes / No: Forward sensor data to influxdb (up to V1.8.x)     |
-| INFLUXDBADDR             | IP address of your influxdb server                           |
-| INFLUXDBNAME             | Name of the influxdb database the sensor data should be sent |
-| INFLUXDBPORT             | Port of the influxdb server (typically 8086)                 |
-| INFLUXDBPWD              | Influxdb password in case your server is configured to require a password |
-| INFLUXDBUSER             | Influxdb password in case your server is configured to require a user |
-
+| INFLUXDBADDR             | Full address of your influxdb server (e.g. http://localhost:8086)
+| INFLUXDBCLOUD            | Yes / No: Write data to influxdbcloud or v2                  |
+| INFLUXDBMEASUREMENT      | Name of the measurement in your INFLUXDB database (default: measurement) |
+| INFLUXDBNAME             | Name of the influxdb database (1.8) or bucket (cloud or 2.x) the sensor data should be sent |                
+| INFLUXDBPWD              | Influxdb password in case your server is configured to require a password or token for the cloud and v2|
+| INFLUXDBUSER             | Influxdb password in case your server is configured to require a user or organisation in case of cloud or v2 |
+| PLAY_BUZZER              | Play buzzer sound in Web interface on Notifications          |
+| slow_pipe_animation      | Slow down dashboard pipe animation taking up close to 100% of the CPU's capacity |
 
 ### Recipe creation settings
 
