@@ -161,6 +161,7 @@ The tables below shows the plugins that are currently available by type. At this
 |                           | Description                                                | Link                                                                  |
 | ------------------------- | ---------------------------------------------------------- | --------------------------------------------------------------------- |
 | Example plugin to be created | Hysteresis included in cbpi4 > 4.0.1.0 |  |
+|cbpi4_FermenterHysteresisWithChillerDiff | Fermenter Hysteresis with disabled cooling depending on chiller temp | [GitHub Link](https://github.com/mstrinzha/cbpi4_FermenterHysteresisWithChillerDiff) |
 
 ### Display
 
