@@ -4,6 +4,7 @@
   * [Server Installation](master/server-installation.md)
   * [Plugin installation](master/plugin-installation.md)
   * [Troubleshooting](master/troubleshooting.md)
+    * [Upgrade to 4.1.7 with Cryptogrpahy](master/cryptography_update.md)
   * [CraftbeerPi 4 Server](master/craftbeerpi-4-server/README.md)
     * [Dashboard](master/craftbeerpi-4-server/dashboard.md)
     * [Mash Profile](master/craftbeerpi-4-server/mash-profile.md)
