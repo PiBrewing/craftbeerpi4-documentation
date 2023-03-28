@@ -36,7 +36,7 @@ The following tables will show the settings grouped into different topics.
 | INFLUXDBMEASUREMENT      | Name of the measurement in your INFLUXDB database (default: measurement) |
 | INFLUXDBNAME             | Name of the influxdb database (1.8) or bucket (cloud or 2.x) the sensor data should be sent |                
 | INFLUXDBPWD              | Influxdb password in case your server is configured to require a password or token for the cloud and v2|
-| INFLUXDBUSER             | Influxdb password in case your server is configured to require a user or organisation in case of cloud or v2 |
+| INFLUXDBUSER             | Influxdb user in case your server is configured to require a user or organisation in case of cloud or v2 |
 | PLAY_BUZZER              | Play buzzer sound in Web interface on Notifications          |
 | slow_pipe_animation      | Slow down dashboard pipe animation taking up close to 100% of the CPU's capacity |
 | NOTIFY_ON_ERROR          | Send Notification on Logging Error                            |
