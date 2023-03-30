@@ -16,7 +16,7 @@
     - Yes will enable buzzer tone via web interface (UI >= 0.3.11 required)
 
 
-## UI Version Version 0.3.11 has the followning changes:
+## UI Version Version 0.3.11 has the following changes:
 
 ### Buzzer Tone via Browser
 - Buzzer signal with server >=4.1.7
