@@ -27,3 +27,4 @@
   * [Examples](master/examples/README.md)
     * [Example System: Speidel Braumeister 20L (2015)](master/examples/example-Braumeister.md)
     * [Example System: MQTTDevice V4 based Fermentation](master/examples/example-mqttdeviceferment.md)
+   * [Changes](master/Changes.md)
