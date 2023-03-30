@@ -23,7 +23,7 @@
 
 ### Grafana Widget requires change in UI propertie settings for refresh
 - old: 10 | new: 10s or 1m (time unit required)
-- Only date will be updated and not the entire iframe
+- Only data will be updated and not the entire iframe
 
 ## Changelog
 
