@@ -6,7 +6,7 @@ description: Software for brewing and fermenting beer
 
 #### Versions:
 
-Documentation: 1.5.1
+Documentation: 1.5.2
 
 Valid for 
 - Server: [4.1.7](https://pypi.org/project/cbpi4/)
@@ -15,6 +15,8 @@ Valid for
 Requirements:
 - Python 3.9 (Python 3.10 and 3.11 should also work -> tested in docker environment)
 - Bullseye is the recommended OS for the raspberry pi
+
+### [Changes](./Changes.md)
 
 ## Craftbeerpi 4 overview
 
