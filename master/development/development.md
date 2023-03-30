@@ -21,7 +21,7 @@ sudo pip3 install --upgrade https://github.com/PiBrewing/craftbeerpi4/archive/de
 
 If you want to install another existing branch, you need to check the available brnaches and adapt the link acordingly.
 
-To revert back to the master branch, just run the commands for [updating your server](server-installation.md#updating-the-server).
+To revert back to the master branch, just run the commands for [updating your server](../server-installation.md#updating-the-server).
 
 ## Running a development version of the user interface
 
