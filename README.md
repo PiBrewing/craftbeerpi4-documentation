@@ -16,7 +16,7 @@ Requirements:
 - Python 3.9 (Python 3.10 and 3.11 should also work -> tested in docker environment)
 - Bullseye is the recommended OS for the raspberry pi
 
-### [Changes](./master/Changes.md)
+### [Changes](./master/Changes.md#changes)
 
 ## Craftbeerpi 4 overview
 
