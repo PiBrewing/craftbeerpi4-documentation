@@ -1,6 +1,6 @@
 # Changes
 
-## Server Version Version 4.1.7 has the followning changes:
+## Server Version Version 4.1.7 has the following changes:
 
 ### INFLUXDB configuration
 - INFLUXDBADDR address must contain the full address inlc. http(s) and port
