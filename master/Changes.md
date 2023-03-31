@@ -15,7 +15,7 @@
 - PLAY_BUZZER  parameter has been added to global settings
     - Yes will enable buzzer tone via web interface (UI >= 0.3.11 required)
 
-### Sensor logging (integrated http, mqtt and onewire sensors)
+### Reduced sensor logging (integrated http, mqtt and onewire sensors)
 - The sensor plugins that come with cbpi have an additional functionality with respect to logging.
 - The user can assign a Kettle <strong>OR</strong> a Fermenter to the sensor
 - The reduced logging frequency defineces the reduced frequency of sensor logging. Readings will be still handled with regular frequency, but logging to CSV or influxdb is reduced. A value of 0 disables logging completely on inactivity.
