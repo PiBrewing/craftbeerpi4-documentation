@@ -2,6 +2,10 @@
 
 ## Server Version Version 4.1.7 has the following changes:
 
+### Cryptography update may cause error 'X509_V_FLAG_CB_ISSUER_CHECK'
+
+For security reasons the cryptography package had to be updated to 40.0.0. This may cause an issue later when you are using pip. To fix it, please have a look [here](./cryptography_update.md) 
+
 ### INFLUXDB configuration
 - INFLUXDBADDR address must contain the full address inlc. http(s) and port
 - INFLUXDBPORT becomes obsolete
