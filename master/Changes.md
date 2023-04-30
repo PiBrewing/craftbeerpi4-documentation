@@ -2,9 +2,11 @@
 
 ## Server Version Version 4.1.7 has the following changes:
 
-### Cryptography update may cause error 'X509_V_FLAG_CB_ISSUER_CHECK'
+### Cryptography update may cause error 'X509_V_FLAG_CB_ISSUER_CHECK' or 'Illegal instruction'
 
 For security reasons the cryptography package had to be updated to 40.0.0. This may cause an issue later when you are using pip. To fix it, please have a look [here](./cryptography_update.md) 
+
+In case of the illegal instruction issue (armv6 based 32 bit systems), you can try to adapt the setup.py manually. However, ther won't be any further support with older versions of cryptopgraphy due to security issues with tolder versions of this dependency.
 
 ### INFLUXDB configuration
 - INFLUXDBADDR address must contain the full address inlc. http(s) and port
