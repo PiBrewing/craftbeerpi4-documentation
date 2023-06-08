@@ -10,6 +10,8 @@
 
 ### Adding global settings for a plugin requires now a source parameter
 
+!!! Plugins with global settings (e.g. cpbi4-buzzer, cbpi4-system, cbpi4-Pushover, cbpi4-scd30-co2-sensor,.....) need to be updated to the latest versions !!!
+
 - To get a better overview on the settings page, pöugins that add global settings parameters need to use a 'source' parameter.
 - With UI version 0.3.12, the settings page has a drop down menu at the top to select also settings for individual plugins.
 - An example can be seen [here](https://github.com/PiBrewing/cbpi4-PushOver/commit/6ee61a35ae4d225737764d251e3cea074ef0d646#diff-73e2a5d205487d09c209cfcbcbc3f7a56568faa301b03209369859548932d00b)
