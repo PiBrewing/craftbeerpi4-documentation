@@ -20,6 +20,8 @@ Please note: You can only see data in the charts, when the sensor is writing dat
 
 If you want to delete one or multiple charts / log files, you need to select the corresponding sensors and click on the delete button on this page. A delete dialog will open where you need to confirm that you want to delete the data.
 
+If you want to delete all logs, just click the delete all button right of the delete button. No sensors need to be selected for this function.
+
 ![Delete Dialog to delete sensor log files](../../.gitbook/assets/cbpi4-analytics-delete-logs.png)
 
 If you confirm to delete the data. the files will be deleted and can't be restored.&#x20;
