@@ -1,17 +1,20 @@
 # Settings
 
-As described in the Hardware section, each sensor, actor or kettle has individual properties. However, there are also global parameters / settings that need to be defined for CraftbeerPi 4. This can be done on the settings page.&#x20;
+As described in the Hardware section, each sensor, actor or kettle has individual properties. However, there are also global parameters / settings that need to be defined for CraftbeerPi 4. This can be done on the settings page.
 
-![](../../.gitbook/assets/cbpi4-settings.png)
+![](../../.gitbook/assets/cbpi4-settings-selection.png)
 
-After the server installation you will see already quite a few parameters with some default values, but also parameters with empty values. At least some of them need to be entered or adapted. When you enter or change settings on this page, you need to click the save symbol on the top right corner.&#x20;
-
-{% hint style="warning" %}
-Please note that it may seem to be that the values have not been saved correctly, if you move back to e.g. the dashboard and then again to the settings page. This is currently bug in the frontend. Just press F5 to reload the page and you will see the saved parameters.
-{% endhint %}
+After the server installation you will see already quite a few parameters with some default values, but also parameters with empty values. At least some of them need to be entered or adapted. When you enter or change settings on this page, you need to click the save symbol on the top right corner.
 
 {% hint style="info" %}
-Whenever you install a plugin, you also need to pay attention to the settings page, as some plugins will add parameters to the settings page
+Whenever you install a plugin, you also need to pay attention to the settings page, as some plugins will add parameters to the settings page.
+{% endhint %}
+
+Starting with Craftbeerpi 4.1.10 and UI 0.3.12, the settings page has also a dropdown box at the top of the page, where the user can choose 'All' to see al settings or can select a plugin, that has added global settings. 
+
+
+{% hint style="info" %}
+To see the plugin settings under the correct selection, you need to update the plugins to the latest version ad the plugin creator has to adapt the parameter creation in his plugin accordingly.
 {% endhint %}
 
 ## Parameters
