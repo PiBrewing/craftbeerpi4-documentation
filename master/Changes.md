@@ -1,6 +1,30 @@
 # Changes
 
-## Server Version Version 4.1.7 has the following changes:
+
+## Server Version 4.1.12 has the following changes:
+
+### Individual Data logging can be now done via plugin (provided by prash3r)
+
+- In case a developmer wants to log data to different databases or files, data can be logged via plugin.
+- As an example you can review the [influxdb logger](https://github.com/PiBrewing/craftbeerpi4/commit/e01850f2dc8fac02acd60685cceb071157dcf3ae#diff-107f71bd92549585a518ca8d6b3f6eb086d22d83614c75b4e3e3ac04afbaf38d)
+
+### Adding global settings for a plugin requires now a source parameter
+
+- To get a better overview on the settings page, pöugins that add global settings parameters need to use a 'source' parameter.
+- With UI version 0.3.12, the settings page has a drop down menu at the top to select also settings for individual plugins.
+- An example can be seen [here](https://github.com/PiBrewing/cbpi4-PushOver/commit/6ee61a35ae4d225737764d251e3cea074ef0d646#diff-73e2a5d205487d09c209cfcbcbc3f7a56568faa301b03209369859548932d00b)
+- This example also shows  how to update parameters in case you want to change for example the description. Therefore, you can use also the soure key 'hidden' and write the plugin version to the settings.
+- Hidden parameters won't be shown on the settings page.
+- Added function to remove global config parameters.
+
+## UI Version Version 0.3.12 has the following changes:
+
+- Added selection option to settings page for global plugin settings, Option to remove obsolete global settings on system page.
+- Added various tooltips and fixed issue if fermenter recipe contained special characters (-> will be automatically replaced). 
+- Option on analytics page to delete all logs
+
+
+## Server Version 4.1.7 has the following changes:
 
 ### Cryptography update may cause error 'X509_V_FLAG_CB_ISSUER_CHECK' or 'Illegal instruction'
 

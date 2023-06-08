@@ -10,8 +10,10 @@ The latest version of Raspberry Pi is Raspberry Pi 4 Model B.
 
 With this version, you can choose your RAM from 2gB to 8gB. The 2gB version is sufficient to run CBPI V4.
 
-{% hint style="info" %}
-I have tested a CraftbeerPi4 Installation on a Pi Zero W. Allthough a bit slow during startup, tThe server seems to be working. However, memory might be a limiting factor and you should definitely not think about installing and running Chromium on the Zero. This will keep the CPU quite busy.
+{% hint style="warning" %}
+I have tested a CraftbeerPi4 (<= 4.1.6) Installation ona Pi Zero W. Allthough a bit slow during startup, the server seems to be working. However, memory might be a limiting factor and you should definitely not think about installing and running Chromium on the Zero. This will keep the CPU quite busy.
+
+Due to updates on some required packages, there are [complications](https://github.com/PiBrewing/craftbeerpi4/issues/108) with the Pi zero gen 1 and the Pi 1 (armv6l based devices). These devices are not supported anymore, but you can try to follow the instructions in the aforementioned link to downgrade the cryptography related packages. There won't be any support from cbpi side for those old devices.
 {% endhint %}
 
 For further information on Raspberry Pi, please have a look there : [https://www.raspberrypi.com/products/raspberry-pi-4-model-b/](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
