@@ -133,6 +133,7 @@ The tables below shows the plugins that are currently available by type. At this
 | cbpi4-iSpindle         | Sensor that collects data from the iSpindle    | [GitHub Link](https://github.com/PiBrewing/cbpi4-iSpindle)         |
 | cbpi4-KettleSensor     | Collects targettemp and power/status for kettle / fermenter | [GitHub Link](https://github.com/PiBrewing/cbpi4-KettleSensor)     |
 | cbpi4-dht22-temp-hum-sensor | Sensor for Reltive humidity and temperature | [GITHub Link](https://github.com/DanZee/cbpi4-dht22-temp-hum-sensor) |
+| cbpi4\_GroupedSensor | Groups up to 8 Sensors for avg, max or min calculation | [GITHub Link](https://github.com/PiBrewing/cbpi4_GroupedSensor) |
 
 ### Actors
 
