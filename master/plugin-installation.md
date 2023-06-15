@@ -134,6 +134,7 @@ The tables below shows the plugins that are currently available by type. At this
 | cbpi4-KettleSensor     | Collects targettemp and power/status for kettle / fermenter | [GitHub Link](https://github.com/PiBrewing/cbpi4-KettleSensor)     |
 | cbpi4-dht22-temp-hum-sensor | Sensor for Reltive humidity and temperature | [GITHub Link](https://github.com/DanZee/cbpi4-dht22-temp-hum-sensor) |
 | cbpi4\_GroupedSensor | Groups up to 8 Sensors for avg, max or min calculation | [GITHub Link](https://github.com/PiBrewing/cbpi4_GroupedSensor) |
+| cbpi4-max6675 | Allos usage of max6675 board to connect k-type sensors and measure temps up to 1000°C (e.g. for gas burner control)| [GitHub Link](https://github.com/dimontau/cbpi4-max6675) |
 
 ### Actors
 
