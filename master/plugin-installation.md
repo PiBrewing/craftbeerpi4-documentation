@@ -142,7 +142,7 @@ The tables below shows the plugins that are currently available by type. At this
 | ------------------------ | ------------------------------------------------------------------ | -------------------------------------------------------------------- |
 | cbpi4-GoupedActor        | Allows to group Actors                                             | [GitHub Link](https://github.com/PiBrewing/cbpi4-GroupedActor)       |
 | cbpi4-GoupedPowerActor        | Allows to group Actors and ramp the power linear over the individual actors | [GitHub Link](https://github.com/PiBrewing/cbpi4-GroupedPowerActor)       |
-| cpbi4-DependentActor     | Allows to switch actors dependent on the state of other actors     | [GitHub Link](https://github.com/PiBrewing/cbpi4-DependentActor)     |
+| cpbi4-DependentActor     | Contains two Actor types: <p><strong>Dependent Actor</strong> allows to switch actors dependent on the state of other actors.</p><p><strong>Conditional actor</strong> allows to switch a target actor based on the status of a an actor group (AND / OR logic included). Helpfull for triggering a chiller pump based on the status of solenoid valves</p> | [GitHub Link](https://github.com/PiBrewing/cbpi4-DependentActor)     |
 | cbpi4-GPIODependentActor | Allows to switch actors dependent on the state GPIO Inputs (alpha) | [GitHub Link](https://github.com/PiBrewing/cbpi4-GPIODependentActor) |
 | cbpi4-pca9685            | PCA9685 I2C PWM Actor Plugin for CraftBeerPi4                      | [GitHub Link](https://github.com/jtubb/cbpi4-pca9685)                |
 | cbpi4-http-actor         | Generic Craftbeerpi4 HTTP Actor Plugin                             | [GitHub Link](https://github.com/hurra/cbpi4-http-actor)             |
