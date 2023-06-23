@@ -1,7 +1,7 @@
 # Changes
 
 
-## Server Version 4.1.12 has the following changes:
+## Server Version 4.1.10 has the following changes:
 
 ### Individual Data logging can be now done via plugin (provided by prash3r)
 
