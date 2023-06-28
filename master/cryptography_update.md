@@ -1,4 +1,4 @@
-With cbpi4 4.1.7, the dependency to cryptography has changed to version 40.0.0. due to a security issue with older versions of this package.
+With cbpi4 4.1.7, the dependency to cryptography has changed to version 40.0.1. due to a security issue with older versions of this package.
 
 In case you are experiencing problems with pip after the upgrade and see this error (`AttributeError: module 'lib' has no attribute 'X509_V_FLAG_CB_ISSUER_CHECK'`) when using pip, you should be able to fix the issues with the following commands:
 
@@ -6,7 +6,7 @@ In case you are experiencing problems with pip after the upgrade and see this er
 sudo apt remove python3-pip 
 wget https://bootstrap.pypa.io/get-pip.py
 sudo python3 get-pip.py
-sudo pip3 install pyopenssl --upgrade
+sudo pip3 install pyopenssl==23.1.0 --upgrade
 ```
 
 Some more information is posted [here](https://stackoverflow.com/questions/73830524/attributeerror-module-lib-has-no-attribute-x509-v-flag-cb-issuer-check)
@@ -31,7 +31,7 @@ Afterward, you can checkout the branch you want:
 
 then you can edit the setup.py file and change
 
-"cryptography==40.0.0" to "cryptography==36.0.1"
+"cryptography==40.0.1" to "cryptography==36.0.1"
 
 navigate on directory up:
 
