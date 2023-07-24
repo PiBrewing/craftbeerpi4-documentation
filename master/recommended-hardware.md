@@ -14,6 +14,8 @@ With this version, you can choose your RAM from 2gB to 8gB. The 2gB version is s
 I have tested a CraftbeerPi4 (<= 4.1.6) Installation ona Pi Zero W. Allthough a bit slow during startup, the server seems to be working. However, memory might be a limiting factor and you should definitely not think about installing and running Chromium on the Zero. This will keep the CPU quite busy.
 
 Due to updates on some required packages, there are [complications](https://github.com/PiBrewing/craftbeerpi4/issues/108) with the Pi zero gen 1 and the Pi 1 (armv6l based devices). These devices are not supported anymore, but you can try to follow the instructions in the aforementioned link to downgrade the cryptography related packages. There won't be any support from cbpi side for those old devices.
+
+The Zero 2 W has been tested successfully with a 64 bit based raspbian and most recent versions of cbpi4 are running on this pi if you don't want to run the UI with Chromium directly from the pi.
 {% endhint %}
 
 For further information on Raspberry Pi, please have a look there : [https://www.raspberrypi.com/products/raspberry-pi-4-model-b/](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)

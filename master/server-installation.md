@@ -9,7 +9,7 @@ There is also the possibility to install the server from a pre-configured image.
 First you will need to install Raspbian from an image. The installer can be found here: [https://www.raspberrypi.com/software/](https://www.raspberrypi.com/software/)
 
 {% hint style="info" %}
-CraftbeerPi4 requires python 3.9 and it is recommended to install it on bullseye. It has been tested on the 32 bit version but users have reported it is also working on 64 bit bullseye.
+CraftbeerPi4 requires python 3.9 and it is recommended to install it on bullseye. It is recommended to use the  64 bit version as recent updates of required packages may cause issues on 32 bit systems. This limits also the usage of the pi hardware. It is know that the Pi 1 and Zero 1 may not be working with the latest cbpi4 versions as some required packages are not compatible with the 32 bit version of raspbian. The Raspberry Pi Zero 2 has been tested successfully as it is based on a quad core 64 bit ARM core. The Zero 2 is capable to run cbpi4 if you don't want to run Chromium directly on it.  
 {% endhint %}
 
 You should enable ssh to run commands also via a ssh connection from a remote PC / MAC. Open either a bash window or use a terminal to login via a remote ssh connection to your pi. The default user name is 'pi' and the default password is 'raspberry'. For safety reasons, you should change your password. This can be done with the RaspberryPi imager in the advanced options that can be accessed with CRTL + SHIFT + X.
