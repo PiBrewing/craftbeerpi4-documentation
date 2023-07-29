@@ -15,10 +15,10 @@ Valid for
 Requirements:
 - Python 3.9 (Python 3.10 and 3.11 should also work -> tested in docker environment)
 - Bullseye is the recommended OS for the raspberry pi
-- !!! RapsberryPi that is able to run 64bit system is storngly recommended as older versions will cause issues with server versions > 4.1.6 !!!
+- !!! RapsberryPi that is able to run 64bit system is strongly recommended as older versions will cause issues with server versions > 4.1.6 !!!
 
 ### Note:
-- A migration from cbpi3 to cbpi4 with the olde settings / configuration is not possible
+- A migration from cbpi3 to cbpi4 with the old settings / configuration is not possible
 
 ### [Changes](master/Changes.md)
 
@@ -30,7 +30,7 @@ The user interface has the option to define up to 10 different dashboards, e.g. 
 
 Below you can see an example dashboard for a single vessel brew setup.
 
-![Brewing Dasboard](.gitbook/assets/cbpi4\_brew.png)
+![Brewing Dashboard](.gitbook/assets/cbpi4\_brew.png)
 
 On a second dashboard you can add for instance your fermenters:
 
@@ -58,4 +58,4 @@ CraftbeerPi 4 is raising notifications on several events. If you are working for
 
 ![CraftbeerPi 4 Notification in browser window](.gitbook/assets/cbpi4-notofocation.png)
 
-Notifications can be extended by plugins as the notification event can trigger another function. There are currently two plugins available that can extend the notification function. The first is the [buzzer plugin](https://github.com/PiBrewing/cbpi4-buzzer) that triggers for instance the buzzer on your extension board, whenever a notification is raised. The other plugin can send a [push notification ](https://github.com/PiBrewing/cbpi4-PushOver)of the CraftbeerPi4 notification via the pushover service to your cell phone. This comes in pretty handy in particular for hop alarms. For other notification clients (e.g. Telegram), users need to develop additional plugins. If you set the `PLAY_BUZZER` parameter in the global settings to `Yes`, the web browser is also playing a sound on notifiactions
+Notifications can be extended by plugins as the notification event can trigger another function. There are currently two plugins available that can extend the notification function. The first is the [buzzer plugin](https://github.com/PiBrewing/cbpi4-buzzer) that triggers for instance the buzzer on your extension board, whenever a notification is raised. The other plugin can send a [push notification ](https://github.com/PiBrewing/cbpi4-PushOver)of the CraftbeerPi4 notification via the pushover service to your cell phone. This comes in pretty handy in particular for hop alarms. For other notification clients (e.g. Telegram), users need to develop additional plugins. If you set the `PLAY_BUZZER` parameter in the global settings to `Yes`, the web browser is also playing a sound on notifications

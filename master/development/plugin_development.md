@@ -6,7 +6,7 @@ CraftbeerPi4 has the capability to create a plugin template for the development 
 cbpi create
 ```
 
-Craftbeerpi4 will ask you for a pluginname.
+Craftbeerpi4 will ask you for a plugin name.
 
 ```
 ---------------------
@@ -17,7 +17,7 @@ Plugin Creation
 ? Plugin Name:  testplugin
 ```
 
-In this example, the pluginname `testplugin` has been entered. CraftbeerPi4 will add a suffix `cbpi4_` as this is required to identify the plugins during startup
+In this example, the plugin name `testplugin` has been entered. CraftbeerPi4 will add a suffix `cbpi4_` as this is required to identify the plugins during startup
 
 The software will create a folder with a template for your plugin and configures it with `cbpi4_testplugin` (from this example)
 
@@ -31,7 +31,7 @@ Happy developing! Cheers
 
 ## Plugin folder structure
 
-CraftbeeerPi4 is creating a folder with the name cbpi4_testplugin.
+CraftbeerPi4 is creating a folder with the name cbpi4_testplugin.
 
 {% hint style="info" %} 
 It is recommended to install the plugin for testing with the `-e` option
@@ -40,10 +40,10 @@ It is recommended to install the plugin for testing with the `-e` option
 
 Changes of your code will immediately take effect w/o re-installation of the plugin when you restart cbpi. 
 
-You should also stop the server as service and runn it in manual mode with `sudo cbpi start`to see the log outputs or errors directly on the screen.
+You should also stop the server as service and run it in manual mode with `sudo cbpi start`to see the log outputs or errors directly on the screen.
 {% endhint %}
 
-If you navigate into the folder, you will see the  follwoing structure:
+If you navigate into the folder, you will see the  following structure:
 
 ```
 pi@raspberrypi:~ $ cd cbpi4_testplugin/
@@ -56,13 +56,13 @@ drwxr-xr-x 3 pi pi  4096 17. Jan 11:47 cbpi4_testplugin
 -rw-r--r-- 1 pi pi   446 17. Jan 11:47 setup.py
 ```
 
-The main folder conatins the LICENSE file and a MANIFEST file where you do not need to change anything. The README.md file will be seen if you upload your plugin to a github repo. This file should be edited with the required information on how to install, configure and use your plugin.
+The main folder contains the LICENSE file and a MANIFEST file where you do not need to change anything. The README.md file will be seen if you upload your plugin to a github repo. This file should be edited with the required information on how to install, configure and use your plugin.
 
 The sub-folder `cbpi4_testplugin` is the folder, where the plugin code is located.
 
 ### Plugin setup.py file
 
-The setup.py file contains some information for the plugin installation such as version number and other required packages. You need to edit this file accoridingly. Additional information on how to use setuptools can be found [here](https://docs.python.org/3.9/distutils/setupscript.html).
+The setup.py file contains some information for the plugin installation such as version number and other required packages. You need to edit this file accordingly. Additional information on how to use setuptools can be found [here](https://docs.python.org/3.9/distutils/setupscript.html).
 
 The setup.py file looks like this:
 
@@ -86,7 +86,7 @@ setup(name='cbpi4_testplugin',
 
 You should change the version number whenever you modify/update your plugin. You should also enter some information in the description (e.g. Sensor Plugin). As author you can enter your name and in the email your email if you want. The URL should be filled with the homepage of your plugin which is typically the url of your github repo. 
 
-You can also specify required python packages that will be installed during the installation of your plugin. In addition, it is recommended to andd a few lines that will help to display the README.md file also on the pypi.org page if you decide to create also a pacage for pypi.org that can be installed later just via:
+You can also specify required python packages that will be installed during the installation of your plugin. In addition, it is recommended to andd a few lines that will help to display the README.md file also on the pypi.org page if you decide to create also a package for pypi.org that can be installed later just via:
 
 ```
 sudo pip3 install cbpi4_testplugin
@@ -128,7 +128,7 @@ setup(name='cbpi4-scd30_CO2_Sensor',
      )
 ```
 
-One section has been added to read the content of the readme file and provied it at the end of the setup.py as 'long_description'. There is also a parameter 'install_requires' which can be filled with additional packages that are required for the plugin. This plugin requires for instance in addition to cbpi the packages 'smbus2' and 'scd30_i2c'.
+One section has been added to read the content of the readme file and provided it at the end of the setup.py as 'long_description'. There is also a parameter 'install_requires' which can be filled with additional packages that are required for the plugin. This plugin requires for instance in addition to cbpi the packages 'smbus2' and 'scd30_i2c'.
 
 ### Creation of plugin package and upload to pypi.org
 
@@ -140,7 +140,7 @@ In the main folder of your plugin you need to run the following command to creat
 sudo python setup.py sdist
 ```
 
-Once the apckage is created, you can upload it with twine:
+Once the package is created, you can upload it with twine:
 
 ```
 sudo twine upload dist/*
@@ -148,7 +148,7 @@ sudo twine upload dist/*
 
 ## Plugin code folder
 
-If you change into the sub folder of your main plugin directory, you can edit the plugin code. The code folder structre looks like this:
+If you change into the sub folder of your main plugin directory, you can edit the plugin code. The code folder structure looks like this:
 
 ```
 pi@raspberrypi:~/cbpi4-testplugin $ cd cbpi4_testplugin/
@@ -163,11 +163,11 @@ The config.yaml is created automatically and should not be changed. The static f
 
 ## Plugin Types
 
-CraftbeerPi4 provides flexibility as Plgins can be written for different purposes. The following plugin types are currently supported:
+CraftbeerPi4 provides flexibility as Plugins can be written for different purposes. The following plugin types are currently supported:
 
 | Type                    | Description                                                               | Example |
 | ------------------------ | ------------------------------------------------------------------------ |-------- |
-| Sensor                   | Allows addition of differnet sensor types besies onwore temp sensor      | <p>[cbpi4-pt100x](https://github.com/PiBrewing/cbpi4-pt100x)</p><p>[cbpi4-iSpindle](https://github.com/PiBrewing/cbpi4-iSpindle)</p> |
+| Sensor                   | Allows addition of different sensor types besides onewire temp sensor      | <p>[cbpi4-pt100x](https://github.com/PiBrewing/cbpi4-pt100x)</p><p>[cbpi4-iSpindle](https://github.com/PiBrewing/cbpi4-iSpindle)</p> |
 | Actor                    | Allows addition of different actor types / hardware                      | <p>[cbpi4-GroupedActor](https://github.com/PiBrewing/cbpi4-GroupedActor)</p><p>[cbpi-PCF8574-GPIO](https://github.com/PiBrewing/cbpi4-PCF8574-GPIO)</p> |
 | Kettle Logic             | Allows to create a kettle logic that fits for your system requirements   | [cbpi4-PIDBoil](https://github.com/PiBrewing/cbpi4-PIDBoil) |
 | Fermenter Logic          | Allows to create a fermenter logic that fits for your system requirements | <p>No example yet</p><p>Builtin FermenterHysteresis</p> |
@@ -180,7 +180,7 @@ CraftbeerPi4 provides flexibility as Plgins can be written for different purpose
 
 CraftbeerPi4 has defined different classes, that you need to create a Sensor, Actor, Logic,.....
 
-The following table will describe show you the clasess.
+The following table will describe show you the classes.
 
 | Class                 | Properties |  Usage                                                                                                 |
 | --------------------- | ---------- |------------------------------------------------------------------------------------------------------ |
@@ -189,7 +189,7 @@ The following table will describe show you the clasess.
 | CBPiKettleLogic       | Yes | Required to create a new Kettle Logic type                                                             |
 | CBPiFermenterLogic    | Yes | Required to create a new Fermenter Logic type                                                             |
 | CBPiStep              | Yes | Required to create new MashSteps                                                                       |
-| CBPiExtension         | No | Required for various purposes such as addition of cbpi setting prameters, definition of http endpoints or startup of additional hardware |
+| CBPiExtension         | No | Required for various purposes such as addition of cbpi setting parameters, definition of http endpoints or startup of additional hardware |
 
 ## Plugin Properties
 
@@ -197,7 +197,7 @@ If you want to add for instance a new onewire sensor, you need to select the sen
 
 ![Sensor property window for new sensor](../../.gitbook/assets/cbpi4-plugin-properties-example.png)
 
-The Sensor Name and Sensor Type will be always required, even if you don't add properties to your plugin. However, the other porperties need to be added via  @parameters right in front of your class. Properties can be added to all plugins except for the CBPiExtension.
+The Sensor Name and Sensor Type will be always required, even if you don't add properties to your plugin. However, the other properties need to be added via  @parameters right in front of your class. Properties can be added to all plugins except for the CBPiExtension.
 
 ```python
 @parameters([Property.Select(label="Sensor", options=getSensors()), 
@@ -223,19 +223,19 @@ The following properties are available:
 | Property.Sensor     | The user can select a sensor that should be used for the plugin     |
 | Property.Actor      | The user can select an actor that should be used in the plugin (e.g. in a step) |
 | Property.Kettle     | The user can select a kettle that should be used in the plugin (e.g. in a step) |
-| Property.Fermenter  | The user can select a femrenter that should be used in the plugin   |
+| Property.Fermenter  | The user can select a fermenter that should be used in the plugin   |
 
 {% hint style="info" %} 
 Some properties will be used as default for the different plugin classes. 
-- A Kettle will for instance always require a kettle logic, a sensor, a heater (actor) and an agotator (actor).
-- A Fermenter will always require a logic, a heater, a cooler, a sensor, a brewname and a target temp.
+- A Kettle will for instance always require a kettle logic, a sensor, a heater (actor) and an agitator (actor).
+- A Fermenter will always require a logic, a heater, a cooler, a sensor, a brew name and a target temp.
 - Only the properties you want to use in addition have to be specified in the @parameters.
 {% endhint %}
 
 ## Examples for Property types
 
 {% hint style="info" %} 
-Allthough you can specify a default_value inside the property, it is currently not used. You need specify the default value in the `self.props.get` function (see below).
+Although you can specify a default_value inside the property, it is currently not used. You need specify the default value in the `self.props.get` function (see below).
 {% endhint %}
 
 ### Property.Select
@@ -321,9 +321,9 @@ class SCD30_Config(CBPiExtension):
                 await asyncio.sleep(0.2)
 ```
 
-While SCD30_Config is initializing, it creates a task `self.init_sensor()` which is initializing the hardware and starts a routine `ReadSensor` that is reading the sensor with the frequency defined in the plugin settings. This routine is writnig data into a cache including a timestamp.
+While SCD30_Config is initializing, it creates a task `self.init_sensor()` which is initializing the hardware and starts a routine `ReadSensor` that is reading the sensor with the frequency defined in the plugin settings. This routine is writing data into a cache including a timestamp.
 
-The sensor module itself is just reading the cache and if data with a new timestamp is available, it will update the sensor value and pushs it to the user interface and mqtt and loggs the data.
+The sensor module itself is just reading the cache and if data with a new timestamp is available, it will update the sensor value and pushes it to the user interface and mqtt and logs the data.
 
 ```python
 @parameters([Property.Select("Type", options=["CO2", "Temperature", "Relative Humidity"], description="Select type of data to register for this sensor.")])
@@ -347,10 +347,10 @@ class SCD30Sensor(CBPiSensor):
 ```
 
 {% hint style="info" %} 
-When initializing the module with `super` you need to pay attentio that you also adapt the name for your module. In this case it is `SCD30Sensor` -> `super(SCD30Sensor, self).__init__(cbpi, id, props)`
+When initializing the module with `super` you need to pay attention that you also adapt the name for your module. In this case it is `SCD30Sensor` -> `super(SCD30Sensor, self).__init__(cbpi, id, props)`
 {% endhint %}
 
-As mentioned, you need to register both Plugin classes to run the sensor plugin as the sensor will require the CBPiExtension to retreive data and this needs to be started during cbpi startup. The registration is done at the end of the plugin with the setup function:
+As mentioned, you need to register both Plugin classes to run the sensor plugin as the sensor will require the CBPiExtension to retrieve data and this needs to be started during cbpi startup. The registration is done at the end of the plugin with the setup function:
 
 ```python
 def setup(cbpi):
@@ -405,7 +405,7 @@ def setup(cbpi):
     cbpi.plugin.register("BM_SimpleStep", BM_SimpleStep)
 ```
 
-This comes in handy as you just need to create one plugin with mupltiple modules. It is just important that you register every module.
+This comes in handy as you just need to create one plugin with multiple modules. It is just important that you register every module.
 
 ## Adding cbpi settings from plugins
 
@@ -415,7 +415,7 @@ Some plugins will require global cbpi settings. You can add them during the star
 Don't forget to register your extension separately from your plugin as described [above](#plugin-registration)
 {% endhint %}
 
-The example below shows an example, where the plugin starts with the CBPiExtension class to add an intervall to the global cbpi settings. In this case, a task will be created the initializes the senor. During the initialization, the task will run the funtion scd30_intervall. This function could be also directly included into the initialization task / function.
+The example below shows an example, where the plugin starts with the CBPiExtension class to add an interval to the global cbpi settings. In this case, a task will be created the initializes the senor. During the initialization, the task will run the function scd30_interval. This function could be also directly included into the initialization task / function.
 
 ```python
 class SCD30_Config(CBPiExtension):
@@ -429,11 +429,11 @@ class SCD30_Config(CBPiExtension):
         await self.scd30_interval()
 ...
 ```
-The function is checking, if the paramter `scd30_interval` is already existing in the global cbpi settings. If not, the function `self.cbpi.config.get("scd30_intervall", None)` will return `None`.
+The function is checking, if the parameter `scd30_interval` is already existing in the global cbpi settings. If not, the function `self.cbpi.config.get("scd30_intervall", None)` will return `None`.
 
 In this case, the function will add this parameter with the function `self.cbpi.config.add(....)`. 
 - The first parameter in this function will define the parameter name `"scd30_interval"`. 
-- The second parameter will define the intiial value  
+- The second parameter will define the initial value  
 - The third parameter will define the type of the parameter (They are like the [plugin property types](#examples-for-property-types))
 - The next parameter specifies the explanation for this parameter that is shown on the settings page.
 - In case of `ConfigType.SELECT` you will also specify the options as another parameter. 

@@ -58,12 +58,12 @@ Now you can start installing the cbpi server.
 ### Installation of CraftbeerPi 4
 
 {% hint style="warning" %}
-To install cbpi directly from pypi.org, a release update needs to be done which is still pending. Therefore, yo need to run the installation as described in the [development section](development.md#running-a-development-version-of-the-server). You also need to install the developmetn branch of the user interface at this point of time to have all the functions described in this documentation.
+To install cbpi directly from pypi.org, a release update needs to be done which is still pending. Therefore, yo need to run the installation as described in the [development section](development.md#running-a-development-version-of-the-server). You also need to install the development branch of the user interface at this point of time to have all the functions described in this documentation.
 
 The description will be updated, as soon as the the development branch is merged into the master/main branch or a release has been published.
 {% endhint %}
 
-The installation of CraftbeerPi4 is done with the package installer for python (pip3). You can install the server directly from pypi.org with the following cxommand:
+The installation of CraftbeerPi4 is done with the package installer for python (pip3). You can install the server directly from pypi.org with the following command:
 
 ```
 sudo pip3 install cbpi4
@@ -169,7 +169,7 @@ START
 
 ```
 
-Now try to access cbpi via the webbrowser on your PI or on external client systems, like other computers or mobile devices.  Therefore, enter in your browser:
+Now try to access cbpi via the web browser on your PI or on external client systems, like other computers or mobile devices.  Therefore, enter in your browser:
 
 > IPADDRESSOFYOURPI:8000 -> e.g. 192.168.10.100:8000
 
@@ -194,13 +194,13 @@ Started craftbeerpi.service
 ```
 
 {% hint style="warning" %}
-The craftbeerpi.service file is located in your config directory and configured for the user pi. If you have installled cbpi under a different user or did run the setup in a different folder than /home/pi you need to change the craftbeerpi.service file manually.
+The craftbeerpi.service file is located in your config directory and configured for the user pi. If you have installed cbpi under a different user or did run the setup in a different folder than /home/pi you need to change the craftbeerpi.service file manually.
 
 `[Service]`
 
 `WokingDirectory=/home/pi`
 
-Just replace `/home/pi` with the path hwere your config folder is located
+Just replace `/home/pi` with the path where your config folder is located
 {% endhint %}
 
 
@@ -245,14 +245,14 @@ sudo cbpi start
 ```
 
 {% hint style="info" %}
-With recent version of cbpi4, the default logging is done only for warnngs and errors. If you want to get a more detailed log, you need to add a paramater to the start.
+With recent version of cbpi4, the default logging is done only for warnings and errors. If you want to get a more detailed log, you need to add a parameter to the start.
 ```
 sudo cbpi -d 20 start
 ```
 This will increase the log level to 'info'
 {% endhint %}
 
-To restart the server as service you can either reboot or just start it as serivce directly:
+To restart the server as service you can either reboot or just start it as service directly:
 
 ```
 sudo systemctl start craftbeerpi.service
@@ -260,7 +260,7 @@ sudo systemctl start craftbeerpi.service
 
 ## Automatically start chromium in kiosk mode at startup
 
-You can enable chromium kiosk mode via commandline. If this is enabled, chromium will start after boot in kiosk mode with craftbeerpi4.
+You can enable chromium kiosk mode via command line. If this is enabled, chromium will start after boot in kiosk mode with craftbeerpi4.
 
 {% hint style="info" %}
 This has been tested on the full raspbian version where chromium is installed as default. For other setups you may need to install the chromium browser manually.
@@ -283,7 +283,7 @@ Add chromium.desktop to /etc/xdg/autostart/
 Copied chromium.desktop to /etc/xdg/autostart/
 ```
 
-You can also disable the kiosk mode via commandline. Therefore, you need to run the following command:
+You can also disable the kiosk mode via command line. Therefore, you need to run the following command:
 
 ```
 sudo cbpi chromium off
@@ -341,7 +341,7 @@ cbpi4-hx711-loadcell            0.0.4      UNKNOWN                            UN
 cbpi4-iSpindle                  0.0.11     Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-iSpindle                  CraftBeerPi4 iSpindle Sensor Plugin
 cbpi4-pt100x                    0.1.3      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-pt100x                    CraftBeerPi4 PT100/PT1000 Sensor Plugin
 cbpi4-scd30-CO2-Sensor          0.0.5      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-scd30-co2-sensor          CraftBeerPi4 Plugin for SCD30 based CO2 Sensor
-cbpi4-system                    0.0.8      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-system                    CraftBeerPi4 Plugin for system fucntions
+cbpi4-system                    0.0.8      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-system                    CraftBeerPi4 Plugin for system functions
 cbpi4gui                        0.3.2      Manuel Fritsch                     http://web.craftbeerpi.com                                   CraftBeerPi User Interface
 
 ```
@@ -386,7 +386,7 @@ Password: raspberry
 	-> cd ~/config
 	-> sudo cp chromium.desktop /etc/xdg/autostart
 	- If the system is asking for a password, enter your password.
-	  If you have not changed the default password enter the pasword mentioned above.
+	  If you have not changed the default password enter the password mentioned above.
 	- On the next start, Chromium will be shown on start with the cbpi Dashboard.
 ```
 
@@ -406,7 +406,7 @@ Or from the repo:
 sudo pip3 install --upgrade https://github.com/PiBrewing/craftbeerpi4/archive/master.zip
 ```
 
-If new setting parameters have been added to cbpi, it will handle that in the extension Configupdate. Cbpi4 will add the parameters automatically during start if they are not yet in the config file.
+If new setting parameters have been added to cbpi, it will handle that in the extension Config update. Cbpi4 will add the parameters automatically during start if they are not yet in the config file.
 
 ### Updating the UI
 

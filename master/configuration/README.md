@@ -4,7 +4,7 @@
 
 When you have installed CraftbeerPi4 correctly as described in the [Server Installation](../server-installation.md) and enabled it as [service](../server-installation.md#automatically-start-the-server-as-service), it should start automatically when the Pi is booting. You can access the user interface with your browser by entering the following address in your browser address field:
 
-> PADDRESSOFYOURPI:8000 -> e.g. 192.168.10.100:8000
+> IPADDRESSOFYOURPI:8000 -> e.g. 192.168.10.100:8000
 
 CraftbeerPi4 should come up with an empty dashboard window.
 

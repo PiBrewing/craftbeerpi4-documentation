@@ -15,7 +15,7 @@ Some more information is posted [here](https://stackoverflow.com/questions/73830
 
 Newer versions of Cryptography may cause issues with Arm6 based devices. This is not an issue with cbpi itself, but the cryptography dependency. The latest version of cbpi4 that is using older versions of cryptography is 4.1.6. 
 
-Users can try to change the dependency manually, but in furture, other packages may also depend on newer verions of cryptography. Hence, it is strongly recommended to migrate to newer devices such as the Pi Zero 2 which should not have this issue as it will be able to run also 64 bit based OS.
+Users can try to change the dependency manually, but in future, other packages may also depend on newer versions of cryptography. Hence, it is strongly recommended to migrate to newer devices such as the Pi Zero 2 which should not have this issue as it will be able to run also 64 bit based OS.
 
 - To use the older version of cryptography, you can ry the following:
 

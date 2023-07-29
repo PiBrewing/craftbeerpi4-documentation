@@ -25,31 +25,31 @@ The offset parameter is optional. If no value is entered, the default value of 0
 Click on save and the sensor will be saved and you can see it in the sensor table of the hardware page.
 
 {% hint style="info" %}
-Starting with Craftbeerpi4 `4.1.6` and the UI `0.3.10`, sensors have added a DataType property. This allows Strings and DateTime values for Sensors. One example is the Alarmtimer that you can add as sensor in the hardware section which acts as Alarmtimer.
+Starting with Craftbeerpi4 `4.1.6` and the UI `0.3.10`, sensors have added a DataType property. This allows Strings and DateTime values for Sensors. One example is the Alarm timer that you can add as sensor in the hardware section which acts as Alarm timer.
 
-Just add a Sensor to your hardware and select Alarmtimer.
+Just add a Sensor to your hardware and select Alarm timer.
 
-![Sensor Alarmtimer settings](../../.gitbook/assets/cbpi4-alarmtimer-settings.png)
+![Sensor Alarm timer settings](../../.gitbook/assets/cbpi4-alarmtimer-settings.png)
 
 Add this sensor also to the dashboard.
 
-![Sensor Alarmtimer on Dashboard](../../.gitbook/assets/cbpi4-dashboard-alarmtimer.png)
+![Sensor Alarm timer on Dashboard](../../.gitbook/assets/cbpi4-dashboard-alarmtimer.png)
 
 In the Sensor properties make sure, that you enabled the action menu.
 
-![Sensor Alarmtimer Dashboard properties](../../.gitbook/assets/cbpi4-alarmtimer-properties.png)
+![Sensor Alarm timer Dashboard properties](../../.gitbook/assets/cbpi4-alarmtimer-properties.png)
 
-In the action menu, you can set the timer in minutes, start and stop the timer. You canalso reset the timer.
+In the action menu, you can set the timer in minutes, start and stop the timer. You can also reset the timer.
 
-![Sensor Alarmtimer actionmenu](../../.gitbook/assets/cbpi4-alarmtimer-actionmenu.png)
+![Sensor Alarm timer action menu](../../.gitbook/assets/cbpi4-alarmtimer-actionmenu.png)
 
 If you set the timer, you need to enter the time in minutes. You can also use digits.
 
-![Sensor Alarmtimer set](../../.gitbook/assets/cbpi4-alarmtimer-set.png)
+![Sensor Alarm timer set](../../.gitbook/assets/cbpi4-alarmtimer-set.png)
 
-When you start the timer, is is running until 0 and is raising a notfication that can be forwarded via other plugins such as pushover push messages.
+When you start the timer, is is running until 0 and is raising a notification that can be forwarded via other plugins such as pushover push messages.
 
-![Sensor Alarmtimer running](../../.gitbook/assets/cbpi4-alarmtimer-running.png)
+![Sensor Alarm timer running](../../.gitbook/assets/cbpi4-alarmtimer-running.png)
 
 You can add multiple timers to your hardware and dashboard and have them running in parallel.
 {% endhint %}
@@ -66,9 +66,9 @@ Define a name for your actor, select GPIO Actor and define if the actor should r
 The parameter SamplingTime is only interesting if you want to use power settings for a regular GPIO actor. The default value is 5 seconds, but you can set it also to 2 seconds. If you are using power settings for such an actor, the system will balance the time between on and off within the defined sampling time.
 
 {% hint style="info" %}
-Power Example: Sampling time is set to 5 seconds and the power for the actor is set to 60%. The system will switch the actor on every 5 seconds for 3 sconds and off for 2 seconds.
+Power Example: Sampling time is set to 5 seconds and the power for the actor is set to 60%. The system will switch the actor on every 5 seconds for 3 seconds and off for 2 seconds.
 
-If you want to use power settings directly from the dashboard, you need to add the actor to your dashboard and set the action poperty to yes.
+If you want to use power settings directly from the dashboard, you need to add the actor to your dashboard and set the action property to yes.
 {% endhint %}
 
 {% hint style="info" %}
@@ -80,7 +80,7 @@ The GPIO numbers represent the [BCM numbers ](../server-installation.md#display-
 {% endhint %}
 
 {% hint style="info" %}
-GPIO PWM Actors have been added with cbpi >= 4.0.0.45. With this version, power settings are available for actors. Therefore, 'actions' have to be set to yes if you add the axctor to the dashboard.
+GPIO PWM Actors have been added with cbpi >= 4.0.0.45. With this version, power settings are available for actors. Therefore, 'actions' have to be set to yes if you add the actor to the dashboard.
 {% endhint %}
 
 Once your properties are set, hit the save button and you are back on the hardware page that shows now your sensor and actors:
@@ -100,7 +100,7 @@ Now you can setup your kettle as you need the sensor and the actors for that. Cl
 Select a logic for your kettle. The hysteresis is the default simple logic. As mentioned, you can install other kettle logics as [plugin](../plugin-installation.md#kettle-controller) and you will seem them then in the selection list.
 
 {% hint style="info" %}
-If you want to run a PID based Kettle logic like [PIDBoil](https://github.com/PiBrewing/cbpi4-PIDBoil) it is also recommended to install the [PID Autotune](https://github.com/PiBrewing/cbpi4-PID\_AutoTune) plugin as well. The Autotune plugin can be used to derive the PID parameters. Please note, that the Autotune Plugin is only to determine the PID parameters but not meant for brewing. Set the kettle logic to Autotune, define a kettle target temperature and start the automode. Wait and if the tuning is successful the Plugin will show you the claculated values. This can take up to several hours depending on your system. Details can be also found in the plugin description.
+If you want to run a PID based Kettle logic like [PIDBoil](https://github.com/PiBrewing/cbpi4-PIDBoil) it is also recommended to install the [PID Auto tune](https://github.com/PiBrewing/cbpi4-PID\_AutoTune) plugin as well. The Auto tune plugin can be used to derive the PID parameters. Please note, that the Auto tune Plugin is only to determine the PID parameters but not meant for brewing. Set the kettle logic to Auto tune, define a kettle target temperature and start the auto mode. Wait and if the tuning is successful the Plugin will show you the calculated values. This can take up to several hours depending on your system. Details can be also found in the plugin description.
 {% endhint %}
 
 ![Kettle Logic selection](../../.gitbook/assets/cbpi4-kettle\_select\_Logic.png)
@@ -120,7 +120,7 @@ The next step is to select the sensor for your kettle.
 Finally, you will need to define the hysteresis parameters OffsetOn and OffsetOff.
 
 {% hint style="info" %}
-OffestOn: Offset below target temperature when the heater switches on. E.g. 0.3 means the heater switches on, if the current temperature is 0.3° or more below the target temperature.&#x20;
+OffsetOn: Offset below target temperature when the heater switches on. E.g. 0.3 means the heater switches on, if the current temperature is 0.3° or more below the target temperature.&#x20;
 
 OffsetOff: Offset below the target temperature when the heater switches off. E.g. 0.1 means the heater is switching off, if the current temperature is 0.1° below the target temp.
 
@@ -163,18 +163,18 @@ CoolerOffsetOff: Offset above the target temperature when the cooler switches of
 
 CoolerOffsetOn has to be larger than CoolerOffsetOff
 
-BrewName: Name of your beer in femrentation. Will be for instance shown in the LCDisplay Plugin
+BrewName: Name of your beer in fermentation. Will be for instance shown in the LCDisplay Plugin
 
-TargetTemp: Target temprature for your femrnetation process. This will be used for the automode. Howerver, you can set this also via the fermentercontrol item
+TargetTemp: Target temperature for your fermentation process. This will be used for the auto mode. However, you can set this also via the fermenter control item
 
 {% endhint %}
 
 The parameter Autostart defines if the fermentation logic should start automatically on a reboot or restart of CraftbeerPi4. You can enter a Name for your current fermentation. This will be used by the modified [LCDisplay Plugin](hardware.md#setting-up-the-hardware-for-brewing) and shown on the display for each fermenter during fermentation activity. The same is true for the second sensor. You can for instance use here a iSpindle and display the current gravity on your LCD Screen.
 
-You can also define your fermentation target temperature in the fermenter properties, but this can be also set via the fermenter controll on the dashboard.
+You can also define your fermentation target temperature in the fermenter properties, but this can be also set via the fermenter control on the dashboard.
 
 {% hint style="info" %}
-Don't forget to set Automode to 'No' whenever you have no active fermentation as it will switch on your logic after every restart of CraftbeerPi4
+Don't forget to set Auto mode to 'No' whenever you have no active fermentation as it will switch on your logic after every restart of CraftbeerPi4
 {% endhint %}
 
 Now click save and then you can add your Fermenter to the dashboard.

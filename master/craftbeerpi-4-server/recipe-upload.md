@@ -54,10 +54,10 @@ In addition you will also need to define the default steps the system shall use 
 
 MashIn, Mash and Boil steps should be clear and details can be found in the table of the [Mash Profile Section](mash-profile.md). The default MashOut step is defined as Notification step. The system will inform the user with a notification, that the mash process has been completed and that some action is required before the boiling starts. The user can start the lautering process and once he clicks on the next button, the boil process will start.
 
-You can also define the default boil temperature and the cooldown target temperature in the default settings. In addition it is possible to define an alternative sensor that is used in the cooldown step. This is for example helpful if your default sensor is at the bottom of your kettle and all the trub sits on top of it during cooldown (e.g. the Speidel Braumeister).
+You can also define the default boil temperature and the cool down target temperature in the default settings. In addition it is possible to define an alternative sensor that is used in the cool down step. This is for example helpful if your default sensor is at the bottom of your kettle and all the trub sits on top of it during cool down (e.g. the Speidel Braumeister).
 
 {% hint style="warning" %}
-The default temperature settings for boil and cooldown are in °C. If you operate your system in F you need to change those settings once before you create any recipe from an external source.
+The default temperature settings for boil and cool down are in °C. If you operate your system in F you need to change those settings once before you create any recipe from an external source.
 {% endhint %}
 
 ## Example for XML recipe creation (Beersmith)
@@ -66,10 +66,10 @@ Beersmith is used as an example on how to create a recipe with a mash profile wh
 
 In this example, the initial step has the same temperature as the first mash step and the time is 0 minutes. There is also no heat up time specified. The other mash steps are defined with the temperatures and time you need for your mash.
 
-When exporting such a recipe as beerxml and importing it into craftbeerpi, the recipe creation mechanism will define the step that has 0 minutes duration as mashin step. The system will be heated up to 62°C and sends a notification to the user to add malt and press the 'next step' button.
+When exporting such a recipe as beerxml and importing it into craftbeerpi, the recipe creation mechanism will define the step that has 0 minutes duration as MashIn step. The system will be heated up to 62°C and sends a notification to the user to add malt and press the 'next step' button.
 
 {% hint style="info" %}
-If you don't want to add the additional step with the mashin temperature and 0 minutes as first step in your recipes, you can set the AddMashInStep parameter in the [settings ](settings.md#recipe-creation-settings)to 'yes'. CraftbeerPi will add a MashIn step as first step that has the target temperature of your first mashstep.
+If you don't want to add the additional step with the MashIn temperature and 0 minutes as first step in your recipes, you can set the AddMashInStep parameter in the [settings ](settings.md#recipe-creation-settings)to 'yes'. CraftbeerPi will add a MashIn step as first step that has the target temperature of your first mashstep.
 {% endhint %}
 
 ![Beersmith Mash Profile example](../../.gitbook/assets/cbpi4-recipe-upload-beersmith-example-mash.png)
@@ -84,7 +84,7 @@ To create a recipe from the xml file, just select the recipe in the drop down me
 
 In the KBH2 software you are able to define different recipes and store them in a sqlite database. You can also export individual recipes in the beerxml format and import them as xml file. But you can also upload the entire KBH2 database and have access to all KBH2 recipes in parallel.&#x20;
 
-In KBH2, the mash profile is defined  in the mashing scheme tab. This software has the ability to define a dedicated mashin step. It's called dough-in. If you define such a step, CraftbeeerPi 4 will use this step as mash-in step and heats up to the defined temeprature of the 'dough-in' step befroe it reminds to user to take action and press 'next step' to mive on.
+In KBH2, the mash profile is defined  in the mashing scheme tab. This software has the ability to define a dedicated MashIn step. It's called dough-in. If you define such a step, CraftbeerPi 4 will use this step as mash-in step and heats up to the defined temperature of the 'dough-in' step before it reminds to user to take action and press 'next step' to move on.
 
 ![KBH2 Mashing Scheme tab](../../.gitbook/assets/cbpi4-recipe-upload-kbh-mash-scheme.png)
 
@@ -94,7 +94,7 @@ As soon as you successfully uploaded a KBH2 sqlite database file to CraftbeerPi 
 
 To create a recipe from the KBH2 database, just select the recipe in the drop down menu and click on the create recipe button for KBH2 recipes on the right side.
 
-## Example for Brewfater API recipe creation
+## Example for Brewfather API recipe creation
 
 CraftbeerPi 4 has the possibility to import recipes directly from the brewfather app if you have a paid premium account.
 
@@ -122,14 +122,14 @@ Click on the 'Generate Key' button.
 
 ![Select the API-Key Access Scope](../../.gitbook/assets/cbpi4-recipe-upload-bf-api-generate-read.png)
 
-Now you need to select 'Read Recipes' for the CraftbeerPi4 recipe upload functionality. You can select other funtions in addition which will have no effect for CraftbeerPi 4. Click on the 'Generate' button and the keys will be created.
+Now you need to select 'Read Recipes' for the CraftbeerPi4 recipe upload functionality. You can select other functions in addition which will have no effect for CraftbeerPi 4. Click on the 'Generate' button and the keys will be created.
 
 ![The keys will be shown on your screen with a copy function.](../../.gitbook/assets/cbpi4-recipe-upload-bf-api-generate-read-keys.png)
 
 Now you can copy the keys directly to the clipboard to transfer them your CraftbeerPi 4 settings.
 
 {% hint style="warning" %}
-The brewfather App will show the generated API key only directly after creation. If you go back to this window at a later point of time, you will see only the user id. If you need the key at a leter point of time, you should note it somewhere else. Otherwise, you need to create a new key and update the API key in the CraftbeerPi 4 settings
+The brewfather App will show the generated API key only directly after creation. If you go back to this window at a later point of time, you will see only the user id. If you need the key at a later point of time, you should note it somewhere else. Otherwise, you need to create a new key and update the API key in the CraftbeerPi 4 settings
 {% endhint %}
 
 ### Brewfather recipe settings for optimized upload
@@ -143,19 +143,19 @@ The example below shows a mash-in step @ 65°C, while the first mash step is don
 ![Brewfather App recipe overview without StrikeTemp.](../../.gitbook/assets/cbpi4-recipe-upload-bf-mash-scheme.png)
 
 {% hint style="info" %}
-If you don't want to add the additional step with the mashin temperature and 0 minutes as first step in your recipes, you can set the AddMashInStep parameter in the [settings ](settings.md#recipe-creation-settings)to 'yes'. CraftbeerPi will add a MashIn step as first step that has the target temperature of your first mashstep. If Brewfather is providing the Strike Temperature, this temperature will be used instead.
+If you don't want to add the additional step with the MashIn temperature and 0 minutes as first step in your recipes, you can set the AddMashInStep parameter in the [settings ](settings.md#recipe-creation-settings)to 'yes'. CraftbeerPi will add a MashIn step as first step that has the target temperature of your first mashstep. If Brewfather is providing the Strike Temperature, this temperature will be used instead.
 {% endhint %}
 
 ![Brewfather App recipe overview with StrikeTemp.](../../.gitbook/assets/cbpi4-recipe-upload-bf-striketemp.png)
 
-On the right side you can see the hop additions. If you want to give a first wort hop addition (Vorderwürzehopfung), just specify it. The recipe creation mechanism will add a notification to the boilstep for first wort hops and raise this notification, when you start the boilstep. The other hop alarms (up to 6 alarms) will be added to the boilstep. CraftbeerPi 4 will send a notification for each hop alarm.
+On the right side you can see the hop additions. If you want to give a first wort hop addition (Vorderwürzehopfung), just specify it. The recipe creation mechanism will add a notification to the boil step for first wort hops and raise this notification, when you start the boil step. The other hop alarms (up to 6 alarms) will be added to the boil step. CraftbeerPi 4 will send a notification for each hop alarm.
 
-When everything is configured correctly and you have created and stored your recipes in the Brewfather app, you will see them in the Brefather drop down menu on your CraftbeerPi 4 Recipe Upload page.
+When everything is configured correctly and you have created and stored your recipes in the Brewfather app, you will see them in the Brewfather drop down menu on your CraftbeerPi 4 Recipe Upload page.
 
 ![Brewfather Dropdown Menu for Recipe selection](../../.gitbook/assets/cbpi4-recipe-upload-create-bf.png)
 
 The Brewfather API limits the recipe download to batches of 50 recipes. If you have more the 50 recipes in your account, you need to change the offset dropdown menu.
 
-![Brewfather Offset dropown menu to select more recipes](../../.gitbook/assets/cbpi4-recipe-upload-create-bf-offset.png)
+![Brewfather Offset dropdown menu to select more recipes](../../.gitbook/assets/cbpi4-recipe-upload-create-bf-offset.png)
 
 If you have for instance 75 recipes defined in your brewfather account, you can select recipe 1-50 with the offset 0 and recipe 51 to 75 with the offset 50. With the offset, you can select up to 250 different recipes from your Brewfather account.

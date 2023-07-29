@@ -4,7 +4,7 @@ In this section, I want to show you some examples on how to write an actor plugi
 
 ## GPIO Actor example
 
-As already described for the sensor plugin, you need to import the required packages at the beginning of yot plugin. For this particular actor, thr `RPi.GPIO`package is required, which is only available on a Raspberry Pi. To avoid issues, if the system is installed on a different platform, functions of the unittest package are loaded that will emulate the `RPi.GPIO` as test. This will prevent errors, althoug an error message will be shown when the plugin is started.
+As already described for the sensor plugin, you need to import the required packages at the beginning of yot plugin. For this particular actor, thr `RPi.GPIO`package is required, which is only available on a Raspberry Pi. To avoid issues, if the system is installed on a different platform, functions of the unittest package are loaded that will emulate the `RPi.GPIO` as test. This will prevent errors, although an error message will be shown when the plugin is started.
 
 ```python
 import asyncio
@@ -52,9 +52,9 @@ Then you start the Actor class itself
 class GPIOActor(CBPiActor):
 ```
 
-For actors, but also for Sensors you have the possibility to specify actions that can be triggered from the dashboard. This is done via `@action("{NAME}", parameters=[...])`. Parameters are specified in the same way as you do it for the plugin parameters. The example below shows you an example on how to set the poer for an actor.
+For actors, but also for Sensors you have the possibility to specify actions that can be triggered from the dashboard. This is done via `@action("{NAME}", parameters=[...])`. Parameters are specified in the same way as you do it for the plugin parameters. The example below shows you an example on how to set the power for an actor.
 
-This is followed by the corresponding fucntion that shall be triggered by the action. The parameters are directly assigned via the `label` of the action prameter (e.g. `Power` like in this example). In this case, the parameter power will be defined by the action and the action will call the `self.set_power()` function and will change the power for the actor. The fucntion checks, if the value is not below 0 or above 100. Otherwise the min value of 0 or the max value of 100 will be set
+This is followed by the corresponding function that shall be triggered by the action. The parameters are directly assigned via the `label` of the action parameter (e.g. `Power` like in this example). In this case, the parameter power will be defined by the action and the action will call the `self.set_power()` function and will change the power for the actor. The function checks, if the value is not below 0 or above 100. Otherwise the min value of 0 or the max value of 100 will be set
 
 {% hint style="info" %}
 Power for an actor can be only between 0 and 100. The value has to be an `int`.
@@ -72,7 +72,7 @@ Power for an actor can be only between 0 and 100. The value has to be an `int`.
         await self.set_power(self.power)      
 ```
 
-For some actors (e.g. relaisboards) it is important to specify, if the actor is active on high or low (inverted). With such a fucntion, you can invert the state of the GPIO.
+For some actors (e.g. relays boards) it is important to specify, if the actor is active on high or low (inverted). With such a function, you can invert the state of the GPIO.
 
 ```python
     def get_GPIO_state(self, state):
@@ -84,7 +84,7 @@ For some actors (e.g. relaisboards) it is important to specify, if the actor is 
             return 0 if self.inverted == False else 1
 ```
 
-All Actor plugins require the `on_start` fucntion to define initial variables for the actor instance. When the actor instance is starting, you collect the required information from the parameter definition and you set the GPIO as output and set the GPIO / actor to `off` with `GPIO.output(self.gpio, self.get_GPIO_state(0))`. The `get_GPIO_state` function returns a `0` or `1` which depends on the `inverted` setting. The `self.state` is set to `False` on start which. All other fnctions in the server can retrieve that status of the actor with the get_state function, which returns the state. 
+All Actor plugins require the `on_start` function to define initial variables for the actor instance. When the actor instance is starting, you collect the required information from the parameter definition and you set the GPIO as output and set the GPIO / actor to `off` with `GPIO.output(self.gpio, self.get_GPIO_state(0))`. The `get_GPIO_state` function returns a `0` or `1` which depends on the `inverted` setting. The `self.state` is set to `False` on start which. All other functions in the server can retrieve that status of the actor with the get_state function, which returns the state. 
 
 ```python
     async def on_start(self):
@@ -97,7 +97,7 @@ All Actor plugins require the `on_start` fucntion to define initial variables fo
         self.state = False
 ```
 
-The `on` function is also required. It defines, what is done to switch the actor on. Even if the actor has no possibility to vary the power, the `power=None`is required in the definition of this function. If the actor has not the possibility to specify the power, you don't need the code with respect to the power setting and you don't need to call the `self.set_power` function. Afterwards, the GPIO is set to on (status depending on the inverrted setting) and the `self.state` is set to `True` to let the system know, that the actor is on. The actor will now run with the specified power or with 100%.
+The `on` function is also required. It defines, what is done to switch the actor on. Even if the actor has no possibility to vary the power, the `power=None`is required in the definition of this function. If the actor has not the possibility to specify the power, you don't need the code with respect to the power setting and you don't need to call the `self.set_power` function. Afterwards, the GPIO is set to on (status depending on the inverted setting) and the `self.state` is set to `True` to let the system know, that the actor is on. The actor will now run with the specified power or with 100%.
 
 ```python
     async def on(self, power = None):
@@ -128,7 +128,7 @@ As mentioned before, server functions need to read the state of the actor. There
         return self.state
 ```
 
-The run fucntion is also required for all actors. It can be more or less empty and contain just the `while self.running == True:` loop with an `await asyncio.sleep(1)`. However, this function is used here for proportional heating to emulate PWM. One could also call it "poor man's PWM". In the parameter section, the user could select the parameter `SamplingTime` which defines the the the time for one heat cycle. If the time is for instance 5 seconds and the power is set to 60% the function will switch the heater on for 3 seconds and turns it off for 2 seconds. These times vary with the power setting. The `run` function is continuously running, while the actor is available in the system. The proportional heating is done, as long as `self.state = True`.
+The run function is also required for all actors. It can be more or less empty and contain just the `while self.running == True:` loop with an `await asyncio.sleep(1)`. However, this function is used here for proportional heating to emulate PWM. One could also call it "poor man's PWM". In the parameter section, the user could select the parameter `SamplingTime` which defines the the the time for one heat cycle. If the time is for instance 5 seconds and the power is set to 60% the function will switch the heater on for 3 seconds and turns it off for 2 seconds. These times vary with the power setting. The `run` function is continuously running, while the actor is available in the system. The proportional heating is done, as long as `self.state = True`.
 
 ```python
     async def run(self):
@@ -148,7 +148,7 @@ The run fucntion is also required for all actors. It can be more or less empty a
                 await asyncio.sleep(1)
 ```
 
-The `set_power()`is also essential for each actor. The set power function just sets the `self.power` parameter and sends an update to the websoket and via mqtt with `await self.cbpi.actor.actor_update(self.id,power)`. However, if your actor has no power capabilities, you can leave the function basically empty and just leave the `pass` in.
+The `set_power()`is also essential for each actor. The set power function just sets the `self.power` parameter and sends an update to the websocket and via mqtt with `await self.cbpi.actor.actor_update(self.id,power)`. However, if your actor has no power capabilities, you can leave the function basically empty and just leave the `pass` in.
 
 ```python
     async def set_power(self, power):
@@ -172,7 +172,7 @@ def setup(cbpi):
 
 ## Grouped Actor example
 
-This example shows you how to combine individual actors to one actor. This can be helpfull if you havefor instance multiple heating elements that are triggered with one SSR per heating elements and you want to combine them to one element.
+This example shows you how to combine individual actors to one actor. This can be helpful if you have for instance multiple heating elements that are triggered with one SSR per heating elements and you want to combine them to one element.
 
 You start again to import the required packages
 
@@ -215,7 +215,7 @@ class GroupedActor(CBPiActor):
         await self.set_power(self.power)   
 ```
 
-The `on_start()` function is required and will define an arry of the actor group based on the actors defined in the parameters above. The power is set to 100% as default value.
+The `on_start()` function is required and will define an array of the actor group based on the actors defined in the parameters above. The power is set to 100% as default value.
 
 ```python
     def on_start(self):
@@ -242,7 +242,7 @@ The `on_start()` function is required and will define an arry of the actor group
         pass
 ```
 
-As described in the former example, you have to define the `on` function which also needs the `power=None` parameter.  In this case, the dependent actors may have power settings. Therefore, you need to use this parameter. However, if it is not psecified when another fucntion is calling the `on` function, the default value of 100 is used that has been defined in the `on_start()` function of this plugin.
+As described in the former example, you have to define the `on` function which also needs the `power=None` parameter.  In this case, the dependent actors may have power settings. Therefore, you need to use this parameter. However, if it is not specified when another function is calling the `on` function, the default value of 100 is used that has been defined in the `on_start()` function of this plugin.
 
 Now the code is cycling through each actor of the `self.actors` array and is switching each individual actor on with the defined power from `self.power`. Once this is done, `self.state` for the grouped actor is set to `True` and the status of the grouped actor is updated with `await self.cbpi.actor.actor_update(self.id,self.power)`.
 
@@ -257,7 +257,7 @@ Now the code is cycling through each actor of the `self.actors` array and is swi
         await self.cbpi.actor.actor_update(self.id,self.power)
 ```
 
-The `off()` function is also required to switch the grouped actor off. The fucntion cycles through the array of actors and is switching each individual actor off. Afterwards, it sets ste `self.state` variable to `False`.
+The `off()` function is also required to switch the grouped actor off. The function cycles through the array of actors and is switching each individual actor off. Afterwards, it sets ste `self.state` variable to `False`.
 
 ```python
     async def off(self):

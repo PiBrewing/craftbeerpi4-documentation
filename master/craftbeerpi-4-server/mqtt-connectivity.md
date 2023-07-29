@@ -1,8 +1,8 @@
 # MQTT connectivity
 
-Craftbeerpi4 has the possibility to communicate with mqtt brookers/devices.
+Craftbeerpi4 has the possibility to communicate with mqtt brokers/devices.
 
-To activate the mqtt service within cbpi, you need to modify the config.yaml filw inside the config folder manually.
+To activate the mqtt service within cbpi, you need to modify the config.yaml file inside the config folder manually.
 
 ```
 index_url: /cbpi_ui/static/index.html
@@ -44,7 +44,7 @@ First you need to install the MQTT broker:
 The mosquitto application acts as MQTT broker that can receive messages / instructions from the CraftbeerPi4 server and other devices (e.g. the [mqttdevie](https://innuendopi.github.io/MQTTDevice4/)) can read/receive them. It can also receive sensor data or commands from other devices and the CraftbeerPi4 server can read them. The application basically acts as central communication point between devices that use the MQTT protocol.
 {% endhint %}
 
-Now you need to configure you MQTT broker that CratbeerPi but laso the other devices can send and recieve messages via the broker. Two methods are possible. The first one does not require a password and is only recommended during set up for testing. The second method will require passwords and a user for the MQTT broker.
+Now you need to configure you MQTT broker that CraftbeerPi but also the other devices can send and receive messages via the broker. Two methods are possible. The first one does not require a password and is only recommended during set up for testing. The second method will require passwords and a user for the MQTT broker.
 
 #### Method 1 allows anonymous access to the MQTT broker (only recommended to test your setup)
 
@@ -63,11 +63,11 @@ With this method you don't need to enter a user or password in craftbeerpi or ot
 
 #### Method 2 uses basic authentication and is recommended for a 'productive' system
 
-Navigate to the mosquitteo app folder:
+Navigate to the mosquitto app folder:
 
 `cd /etc/mosquitto`
 
-And create passwword for the user pi:
+And create password for the user pi:
 
 `sudo mosquitto_passwd -c passwdfile pi`
 
@@ -89,15 +89,15 @@ Once the file has been saved, you need to restart the MQTT broker:
 
 `sudo systemctl restart mosquitto`
 
-And adapt the comfig file of your cbpi server as described [here](#mqtt-connectivity).
+And adapt the config file of your cbpi server as described [here](#mqtt-connectivity).
 
 The mqtt user should be set tp `pi` or whatever user you have defined for mosquitto and the password needs to be set to the password you have defined above.
 
-After restart you should see a line in the [cbpi log](../craftbeerpi-4-server/system.md) that confimrs the connection to the MQTT broker:
+After restart you should see a line in the [cbpi log](../craftbeerpi-4-server/system.md) that confirms the connection to the MQTT broker:
 `Jan 25 13:54:10 raspberrypi cbpi[360]: 2022-01-25:13:54:10,513 INFO     [satellite_controller.py:128] MQTT Connected to 192.168.163.67:1883`
 
 {% hint style="info" %}
-If you want to analyze the MQTT communcation in more detail you can also install the [MQTT explorer](http://mqtt-explorer.com/) on your PC. This allows you to analyze the MQTT messages in more detail.
+If you want to analyze the MQTT communication in more detail you can also install the [MQTT explorer](http://mqtt-explorer.com/) on your PC. This allows you to analyze the MQTT messages in more detail.
 {% endhint %}
 
 ### Using CraftbeerPi to read / trigger external MQTT devices
@@ -121,7 +121,7 @@ Switching the actor on will send the following value to mqtt under actor/speidel
 }
 ```
 
-Youi can also change the power via the actor button actions menu for the mqtt actor which will change the power value of the json string:
+You can also change the power via the actor button actions menu for the mqtt actor which will change the power value of the json string:
 
 ```
 {
@@ -142,7 +142,7 @@ In case want to switch other types of devices with CraftBeerPi via MQTT that exp
 
 #### MQTT Actor (Tasmota)
 
-To easily switch Tasmota devices on or off, there is a specific actor for this in CraftBeerPi. It just sends `on` or `off` to the specified topic. Use the `MQTT Actor (Tasmota)` if you want this behaviour.
+To easily switch Tasmota devices on or off, there is a specific actor for this in CraftBeerPi. It just sends `on` or `off` to the specified topic. Use the `MQTT Actor (Tasmota)` if you want this behavior.
 
 #### MQTT Actor (Generic)
 
@@ -171,7 +171,7 @@ You also can change the status of CraftbeerPi actors via mqtt. There are current
 2. Switch an Actor off
 3. Set the power for an Actor
 
-To switch a CraftbeerPi Actor on, you just need to publish a topic via your mqtt brooker:
+To switch a CraftbeerPi Actor on, you just need to publish a topic via your mqtt broker:
 
 ```
 cbpi/actor/QD7WjbFHWyGKMCCFai4uSW/on
@@ -195,7 +195,7 @@ You also need to send a power value between 0 and 100 as raw value in the payloa
 
 Craftbeerpi is continuously sending status updates on all sensors and actors via mqtt
 
-Sensordata is updated via:
+Sensor data is updated via:
 
 ```
 cbpi/sensordata/2Sn46Fc6jRGvES9MuQXHdG
@@ -262,13 +262,13 @@ and notifications the the topic:
 ```
 cbpi/notification
 ```
-### Craftbeerpi can send Kettle and Fermenterupdates on a defined frequency
+### Craftbeerpi can send Kettle and Fermenter updates on a defined frequency
 
 Some devices (e.g. [MQTTDeviceV4](https://innuendopi.github.io/MQTTDevice4/)) may require more frequent updates on kettle or fermenter. Therefore, the server has the ability to push updates for kettle and fermenter with a defined frequency even if there are no changes in the payload. This frequency can be defined with on the cbpi [settings page](settings.md) with the parameter `MQTTUpdate`
 
 ### You can also request updates on kettles, fermenters, actors and sensors from CraftbeerPi
 
-If your device or application requires an update on some itmes from craftbeerpi at a given time, you can also publish various topics and cbpi will respond with an update on the particular topic.
+If your device or application requires an update on some items from craftbeerpi at a given time, you can also publish various topics and cbpi will respond with an update on the particular topic.
 
 1. `cbpi/updatesensor` will update `cbpi/sensorupdate`
 2. `cbpi/updateactor` will update `cbpi/actorupdate`
@@ -278,7 +278,7 @@ If your device or application requires an update on some itmes from craftbeerpi 
 The payload can be empty for these topics
 
 {% hint style="info" %}
-Some things had to be changed as the payload size was just too large for smaller devices / libraries. Therefore, each sensor, actor, kettle, fermenter,.... has one topic under a main topic for sensorupdates, actorupdates, kettleupdates,...
+Some things had to be changed as the payload size was just too large for smaller devices / libraries. Therefore, each sensor, actor, kettle, fermenter,.... has one topic under a main topic for sensor updates, actor updates, kettle updates,...
 This has been tested extensively with the so called [MQTTDeviceV2](https://innuendopi.github.io/MQTTDevice2/) but also [V4](https://innuendopi.github.io/MQTTDevice4/).
 {% endhint %}
 

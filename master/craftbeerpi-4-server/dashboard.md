@@ -21,7 +21,7 @@ Afterwards, the dashboard is in edit mode and will show some additional features
 On the left side, you see a menu that shows the available items you can add to the dashboard. At the top right, you see the current dashboard number you are editing. Next to the number you see a save symbol. You need to click on this symbol to save your changes before you lock the dashboard with the lock symbol on the right. On the right side you see a settings part where you can edit the settings for the active item you are working on. All the sections will be explained in the following parts.
 
 {% hint style="info" %}
-You can access the dashboards also directly which is usefull, if you want to use for instance bookmarks for your kettle or fermenter dashboard. Therefore, you need to add `/fixdash/X` behind the address in your browser where `X`is the number of your dashboard.
+You can access the dashboards also directly which is useful, if you want to use for instance bookmarks for your kettle or fermenter dashboard. Therefore, you need to add `/fixdash/X` behind the address in your browser where `X`is the number of your dashboard.
 
 If you want to access for instance dashboard number 3 on you server the is running on 'localhost', you just need to enter `http://localhost:8000/cbpi_ui/static/index.html#/fixdash/3` as address and you can directly access dashboard 3.
 
@@ -35,7 +35,7 @@ Please note, that you cannot edit the dashboard, when you are using the direct l
 Many Item Names are not displayed on the dashboard. Nevertheless, you should specify them, as they are helpful if you want to change the order of layers on your dashboard.
 {% endhint %}
 
-| Item                | Description                                                                                                                                | Poperties                                                                                                                                                                                                                                                                                                                                                        |
+| Item                | Description                                                                                                                                | Properties                                                                                                                                                                                                                                                                                                                                                        |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Kettle              | Adds a Kettle Symbol                                                                                                                       | <p><strong>Name:</strong> specifies a name for the Kettle (not displayed)</p><p><strong>Height/Width:</strong> determines the item size</p>                                                                                                                                                                                                                                                        |
 | Tank                | Adds a Tank Symbol                                                                                                                         | <p><strong>Name:</strong> specifies a name for the Kettle (not displayed)</p><p><strong>Height/Width:</strong> determines the item size</p>                                                                                                                                                                                                                                                        |
@@ -44,10 +44,10 @@ Many Item Names are not displayed on the dashboard. Nevertheless, you should spe
 | Sensor Data         | Adds a data field for a sensor                                                                                                             | <p><strong>Name:</strong> specifies a name for the sensor data (not displayed).</p><p><strong>Sensor:</strong> Select Sensor data to be shown.</p><p><strong>Unit:</strong> Unit that is displayed behind sensor data</p><p><strong>Size:</strong> Text Size of displayed data</p><p><strong>Color:</strong> Displayed color of item</p><p><strong>Digits:</strong> Digits to be shown for data</p><p><strong>Action:</strong> Displays action button if sensor comes with actions.</p> |
 | Actor               | Adds an Actor                                                                                                                              | <p><strong>Name:</strong> specifies a name for the Actor (displayed).</p><p><strong>Actor:</strong> Select an Actor.</p><p><strong>Size:</strong> Text Size of displayed Actor</p><p><strong>Color:</strong> Displayed color of item</p><p><strong>Digits:</strong> Digits to be shown for data</p><p><strong>Action:</strong> Displays action button if Actor comes with actions (e.g. Power settings).</p>                                                             |
 | Led                 | Adds a Led for an Actor                                                                                                                    | <p><strong>Name:</strong> specifies a name for the Led (not displayed).</p><p><strong>Actor:</strong> Defines the actor that triggers the Led state.</p><p><strong>Color:</strong> select the led color (green, red, blue)</p>                                                                                                                                                                                      |
-| Steps               | Adds a Mashstep field (only one field possible)                                                                                            | <p><strong>Name:</strong> specifies a name for the MashSteps item (not displayed).</p><p><strong>Width:</strong> defines the item width.</p><p><strong>StepSize:</strong> defines the text size of the steps.</p><p><strong>NameSize:</strong> defines the recipe name textsize.</p>                                                                                                                                                 |
+| Steps               | Adds a Mashstep field (only one field possible)                                                                                            | <p><strong>Name:</strong> specifies a name for the MashSteps item (not displayed).</p><p><strong>Width:</strong> defines the item width.</p><p><strong>StepSize:</strong> defines the text size of the steps.</p><p><strong>NameSize:</strong> defines the recipe name text size.</p>                                                                                                                                                 |
 | SVG                 | You can add your custom svg items for symbols (e.g. Kettle) Details described in this [section](dashboard.md#how-to-add-custom-svg-items). | <p><strong>Name:</strong> specifies a name for the SVG item (not displayed).</p><p><strong>Width:</strong> defines the item width.</p><p><strong>Widget:</strong> Select a widget you copied into the widgets folder</p>                                                                                                                                                                                            |
-| KettleControl       | Adds a control for your Kettle or Fermenter (FermenterHysteresis Plugin required as Kettlelogic) sd                                        | <p><strong>Name:</strong> specifies a name for the Kettle Control item (not displayed).</p><p><strong>Kettle:</strong> Select the kettle to be controlled.</p><p><strong>Size:</strong> Select one of three sizes for the item.</p><p><strong>Orientation:</strong> Select horizontal or vertical</p>                                                                                                                                |
-| Clock               | Adds a clock                                                                                                                               | <p><strong>Name:</strong> specifies a name for the Clock item (not displayed).</p><p><strong>Size:</strong> Textsize of the item.</p><p><strong>Showdate:</strong> shows clock with date if set to yes.</p><p><strong>Color:</strong> defines the color of the item</p>                                                                                                                                                              |
+| KettleControl       | Adds a control for your Kettle or Fermenter (FermenterHysteresis Plugin required as Kettle Logic) sd                                        | <p><strong>Name:</strong> specifies a name for the Kettle Control item (not displayed).</p><p><strong>Kettle:</strong> Select the kettle to be controlled.</p><p><strong>Size:</strong> Select one of three sizes for the item.</p><p><strong>Orientation:</strong> Select horizontal or vertical</p>                                                                                                                                |
+| Clock               | Adds a clock                                                                                                                               | <p><strong>Name:</strong> specifies a name for the Clock item (not displayed).</p><p><strong>Size:</strong> Text size of the item.</p><p><strong>Showdate:</strong> shows clock with date if set to yes.</p><p><strong>Color:</strong> defines the color of the item</p>                                                                                                                                                              |
 | Chart               | <p>Adds a chart to display sensor values</p><p>Please se also [here](datalogging.md)</p>                                                                                                      | <p><strong>Name:</strong> specifies a name for the Chart (displayed).</p><p><strong>Sensor:</strong> select sensor data to be displayed.</p><p><strong>Linecolor:</strong> define the color of the data.</p><p><strong>Refresh:</strong> Refresh rate for the chart in seconds.</p><p><strong>Width/Height:</strong> Defines chart size.</p>                                                                                                          |
 | GrafanaChart               | Adds a Grafana based chart to display sensor values                                                                                                      | <p><strong>Name:</strong> specifies a name for the Chart.</p><p><strong>url:</strong> enter url from your grafana dashboard (details [here](datalogging.md#grafana-dashboard-chart)).</p><p><strong>panelID:</strong> Enter the panelID from the URL</p><p><strong>Refresh:</strong> Refresh rate for the chart (e.g. 10s for 10 seconds).</p><p><strong>Timeframe:</strong> defines the displayed timeframe for the chart (e.g. now-7d for the past 7 days until now)</p><p><strong>Width/Height:</strong> Defines chart size.</p>                                                                                                          |
 | Calculator          | Adds a volume calculator                                                                                                                   | To be described                                                                                                                                                                                                                                                                                                                                                  |
@@ -55,12 +55,12 @@ Many Item Names are not displayed on the dashboard. Nevertheless, you should spe
 | FermenterTargetTemp | Adds a target temperature input for a Fermenter | <p><strong>Name:</strong> specifies a name for the TargetTemp (not displayed).</p><p><strong>Fermenter:</strong> Select Fermenter for which that temp shall be displayed.</p><p><strong>Unit:</strong> Unit that is displayed behind target temp</p><p><strong>Size:</strong> Text Size of displayed target temp</p><p><strong>Color:</strong> Displayed color of item</p>                                                                            |
 | FermenterTargetPressure | Adds a target Pressure input for a Fermenter | <p><strong>Name:</strong> specifies a name for the TargetPressure (not displayed).</p><p><strong>Fermenter:</strong> Select Fermenter for which that pressure shall be displayed.</p><p><strong>Unit:</strong> Unit that is displayed behind target pressure</p><p><strong>Size:</strong> Text Size of displayed target temp</p><p><strong>Color:</strong> Displayed color of item</p>                                                                            |
 | FermenterControl    | Adds a control for your Fermenter                                                                                                          | <p><strong>Name:</strong> specifies a name for the Fermenter Control item (not displayed).</p><p><strong>Fermenter:</strong> Select the fermenter to be controlled.</p><p><strong>Size:</strong> Select one of three sizes for the item.</p><p><strong>Orientation:</strong> Select horizontal or vertical<p>|
-| FermenterSteps          | Adds a Fermenterstep field (only one field per Fermenter possible)                                                                                            | <p><strong>Name:</strong> specifies a name for the FermnenterSteps item (not displayed).</p><p><strong>Width:</strong> defines the item width.</p><p>Stepsize: defines the text size of the steps.</p><p><strong>Namesize:</strong> defines the recipe name textsize.</p> <p><strong>Fermenter:</strong> specifies the femrenter for this item.</p>|
+| FermenterSteps          | Adds a Fermenterstep field (only one field per Fermenter possible)                                                                                            | <p><strong>Name:</strong> specifies a name for the Fermenter Steps item (not displayed).</p><p><strong>Width:</strong> defines the item width.</p><p>Stepsize: defines the text size of the steps.</p><p><strong>Namesize:</strong> defines the recipe name text size.</p> <p><strong>Fermenter:</strong> specifies the fermenter for this item.</p>|
 | Pipe                | Adds a pipe that displays a flow when an actor is on                                                                                       | <p><strong>FlowLeft:</strong> Left Flow animation if selected actor is active.</p><p><strong>FlowRight:</strong> Right Flow animation if selected actor is active.</p>                                                                                                                                                                                                                             |
 
 ### How to add custom SVG items
 
-To upload custom SVG files to your server, you can go to the [system page ](system.md)and use the integrated upload fucntion.
+To upload custom SVG files to your server, you can go to the [system page ](system.md)and use the integrated upload function.
 
 You can also copy them manually into the so-called widget folder. The folder is inside your config folder structure. An example of a fermenter created with Inkscape can be found below.
 
@@ -177,9 +177,9 @@ It is not required, but you can also place actor buttons for each actor on the d
 {% hint style="info" %}
 Actions can be shown for Sensors and Actors. In case you select 'Yes' in the properties window for the item, the extra menu is displayed. When you click on the menu, a pop-up window will open with the actions defined for the item.
 
-Starting from cbpi 4.0.0.45 the GPIOActor and the GPIOPWMActor have power settings included. To change the power, you will need to activate the powerslider in the actor properties.
+Starting from cbpi 4.0.0.45 the GPIOActor and the GPIOPWMActor have power settings included. To change the power, you will need to activate the power slider in the actor properties.
 
-Standard sensors have not defined actions. Sensor examples with actions are for instance the [flowmeter](https://github.com/PiBrewing/cbpi4-Flowmeter) and [loadcell](https://github.com/PiBrewing/cbpi4-hx711-loadcell) plugins where you can set the sensor reading to zero or tare the loadcell.
+Standard sensors have not defined actions. Sensor examples with actions are for instance the [flowmeter](https://github.com/PiBrewing/cbpi4-Flowmeter) and [loadcell](https://github.com/PiBrewing/cbpi4-hx711-loadcell) plugins where you can set the sensor reading to zero or tare the load cell.
 {% endhint %}
 
 ![Actors with and w/o actions have been added to the dashboard](../../.gitbook/assets/cbpi4-addgpioactor\_power.png)
@@ -191,22 +191,22 @@ It is also recommended adding an item for the mash steps to your dashboard. For 
 If sensor data should be displayed on the dashboard, a chart can be also added. Just select a sensor in the chart properties, define the width and height, as well as the refresh rate.
 
 {% hint style="warning" %}
-Although you can add charts to the dashboard, it is not recommended. As default, sensor data is stored in csv log files and they will be read every 10 seconds. Due to log file rotation, up to 4Mb in total can be read every 10 seconds per chart (default chart refresh rate). This will drive the cpu load up to 100% and the dashboard will become unrepsonsive. It is better to use the analytics page instead if you want to access the csv based logfiles.
+Although you can add charts to the dashboard, it is not recommended. As default, sensor data is stored in csv log files and they will be read every 10 seconds. Due to log file rotation, up to 4Mb in total can be read every 10 seconds per chart (default chart refresh rate). This will drive the cpu load up to 100% and the dashboard will become unresponsive. It is better to use the analytics page instead if you want to access the csv based log files.
 {% endhint %}
 
 ![Chart has been added to dashboard](../../.gitbook/assets/cbpi4-addchart.png)
 
 Finally, press the save button to save all your changes before pressing the lock button to end the edit mode.
 
-![Saved Dashbord after locking](../../.gitbook/assets/cbpi4-dashboard\_brewing.png)
+![Saved Dashboard after locking](../../.gitbook/assets/cbpi4-dashboard\_brewing.png)
 
 #### Changing power settings for an actor
 
-If you have added GPIO or GPIOPWM Actors to your dashboard and activated the powerslider, you will see the power symbol at the right side of the actor button. Click on the symbol to open the powerslider.
+If you have added GPIO or GPIOPWM Actors to your dashboard and activated the power slider, you will see the power symbol at the right side of the actor button. Click on the symbol to open the power slider.
 
 ![Power Actions menu for GPIO Actor](../../.gitbook/assets/cbpi4-powerbutton.png)
 
-Now you need to slide the power to the desitred value and click set to apply the new value or cancel.
+Now you need to slide the power to the desired value and click set to apply the new value or cancel.
 
 ![Set Power dialog window](../../.gitbook/assets/cbpi4-powerslider.png)
 
@@ -217,7 +217,7 @@ After applying the new value, the actor setting has changed and the ne value is 
 {% hint style="info" %}
 Power settings will work for the standard GPIO Actor, the GPIO PWM actor and MQTT Actors.
 
-If the standard GPIO Actor is set to 100% it will work like a regular GPIO Actor. If the power is changed, the actor will balance the on / off state for the SamplingTime defined in the hardware setting. Tihs parameter can be set to 2 or 5 seconds.
+If the standard GPIO Actor is set to 100% it will work like a regular GPIO Actor. If the power is changed, the actor will balance the on / off state for the SamplingTime defined in the hardware setting. This parameter can be set to 2 or 5 seconds.
 
 **Example:** Sampling time is set to 5 seconds. Actor power is set to 60%. The actor will be switched on every 5 seconds for 3 seconds and off for 2 seconds.
 
@@ -254,7 +254,7 @@ Then select the widget you have uploaded in the properties on the right side. As
 
 ![The selected SVG item is shown in the dashboard](../../.gitbook/assets/cbpi4-dasboard-fermenter-konus.png)
 
-Now you can add, as already shown for the brewing setup a name for your Fermenter. This time you need to add a fermenter target temp item instead of the kettle target temp intem and select the fermenter you did set up in the hardware section.
+Now you can add, as already shown for the brewing setup a name for your Fermenter. This time you need to add a fermenter target temp item instead of the kettle target temp item and select the fermenter you did set up in the hardware section.
 
 ![Adding a target temp item to your fermenter](../../.gitbook/assets/cbpi4-dashboard-fermenter-target.png)
 
@@ -270,7 +270,7 @@ Now you can add also led items to display the activity of the heating or cooling
 
 ![Fermenter with led items added](../../.gitbook/assets/cbpi4-dashboard-fermenter-led.png)
 
-Finally, add a fermenterstep widget to your fermenter dashboard. This is basically the same as for the kettle. Howerver, for this widget you need to select the fermenter for which this widget triggers fermenter steps.
+Finally, add a fermenter step widget to your fermenter dashboard. This is basically the same as for the kettle. However, for this widget you need to select the fermenter for which this widget triggers fermenter steps.
 
 ![Fermenter with steps added](../../.gitbook/assets/cbpi4-fermenter-steps.png)
 

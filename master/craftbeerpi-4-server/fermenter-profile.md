@@ -10,7 +10,7 @@ Now click on the recipe book button to open the recipe book. This will be empty 
 
 To create a new recipe, click on the '+' at the top right. An interactive menu will open where you can enter the Name of your recipe and click on the create button. 
 
-![Create a new fermenterrecipe](../../.gitbook/assets/cbpi4-fermenterprofile-recipe-newname.png)
+![Create a new fermenter recipe](../../.gitbook/assets/cbpi4-fermenterprofile-recipe-newname.png)
 
 Afterwards, the recipe editor will open and you can add a description for the recipe
 
@@ -39,7 +39,7 @@ All Steps have the name field and you should enter a name for each step. e.g. Ra
 |                  | Description   | Parameters  |
 | ---------------- | ------------- | ----------- |
 | FermenterTargetTempStep | Heats up or cools down to the target temp. Sends notification, when temp is reached and moves to next step. Can be used as first step to bring wort to temp for yeast pitching. | <p><strong>Temp:</strong> Target Temp for Step</p><p><strong>Sensor:</strong> Sensor to be used for this step</p><p><strong>Notification:</strong> Notification text that can be specified by user</p><p><strong>AutoMode:</strong> If yes: Kettle Logic will be switched on/off when step starts/stops</p> |
-| FermenterRampTempStep | Heats up or cools down to the target temp with defined ramp rate. Sends notification, when temp is reached and moves to next step. Can be used as ramp step between two femrentation steps with different temperature. | <p><strong>Temp:</strong> Target Temp for Step</p><p><strong>RampRate:</strong> Ramps is done with this rate in °/day</p><p><strong>Sensor:</strong> Sensor to be used for this step</p><p><strong>Notification:</strong> Notification text that can be specified by user</p><p><strong>AutoMode:</strong> If yes: Kettle Logic will be switched on/off when step starts/stops</p> |
+| FermenterRampTempStep | Heats up or cools down to the target temp with defined ramp rate. Sends notification, when temp is reached and moves to next step. Can be used as ramp step between two fermentation steps with different temperature. | <p><strong>Temp:</strong> Target Temp for Step</p><p><strong>RampRate:</strong> Ramps is done with this rate in °/day</p><p><strong>Sensor:</strong> Sensor to be used for this step</p><p><strong>Notification:</strong> Notification text that can be specified by user</p><p><strong>AutoMode:</strong> If yes: Kettle Logic will be switched on/off when step starts/stops</p> |
 | FermenterStep | Heats up or cools down to the target temp and runs until Timer is done. | <p><strong>TimeD:</strong> Time in days for Timer</p><strong>TimeH:</strong> Time in hours for Timer</p><strong>TimeM:</strong> Time in hours for Timer</p><p><strong>Temp:</strong> Target Temp for FermenterStep</p><p><strong>Sensor:</strong> Sensor to be used for this step</p><p><strong>AutoMode:</strong> If yes: Kettle Logic will be switched on/off when step starts/stops<p> |
 | FermenterNotificationStep | Sends a Notification and can wait on user input. Can be used as step between two other steps with a required user input or at the end to inform the user that the fermentation is completed. | <p><strong>Notification:</strong> Notification text that can be specified by user</p><p><strong>AutoNext:</strong> If set to 'No', step is waiting for user input to move to next step. Otherwise, next step is automatically started.</p> |
 
@@ -55,15 +55,15 @@ AutoMode set to 'Yes' will switch on the fermenter logic when a step starts and 
 
 ![Ramp to target temp Step](../../.gitbook/assets/cbpi4-fermenterprofile-cooldown.png)
 
-Now you need to add a step and define the temperature for the first fermentation step which can be the same as the first step step. Just click again on the '+' symbol to add an empty step and select FermenterStep as Logic. In this step you will need to define a timer in days, hours and minutes and select your temperature sensor. Also here I recommend to use the automode setting. The timer will start counting, once the target temperature is reached.
+Now you need to add a step and define the temperature for the first fermentation step which can be the same as the first step step. Just click again on the '+' symbol to add an empty step and select FermenterStep as Logic. In this step you will need to define a timer in days, hours and minutes and select your temperature sensor. Also here I recommend to use the auto mode setting. The timer will start counting, once the target temperature is reached.
 
 {% hint Style="info" %}
-The three parameters for days, hours and minutes will add up. You can leave also some fileds empty and it will be counted as 0.
+The three parameters for days, hours and minutes will add up. You can leave also some fields empty and it will be counted as 0.
 {% endhint %}
 
 ![First fermentation step](../../.gitbook/assets/cbpi4-fermenterprofile-mainfermentation.png)
 
-In this example we add another step at a higher temperature. The procedure to add another step is the same as before. Define name, temperature, time and select your sensor. Set Automode to 'yes'
+In this example we add another step at a higher temperature. The procedure to add another step is the same as before. Define name, temperature, time and select your sensor. Set Auto mode to 'yes'
 
 ![Second fermentation Step](../../.gitbook/assets/cbpi4-fermenterprofile-mainfermentation2.png)
 
@@ -85,7 +85,7 @@ If you click on the back button 'left arrow' at the top, you will see your recip
 If you click on the recipe, you come back to the edit screen. At the top of the recipe edit screen is also a fermenter icon. You can send the recipe now to a fermenter by clicking on the fermenter icon. 
 
 {% hint Style="info" %}
-I recommend to store some basic recipes with global names Like 'Lager @ 9°C' as recipe name in the fermenter recipe book. Right before sending the recipe to the femrenter, just change the name to your current beername but don't save the recipe to the book. Just click on the send button. The recipe book will have still the more generic recipe name, but the Fermenter and the corresponding step wiget in the dahsboard will show the beername of your current fermentation.
+I recommend to store some basic recipes with global names Like 'Lager @ 9°C' as recipe name in the fermenter recipe book. Right before sending the recipe to the fermenter, just change the name to your current beer name but don't save the recipe to the book. Just click on the send button. The recipe book will have still the more generic recipe name, but the Fermenter and the corresponding step widget in the dashboard will show the beer name of your current fermentation.
 {% endhint %}
 
 ![Full recipe with all steps and fermenter icon](../../.gitbook/assets/cbpi4-fermenterprofile-fullrecipe\_icon.png)

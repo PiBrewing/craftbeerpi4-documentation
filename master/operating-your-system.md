@@ -36,13 +36,13 @@ If you have set the server to F, the scale is converted to F
 
 Once you have selected your target temperature and have clicked on the set button, the target temperature will be also updated on your dashboard.
 
-If you click on the 'car' symbol, the automode will be activated and you can see the active status of the actors as the background is now green and the symbol black. The system would now heat up to 80°C and holds that temperature until you stop the automode by clicking again on the car symbol.
+If you click on the 'car' symbol, the auto mode will be activated and you can see the active status of the actors as the background is now green and the symbol black. The system would now heat up to 80°C and holds that temperature until you stop the auto mode by clicking again on the car symbol.
 
-![System in automode](../.gitbook/assets/cbpi4-operating-automode.png)
+![System in auto mode](../.gitbook/assets/cbpi4-operating-automode.png)
 
-Theoretically, you could also operate the system with the automode and set the target temperatures manually. However, this is not recommended for brewing. You could do this for instance, to run your kettle at 60°C for a cleaning cycle.
+Theoretically, you could also operate the system with the auto mode and set the target temperatures manually. However, this is not recommended for brewing. You could do this for instance, to run your kettle at 60°C for a cleaning cycle.
 
-To use the system for brewing it is recommended to use the functions provided with the mash step item which is located on the left side of the kettle in this example. To start brewing in a comfortable automatic mode, you need to press the start button in the mash steps item below the recipe name. This will start the first step and the [automode if you created your steps accordingly ](craftbeerpi-4-server/mash-profile.md)or configured the [settings for automated recipe creation](craftbeerpi-4-server/recipe-upload.md#define-your-default-recipe-creation-settings) to use this feature. If you have chosen not to use the automode setting, you need to activate your kettle control by clicking on the car symbol by yourself. Whenever you want to pause the process in between , you will also need to stop the automode manually
+To use the system for brewing it is recommended to use the functions provided with the mash step item which is located on the left side of the kettle in this example. To start brewing in a comfortable automatic mode, you need to press the start button in the mash steps item below the recipe name. This will start the first step and the [auto mode if you created your steps accordingly ](craftbeerpi-4-server/mash-profile.md)or configured the [settings for automated recipe creation](craftbeerpi-4-server/recipe-upload.md#define-your-default-recipe-creation-settings) to use this feature. If you have chosen not to use the auto mode setting, you need to activate your kettle control by clicking on the car symbol by yourself. Whenever you want to pause the process in between , you will also need to stop the auto mode manually
 
 ![MashIn step is waiting for target temp](../.gitbook/assets/cbpi4-operatirng-brewing\_1.png)
 
@@ -84,7 +84,7 @@ If you have installed the pushover plugin, notifications will be forwarded to th
 
 ![Boil step properties and actions](../.gitbook/assets/cbpi4-operating-boil.png)
 
-When the boil step is completed, a waitstep is added as Whirlpool step. The final step is a Cooldown step which should be used for active cooling prior to the transfer to your fermenter. The cooldown step is monitoring your temperature in the boil kettle (you could also specify a different temperature sensor for this step in the automatic recipe creation settings) and is claculating the estimated completion time when the target temperature is reached (there is still room for improvement). The step sends out an information about the current temperature and the estimated completion time. The cooldown step could also trigger a magnetic valve to switch the cooldown water on and off.
+When the boil step is completed, a wait step is added as Whirlpool step. The final step is a Cool down step which should be used for active cooling prior to the transfer to your fermenter. The cool down step is monitoring your temperature in the boil kettle (you could also specify a different temperature sensor for this step in the automatic recipe creation settings) and is calculating the estimated completion time when the target temperature is reached (there is still room for improvement). The step sends out an information about the current temperature and the estimated completion time. The cool down step could also trigger a magnetic valve to switch the cool down water on and off.
 
 ![Brewing is completed](../.gitbook/assets/cbpi4-operating-completed.png)
 
@@ -92,12 +92,12 @@ When the step is completed, the system will raise a notification that the brewin
 
 ## Use the system for fermentation
 
-CraftbeerPi4 supports also fermentation with the Fermenter hardware, a corresponding fermenter logic and fermenter steps. A simple fermentation hystersis logic is included with the server, but users can also write their own fermenter logic and install them as a plugin. A couple of simple fermentation steps are included and also here, users can create / add steps via plugins.
+CraftbeerPi4 supports also fermentation with the Fermenter hardware, a corresponding fermenter logic and fermenter steps. A simple fermentation hysteresis logic is included with the server, but users can also write their own fermenter logic and install them as a plugin. A couple of simple fermentation steps are included and also here, users can create / add steps via plugins.
 
 The integrated logic has some special settings for fermentation and you need to adapt just a few settings for each batch. Details on the other parameters have been already described [here](craftbeerpi-4-server/hardware.md#setting-up-the-hardware-for-fermentation).
 
-* If you want to start the fermenter automatically during reboot, you need to set AutoStart to 'Yes'. In this case, the fermenter will start with the last step and the remaining time. If you are not fermenting in your fermenter, the setting should be switched back to 'No' or you should clear the fermenter profile for this fermenter that no steps are in the rofle that could be started.
-* The BrewName does not need to be set here as it will  be be set in the recipe and will be shown in the [modded LCDisplay Plugin ](https://github.com/PiBrewing/cbpi4-LCDisplay)during fermentation but also on thop of the fermenter step widget.
+* If you want to start the fermenter automatically during reboot, you need to set AutoStart to 'Yes'. In this case, the fermenter will start with the last step and the remaining time. If you are not fermenting in your fermenter, the setting should be switched back to 'No' or you should clear the fermenter profile for this fermenter that no steps are in the profile that could be started.
+* The BrewName does not need to be set here as it will  be be set in the recipe and will be shown in the [modded LCDisplay Plugin ](https://github.com/PiBrewing/cbpi4-LCDisplay)during fermentation but also on top of the fermenter step widget.
 * The additional sensor property in the logic is only relevant, if you use the modded LCDisplay Plugin. Here you can select for instance an iSpindle Sensor and your Gravity is shown on the LCDisplay
 
 ![Fermenter Hysteresis Settings](../.gitbook/assets/cbpi4-operating-fermenter-hysteresis.png)
@@ -106,20 +106,20 @@ You need to save your settings and go back to your [dashboard, where you did set
 
 ![Fermenter dashboard](../.gitbook/assets/cbpi4-operating-fermenter.png)
 
-In the dashboard example above you can see a dashboard with one fermenters and the fermenterstep widget where a recipe has been loaded. If you have multiple fermenters, you can add them to the same dashboard or use one dashboard per femrenter. You just need to pay attention that you assign the widgets such as control or steps to the correct fermenter you want to control.
+In the dashboard example above you can see a dashboard with one fermenters and the fermenter step widget where a recipe has been loaded. If you have multiple fermenters, you can add them to the same dashboard or use one dashboard per fermenter. You just need to pay attention that you assign the widgets such as control or steps to the correct fermenter you want to control.
 
-If you have not yet created or loaded a recipe for this fermenter, you need to create / load a recicpe from the [fermenterprofile / recipebook](craftbeerpi-4-server/fermenter-profile.md).
+If you have not yet created or loaded a recipe for this fermenter, you need to create / load a recipe from the [fermenter profile / recipe book](craftbeerpi-4-server/fermenter-profile.md).
 
 {% hint style="info" %}
-There is no need to set the TargetTemp as this is done by the recipe. However, you could set the target temp and click on the auto symbol to run the fermenterlogic w/o any steps. The logic will ramp the temp to the desired target temp and keeps it until you stop the logic. However, this is not the recommended scenario to operate your fermenter.
+There is no need to set the TargetTemp as this is done by the recipe. However, you could set the target temp and click on the auto symbol to run the fermenter logic w/o any steps. The logic will ramp the temp to the desired target temp and keeps it until you stop the logic. However, this is not the recommended scenario to operate your fermenter.
 {% endhint %}
 
 
-To start the fermenterprocess, you just need to clock on the play button like it is already described for brewing and the steps for the specified fermenter will start and the steps will set parameters such as target temp automatically. If you enabled also Automode in the fermenter steps, the logci will also start automatically.
+To start the fermenter process, you just need to clock on the play button like it is already described for brewing and the steps for the specified fermenter will start and the steps will set parameters such as target temp automatically. If you enabled also Auto mode in the fermenter steps, the logic will also start automatically.
 
-![SS Brewtech Fermenter is working in Automode](../.gitbook/assets/cbpi4-operating-fermenter-automode.png)
+![SS Brewtech Fermenter is working in Auto mode](../.gitbook/assets/cbpi4-operating-fermenter-automode.png)
 
-As soon, as the Automode is started, the logic will switch on the actor for cooling or heating to get to the desired target temp. If you restart the system and have enabled Fermenter Autostart in the logic, the Automode will be started with the last step and the remaining step time.
+As soon, as the Auto mode is started, the logic will switch on the actor for cooling or heating to get to the desired target temp. If you restart the system and have enabled Fermenter Autostart in the logic, the Auto mode will be started with the last step and the remaining step time.
 
 Some steps have also step actions and you can access them or the step properties by clicking on the step itself. You can also pause, resume or move directly to the next step via the step widget in the same way as it has been described for the brewing.
 
