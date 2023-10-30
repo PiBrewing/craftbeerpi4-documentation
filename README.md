@@ -21,7 +21,7 @@ Requirements:
 - A migration from cbpi3 to cbpi4 with the old settings / configuration is not possible
 - Migration from bullseye to bookworm is only recommended via installation of a new bookworm image.
 - PLEASE backup your config prior to installation of the new image and restore it, once you have installed cbpi and it's plugins.
-- Bookworm has moved from X11 to wayland window manager. This creates currently some issues with my touchscreen. Therefore I have switched back to X11 which can be done via raspi-config. I cannot guarantee, that chromium kiosk mode will work w/o issues under wayland. This might be adapted at a later pont if time if required, once I can switch to wayland.
+- Bookworm has moved from X11 to wayland window manager. This creates currently some issues with my touchscreen. Therefore I have switched back to X11 which can be done via raspi-config. I cannot guarantee, that chromium kiosk mode will work w/o issues under wayland. This might be adapted at a later point of time if required, once I can switch to wayland.
 - Newer OS such as bookworm won't allow the installation of cbpi with 'sudo pip'. pipx will be required which will install cbpi in a virtual environment.
 - Routines within cbpi have changed, that sudo is also not required to run cbpi. You can now also install cbpi under a different user than pi and have it running with autostart.
 
