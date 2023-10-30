@@ -6,19 +6,24 @@ description: Software for brewing and fermenting beer
 
 #### Versions:
 
-Documentation: 1.5.5
+Documentation: 1.6.0
 
 Valid for 
-- Server: [4.1.10](https://pypi.org/project/cbpi4/)
+- Server: [4.2.0](https://pypi.org/project/cbpi4/)
 - User Interface: [0.3.12](https://pypi.org/project/cbpi4gui/)
 
 Requirements:
-- Python 3.9 (Python 3.10 and 3.11 should also work -> tested in docker environment)
-- Bullseye is the recommended OS for the raspberry pi
+- Python 3.11 (Python 3.9 and 3.10 should still be working)
+- Bookworm is the recommended OS for the raspberry pi
 - !!! RapsberryPi that is able to run 64bit system is strongly recommended as older versions will cause issues with server versions > 4.1.6 !!!
 
 ### Note:
 - A migration from cbpi3 to cbpi4 with the old settings / configuration is not possible
+- Migration from bullseye to bookworm is only recommended via installation of a new bookworm image.
+- PLEASE backup your config prior to installation of the new image and restore it, once you have installed cbpi and it's plugins.
+- Bookworm has moved from X11 to wayland window manager. This creates currently some issues with my touchscreen. Therefore I have switched back to X11 which can be done via raspi-config. I cannot guarantee, that chromium kiosk mode will work w/o issues under wayland. This might be adapted at a leter pont if time if required, once I can switch to wayland.
+- Newer OS such as bookworm won't allow the installation of cbpi with 'sudo pip'. pipx will be required which will install cbpi in a virtual environment.
+- Routines within cbpi have changed, that sudo is also not required to run cbpi. You can now also install cbpi under a different user than pi and have it running with autostart.
 
 ### [Changes](master/Changes.md)
 
