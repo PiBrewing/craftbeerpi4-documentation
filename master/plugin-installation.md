@@ -36,6 +36,13 @@ The other way to install the plugin is directly from GitHub:
 python -m pip install https://github.com/PiBrewing/cbpi4-pt100x/archive/main.zip
 ```
 
+{% hint style="info" %}
+The command above will install the main brach of the cbpi4-pt100x github repo. The github page for this particular plugin is located at https://github.com/PiBrewing/cbpi4-pt100x and it has for instance two different [branches](https://docs.github.com/de/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository): `main` and `development`. If you want to install the development branch, just replace `main.zip` with `development.zip`.
+
+The same is true for other plugins you want to install from a repo. You just need to add `/archive/BRANCH.zip` behind the github http plugin address and substitute BRANCH with the name of the branch you want to install.
+{% endhint %}
+
+
 Also here, the plugin and the dependent packages will be installed automatically.
 
 Once this is completed, you need to leave the virtual environment with:
