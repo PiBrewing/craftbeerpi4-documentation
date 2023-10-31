@@ -1,4 +1,4 @@
-# Creating new Plugins
+# Creating new Plugins (needs some review for bookworm os)
 
 CraftbeerPi4 has the capability to create a plugin template for the development of your own plugin. You just need to run the following command:
 

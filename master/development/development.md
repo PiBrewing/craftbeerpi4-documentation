@@ -9,14 +9,18 @@ To install for instance a development branch of the server, you need to look int
 
 In this example the server has for instance a branch called `development`. To install this particular branch, you need to run the following command:
 
+{% hint style="info" %} 
+Installation or update of cbpi4 itself does not require to activate the virtual environment as it needs to be installed with pipx
+{% endhint %}
+
 ```
-sudo pip3 install https://github.com/PiBrewing/craftbeerpi4/archive/development.zip
+pipx install https://github.com/PiBrewing/craftbeerpi4/archive/development.zip
 ```
 
 The only difference to the installation of the master branch is that master.zip is replaced with development.zip as the branch has this name. If you want to upgrade from an existing installation, you should add the flag `--upgrade`.
 
 ```
-sudo pip3 install --upgrade https://github.com/PiBrewing/craftbeerpi4/archive/development.zip
+pipx install --upgrade https://github.com/PiBrewing/craftbeerpi4/archive/development.zip
 ```
 
 If you want to install another existing branch, you need to check the available branches and adapt the link accordingly.
@@ -25,11 +29,24 @@ To revert back to the master branch, just run the commands for [updating your se
 
 ## Running a development version of the user interface
 
-The installation of the development branch of the user interface is basically working in the same way. You just need to change the link. Everything else is working as described above.
+For the installation of the development branch of the user interface, you need to activate the virtual environment first, as this is a cbpi plugin which needs to be installed inside the cbpi4 virtual environment. 
 
 ```
-sudo pip3 install https://github.com/PiBrewing/craftbeerpi4-ui/archive/development.zip
+source ~/.local/pipx/venvs/cbpi4/bin/activate
 ```
+
+Then install the plugin:
+
+```
+python -m pip install https://github.com/PiBrewing/craftbeerpi4-ui/archive/development.zip
+```
+
+To leave the virtual environment, run:
+
+```
+deactivate
+```
+
 
 ## Cloning the server to your local drive and install it from there
 
@@ -61,22 +78,25 @@ To install the server now, you have two possibilities.
 1. You can either install it as package.
 2. You can install the server for development. This will have the effect, that every change in the code will take effect as soon as you start the server.
 
+
 Package installation:
 
 ```
-sudo pip3 install ./craftbeerpi4
+ pipx install ./craftbeerpi4
 ```
 
 Development installation:
 
 ```
-sudo pip3 install -e ./craftbeerpi4
+pipx install -e ./craftbeerpi4
 ```
 {% hint style="info" %}
 The `-e` option allows you to change the code in the server and it will have a direct effect without the requirement of a new installation of the server. This is useful if you want to develop the server itself.
 {% endhint %}
 
 ## Setting up a virtual environment for development&#x20;
+
+# This section becomes obsolete with cbpi4 installation via pipx
 
 Development of plugins and server is recommended to be done in a virtual environment ot on a separate system / sd-card. This allows you to create / modify code and test it without the risk to harm your running system.
 
