@@ -2,6 +2,8 @@
 
 ## Server Version 4.2.0.a6 has the following changes:
 
+cbpi version is available at [pypi.org](https://pypi.org/project/cbpi4/4.2.0a6/) or from the [github development branch](https://github.com/PiBrewing/craftbeerpi4/tree/development)
+
 ### Kleiner Brauhelfer import
 
 - Craftbeerpi4 is now compatible with Kleiner Brauhelfer 2.6 database for recipe import. OlderKBH  database versions won't be supported with 4.2.0+
