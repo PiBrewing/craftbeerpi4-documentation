@@ -15,7 +15,8 @@
 - To run cbpi you need to run the command `pipx esnurepath` after installation of cbpi. Close the terminal and open it again. Then the cbpi command will be working.
 - Pipx will create a virtual environment for cbpi4 and you need to install all plugins inside this virtual environment (see new Plugin installation instructions). The virtual environment is only required for plugin installation.
 - cbpi onewire | setup | autostart and chromium commands must be carried out in your normal bash and not in the virtual environment. sudo is not required anymore and won't be working. 
-- You should also be able to instal cbpi under a different user than pi and have it starting with autostart. The file craftbeerpi.service in the config folder is replaced by a flexible craftbeerpi.template file that is adapted to the user you are logged into your terminal session. cbpi setup must be carried out in your home folder as in older versions (typically the folder you are in, when you open a terminal session).
+- You should also be able to install cbpi under a different user than pi and have it starting with autostart. The file craftbeerpi.service in the config folder is replaced by a flexible craftbeerpi.template file that is adapted to the user you are logged into your terminal session. cbpi setup must be carried out in your home folder as in older versions (typically the folder you are in, when you open a terminal session).
+- Backup your config on your existing system -> Install bookworm aon an empty sd card -> follow the server and plugin installation instructions. Restore your config file. You need to activate onewire, I2C, autostart,... on your new system. Although I have successfully tested bookworm incl. installation and everything on my productive system,  KEEP your SD card with the old system, until you have completed your first batch on the new system.
 
 ### Bookworm compatibility
 
