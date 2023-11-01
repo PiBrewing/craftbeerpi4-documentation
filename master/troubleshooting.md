@@ -6,7 +6,8 @@ In case of issues with the software and questions you need to share at least som
 2. What version of server have you installed?
 3. What version of user interface are you running?
 4. If you have problems with a plugin: How did you install the plugin?
-e.g. `sudo pip install https://github.com/PiBrewing/cbpi4-pt100x` 
+e.g. `python -m pip install https://github.com/PiBrewing/cbpi4-pt100x`
+Inside the virtual environment? 
 5. In case of issues with the server: How did you install the server / user interface?
 6. If you run the server as system service, you can stop the service and [start the server in manual mode](server-installation.md#automatically-start-the-server-as-service). -> You will see logging and maybe also errors that may cause the issue. Report these errors as they may help to identify the problem.
 7. The server shows only warning and error log by default. If you want to see more, start the server with the -d option (e.g. sudo cbpi -d 20 start) to see also informational logging.

@@ -9,7 +9,7 @@ There is also the possibility to install the server from a pre-configured image.
 First you will need to install Raspbian from an image. The installer can be found here: [https://www.raspberrypi.com/software/](https://www.raspberrypi.com/software/)
 
 {% hint style="info" %}
-CraftbeerPi4 requires python 3.9 and it is recommended to install it on bullseye. It is recommended to use the  64 bit version as recent updates of required packages may cause issues on 32 bit systems. This limits also the usage of the pi hardware. It is know that the Pi 1 and Zero 1 may not be working with the latest cbpi4 versions as some required packages are not compatible with the 32 bit version of raspbian. The Raspberry Pi Zero 2 has been tested successfully as it is based on a quad core 64 bit ARM core. The Zero 2 is capable to run cbpi4 if you don't want to run Chromium directly on it.  
+CraftbeerPi4 requires python 3.11 and it is recommended to install it on bookworm. It is recommended to use the  64 bit version as recent updates of required packages may cause issues on 32 bit systems. This limits also the usage of the pi hardware. It is know that the Pi 1 and Zero 1 may not be working with the latest cbpi4 versions as some required packages are not compatible with the 32 bit version of raspbian. The Raspberry Pi Zero 2 has been tested successfully as it is based on a quad core 64 bit ARM core. The Zero 2 is capable to run cbpi4 if you don't want to run Chromium directly on it.  
 {% endhint %}
 
 You should enable ssh to run commands also via a ssh connection from a remote PC / MAC. Open either a bash window or use a terminal to login via a remote ssh connection to your pi. The default user name is 'pi' and the default password is 'raspberry'. For safety reasons, you should change your password. This can be done with the RaspberryPi imager in the advanced options that can be accessed with CRTL + SHIFT + X.
@@ -28,6 +28,15 @@ CraftbeerPi 4 requires another package that needs to be installed prior to the i
 ```
 sudo apt-get install libatlas-base-dev
 ```
+
+Starting with the lates raspbian os 'bookworm', python programs can't be directly installed with pip to protect the system from being corrupted by the installation of non managed packages via pip. Therefore you need to install pipx and install cbpi4 via pipx in a virtual environment that is being created automatically by pipx.
+
+```
+sudo apt-get install pipx
+```
+{% hint style="warning" %}
+If you want to install pipx under bullseye, you might need to install python3-pipx instead of pipx
+{% endhint %}
 
 If you want to use hardware that is connected via I2C (e.g. LCD Display), you need to enable I2C in the raspi-config. You can also enable the onewire support in the raspi-config. Therefore, you need to run the command:
 
@@ -66,21 +75,43 @@ The description will be updated, as soon as the the development branch is merged
 The installation of CraftbeerPi4 is done with the package installer for python (pip3). You can install the server directly from pypi.org with the following command:
 
 ```
-sudo pip3 install cbpi4
+pipx install cbpi4
 ```
+
+Now you need to add the path of the cbpi installation to your path:
+
+```
+pipx ensurepath
+```
+
+This will allow you to run cbpi directly from the command line. You might need to close the terminal and reopen it again that the added path will become effective.
 
 To install craftbeerpi4 from the repo which can be newer once in a while, please run the following command:
 
 ```
-sudo pip3 install https://github.com/PiBrewing/craftbeerpi4/archive/master.zip
+pipx install https://github.com/PiBrewing/craftbeerpi4/archive/master.zip
 ```
 
 The installation will take some time and it will also install the user interface. 
 
-To upgrade the user interface separately, you can run:
+To upgrade the user interface separately or install plugins, you need to activate the virtual environment first:
 
 ```
-sudo pip3 install --upgrade cbpi4gui
+source ~/.local/pipx/venvs/cbpi4/bin/activate
+```
+
+If you have installed cbpi under the 'pi' user, you will see something like this:
+
+```
+(cbpi4) pi@craftbeerpi:~ $
+```
+
+This means, you are now in the virtual cbpi4 environment 
+
+To upgrade the user interface now from the virtual environment, just run:
+
+```
+python -m pip install --upgrade cbpi4gui
 ```
 
 However, this is typically not required.
@@ -88,12 +119,18 @@ However, this is typically not required.
 There could be a newer version of the user interface in the repo and you could install this also directly from the repo.
 
 ```
-sudo pip3 install https://github.com/PiBrewing/craftbeerpi4-ui/archive/main.zip
+python -m pip install --upgrade https://github.com/PiBrewing/craftbeerpi4-ui/archive/main.zip
 ```
 
 {% hint style="info" %}
 There are also development branches of some repos. These branches will be used to test some new features before the code is rolled out to the master or main branch. These branches are typically working, but should not necessarily considered as stable. The installation of these branches will be described in the [development section](development.md#running-a-development-version-of-the-server).
 {% endhint %}
+
+To get back from the virtual environment to the normal environment, just type:
+
+```
+deactivate
+```
 
 Now you need to setup cbpi to create a config folder:
 
@@ -112,7 +149,7 @@ Config Folder created
 Then you can try to start cbpi the first time manually:
 
 ```
-sudo cbpi start
+cbpi start
 ```
 
 You should see the following output in your bash window:
@@ -180,7 +217,7 @@ If you see the empty dashboard of Craftbeerpi4, you were successful. Now you can
 If you want to autostart the server when the pi is booting, you can enable that with the following command:
 
 ```
-sudo cbpi autostart on
+cbpi autostart on
 ```
 
 The following output should be on the bash screen:
@@ -208,7 +245,7 @@ Just replace `/home/pi` with the path where your config folder is located
 If you want to remove the autostart during boot, simply run this command:
 
 ```
-sudo cbpi autostart off
+cbpi autostart off
 ```
 
 It will take some time to stop the server and finally you will see this output:
@@ -225,7 +262,7 @@ Deleted craftbeerpi.service from /etc/systemd/system
 To see the status of cbpi autostart, you can run the following command:
 
 ```
-sudo cbpi autostart status
+cbpi autostart status
 ```
 
 If you want to stop the server (running as service) for some reason (e.g. debugging), you can stop the server with the following command:
@@ -241,13 +278,13 @@ You need patience as this will take some time.
 Then you can start the server in manual mode to see the logging and you can stop it again with CTRL + C:
 
 ```
-sudo cbpi start
+cbpi start
 ```
 
 {% hint style="info" %}
 With recent version of cbpi4, the default logging is done only for warnings and errors. If you want to get a more detailed log, you need to add a parameter to the start.
 ```
-sudo cbpi -d 20 start
+cbpi -d 20 start
 ```
 This will increase the log level to 'info'
 {% endhint %}
@@ -273,7 +310,7 @@ With Chromium 98 on bullseye (32 and 64 bit), Chromium might start with a white 
 To enable kiosk mode, you need to run the following command from the bash:
 
 ```
-sudo cbpi chromium on
+cbpi chromium on
 ```
 
 You will see the following output that the required file has been copied to the autostart folder:
@@ -286,7 +323,7 @@ Copied chromium.desktop to /etc/xdg/autostart/
 You can also disable the kiosk mode via command line. Therefore, you need to run the following command:
 
 ```
-sudo cbpi chromium off
+cbpi chromium off
 ```
 
 You will see the following output that the file has been removed from the autostart folder:
@@ -299,10 +336,14 @@ Deleted chromium.desktop from /etc/xdg/autostart/
 You can also see the status for Chromium kiosk mode if you run the following command:
 
 ```
-sudo cbpi chromium status
+cbpi chromium status
 ```
 
 ## Installation of Craftbeerpi 4 from a pre-configured image to your sd-card
+
+{% hint style="info" %}
+This section needs to be updated, once the image is on bookworm OS
+{% endhint %}
 
 
 There is also the possibility to write an image with a pre-installed CraftbeerPi4 server to your sd-card. This image comes with several installed plugins.
@@ -397,29 +438,41 @@ Password: raspberry
 If you want to update the server, you just need to run the same command as you did already for the installation of the server but should add the flag `--upgrade`:
 
 ```
-sudo pip3 install --upgrade cbpi4
+pipx install --upgrade cbpi4
 ```
 
 Or from the repo:
 
 ```
-sudo pip3 install --upgrade https://github.com/PiBrewing/craftbeerpi4/archive/master.zip
+pipx install --upgrade https://github.com/PiBrewing/craftbeerpi4/archive/master.zip
 ```
 
 If new setting parameters have been added to cbpi, it will handle that in the extension Config update. Cbpi4 will add the parameters automatically during start if they are not yet in the config file.
 
 ### Updating the UI
 
-To update the user interface, you need to run again the command to install the user interface as done in the initial installation and use the upgrade flag in addition:
+To update the user interface, you need to activate the virtual environment first:
 
 ```
-sudo pip3 install --upgrade cbpi4gui
+source ~/.local/pipx/venvs/cbpi4/bin/activate
+```
+
+ And run the command to install the user interface as done in the initial installation and use the upgrade flag in addition:
+
+```
+python -m pip install --upgrade cbpi4gui
 ```
 
 Or from the repo:
 
 ```
-sudo pip3 install --upgrade https://github.com/PiBrewing/craftbeerpi4-ui/archive/main.zip
+python -m pip install --upgrade https://github.com/PiBrewing/craftbeerpi4-ui/archive/main.zip
+```
+
+Afterwards you need to leave the virtual environment:
+
+```
+deactivate
 ```
 
 ## Other Hardware Tips

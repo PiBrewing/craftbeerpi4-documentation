@@ -1,3 +1,5 @@
+ONLY APPLICABLE for older OS <= bullseye. Not relevant for bookworm
+
 With cbpi4 4.1.7, the dependency to cryptography has changed to version 40.0.1. due to a security issue with older versions of this package.
 
 In case you are experiencing problems with pip after the upgrade and see this error (`AttributeError: module 'lib' has no attribute 'X509_V_FLAG_CB_ISSUER_CHECK'`) when using pip, you should be able to fix the issues with the following commands:

@@ -16,10 +16,16 @@ CraftbeerPi4 comes for instance with a Onewire temperature sensor, but some user
 
 Some plugins have been made available via pypi.org and can be installed directly from there. Other plugins need to be installed directly from GitHub. The cbpi4-pt100X plugin is available on both platforms. Typically, the latest version is available on GitHub and will be released a bit later via pypi.org as package
 
-Installation from pypi.org is quite simple. Just type the following command:
+Installation from pypi.org is quite simple. Just type the following command to activate the virtual environment:
 
 ```
-sudo pip3 install cbpi4-pt100x
+source ~/.local/pipx/venvs/cbpi4/bin/activate
+```
+
+And install the plugin with:
+
+```
+python -m pip install cbpi4-pt100x
 ```
 
 The plugin and it's dependent packages will be installed on your system and cbpi will detect it automatically.
@@ -27,12 +33,25 @@ The plugin and it's dependent packages will be installed on your system and cbpi
 The other way to install the plugin is directly from GitHub:
 
 ```
-sudo pip3 install https://github.com/PiBrewing/cbpi4-pt100x/archive/main.zip
+python -m pip install https://github.com/PiBrewing/cbpi4-pt100x/archive/main.zip
 ```
+
+{% hint style="info" %}
+The command above will install the main brach of the cbpi4-pt100x github repo. The github page for this particular plugin is located at https://github.com/PiBrewing/cbpi4-pt100x and it has for instance two different [branches](https://docs.github.com/de/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository): `main` and `development`. If you want to install the development branch, just replace `main.zip` with `development.zip`.
+
+The same is true for other plugins you want to install from a repo. You just need to add `/archive/BRANCH.zip` behind the github http plugin address and substitute BRANCH with the name of the branch you want to install.
+{% endhint %}
+
 
 Also here, the plugin and the dependent packages will be installed automatically.
 
-Once this is completed, you need to restart cbpi or reboot your server.
+Once this is completed, you need to leave the virtual environment with:
+
+```
+deactivate
+``` 
+
+And restart cbpi or reboot your server.
 
 {% hint style="info" %}
 To get some detailed information about the plugin configuration and how to connect/install your sensor, you should have always a look at the plugin page on GitHub or pypi.org. I always try to add the most important information in the corresponding README.
@@ -48,16 +67,16 @@ Please always remember, that plugins can also add global settings during the ins
 
 If there is a new version of a plugin you can simply re-install the plugin or run an upgrade. Below is the example for the cbpi-pt100x plugin:
 
-#### Re-Installation:
+#### Re-Installation (always inside the virtual environment as descried above):
 
 ```
-sudo pip3 install --force-reinstall https://github.com/PiBrewing/cbpi4-pt100x/archive/main.zip
+python -m pip install --force-reinstall https://github.com/PiBrewing/cbpi4-pt100x/archive/main.zip
 ```
 
-#### Upgrade:
+#### Upgrade (always inside the virtual environment as descried above):
 
 ```
-sudo pip3 install --upgrade https://github.com/PiBrewing/cbpi4-pt100x/archive/main.zip
+python -m pip install --upgrade https://github.com/PiBrewing/cbpi4-pt100x/archive/main.zip
 ```
 {% hint style="info" %}
 The update/upgrade or re-installation can be also done cia pypi.org if the plugin has been published there via the plugin name as shown above.
@@ -71,8 +90,10 @@ If you want to remove a plugin you need to be careful. Before you remove the plu
 To remove the plugin from the cbpi server, just type in case of the cbpi4-pt100x plugin:
 
 ```
-sudo pip3 uninstall cbpi4-pt100x
+python -m pip uninstall cbpi4-pt100x
 ```
+
+inside the virtual environment.
 
 ## How to show the installed/active plugins?
 
@@ -142,7 +163,7 @@ The tables below shows the plugins that are currently available by type. At this
 | ------------------------ | ------------------------------------------------------------------ | -------------------------------------------------------------------- |
 | cbpi4-GroupedActor        | Allows to group Actors                                             | [GitHub Link](https://github.com/PiBrewing/cbpi4-GroupedActor)       |
 | cbpi4-GroupedPowerActor        | Allows to group Actors and ramp the power linear over the individual actors | [GitHub Link](https://github.com/PiBrewing/cbpi4-GroupedPowerActor)       |
-| cpbi4-DependentActor     | Contains two Actor types: <p><strong>Dependent Actor</strong> allows to switch actors dependent on the state of other actors.</p><p><strong>Conditional actor</strong> allows to switch a target actor based on the status of a an actor group (AND / OR logic included). Helpfull for triggering a chiller pump based on the status of solenoid valves</p> | [GitHub Link](https://github.com/PiBrewing/cbpi4-DependentActor)     |
+| cpbi4-DependentActor     | Contains two Actor types: <p><strong>Dependent Actor</strong> allows to switch actors dependent on the state of other actors.</p><p><strong>Conditional actor</strong> allows to switch a target actor based on the status of a an actor group (AND / OR logic included). Helpful for triggering a chiller pump based on the status of solenoid valves</p> | [GitHub Link](https://github.com/PiBrewing/cbpi4-DependentActor)     |
 | cbpi4-GPIODependentActor | Allows to switch actors dependent on the state GPIO Inputs (alpha) | [GitHub Link](https://github.com/PiBrewing/cbpi4-GPIODependentActor) |
 | cbpi4-pca9685            | PCA9685 I2C PWM Actor Plugin for CraftBeerPi4                      | [GitHub Link](https://github.com/jtubb/cbpi4-pca9685)                |
 | cbpi4-http-actor         | Generic Craftbeerpi4 HTTP Actor Plugin                             | [GitHub Link](https://github.com/hurra/cbpi4-http-actor)             |

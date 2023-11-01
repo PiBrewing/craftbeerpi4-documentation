@@ -1,11 +1,34 @@
 # Changes
 
+## Server Version 4.2.0.a6 has the following changes:
+
+### Kleiner Brauhelfer import
+
+- Craftbeerpi4 is now compatible with Kleiner Brauhelfer 2.6 database for recipe import. OlderKBH  database versions won't be supported with 4.2.0+
+
+### Installation of cbpi won't require sudo and can be installed under other user with working autostart
+
+- These changes (in particular removal of sudo requirement) are required for compatibility with newer OS versions such as bookworm.
+- An update of older cbpi versions can be still done with the sudo installation as in the past. However, it is recommended to migrate to bookworm os.
+- Migration to bookworm needs to start from scratch with an empty SD card as migration from bullseye to bookworm via dist upgrade is not recommended and most likely not working.
+- For installation under bookworm, you need to use pipx instead of pip. This package must be installed first (see new Server Installation instructions).
+- To run cbpi you need to run the command `pipx esnurepath` after installation of cbpi. Close the terminal and open it again. Then the cbpi command will be working.
+- Pipx will create a virtual environment for cbpi4 and you need to install all plugins inside this virtual environment (see new Plugin installation instructions). The virtual environment is only required for plugin installation.
+- cbpi onewire | setup | autostart and chromium commands must be carried out in your normal bash and not in the virtual environment. sudo is not required anymore and won't be working. 
+- You should also be able to install cbpi under a different user than pi and have it starting with autostart. The file craftbeerpi.service in the config folder is replaced by a flexible craftbeerpi.template file that is adapted to the user you are logged into your terminal session. cbpi setup must be carried out in your home folder as in older versions (typically the folder you are in, when you open a terminal session).
+- Backup your config on your existing system -> Install bookworm aon an empty sd card -> follow the server and plugin installation instructions. Restore your config file. You need to activate onewire, I2C, autostart,... on your new system. Although I have successfully tested bookworm incl. installation and everything on my productive system,  KEEP your SD card with the old system, until you have completed your first batch on the new system.
+
+### Bookworm compatibility
+
+- This cbpi version is compatible with bookworm os if installed with pipx (tested).
+- Bookworm is now using wayland instead of X11 window manager as default. I have some issues with my touchscreen in combination with wayland but also the standard VNC did not work properly. Therefore I switched to X11 which is possible via raspi-config. You will find the option to switch under Advanced Options.
+- Chromium Kiosk mode is working under X11. I have not tested this under wayland window manager.
 
 ## Server Version 4.1.10 has the following changes:
 
 ### Individual Data logging can be now done via plugin (provided by prash3r)
 
-- In case a developmer wants to log data to different databases or files, data can be logged via plugin.
+- In case a developer wants to log data to different databases or files, data can be logged via plugin.
 - As an example you can review the [influxdb logger](https://github.com/PiBrewing/craftbeerpi4/commit/e01850f2dc8fac02acd60685cceb071157dcf3ae#diff-107f71bd92549585a518ca8d6b3f6eb086d22d83614c75b4e3e3ac04afbaf38d)
 
 ### Adding global settings for a plugin requires now a source parameter
