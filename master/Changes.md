@@ -14,7 +14,7 @@ cbpi version is available at [pypi.org](https://pypi.org/project/cbpi4/4.2.0a6/)
 - An update of older cbpi versions can be still done with the sudo installation as in the past. However, it is recommended to migrate to bookworm os.
 - Migration to bookworm needs to start from scratch with an empty SD card as migration from bullseye to bookworm via dist upgrade is not recommended and most likely not working.
 - For installation under bookworm, you need to use pipx instead of pip. This package must be installed first (see new Server Installation instructions).
-- To run cbpi you need to run the command `pipx esnurepath` after installation of cbpi. Close the terminal and open it again. Then the cbpi command will be working.
+- To run cbpi you need to run the command `pipx ensurepath` after installation of cbpi. Close the terminal and open it again. Then the cbpi command will be working.
 - Pipx will create a virtual environment for cbpi4 and you need to install all plugins inside this virtual environment (see new Plugin installation instructions). The virtual environment is only required for plugin installation.
 - cbpi onewire | setup | autostart and chromium commands must be carried out in your normal bash and not in the virtual environment. sudo is not required anymore and won't be working. 
 - You should also be able to install cbpi under a different user than pi and have it starting with autostart. The file craftbeerpi.service in the config folder is replaced by a flexible craftbeerpi.template file that is adapted to the user you are logged into your terminal session. cbpi setup must be carried out in your home folder as in older versions (typically the folder you are in, when you open a terminal session).
