@@ -14,8 +14,8 @@ Valid for
 
 Requirements:
 - Python 3.11 (Python 3.9 and 3.10 should still be working)
-- Bookworm is the recommended OS for the raspberry pi
-- !!! RapsberryPi that is able to run 64bit system is strongly recommended as older versions will cause issues with server versions > 4.1.6 !!!
+- Bookworm <strong>64bit</strong> is the recommended OS for the raspberry pi (32 bit system might not be working)
+- !!! RapsberryPi that is able to run 64bit system is required as older versions will cause issues with server versions > 4.1.6 !!!
 
 ### Note:
 - A migration from cbpi3 to cbpi4 with the old settings / configuration is not possible
