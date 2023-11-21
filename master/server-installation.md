@@ -280,7 +280,10 @@ With recent version of cbpi4, the default logging is done only for warnings and 
 ```
 cbpi -d 20 start
 ```
-This will increase the log level to 'info'
+This will increase the log level to 'info' if you run cbpi in manual mode
+
+With cbpi version 4.2.0 you can also modify the config.yaml file in our config folder and add `debug-log-level: 20` to set log level to 'info'. Just change the parameter to 30 and log level is set back to 'warning'. This will enable different log-levels from info also in server automode.
+
 {% endhint %}
 
 To restart the server as service you can either reboot or just start it as service directly:
