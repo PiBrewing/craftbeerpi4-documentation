@@ -20,6 +20,15 @@ cbpi version is available at [pypi.org](https://pypi.org/project/cbpi4/4.2.0a6/)
 - You should also be able to install cbpi under a different user than pi and have it starting with autostart. The file craftbeerpi.service in the config folder is replaced by a flexible craftbeerpi.template file that is adapted to the user you are logged into your terminal session. cbpi setup must be carried out in your home folder as in older versions (typically the folder you are in, when you open a terminal session).
 - Backup your config on your existing system -> Install bookworm aon an empty sd card -> follow the server and plugin installation instructions. Restore your config file. You need to activate onewire, I2C, autostart,... on your new system. Although I have successfully tested bookworm incl. installation and everything on my productive system,  KEEP your SD card with the old system, until you have completed your first batch on the new system.
 
+### Debugging: added `debug-log-level` parameter to config.yaml
+
+- If not in config.yaml, default log level is 30 (warnings)
+- You can add / modify the level in config.yaml and log level will be also adapted to server running in automode
+
+### Dashboard: added hidden `gridwidth` parameter to settings
+
+- will be used with upcoming UI to change the dashboard grid settings in edit mode on the fly
+
 ### Bookworm compatibility
 
 - This cbpi version is compatible with bookworm os if installed with pipx (tested).
