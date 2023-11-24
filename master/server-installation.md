@@ -432,16 +432,16 @@ Password: raspberry
 
 ### Updating the Server
 
-If you want to update the server, you just need to run the same command as you did already for the installation of the server but should add the flag `--upgrade`:
+If you want to update the server, you just need to run the same command as you did already for the installation of the server but should use the `upgrade` option:
 
 ```
-pipx install --upgrade cbpi4
+pipx upgrade cbpi4
 ```
 
 Or from the repo:
 
 ```
-pipx install --upgrade https://github.com/PiBrewing/craftbeerpi4/archive/master.zip
+pipx upgrade https://github.com/PiBrewing/craftbeerpi4/archive/master.zip
 ```
 
 If new setting parameters have been added to cbpi, it will handle that in the extension Config update. Cbpi4 will add the parameters automatically during start if they are not yet in the config file.
