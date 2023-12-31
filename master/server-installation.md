@@ -19,24 +19,46 @@ Once the image has been written to the SD card, you need to place the card in yo
 Now you should update your OS. Therefore, you need to enter a few commands. These commands need to be run as root. Therefore, you need to place 'sudo' in front of the commands. Open a bash window or connect via ssh to your raspberry.
 
 ```
-sudo apt-get update
-sudo apt-get upgrade
+sudo apt update
+sudo apt upgrade
 ```
 
 CraftbeerPi 4 requires another package that needs to be installed prior to the installation of the cbpi server. To install the package, please run the following command.
 
 ```
-sudo apt-get install libatlas-base-dev
+sudo apt install libatlas-base-dev
 ```
 
 Starting with the lates raspbian os 'bookworm', python programs can't be directly installed with pip to protect the system from being corrupted by the installation of non managed packages via pip. Therefore you need to install pipx and install cbpi4 via pipx in a virtual environment that is being created automatically by pipx.
 
 ```
-sudo apt-get install pipx
+sudo apt install pipx
 ```
 {% hint style="warning" %}
 If you want to install pipx under bullseye, you might need to install python3-pipx instead of pipx
 {% endhint %}
+
+If you are using a Pi4 or even a lower Pi version you need to make sure, that the pre-installed RPi.GPIO package is not installed. This is not relevant for the Pi5.
+
+Please run:
+
+```
+sudo apt remove python3-RPi.GPIO
+```
+
+to remove the package from your installation.
+
+{% hint style="warning" %}
+Starting with cbpi4 4.3.0, the RPi.GPIO package won't be used anymore as it is not compatible with th Pi5. A replacement package (rpi-lgpio) is used instead which can be used as a 1:1 replacement and the code of cbpi does not need to be changed. However, you can't have RPi.GPIO and rpi-lgpio installed in parallel as this will result in malfunction of all GPIO related functions.
+
+This will be also relevant, if you upgrade from an older cbpi version which did install RPi.GPIO. In this case you need to ensure that RPi.GPIO is not installed on your system but also not in your virtual environment.
+
+- You might need to remove the RPi.GPIO package from your virtual environment manually if you upgrade from 4.2.0:
+``` 
+pipx runpip cbpi4 uninstall RPi.GPIO
+```
+{% endhint %}
+
 
 If you want to use hardware that is connected via I2C (e.g. LCD Display), you need to enable I2C in the raspi-config. You can also enable the onewire support in the raspi-config. Therefore, you need to run the command:
 
@@ -69,7 +91,7 @@ Now you can start installing the cbpi server.
 The installation of CraftbeerPi4 is done with the package installer for python (pip3). You can install the server directly from pypi.org with the following command:
 
 ```
-pipx install cbpi4
+pipx install --system-site-packages cbpi4
 ```
 
 Now you need to add the path of the cbpi installation to your path:
@@ -83,12 +105,30 @@ This will allow you to run cbpi directly from the command line. You might need t
 To install craftbeerpi4 from the repo which can be newer once in a while, please run the following command:
 
 ```
-pipx install https://github.com/PiBrewing/craftbeerpi4/archive/master.zip
+pipx install --system-site-packages https://github.com/PiBrewing/craftbeerpi4/archive/master.zip
 ```
 
 The installation will take some time and it will also install the user interface. 
 
-To upgrade the user interface separately or install plugins, you need to activate the virtual environment first:
+
+To upgrade the user interface or to install plugins, you can use the following command:
+
+```
+pipx runpip cbpi4 install cbpi4gui
+```
+
+In this case cbpi4gui is the name of the plugin which is available as package on pypi.org. This might not be the case for all plugins as not all developers make the plugins available via pypi.org.
+
+In this case, you can also install packages from github:
+
+
+```
+pipx runpip cbpi4 install https://github.com/PiBrewing/craftbeerpi4-ui/archive/main.zip
+```
+
+In rare cases you may need to go into the virtual environment to install or remove plugins. This can be done with the following commands:
+
+You need to activate the virtual environment first:
 
 ```
 source ~/.local/pipx/venvs/cbpi4/bin/activate
@@ -107,8 +147,6 @@ To upgrade the user interface now from the virtual environment, just run:
 ```
 python -m pip install --upgrade cbpi4gui
 ```
-
-However, this is typically not required.
 
 There could be a newer version of the user interface in the repo and you could install this also directly from the repo.
 
@@ -338,49 +376,47 @@ cbpi chromium status
 
 ## Installation of Craftbeerpi 4 from a pre-configured image to your sd-card
 
-{% hint style="info" %}
-This section needs to be updated, once the image is on bookworm OS
-{% endhint %}
-
-
 There is also the possibility to write an image with a pre-installed CraftbeerPi4 server to your sd-card. This image comes with several installed plugins.
 
-The image can be downloaded from this [link](https://www.slammy.net/homebrewing/2023_02_cbpi4_1_0_ui_0_3_2.zip) which is kindly provided by Nicolas Slammy Outrey.
+The image can be downloaded from this [link](https://www.slammy.net/homebrewing/2023_12_cbpi4_bookworm_64bit.zip) which is kindly provided by Nicolas Slammy Outrey.
 
 {% hint style="warning" %}
-Please read all information BEFORE you boot your card the first time if you want to activate WiFi on a headless system!
+The latest image is now based on bookworm os which requires some changes in the installation process compared to earlier images. Please read the installation instructions carefully. You will need to use the [Raspberry Pi Imager](https://www.raspberrypi.com/software/) if you want to enable WiFi due to changes in bookworm.
+
+The image is based on Bookworm 64 bit nad has been created on a Pi4. You can't run it on Pi hardware that is not capable to run 64 bit OS (e.g. Pi1, Zero 1,...)
+It has also not been tested on a Pi5 as the original image has been explicitly downloaded for a Pi4.
 {% endhint %}
 
 Current Version:
 
 ```
-Server Version: 4.1.0
-UI Version: 0.3.2
+Server Version: 4.3.0.a4
+UI Version: 0.3.13.a2
 --------------------------------------
-List of active plugins
- Name                            Version    Author                             Homepage                                                     Summary
-------------------------------  ---------  ---------------------------------  -----------------------------------------------------------  ---------------------------------------------------------------------------
-cbpi4-BLEHydrom                 0.0.5      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-BLEHydrom                 CraftBeerPi4 Plugin for Hydrom and Tilt (BLE connection)
-cbpi4-BM-PID-SmartBoilWithPump  0.1.6      ['Alexander Vollkopf', 'Guy Lev']  https://github.com/PiBrewing/cbpi4-BM_PID_SmartBoilWithPump  CraftBeerPi4 PID Kettle Logic Plugin
-cbpi4-DependentActor            0.0.1      UNKNOWN                            UNKNOWN                                                      CraftBeerPi Plugin
-cbpi4-Flowmeter                 0.0.4      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-Flowmeter                 CraftBeerPi4 Flowsensor / Step Plugin
-cbpi4-GembirdUSB                0.0.2      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-GembirdUSB                CraftBeerPi4 Plugin for Gembird USB Power Plug
-cbpi4-GroupedActor              0.0.5      Alexander VOllkopf                 https://github.com/PiBrewing/cbpi4-GroupedActor              CraftBeerPi Plugin
-cbpi4-GroupedPowerActor         0.0.6      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-GroupedPowerActor         CraftBeerPi4 Plugin to Group Actors
-cbpi4-KettleSensor              0.0.6      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-KettleSensor              CraftBeerPi4 Plugin to add Sensor parameters for your Kettle and Fermenter
-cbpi4-LCDisplay                 0.0.9      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-LCDisplay                 CraftBeerPi4 LCD Plugin Mod
-cbpi4-PCF8574-GPIO              0.0.4      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-PCF8574-GPIO              CraftBeerPi4 PCF8574 Actor Plugin
-cbpi4-PIDBoil                   0.0.9      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-PIDBoil                   CraftBeerPi4 PID Kettle Control Plugin
-cbpi4-PIDHerms                  0.0.4      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-PIDHerms                  CraftBeerPi 4 Kettle Logic Plugin
-cbpi4-PID-AutoTune              0.0.10     Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-PIDAutoTune               CraftBeerPi4 Kettle Logic for PID Auto Tune
-cbpi4-PushOver                  0.0.7      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-PushOver                  CraftBeerPi4 Plugin to forward Notifications to Pushover Push Notifications
-cbpi4-buzzer                    0.0.3      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-buzzer                    CraftBeerPi4 Buzzer Plugin
-cbpi4-hx711-loadcell            0.0.4      UNKNOWN                            UNKNOWN                                                      CraftBeerPi Plugin
-cbpi4-iSpindle                  0.0.11     Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-iSpindle                  CraftBeerPi4 iSpindle Sensor Plugin
-cbpi4-pt100x                    0.1.3      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-pt100x                    CraftBeerPi4 PT100/PT1000 Sensor Plugin
-cbpi4-scd30-CO2-Sensor          0.0.5      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-scd30-co2-sensor          CraftBeerPi4 Plugin for SCD30 based CO2 Sensor
-cbpi4-system                    0.0.8      Alexander Vollkopf                 https://github.com/PiBrewing/cbpi4-system                    CraftBeerPi4 Plugin for system functions
-cbpi4gui                        0.3.2      Manuel Fritsch                     http://web.craftbeerpi.com                                   CraftBeerPi User Interface
+ List of active plugins
+
+ Name                            Version    Author                               Homepage                                                     Summary
+------------------------------  ---------  -----------------------------------  -----------------------------------------------------------  ------------------------------------------------------------------------------
+cbpi4-BM-PID-SmartBoilWithPump  0.1.6      ['Alexander Vollkopf', 'Guy Lev']    https://github.com/avollkopf/cbpi4-BM_PID_SmartBoilWithPump  CraftBeerPi4 PID Kettle Logic Plugin
+cbpi4-DependentActor            0.0.5      Alexander Vollkopf                   https://github.com/PiBrewing/cbpi4-DependentActor            CraftBeerPi4 Actor Plugin to create dependencies or conditions on other actors
+cbpi4-Flowmeter                 0.0.6      Alexander Vollkopf                   https://github.com/PiBrewing/cbpi4-Flowmeter                 CraftBeerPi4 Flowsensor / Step Plugin
+cbpi4-GembirdUSB                0.0.2      Alexander Vollkopf                   https://github.com/avollkopf/cbpi4-GembirdUSB                CraftBeerPi4 Plugin for Gembird USB Power Plug
+cbpi4-GroupedActor              0.0.5      Alexander VOllkopf                   https://github.com/avollkopf/cbpi4-GroupedActor              CraftBeerPi Plugin
+cbpi4-GroupedPowerActor         0.0.6      Alexander Vollkopf                   https://github.com/avollkopf/cbpi4-GroupedPowerActor         CraftBeerPi4 Plugin to Group Actors
+cbpi4-KettleSensor              0.0.6      Alexander Vollkopf                   https://github.com/avollkopf/cbpi4-KettleSensor              CraftBeerPi4 Plugin to add Sensor parameters for your Kettle and Fermenter
+cbpi4-LCDisplay                 0.0.11     Alexander Vollkopf                   https://github.com/PiBrewing/cbpi4-LCDisplay                 CraftBeerPi4 LCD Plugin Mod
+cbpi4-PCF8574-GPIO              0.0.6      Alexander Vollkopf                   https://github.com/PiBrewing/cbpi4-PCF8574-GPIO              CraftBeerPi4 PCF8574 Actor Plugin
+cbpi4-PIDBoil                   0.0.9      Alexander Vollkopf                   https://github.com/avollkopf/cbpi4-PIDBoil                   CraftBeerPi4 PID Kettle Control Plugin
+cbpi4-PIDHerms                  0.0.4      Alexander Vollkopf                   https://github.com/avollkopf/cbpi4-PIDHerms                  CraftBeerPi 4 Kettle Logic Plugin
+cbpi4-PID-AutoTune              0.0.10     Alexander Vollkopf                   https://github.com/avollkopf/cbpi4-PIDAutoTune               CraftBeerPi4 Kettle Logic for PID Auto Tune
+cbpi4-PushOver                  0.0.8      Alexander Vollkopf                   https://github.com/PiBrewing/cbpi4-PushOver                  CraftBeerPi4 Plugin to forward Notifications to Pushover Push Notifications
+cbpi4-buzzer                    0.0.8      Alexander Vollkopf                   https://github.com/PiBrewing/cbpi4-buzzer                    CraftBeerPi4 Buzzer Plugin
+cbpi4-hx711-loadcell            0.0.4                                                                                                        CraftBeerPi Plugin
+cbpi4-iSpindle                  0.0.13     Alexander Vollkopf                   https://github.com/avollkopf/cbpi4-iSpindle                  CraftBeerPi4 iSpindle Sensor Plugin
+cbpi4-pt100x                    0.1.10     Alexander Vollkopf                   https://github.com/PiBrewing/cbpi4-pt100x                    CraftBeerPi4 PT100/PT1000 Sensor Plugin
+cbpi4-scd30-CO2-Sensor          0.0.6      Alexander Vollkopf                   https://github.com/PiBrewing/cbpi4-scd30-co2-sensor          CraftBeerPi4 Plugin for SCD30 based CO2 Sensor
+cbpi4-system                    0.0.9      Alexander Vollkopf                   https://github.com/PiBrewing/cbpi4-system                    CraftBeerPi4 Plugin for system fucntions
+cbpi4gui                        0.3.13a2   Manuel Fritsch / Alexander Vollkopf  https://openbrewing.gitbook.io/craftbeerpi4_support/         CraftBeerPi4 User Interface
 
 ```
 
@@ -388,45 +424,46 @@ You can install further plugins as described in [this part](plugin-installation.
 
 #### The images has the following properties:
 
-* Based on Raspian full 32 bit (bullseye)&#x20;
-* Image will expand on first boot to size of sd card (Please be aware, that the system wil start several times until it is up and running)
+* Based on Raspian full 64 bit (bookworm)
+* Image will expand on first boot to size of sd card (Please be aware, that the system wil start several times until it is up and running. This will take a couple of minutes)
 * Server will autostart after boot.
 * Wifi and Bluetooth are working.
 * SSH is enabled.
 * Onewire support is enabled.
 * I2C support is enabled.
+* Installation is done under user 'Pi'
+* mosquitto is installed and enabled with user: 'pi' and password 'cbpi4'
 
 {% hint style="info" %}
 User: pi
 
 Password: raspberry
+
+Please Note: Password can be changed when you write the image with the Raspberry Pi imager, but you cannot change the user since cbpi has been installed under user 'pi'
+
 {% endhint %}
 
 #### Installation:
 
-```
 1. Unzip the image. It will inflate to ~8 Gb
-2. Write the image to a sd card with min size of 16 Gb.
-3. If you want to enable Wifi on first start, 
-   you need to access the boot partition on the sd card from your PC/Mac
-	- Open the file wpa_supplicant.conf.sample
-	- Enter your SSID and your credentials at the corresponding positions
-	- Save the file and rename it -> remove the .sample at the end.
-	- Filename must be: wpa_supplicant.conf
+2. Write the image to a sd card with min size of 16 Gb with the [Raspberry Pi imager](https://www.raspberrypi.com/software/).
+   - Select the model of your Pi, but be aware, that older models with non 64 bit CPU won't be working and the Pi5 might also not be working with this image
+   - Select 'Use Custom' as image and select the extracted image.
+   - Select the correct SD card you want to write the image to.
+3. If you want to enable Wifi, you need to change the default settings in the next step 
+	- Enter your SSID and your credentials at the corresponding settings
+	- Change the Wifi Country and if you want also the keyboard layout
+   - you can also change the password but DON'T change the user name.
+   - hit save and write the image to the card
 4. Insert the sd card into your raspberry and wait. 
-   The device will boot several times
+   The device will boot several times which can take up to a couple of minutes
 5. Once the server is up and running, you can access it from a browser 
    via IP_OF_YOUR_PI:8000
-6. If you are using for instance a screen with your raspberry, 
-   you can also activate autostart of chromium with cbpi
-	- copy the chromium.desktop file from the ~/config folder 
-	   to /etc/xdg/autostart
-	-> cd ~/config
-	-> sudo cp chromium.desktop /etc/xdg/autostart
-	- If the system is asking for a password, enter your password.
-	  If you have not changed the default password enter the password mentioned above.
-	- On the next start, Chromium will be shown on start with the cbpi Dashboard.
-```
+6. If you are using for instance a screen with your raspberry, you can also activate autostart of chromium with cbpi
+   - Please refer to [Automatically start chromium](#automatically-start-chromium-in-kiosk-mode-at-startup)
+   - On the next start, Chromium will be shown on start with the cbpi Dashboard.
+   - It may also happen that you are not automatically logged into the desktop during startup.
+   - In this case you need to start change this in the [settings](https://linuxconfig.org/how-to-set-user-autologin-on-raspberry-pi) 
 
 ## Updating your server and UI from the forks
 
@@ -435,42 +472,32 @@ Password: raspberry
 If you want to update the server, you just need to run the same command as you did already for the installation of the server but should use the `upgrade` option:
 
 ```
-pipx upgrade cbpi4
+pipx upgrade --system-site-packages cbpi4
 ```
 
 Or from the repo:
 
 ```
-pipx upgrade https://github.com/PiBrewing/craftbeerpi4/archive/master.zip
+pipx upgrade --system-site-packages https://github.com/PiBrewing/craftbeerpi4/archive/master.zip
 ```
 
 If new setting parameters have been added to cbpi, it will handle that in the extension Config update. Cbpi4 will add the parameters automatically during start if they are not yet in the config file.
 
 ### Updating the UI
 
-To update the user interface, you need to activate the virtual environment first:
+To update the user interface, you need to use the command 
 
 ```
-source ~/.local/pipx/venvs/cbpi4/bin/activate
-```
-
- And run the command to install the user interface as done in the initial installation and use the upgrade flag in addition:
-
-```
-python -m pip install --upgrade cbpi4gui
+pipx runpip cbpi4 install cbpi4gui
 ```
 
 Or from the repo:
 
 ```
-python -m pip install --upgrade https://github.com/PiBrewing/craftbeerpi4-ui/archive/main.zip
+pipx runpip cbpi4 install https://github.com/PiBrewing/craftbeerpi4-ui/archive/main.zip
 ```
 
-Afterwards you need to leave the virtual environment:
-
-```
-deactivate
-```
+Alternatively, you can do this also by entering the virtual environment as described above.
 
 ## Other Hardware Tips
 
@@ -482,7 +509,7 @@ If you are using a CraftbeerPi extension board that has a buzzer installed, the 
 gpio=5=op,dl
 ```
 
-### Display your GPIO numbers with wiringPi
+### Display your GPIO numbers with wiringPi (most likely not working on the Pi 5)
 
 Although, wiringpi is deprecated, it can be useful to get some insights into your pin numbering. CraftbeerPi 4 is using BCM numbers for the GPIOs and wiringpi can list them. Make sure, you have installed the latest (and last) version 2.52
 
@@ -551,7 +578,7 @@ The numbering could also vary depending on the Pi you are using.
 
 ### Docker
 
-While CraftbeerPi is primarily created to be run on a RaspberryPi you can also use a docker image to run it. It can be found in the container registry on GitHub under the name `ghcr.io/PiBrewing/craftbeerpi4`.
+While CraftbeerPi is primarily created to be run on a RaspberryPi you can also use a docker image to run it. It can be found in the container registry on GitHub under the name `ghcr.io/pibrewing/craftbeerpi4`.
 
 The image is currently only available for `arm64` and `amd64` architectures. If you want to run the image on a RaspberryPi make sure that you have installed a 64bit version of the operating system.
 
@@ -577,7 +604,7 @@ mkdir config && chown :1000 config
 
 # run a temporary CraftBeerPi container to write the initial
 # configuration files in the new folder
-docker run --rm -v "$(pwd)/config:/cbpi/config" ghcr.io/PiBrewing/craftbeerpi4:latest cbpi setup
+docker run --rm -v "$(pwd)/config:/cbpi/config" ghcr.io/pibrewing/craftbeerpi4:latest cbpi setup
 ```
 
 #### Running the base image
@@ -585,7 +612,7 @@ docker run --rm -v "$(pwd)/config:/cbpi/config" ghcr.io/PiBrewing/craftbeerpi4:l
 To run the image with the newly created configuration files you can use this command:
 
 ```bash
-docker run -d -v "$(pwd)/config:/cbpi/config" -p 8000:8000 ghcr.io/PiBrewing/craftbeerpi4:latest
+docker run -d -v "$(pwd)/config:/cbpi/config" -p 8000:8000 ghcr.io/pibrewing/craftbeerpi4:latest
 ```
 
 #### Installing plugins
@@ -596,7 +623,7 @@ This `Dockerfile` can use the _official_ one as base and extends it by installin
 
 {% code title="Dockerfile" %}
 ```docker
-FROM ghcr.io/PiBrewing/craftbeerpi4:latest
+FROM ghcr.io/pibrewing/craftbeerpi4:latest
 
 # Install plugins
 RUN pip3 install --no-cache-dir cbpi4-pt100x 
@@ -619,7 +646,7 @@ Of course you can use `docker-compose` to setup your environment. You can also u
 version: "3.7"
 services:
   craftbeerpi:
-    image: ghcr.io/PiBrewing/craftbeerpi4:latest
+    image: ghcr.io/pibrewing/craftbeerpi4:latest
       volumes:
         - "./config:/cbpi/config"
       ports:
@@ -632,3 +659,15 @@ And then run it with
 ```bash
 docker-compose up -d
 ```
+
+{% hint style="warning" %}
+For first time creating a docker image for V4.2.0 after running earlier versions, it is (as in a normal setup) not possible to use the config in the existing config directory.
+
+Best practice:
+
+create a backup.
+Rename or delete the old config directory.
+Create a new config directory and do all following steps as described in the docker section
+run the clean image in docker
+restore the backup
+{% endhint %}

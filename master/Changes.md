@@ -1,5 +1,15 @@
 # Changes
 
+## Server Version 4.3.0 has the following changes:
+
+- Update of some required packages
+
+### RPi.GPIO is replaced with rpi.lgpio to accommodate compatibility with Pi5
+- <strong>On Pi 4 and below you need to remove the RPi.GPIO package from your system prior installation of cbpi4 or prior update from 4.2.0 to 4.3.0. Please read the adapted installation instructions carefully prior upgrading!!!</strong>
+- <strong>It is also required to install/upgrade cbpi4 now with the `--system-site-packages` parameter with pipx to ensure that all system packages are usable in the virtual environment. This may change later, but is currently required due to dependencies of rpi-lgpio.</strong>
+
+
+
 ## Server Version 4.2.0 has the following changes:
 
 cbpi version is available at [pypi.org](https://pypi.org/project/cbpi4/4.2.0a6/) or from the [github development branch](https://github.com/PiBrewing/craftbeerpi4/tree/development)

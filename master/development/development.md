@@ -14,13 +14,13 @@ Installation or update of cbpi4 itself does not require to activate the virtual 
 {% endhint %}
 
 ```
-pipx install https://github.com/PiBrewing/craftbeerpi4/archive/development.zip
+pipx install --system-site-packages https://github.com/PiBrewing/craftbeerpi4/archive/development.zip
 ```
 
 The only difference to the installation of the master branch is that master.zip is replaced with development.zip as the branch has this name. If you want to upgrade from an existing installation, you should use the `upgrade` option.
 
 ```
-pipx upgrade https://github.com/PiBrewing/craftbeerpi4/archive/development.zip
+pipx upgrade --system-site-packages https://github.com/PiBrewing/craftbeerpi4/archive/development.zip
 ```
 
 If you want to install another existing branch, you need to check the available branches and adapt the link accordingly.

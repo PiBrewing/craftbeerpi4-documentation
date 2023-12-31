@@ -6,10 +6,10 @@ description: Software for brewing and fermenting beer
 
 #### Versions:
 
-Documentation: 1.6.2
+Documentation: 1.6.3
 
 Valid for 
-- Server: [4.2.0](https://pypi.org/project/cbpi4/)
+- Server: [4.3.0](https://pypi.org/project/cbpi4/)
 - User Interface: [0.3.12](https://pypi.org/project/cbpi4gui/)
 
 Requirements:
@@ -18,7 +18,9 @@ Requirements:
 - !!! RapsberryPi that is able to run 64bit system is required as older versions will cause issues with server versions > 4.1.6 !!!
 
 {% hint style="warning" %}
-Although Craftbeerpi4 is now compatible with bookworm OS, it is currently not 100% compatible with the new RaspberryPi 5 due to different handling of the Input Output ports. The Package RPi.GPIO is not working on the Pi 5. Hence, GPIO actors and all plugins that require the RPi.GPIO package are not yet working on the Pi 5. Onewire support should be working as well as mqtt based sensors and actors.
+Craftbeerpi4 is now compatible with bookworm OS, and with the new RaspberryPi 5. However, the package RPi.GPIO is not working on the Pi 5 and had to be replaced with rpi.lgpio. Hence, the RPi.GPIO package needs to be removed on systems such as the Pi4 and lower as it is installed as default (see adapted installation instructions). The new image has been created on a Pi 4 and might not be compatible with the Pi 5 as the new Raspberry Pi image asks for the Pi model during image creation. But the installation process according to the instructions in this manual has been successfully tested on a Pi5 by a user. Yu should be able to install cbpi4 on a Pi with a fresh bookworm image.
+
+If you update from cbpi 4.2.0 to 4.3.0, you need to read the installation instructions first as you will also need to remove the RPi.GPIO package from your system and most likely also from the virtual environment. This is not automatically done with the cbpi4 installation / upgrade process.
 {% endhint %}
 
 ### Note:

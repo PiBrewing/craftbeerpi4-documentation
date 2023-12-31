@@ -16,7 +16,32 @@ CraftbeerPi4 comes for instance with a Onewire temperature sensor, but some user
 
 Some plugins have been made available via pypi.org and can be installed directly from there. Other plugins need to be installed directly from GitHub. The cbpi4-pt100X plugin is available on both platforms. Typically, the latest version is available on GitHub and will be released a bit later via pypi.org as package
 
-Installation from pypi.org is quite simple. Just type the following command to activate the virtual environment:
+Installation from pypi.org is quite simple. Just type the following command to install a plugin which is available on pypi.org:
+
+```
+pipx runpip cbpi4 install cbpi4-pt100x
+```
+
+The plugin and it's dependent packages will be installed on your system and cbpi will detect it automatically.
+
+The other way to install the plugin is directly from GitHub:
+
+```
+pipx runpip cbpi4 install chttps://github.com/PiBrewing/cbpi4-pt100x/archive/main.zip
+```
+Also here, the plugin and the dependent packages will be installed automatically.
+
+
+{% hint style="info" %}
+The command above will install the main branch of the cbpi4-pt100x github repo. The github page for this particular plugin is located at https://github.com/PiBrewing/cbpi4-pt100x and it has for instance two different [branches](https://docs.github.com/de/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository): `main` and `development`. If you want to install the development branch, just replace `main.zip` with `development.zip`.
+
+The same is true for other plugins you want to install from a repo. You just need to add `/archive/BRANCH.zip` behind the github http plugin address and substitute BRANCH with the name of the branch you want to install.
+{% endhint %}
+
+
+Advanced users have the possibility to run the commands within the virtual environment:
+
+Enter the virtual environment:
 
 ```
 source ~/.local/pipx/venvs/cbpi4/bin/activate
@@ -28,22 +53,11 @@ And install the plugin with:
 python -m pip install cbpi4-pt100x
 ```
 
-The plugin and it's dependent packages will be installed on your system and cbpi will detect it automatically.
-
 The other way to install the plugin is directly from GitHub:
 
 ```
 python -m pip install https://github.com/PiBrewing/cbpi4-pt100x/archive/main.zip
 ```
-
-{% hint style="info" %}
-The command above will install the main brach of the cbpi4-pt100x github repo. The github page for this particular plugin is located at https://github.com/PiBrewing/cbpi4-pt100x and it has for instance two different [branches](https://docs.github.com/de/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository): `main` and `development`. If you want to install the development branch, just replace `main.zip` with `development.zip`.
-
-The same is true for other plugins you want to install from a repo. You just need to add `/archive/BRANCH.zip` behind the github http plugin address and substitute BRANCH with the name of the branch you want to install.
-{% endhint %}
-
-
-Also here, the plugin and the dependent packages will be installed automatically.
 
 Once this is completed, you need to leave the virtual environment with:
 
@@ -51,7 +65,7 @@ Once this is completed, you need to leave the virtual environment with:
 deactivate
 ``` 
 
-And restart cbpi or reboot your server.
+Restart cbpi or reboot your server.
 
 {% hint style="info" %}
 To get some detailed information about the plugin configuration and how to connect/install your sensor, you should have always a look at the plugin page on GitHub or pypi.org. I always try to add the most important information in the corresponding README.
@@ -67,20 +81,21 @@ Please always remember, that plugins can also add global settings during the ins
 
 If there is a new version of a plugin you can simply re-install the plugin or run an upgrade. Below is the example for the cbpi-pt100x plugin:
 
-#### Re-Installation (always inside the virtual environment as descried above):
+#### Re-Installation:
 
 ```
-python -m pip install --force-reinstall https://github.com/PiBrewing/cbpi4-pt100x/archive/main.zip
+pipx runpip cbpi4 install --force https://github.com/PiBrewing/cbpi4-pt100x/archive/main.zip
 ```
 
-#### Upgrade (always inside the virtual environment as descried above):
+#### Upgrade:
 
 ```
-python -m pip install --upgrade https://github.com/PiBrewing/cbpi4-pt100x/archive/main.zip
+pipx runpip cbpi4 install --upgrade https://github.com/PiBrewing/cbpi4-pt100x/archive/main.zip
 ```
 {% hint style="info" %}
-The update/upgrade or re-installation can be also done cia pypi.org if the plugin has been published there via the plugin name as shown above.
+The update/upgrade or re-installation can be also done via pypi.org if the plugin has been published there via the plugin name as shown above.
 {% endhint %}
+
 ## How to remove a plugin?
 
 {% hint style="info" %}
@@ -90,10 +105,8 @@ If you want to remove a plugin you need to be careful. Before you remove the plu
 To remove the plugin from the cbpi server, just type in case of the cbpi4-pt100x plugin:
 
 ```
-python -m pip uninstall cbpi4-pt100x
+pipx runpip cbpi4 uninstall cbpi4-pt100x
 ```
-
-inside the virtual environment.
 
 ## How to show the installed/active plugins?
 
