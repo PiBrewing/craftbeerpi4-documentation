@@ -1,5 +1,10 @@
 # Changes
 
+## Server Version 4.3.1 has the following changes:
+
+- Fixed an issues for a fresh install.
+- added asyncio-timeout package to the requirements as ait was missing with a fresh install. Obviously, some dependencies have changes with the change of the required packages in 4.3.0
+
 ## Server Version 4.3.0 has the following changes:
 
 - Update of some required packages
