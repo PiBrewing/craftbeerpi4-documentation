@@ -27,7 +27,7 @@ The plugin and it's dependent packages will be installed on your system and cbpi
 The other way to install the plugin is directly from GitHub:
 
 ```
-pipx runpip cbpi4 install chttps://github.com/PiBrewing/cbpi4-pt100x/archive/main.zip
+pipx runpip cbpi4 install https://github.com/PiBrewing/cbpi4-pt100x/archive/main.zip
 ```
 Also here, the plugin and the dependent packages will be installed automatically.
 
