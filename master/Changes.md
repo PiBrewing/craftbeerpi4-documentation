@@ -1,6 +1,21 @@
 # Changes
 
-## Server Version 4.2.0.a6 has the following changes:
+## Server Version 4.3.1 has the following changes:
+
+- Fixed an issues for a fresh install.
+- added asyncio-timeout package to the requirements as ait was missing with a fresh install. Obviously, some dependencies have changes with the change of the required packages in 4.3.0
+
+## Server Version 4.3.0 has the following changes:
+
+- Update of some required packages
+
+### RPi.GPIO is replaced with rpi.lgpio to accommodate compatibility with Pi5
+- <strong>On Pi 4 and below you need to remove the RPi.GPIO package from your system prior installation of cbpi4 or prior update from 4.2.0 to 4.3.0. Please read the adapted installation instructions carefully prior upgrading!!!</strong>
+- <strong>It is also required to install/upgrade cbpi4 now with the `--system-site-packages` parameter with pipx to ensure that all system packages are usable in the virtual environment. This may change later, but is currently required due to dependencies of rpi-lgpio.</strong>
+
+
+
+## Server Version 4.2.0 has the following changes:
 
 cbpi version is available at [pypi.org](https://pypi.org/project/cbpi4/4.2.0a6/) or from the [github development branch](https://github.com/PiBrewing/craftbeerpi4/tree/development)
 
@@ -14,11 +29,20 @@ cbpi version is available at [pypi.org](https://pypi.org/project/cbpi4/4.2.0a6/)
 - An update of older cbpi versions can be still done with the sudo installation as in the past. However, it is recommended to migrate to bookworm os.
 - Migration to bookworm needs to start from scratch with an empty SD card as migration from bullseye to bookworm via dist upgrade is not recommended and most likely not working.
 - For installation under bookworm, you need to use pipx instead of pip. This package must be installed first (see new Server Installation instructions).
-- To run cbpi you need to run the command `pipx esnurepath` after installation of cbpi. Close the terminal and open it again. Then the cbpi command will be working.
+- To run cbpi you need to run the command `pipx ensurepath` after installation of cbpi. Close the terminal and open it again. Then the cbpi command will be working.
 - Pipx will create a virtual environment for cbpi4 and you need to install all plugins inside this virtual environment (see new Plugin installation instructions). The virtual environment is only required for plugin installation.
 - cbpi onewire | setup | autostart and chromium commands must be carried out in your normal bash and not in the virtual environment. sudo is not required anymore and won't be working. 
 - You should also be able to install cbpi under a different user than pi and have it starting with autostart. The file craftbeerpi.service in the config folder is replaced by a flexible craftbeerpi.template file that is adapted to the user you are logged into your terminal session. cbpi setup must be carried out in your home folder as in older versions (typically the folder you are in, when you open a terminal session).
 - Backup your config on your existing system -> Install bookworm aon an empty sd card -> follow the server and plugin installation instructions. Restore your config file. You need to activate onewire, I2C, autostart,... on your new system. Although I have successfully tested bookworm incl. installation and everything on my productive system,  KEEP your SD card with the old system, until you have completed your first batch on the new system.
+
+### Debugging: added `debug-log-level` parameter to config.yaml
+
+- If not in config.yaml, default log level is 30 (warnings)
+- You can add / modify the level in config.yaml and log level will be also adapted to server running in automode
+
+### Dashboard: added hidden `gridwidth` parameter to settings
+
+- will be used with upcoming UI to change the dashboard grid settings in edit mode on the fly
 
 ### Bookworm compatibility
 

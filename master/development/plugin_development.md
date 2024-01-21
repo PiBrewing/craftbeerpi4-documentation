@@ -36,11 +36,11 @@ CraftbeerPi4 is creating a folder with the name cbpi4_testplugin.
 {% hint style="info" %} 
 It is recommended to install the plugin for testing with the `-e` option
 
-`sudo pip3 install -e ./cbpi4_testplugin`
+`pipx runpip cbpi4 install -e ./cbpi4_testplugin`
 
 Changes of your code will immediately take effect w/o re-installation of the plugin when you restart cbpi. 
 
-You should also stop the server as service and run it in manual mode with `sudo cbpi start`to see the log outputs or errors directly on the screen.
+You should also stop the server as service and run it in manual mode with `cbpi start`to see the log outputs or errors directly on the screen.
 {% endhint %}
 
 If you navigate into the folder, you will see the  following structure:
@@ -89,7 +89,7 @@ You should change the version number whenever you modify/update your plugin. You
 You can also specify required python packages that will be installed during the installation of your plugin. In addition, it is recommended to andd a few lines that will help to display the README.md file also on the pypi.org page if you decide to create also a package for pypi.org that can be installed later just via:
 
 ```
-sudo pip3 install cbpi4_testplugin
+pipx runpip cbpi4 install cbpi4_testplugin
 ```
 
 Below is an example of a setup.py for a [plugin](https://pypi.org/project/cbpi4-scd30-CO2-Sensor/), which is also available on the pypi.org page and can be installed directly from there.
