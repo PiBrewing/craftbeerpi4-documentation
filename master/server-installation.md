@@ -475,10 +475,10 @@ If you want to update the server, you just need to run the same command as you d
 pipx upgrade --system-site-packages cbpi4
 ```
 
-Or from the repo:
+From the repo you will need to use the install options with the force flag ad the upgrade option is not working for urls:
 
 ```
-pipx upgrade --system-site-packages https://github.com/PiBrewing/craftbeerpi4/archive/master.zip
+pipx install --force --system-site-packages https://github.com/PiBrewing/craftbeerpi4/archive/master.zip
 ```
 
 If new setting parameters have been added to cbpi, it will handle that in the extension Config update. Cbpi4 will add the parameters automatically during start if they are not yet in the config file.
