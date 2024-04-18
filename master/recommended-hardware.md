@@ -1,5 +1,5 @@
 ---
-description: Here is the description of the recommanded hardware configuration for CBPI.
+description: Here is the description of the recommended hardware configuration for CBPI.
 ---
 
 # Recommended Hardware
@@ -44,7 +44,10 @@ The second option is the installation of a display that is connected to the [DSI
 
 It will be easier to set up your brewery if you use a CBPI extension board.
 
-Manuel Fritsch, creator of CBPI, developed few months ago the CBPI extension board V3. It costs about 55$ but it is really priceless...
+Manuel Fritsch, creator of CBPI, developed few months ago the CBPI extension board V4. It costs about 55$ but it is really priceless...
+
+You can download the V4 manual [here](../../.gitbook/assets/CBPi-Exp-v4.0-user-manual.pdf).
+The older V3 manual can be found [here](../../.gitbook/assets/cbpi3_manual.pdf).
 
 Unfortunately, Manuel doesn't answer for the moment and we don't know when he will come back to the project. New projects of extension board are under development... Keep patient, that's currently the best option.&#x20;
 
