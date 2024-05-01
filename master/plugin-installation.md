@@ -181,7 +181,8 @@ The tables below shows the plugins that are currently available by type. At this
 | cbpi4-pca9685            | PCA9685 I2C PWM Actor Plugin for CraftBeerPi4                      | [GitHub Link](https://github.com/jtubb/cbpi4-pca9685)                |
 | cbpi4-http-actor         | Generic Craftbeerpi4 HTTP Actor Plugin                             | [GitHub Link](https://github.com/hurra/cbpi4-http-actor)             |
 | cbpi4-PCF8574-GPIO       | Extend PI's GPIO Actors by 8 via I2C device                        | [GitHub Link](https://github.com/PiBrewing/cbpi4-PCF8574-GPIO)       |
-| cbpi4-TriacHatActor     | Plugin for using Waveshare's 2CH Triac Hat for controlling actors in CraftBeerPi | [GitHub Link](https://github.com/netanelklein/cbpi4-TriacHatActor)
+| cbpi4-TriacHatActor     | Plugin for using Waveshare's 2CH Triac Hat for controlling actors in CraftBeerPi | [GitHub Link](https://github.com/netanelklein/cbpi4-TriacHatActor)|
+| cbpi4-compressorActor   | Plugin for usage of a compressor / fridge with delayed start of actor   | [GitHub Link](https://github.com/pascal1404/cbpi4_compressorActor)|
 
 ### Kettle Controller
 
@@ -203,7 +204,6 @@ The tables below shows the plugins that are currently available by type. At this
 
 | Name                 | Description                                                                           | Link                                                          |
 | -------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| cbpi4-LCDisplay      | Allows usage of LCD Display (I2C)                                                     | [GitHub Link](https://github.com/JamFfm/cbpi4-LCDisplay)      |
 | cbpi4-LCDisplay      | Modded Fork that allows also Display of Fermentation with Fermenter Hysteresis Plugin | [GitHub Link](https://github.com/PiBrewing/cbpi4-LCDisplay)   |
 | cbpi4-NEXTIONDisplay | Use Nextion Display on CraftbeerPi4                                                   | [GitHub Link](https://github.com/JamFfm/cbpi4-NEXTIONDisplay) |
 
