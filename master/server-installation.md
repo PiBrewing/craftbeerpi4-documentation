@@ -26,7 +26,7 @@ sudo apt upgrade
 CraftbeerPi 4 requires another package that needs to be installed prior to the installation of the cbpi server. To install the package, please run the following command.
 
 ```
-sudo apt install libatlas-base-dev
+sudo apt install libatlas-base-dev libsystemd-dev
 ```
 
 Starting with the lates raspbian os 'bookworm', python programs can't be directly installed with pip to protect the system from being corrupted by the installation of non managed packages via pip. Therefore you need to install pipx and install cbpi4 via pipx in a virtual environment that is being created automatically by pipx.

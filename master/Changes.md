@@ -1,5 +1,28 @@
 # Changes
 
+## Server Version 4.4.+ has the following changes:
+
+### <strong>!!! libsystemd-dev requirement !!!</strong>:
+
+- In order to change some code at a later point of time, you must install ´libsystemd-dev´ manually prior upgrading the server. In a fresh installation, this can be combined with the libatlas-base-dev installation -> documentation has been updated accordingly.
+```
+    sudo apt install libsystemd-dev
+```
+### Updated requirements:
+
+- some requirements have been updated with respect to dependabot recommendations
+- new aiomqtt version required some changes to the sattelite controller
+
+### Fixes:
+
+- Fix for import of KBH recipes: Temperature was somehow imported as string. Fixed but only integer values will be imported which is sufficient with respect to precision.
+- Initial fix to prevent [vulnerable code injection](https://github.com/PiBrewing/craftbeerpi4/issues/132)
+
+### Changes:
+
+- Adapted Actor controller in order to support the [compressoractor plugin](https://github.com/pascal1404/cbpi4_compressorActor)
+
+
 ## Server Version 4.3.1 has the following changes:
 
 - Fixed an issues for a fresh install.
