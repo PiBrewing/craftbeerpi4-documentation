@@ -589,7 +589,7 @@ The image is available under several tags:
 * `dev` image for 'unstable' version built from the latest development branch.
 
 {% hint style="warning" %}
-Currently the GPIO functionality is not supported in the image. But you can use it with e.g. MQTT sensors and actors.
+Currently using the Raspberry PI GPIO does work by mounting the `dev/gpiomem` device to the container, but it is not officially supported.
 {% endhint %}
 
 #### Preparing configuration data
@@ -651,6 +651,10 @@ services:
         - "./config:/cbpi/config"
       ports:
         - 8000:8000
+
+      # When using RaspberryPi GPIO
+      devices:
+        - "/dev/gpiomem:/dev/gpiomem"
 ```
 {% endcode %}
 
