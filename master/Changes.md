@@ -1,6 +1,20 @@
 # Changes
 
-## Server Version 4.4.1.rc0 has the following changes:
+## Server Version 4.4.2 has the following changes:
+
+### Maintenance:
+
+- Adapted Brewfather recipe import to Brewfather V2 API (requires UI version 0.3.15)
+- No limit of 250 recipes for BF import
+- Additional setting parameter in Settings on how many BF recipes can be displayed at once
+- All BF recipes are called once when browser is opened to reduce API calls. In case of changes in brewfather (additional or changed recipe), upload page has now the option to reload recipe list.
+
+## UI Version 0.3.15 has the following changes:
+
+- Adaption for BF recipe upload (requires sever version 4.4.2+)
+- Add information about number of notifications to tab title
+
+## Server Version 4.4.1 has the following changes:
 
 ### <strong>!!! libsystemd-dev requirement !!!</strong>:
 
