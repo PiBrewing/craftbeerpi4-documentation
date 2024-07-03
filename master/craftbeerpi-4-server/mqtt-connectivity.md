@@ -56,7 +56,7 @@ Add the following two lines at the top of the config file:
 
 ```
 allow_anonymous true
-port 1883
+listener 1883
 ```
 
 With this method you don't need to enter a user or password in craftbeerpi or other devices for the MQTT broker
@@ -81,7 +81,7 @@ And add three lines to the top of the file.
 
 ```
 allow_anonymous false 
-port 1883 
+listener 1883 
 password_file /etc/mosquitto/passwdfile
 ```
 

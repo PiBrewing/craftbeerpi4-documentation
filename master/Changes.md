@@ -1,6 +1,20 @@
 # Changes
 
-## Server Version 4.4.+ has the following changes:
+## Server Version 4.4.2 has the following changes:
+
+### Maintenance:
+
+- Adapted Brewfather recipe import to Brewfather V2 API (requires UI version 0.3.15)
+- No limit of 250 recipes for BF import
+- Additional setting parameter in Settings on how many BF recipes can be displayed at once
+- All BF recipes are called once when browser is opened to reduce API calls. In case of changes in brewfather (additional or changed recipe), upload page has now the option to reload recipe list.
+
+## UI Version 0.3.15 has the following changes:
+
+- Adaption for BF recipe upload (requires sever version 4.4.2+)
+- Add information about number of notifications to tab title
+
+## Server Version 4.4.1 has the following changes:
 
 ### <strong>!!! libsystemd-dev requirement !!!</strong>:
 
@@ -16,17 +30,32 @@
 ### Fixes:
 
 - Fix for import of KBH recipes: Temperature was somehow imported as string. Fixed but only integer values will be imported which is sufficient with respect to precision.
-- Initial fix to prevent [vulnerable code injection](https://github.com/PiBrewing/craftbeerpi4/issues/132)
+- Add system-python to requirements and change download of log data to prevent code injection (CVE-2024-3955).
+- Remove restored config zip file from config folder.
+- Add default values for fermenter hysteresis in case users don't enter a value.
+- Some config adaptions to devcontainer files
 
-### Changes:
+### Features:
 
 - Adapted Actor controller in order to support the [compressoractor plugin](https://github.com/pascal1404/cbpi4_compressorActor)
-
+- Notification badge top right is now activated and notifications (up to 100) are stored. You can review/delete them, when you click on the badge icon.
+- Show missing files in restore zip file content in case of issues at command line.
+- Add range parameters to sensor hardware to enable different color in dashboard in case sensor value is out of range compared to target temp.
 
 ## Server Version 4.3.1 has the following changes:
 
 - Fixed an issues for a fresh install.
 - added asyncio-timeout package to the requirements as ait was missing with a fresh install. Obviously, some dependencies have changes with the change of the required packages in 4.3.0
+
+## UI Version 0.3.14.rc0 has the following changes 
+
+### Features:
+- Download of config backup has now year and date in filename.
+- Sensor value can be displayed in different color in dashboard if out of defined range -> second color can be chosen in sensor dashboard properties.
+- CustomSVG can now be defined as actor dependent (one svg for actor off and one for actor on)
+- Notification badge top right is now activated and notifications (up to 100) are stored. You can review/delete them, when you click on the badge icon
+- Restore of config backup will also show notification after restart with information on missing files in zip content
+
 
 ## Server Version 4.3.0 has the following changes:
 
