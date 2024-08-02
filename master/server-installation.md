@@ -126,6 +126,20 @@ In this case, you can also install packages from github:
 pipx runpip cbpi4 install https://github.com/PiBrewing/craftbeerpi4-ui/archive/main.zip
 ```
 
+{% hint style="warning" %}
+During installation, the send2trash package may raise a warning:
+```
+WARNING: Error parsing dependencies of send2trash: Expected matching RIGHT_PARENTHESIS for LEFT_PARENTHESIS, after version specifier
+sys-platform (=="darwin") ; extra == 'objc'
+```
+You don't need to worry about it. This is not related to cbpi directly. However, if you want to get rid of the warning, simply install a newer version of the send2trash package in your virtual environment:
+
+```
+pipx runpip cbpi4 install send2trash==1.8.3
+```
+{% endhint %}
+
+
 In rare cases you may need to go into the virtual environment to install or remove plugins. This can be done with the following commands:
 
 You need to activate the virtual environment first:
