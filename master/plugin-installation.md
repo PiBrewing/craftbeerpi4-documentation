@@ -39,6 +39,25 @@ The same is true for other plugins you want to install from a repo. You just nee
 {% endhint %}
 
 
+{% hint style="info" %}
+In some cases, installation of a plugin may show a warning if installed with pipx:
+```
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Collecting cbpi4-iSpindle
+Downloading https://www.piwheels.org/simple/cbpi4-ispindle/cbpi4_iSpindle-0.0.13-py3-none-any.whl (17 kB)
+WARNING: Error parsing dependencies of send2trash: Expected matching RIGHT_PARENTHESIS for LEFT_PARENTHESIS, after version specifier
+sys-platform (=="darwin") ; extra == 'objc'
+~^
+Installing collected packages: cbpi4-ispindle
+Successfully installed cbpi4-ispindle-0.0.13
+```
+
+This issue is not related to the plugin itself but to the system. It should have no effect on the installation process. However, you can avoid the warning by installing a newer version of `send2trash` in your virtual environment:
+
+`pipx runpip cbpi4 install send2trash==1.8.3`
+
+{% endhint %}
+
 Advanced users have the possibility to run the commands within the virtual environment:
 
 Enter the virtual environment:
