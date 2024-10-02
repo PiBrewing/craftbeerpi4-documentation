@@ -531,8 +531,8 @@ to install wiringPi, open a bash window and run the following commands
 
 ```
 cd /tmp
-wget https://project-downloads.drogon.net/wiringpi-latest.deb
-sudo dpkg -i wiringpi-latest.deb
+wget wget https://github.com/WiringPi/WiringPi/releases/download/3.10/wiringpi_3.10_arm64.deb
+sudo dpkg -i wiringpi_3.10_arm64.deb
 ```
 
 You can check the version with
