@@ -392,56 +392,62 @@ cbpi chromium status
 
 There is also the possibility to write an image with a pre-installed CraftbeerPi4 server to your sd-card. This image comes with several installed plugins.
 
-The image can be downloaded from this [link](https://www.slammy.net/homebrewing/2023_12_cbpi4_bookworm_64bit.zip) which is kindly provided by Nicolas Slammy Outrey.
+The image can be downloaded from this [link](https://www.slammy.net/homebrewing/2024_10_Carftbeerpi_4_4_6.zip) which is kindly provided by Nicolas Slammy Outrey.
 
 {% hint style="warning" %}
-The latest image is now based on bookworm os which requires some changes in the installation process compared to earlier images. Please read the installation instructions carefully. You will need to use the [Raspberry Pi Imager](https://www.raspberrypi.com/software/) if you want to enable WiFi due to changes in bookworm.
+The latest image is now based on bookworm os which requires some changes in the installation process compared to earlier images. Please read the installation instructions carefully. You will need to use an imager software [e.g. Win 32 Disk Imager](https://win32diskimager.org/) to write the image to a SD card. Please do not use te Raspi Imager anymore as it will remove some default settings from the pre-configured image.
+
+Information on how to enable Wifi is described later. This MUST be done BEFORE you insert the SD card into your Pi and start it.
 
 The image is based on Bookworm 64 bit nad has been created on a Pi4. You can't run it on Pi hardware that is not capable to run 64 bit OS (e.g. Pi1, Zero 1,...)
-It has also not been tested on a Pi5 as the original image has been explicitly downloaded for a Pi4.
+It has also not been tested on a Pi5 as the original image has been explicitly downloaded for a Pi4. However, it should be also working on a Pi5
 {% endhint %}
 
 Current Version:
 
 ```
-Server Version: 4.3.0.a4
-UI Version: 0.3.13.a2
+Server Version: 4.4.6
+UI Version: 0.3.17.1
 --------------------------------------
  List of active plugins
 
  Name                            Version    Author                               Homepage                                                     Summary
 ------------------------------  ---------  -----------------------------------  -----------------------------------------------------------  ------------------------------------------------------------------------------
-cbpi4-BM-PID-SmartBoilWithPump  0.1.6      ['Alexander Vollkopf', 'Guy Lev']    https://github.com/avollkopf/cbpi4-BM_PID_SmartBoilWithPump  CraftBeerPi4 PID Kettle Logic Plugin
+cbpi4-BLEHydrom                 0.0.8      Alexander Vollkopf                   https://github.com/avollkopf/cbpi4-BLEHydrom                 CraftBeerPi4 Plugin for Hydrom and Tilt (BLE connection)
+cbpi4-BM_PID_SmartBoilWithPump  0.1.7      ['Alexander Vollkopf', 'Guy Lev']    https://github.com/avollkopf/cbpi4-BM_PID_SmartBoilWithPump  CraftBeerPi4 PID Kettle Logic Plugin
 cbpi4-DependentActor            0.0.5      Alexander Vollkopf                   https://github.com/PiBrewing/cbpi4-DependentActor            CraftBeerPi4 Actor Plugin to create dependencies or conditions on other actors
 cbpi4-Flowmeter                 0.0.6      Alexander Vollkopf                   https://github.com/PiBrewing/cbpi4-Flowmeter                 CraftBeerPi4 Flowsensor / Step Plugin
 cbpi4-GembirdUSB                0.0.2      Alexander Vollkopf                   https://github.com/avollkopf/cbpi4-GembirdUSB                CraftBeerPi4 Plugin for Gembird USB Power Plug
 cbpi4-GroupedActor              0.0.5      Alexander VOllkopf                   https://github.com/avollkopf/cbpi4-GroupedActor              CraftBeerPi Plugin
 cbpi4-GroupedPowerActor         0.0.6      Alexander Vollkopf                   https://github.com/avollkopf/cbpi4-GroupedPowerActor         CraftBeerPi4 Plugin to Group Actors
 cbpi4-KettleSensor              0.0.6      Alexander Vollkopf                   https://github.com/avollkopf/cbpi4-KettleSensor              CraftBeerPi4 Plugin to add Sensor parameters for your Kettle and Fermenter
-cbpi4-LCDisplay                 0.0.11     Alexander Vollkopf                   https://github.com/PiBrewing/cbpi4-LCDisplay                 CraftBeerPi4 LCD Plugin Mod
+cbpi4-LCDisplay                 0.0.13a7   Alexander Vollkopf                   https://github.com/PiBrewing/cbpi4-LCDisplay                 CraftBeerPi4 LCD Plugin Mod
 cbpi4-PCF8574-GPIO              0.0.6      Alexander Vollkopf                   https://github.com/PiBrewing/cbpi4-PCF8574-GPIO              CraftBeerPi4 PCF8574 Actor Plugin
 cbpi4-PIDBoil                   0.0.9      Alexander Vollkopf                   https://github.com/avollkopf/cbpi4-PIDBoil                   CraftBeerPi4 PID Kettle Control Plugin
 cbpi4-PIDHerms                  0.0.4      Alexander Vollkopf                   https://github.com/avollkopf/cbpi4-PIDHerms                  CraftBeerPi 4 Kettle Logic Plugin
 cbpi4-PID-AutoTune              0.0.10     Alexander Vollkopf                   https://github.com/avollkopf/cbpi4-PIDAutoTune               CraftBeerPi4 Kettle Logic for PID Auto Tune
 cbpi4-PushOver                  0.0.8      Alexander Vollkopf                   https://github.com/PiBrewing/cbpi4-PushOver                  CraftBeerPi4 Plugin to forward Notifications to Pushover Push Notifications
 cbpi4-buzzer                    0.0.8      Alexander Vollkopf                   https://github.com/PiBrewing/cbpi4-buzzer                    CraftBeerPi4 Buzzer Plugin
-cbpi4-hx711-loadcell            0.0.4                                                                                                        CraftBeerPi Plugin
+cbpi4-hx711-loadcell            0.1.0a4    Alexander Vollkopf                   https://github.com/PiBrewing/cbpi4-hx711-loadcell            CraftBeerPi 4 Plugin for hx711 loadcell
 cbpi4-iSpindle                  0.0.13     Alexander Vollkopf                   https://github.com/avollkopf/cbpi4-iSpindle                  CraftBeerPi4 iSpindle Sensor Plugin
 cbpi4-pt100x                    0.1.10     Alexander Vollkopf                   https://github.com/PiBrewing/cbpi4-pt100x                    CraftBeerPi4 PT100/PT1000 Sensor Plugin
-cbpi4-scd30-CO2-Sensor          0.0.6      Alexander Vollkopf                   https://github.com/PiBrewing/cbpi4-scd30-co2-sensor          CraftBeerPi4 Plugin for SCD30 based CO2 Sensor
+cbpi4-scd30-CO2-Sensor          0.0.8      Alexander Vollkopf                   https://github.com/PiBrewing/cbpi4-scd30-co2-sensor          CraftBeerPi4 Plugin for SCD30 based CO2 Sensor
 cbpi4-system                    0.0.9      Alexander Vollkopf                   https://github.com/PiBrewing/cbpi4-system                    CraftBeerPi4 Plugin for system fucntions
-cbpi4gui                        0.3.13a2   Manuel Fritsch / Alexander Vollkopf  https://openbrewing.gitbook.io/craftbeerpi4_support/         CraftBeerPi4 User Interface
+cbpi4_GroupedSensor             0.0.4      A. Vollkopf, B. Helm                 https://github.com/PiBrewing/cbpi4_GroupedSensor             CraftBeerPi4 Sensor Plugin
+cbpi4_compressorActor           0.0.1      Pascal Scholz                        https://github.com/pascal1404/cbpi4_compressorActor          CraftBeerPi Plugin for Compressor actors
+cbpi4gui                        0.3.17.1   Manuel Fritsch / Alexander Vollkopf  https://openbrewing.gitbook.io/craftbeerpi4_support/         CraftBeerPi4 User Interface
 
 ```
 
-You can install further plugins as described in [this part](plugin-installation.md). But you can and should also deactivate plugins that you don't require.&#x20;
+You can install further plugins as described in [this part](plugin-installation.md). But you can and should also deactivate plugins that you don't require.
 
 #### The images has the following properties:
 
 * Based on Raspian full 64 bit (bookworm)
-* Image will expand on first boot to size of sd card (Please be aware, that the system wil start several times until it is up and running. This will take a couple of minutes)
+* After some Time, the Pi will shut down and you need to remove the power and re-power the Pi.
+* Image will expand to size of sd card (Please be aware, that the system wil start several times until it is up and running. This will take a couple of minutes)
 * Server will autostart after boot.
-* Wifi and Bluetooth are working.
+* Wifi and Bluetooth are working (Please follow details below).
 * SSH is enabled.
 * Onewire support is enabled.
 * I2C support is enabled.
@@ -460,19 +466,20 @@ Please Note: Password can be changed when you write the image with the Raspberry
 #### Installation:
 
 1. Unzip the image. It will inflate to ~8 Gb
-2. Write the image to a sd card with min size of 16 Gb with the [Raspberry Pi imager](https://www.raspberrypi.com/software/).
-   - Select the model of your Pi, but be aware, that older models with non 64 bit CPU won't be working and the Pi5 might also not be working with this image
-   - Select 'Use Custom' as image and select the extracted image.
-   - Select the correct SD card you want to write the image to.
-3. If you want to enable Wifi, you need to change the default settings in the next step 
-	- Enter your SSID and your credentials at the corresponding settings
-	- Change the Wifi Country and if you want also the keyboard layout
-   - you can also change the password but DON'T change the user name.
-   - hit save and write the image to the card
+2. Write the image to a sd card with min size of 16 Gb with an imager [e.g. Win32 Diskimager](https://win32diskimager.org/). Do not use the Raspi Imager as this will change some of the pre-configured settings.
+3. If you want to enable Wifi, you need to adapt the file firstrun.sh with an editor [e.g. Notepad++](https://notepad-plus-plus.org/downloads/) 
+	- Enter your SSID, your credentials and your Wifi country at the corresponding settings.
+```
+SSID=YOUR_SSID
+PSK=YOUR_PSK
+COUNTRY=YOUR_COUNTRY
+```
+	- Save the file 
 4. Insert the sd card into your raspberry and wait. 
-   The device will boot several times which can take up to a couple of minutes
+   The device will boot several times and will shutdown (only the red led of the Pi will be on for some time w/o activity of the green led)
+   Remove the power and re-power the Pi. It'll boot several times which will take a while.
 5. Once the server is up and running, you can access it from a browser 
-   via IP_OF_YOUR_PI:8000
+   via IP_OF_YOUR_PI:8000 or raspberrypi:8000
 6. If you are using for instance a screen with your raspberry, you can also activate autostart of chromium with cbpi
    - Please refer to [Automatically start chromium](#automatically-start-chromium-in-kiosk-mode-at-startup)
    - On the next start, Chromium will be shown on start with the cbpi Dashboard.
