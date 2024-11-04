@@ -1,5 +1,26 @@
 # Changes
 
+## Server Version 4.4.6 has the following changes:
+
+### Maintenance:
+- Change routine to detect user running cbpi for autostart
+- Update requirements for packages and adapt some routines for numpy 2.0 (cooldown step)
+
+### Fixes:
+- Fix function to restore settings
+
+### Features
+- Add optional offset for mqtt temperature Sensor
+
+## UI Version 0.3.17.1 has the following changes:
+
+- Change position of notification information in tab title. Add options to pipes (opaqueness, width, color). Add progress bar to actor button for power display and for progress on compressor actor plugin
+- Fix some issues if button actions are not available
+- Add features for compressor actor plugin
+- Add linear progress bar to buttons for power display
+- Fix on update for power value on power slider if button action was used to set power
+
+
 ## Server Version 4.4.2 has the following changes:
 
 ### Maintenance:
