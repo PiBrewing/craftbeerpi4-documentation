@@ -1,5 +1,16 @@
 # Changes
 
+## Server Version 4.4.7 has the following changes:
+
+### Maintenance:
+- Update requirements for packages and address dependabot warnings.
+
+### Fixes:
+- Fix in basiccontroller to prevent issue in case plugins have been removed but actors are still in the config. This is also true if config is being restored and not all plugins have been installed.
+
+### Features
+- Raise Error notifications and list them at the 'alarm bell' in case hardware cannot be started (e.g. plugin is missing).
+
 ## Server Version 4.4.6 has the following changes:
 
 ### Maintenance:
