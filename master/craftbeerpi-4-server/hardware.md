@@ -169,7 +169,7 @@ TargetTemp: Target temperature for your fermentation process. This will be used 
 
 {% endhint %}
 
-The parameter Autostart defines if the fermentation logic should start automatically on a reboot or restart of CraftbeerPi4. You can enter a Name for your current fermentation. This will be used by the modified [LCDisplay Plugin](hardware.md#setting-up-the-hardware-for-brewing) and shown on the display for each fermenter during fermentation activity. The same is true for the second sensor. You can for instance use here a iSpindle and display the current gravity on your LCD Screen.
+The parameter Autostart defines if the last active fermentation step should start automatically on a reboot or restart of CraftbeerPi4. You can enter a Name for your current fermentation. This will be used by the modified [LCDisplay Plugin](hardware.md#setting-up-the-hardware-for-brewing) and shown on the display for each fermenter during fermentation activity. The same is true for the second sensor. You can for instance use here a iSpindle and display the current gravity on your LCD Screen.
 
 You can also define your fermentation target temperature in the fermenter properties, but this can be also set via the fermenter control on the dashboard.
 
