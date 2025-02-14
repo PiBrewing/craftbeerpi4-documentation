@@ -10,7 +10,7 @@ If you are not using the log files and charts at all, it is recommended to switc
 
 CraftbeerPi4 has also the possibility to forward the sensor data to an InfluxDB database. This method is way more sophisticated and recommended as it allows the user to use and display the data for instance with grafana. 
 
-To activate this functionality, you need to adapt the [settings](settings.md#global-system-parameters) for InfluxDB (Address, Port, database name,..) and set the parameter INFLUXDB to 'Yes'. Currently, InfluxDB versions up to 1.8.X are supported. Version 2.0 or larger is not yet supported since the authorization is different.
+To activate this functionality, you need to adapt the [settings](settings.md#global-system-parameters) for InfluxDB (Address, Port, database name,..) and set the parameter INFLUXDB to 'Yes'. Currently, InfluxDB versions up to 1.8.X are supported for server version < 4.1.7. Nerwer server versions can handle InfluxDB 2.0 or larger as well.
 
 Below is an example for the usage of Influxdb in combination with Grafana. The dashboard shows sensor data for the Kettle and two fermenters. In addition, data from the cbpi4-system plugin that monitors the CPU load, free memory and more is displayed. I am also using a SCD30 sensor to monitor the 'environmental condition' of the room (CO2, temp and rel. humidity) and display this on the same dashboard.
 
