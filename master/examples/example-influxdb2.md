@@ -60,15 +60,26 @@ In the menu on the left, got to `Load data / API Tokens`.
 
 ![InfluxDB2 API Tokens](../../.gitbook/assets/cbpi4_influxdb_api_tokens.png)
 
-Click on `Generate API token` and select `Custom Token`. Enter a description and allow read and write for the bucket, you created for cbpi4. Click on `Generate`.
+Click on `Generate API token` and select `Custom Token`. Enter a description and allow read and write for the bucket, you created for CraftbeerPi4. Click on `Generate`.
 
 ![InfluxDB2 API Tokens](../../.gitbook/assets/cbpi4_influxdb_generate_api_token.png)
 
-The server will generate an API token for your bucket for read and write data. Copy this token as you will require it for Grafana but also for the craftbeerpi settings
+The server will generate an API token for your bucket for read and write data. Copy and store this token somewhere as you will require it for Grafana but also for the craftbeerpi settings
 
 ![InfluxDB2 bucket API Token](../../.gitbook/assets/cbpi4_influxdb_toke_success.png)
 
-API Token from example above: `FGa6s40jmaj3NIWP44kHpv4upEVA1I4OBn3DPd6pA4PPkr2fPQ2ZrZkWT8fMoUJzVfmXOM47T-_Fhw0wOBYFIw==
+Open the Craftbeerpi Server settings page and comnfigure all influxdb settings. 
+
+- Set influxdb and influxdbcloud to `yes` (influxdb and influxdbcloud are using the same connmection settings)
+- Enter `measurement` into the influxdbmeasurement field
+- Enter the name of the bucket you have created into the influxdbname field (e.g. cbpi4)
+- Enter the bucket API token you have generated for read and write into the influxdbpassword field.
+- Enter the name of the organization you have created in the beginning for the influxdbuser (e.g. openbrewing)
+- To be on the safe side, restart cbpi
+
+![Craftbeerpi InfluxDB settungs](../../.gitbook/assets/cbpi4_influxdb_cbpi_settings.png)
+
+Create a sensor for testing if you have not already created sensors in your system.
 
 
 
