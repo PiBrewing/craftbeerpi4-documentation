@@ -8,5 +8,5 @@ This section contains examples on how to configure hardware / software for indiv
 ## Fermentation Systems
 * [Example System: MQTTDevice V4 based Fermentation](example-mqttdeviceferment.md)
 
-## IbnfoxDB V2 / Grafana installation and configuration on th pi
+## InfluxDB V2 / Grafana installation and configuration on th pi
 * [Example for InfluxDB V2 / Grafana setup](example-influxdb2.md)
