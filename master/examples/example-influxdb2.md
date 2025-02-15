@@ -1,35 +1,75 @@
-https://docs.influxdata.com/influxdb/v2/install/#install-linux
+# Example for InfluxDB V2 / Grafana installation and configuration on th pi
 
+The example installation for influxdb2 is based on the instructions you can find on rthe [influxdb webpage](https://docs.influxdata.com/influxdb/v2/install/#install-influxdb-as-a-service-with-systemd)
 
-# Ubuntu and Debian
-# Add the InfluxData key to verify downloads and add the repository
+Follow the instructions for Ubuntu / Debian. First you need to add the source information for the installation packages to your system. Run the following commands from your home directory where you have wirte access.
 
-´´´
+```
 curl --silent --location -O https://repos.influxdata.com/influxdata-archive.key
-´´´
+```
 
-´´´
+```
 echo "943666881a1b8d9b849b74caebf02d3465d6beb716510d86a39f6c8e8dac7515  influxdata-archive.key" \
 | sha256sum --check - && cat influxdata-archive.key \
 | gpg --dearmor \
 | sudo tee /etc/apt/trusted.gpg.d/influxdata-archive.gpg > /dev/null \
 && echo 'deb [signed-by=/etc/apt/trusted.gpg.d/influxdata-archive.gpg] https://repos.influxdata.com/debian stable main' \
 | sudo tee /etc/apt/sources.list.d/influxdata.list
-´´´
+```
 
-´´´
+Now update the package information and install influxdb2
+
+```
 sudo apt update && sudo apt install influxdb2
-´´´
+```
 
+Start influxdb and see if it is up and running:
+
+```
 sudo systemctl start influxd
 sudo systemctl status influxd
+```
 
+Open your browser and access influxdb from your browser (replace IPADDRESS_OF_PI with the ip address of your pi):
 
-Browser 
+```
+http://IPADDRESS_OF_PI:8086
+```
 
-IPADDRESS_OF_PI:8086
+You should see this initial screen:
 
-API Token: FGa6s40jmaj3NIWP44kHpv4upEVA1I4OBn3DPd6pA4PPkr2fPQ2ZrZkWT8fMoUJzVfmXOM47T-_Fhw0wOBYFIw==
+![InfluxDB2 initial screen](../../.gitbook/assets/cbpi4_influxdb_setup.png)
+
+Click on the get started button amd enter a name for the admin and a password. Enter an organization name and a name for an initial bucket
+
+![InfluxDB2 initial Configuration](../../.gitbook/assets/cbpi4_influxdb_initial_config.png)
+
+The system will show you an API Token for the admin user. Copy this token and keep it somewhere as you might need it at a laeter point of time. Then click on quick start.
+
+![InfluxDB2 initial API Token](../../.gitbook/assets/cbpi4_influxdb_api_token.png)
+
+In the menu on the left, got to `Load data / Buckets`.
+
+![InfluxDB2 Buckets](../../.gitbook/assets/cbpi4_influxdb_buckets.png)
+
+Click on `Create Bucket` and Enter a name for the bucket (e.g. cbpi4). Click `create`
+
+![InfluxDB2 Create new Bucket](../../.gitbook/assets/cbpi4_influxdb_create_bucket.png)
+
+In the menu on the left, got to `Load data / API Tokens`. 
+
+![InfluxDB2 API Tokens](../../.gitbook/assets/cbpi4_influxdb_api_tokens.png)
+
+Click on `Generate API token` and select `Custom Token`. Enter a description and allow read and write for the bucket, you created for cbpi4. Click on `Generate`.
+
+![InfluxDB2 API Tokens](../../.gitbook/assets/cbpi4_influxdb_generate_api_token.png)
+
+The server will generate an API token for your bucket for read and write data. Copy this token as you will require it for Grafana but also for the craftbeerpi settings
+
+![InfluxDB2 bucket API Token](../../.gitbook/assets/cbpi4_influxdb_toke_success.png)
+
+API Token from example above: `FGa6s40jmaj3NIWP44kHpv4upEVA1I4OBn3DPd6pA4PPkr2fPQ2ZrZkWT8fMoUJzVfmXOM47T-_Fhw0wOBYFIw==
+
 
 
 
@@ -94,7 +134,7 @@ hide_version = true
 device_limit =
 ```
 
-As shown in the [dashboard](dashboard.md#item-menu) section, you can also add a grafana chart to the dashboard.
+As shown in the [dashboard](../craftbeerpi-4-server/dashboard.md#item-menu) section, you can also add a grafana chart to the dashboard.
 
 ![Example of Grafana Chart in Dashboard](../../.gitbook/assets/cbpi4-grafana-chart.png)
 
