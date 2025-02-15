@@ -1,8 +1,8 @@
 # Example for InfluxDB V2 / Grafana installation and configuration on th pi
 
-The example installation for influxdb2 is based on the instructions you can find on rthe [influxdb webpage](https://docs.influxdata.com/influxdb/v2/install/#install-influxdb-as-a-service-with-systemd)
+The example installation for influxdb2 is based on the instructions you can find on the [influxdb webpage](https://docs.influxdata.com/influxdb/v2/install/#install-influxdb-as-a-service-with-systemd)
 
-Follow the instructions for Ubuntu / Debian. First you need to add the source information for the installation packages to your system. Run the following commands from your home directory where you have wirte access.
+Follow the instructions for Ubuntu / Debian. First you need to add the source information for the installation packages to your system. Run the following commands from your home directory where you have write access.
 
 ```
 curl --silent --location -O https://repos.influxdata.com/influxdata-archive.key
