@@ -81,7 +81,12 @@ Open the Craftbeerpi Server settings page and comnfigure all influxdb settings.
 
 Create a sensor for testing if you have not already created sensors in your system.
 
+![Craftbeerpi Test Sensor](../../.gitbook/assets/cbpi4_influxdb_dummy_sensor.png)
 
+Then to the influxdb interface and open the data explorer. Select under `From`your bucket (e.g. cbpi4). Under filter selecvt source and select your Sensor (e.g. Test). Press the `Submit` button and you should see the Sensor data. You can also select multiple sensors to display the data in one diagram.
+
+
+![InfluxDB Data View](../../.gitbook/assets/cbpi4_influxdb_first_data.png)
 
 
 
