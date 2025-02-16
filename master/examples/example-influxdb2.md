@@ -89,10 +89,7 @@ Create a sensor for testing if you have not already created sensors in your syst
 
 Then to the influxdb interface and open the data explorer. Select under `From`your bucket (e.g. cbpi4). Under filter select source and select your Sensor (e.g. Test). Press the `Submit` button and you should see the Sensor data. You can also select multiple sensors to display the data in one diagram.
 
-
 ![InfluxDB Data View](../../.gitbook/assets/cbpi4_influxdb_first_data.png)
-
-
 
 ## Installation of Grafana on the Pi:
 
@@ -133,9 +130,11 @@ Log in to Grafana with the default username `admin`, and the default password `a
 Change the password for the admin user when asked.
 
 Navigate to Connections and add a new InfluxDB based data connection:
+
 ![Grafana Connection ](../../.gitbook/assets/cbpi4_grafana_connections.png)
 
 Then add a new data source:
+
 ![Grafana add new data source](../../.gitbook/assets/cbpi4_grafana_influx.png)
 
 
@@ -167,11 +166,13 @@ To display the data for your Sensor in the visualization, you need to add a data
 
 {% hint style="info" %}
 If you are not used to the flux queries, you can go to the influxdb data explorer and select your sensor as you did above and open the script editor.
+
 ![InfluxDB data](../../.gitbook/assets/cbpi4_grafana_influx_script_editor.png)
 
 Now the corresponding flux query will be shown on the influxdb interface. Copy this query. and paste it into the query form for the grafana visualization.
 
 ![InfluxDB query](../../.gitbook/assets/cbpi4_grafana_influx_script.png)
+
 {% endhint %}
 
 Once you have entered the query you can click on the refresh button to see, if the query is working. You can add a name to your visualization for the sensor and save the dashboard.
@@ -187,15 +188,19 @@ Now you should see the dashboard overview and can access your dashboard with a c
 ![Grafana dashboard overview](../../.gitbook/assets/cbpi4_grafana_dashboard_overview.png)
 
 The dashboard can be modified (e.g. adding another visualization) by clicking on the edit button.
+
 ![Grafana dashboard](../../.gitbook/assets/cbpi4_grafana_dashboard_craftbeerpi4.png)
 
 If you want to edit the Sensor visualization, click at the top right and click on Edit in the context menu. Then you can edit the query, or the style.
+
 ![Grafana edit visualization](../../.gitbook/assets/cbpi4_grafana_edit_sensor.png)
 
 If you want to view the visualization at a larger scale, click at the top right and click on view in the context menu.
+
 ![Grafana view visualization](../../.gitbook/assets/cbpi4_grafana_view_dashboard.png)
 
 This will show you also the link to the visualization and the information you need to add a diagram to a CraftbeerPi 4 dashboard.
+
 ![Grafana dashboard link](../../.gitbook/assets/cbpi4_grafana_dashboard_link.png)
 
 
