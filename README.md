@@ -6,7 +6,7 @@ description: Software for brewing and fermenting beer
 
 #### Versions:
 
-Documentation: 1.8.1
+Documentation: 1.8.2
 
 Valid for 
 - Server: [4.4.7](https://pypi.org/project/cbpi4/)
