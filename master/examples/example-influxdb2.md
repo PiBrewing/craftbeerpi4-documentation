@@ -48,7 +48,7 @@ Click on the get started button amd enter a name for the admin and a password. E
 
 ![InfluxDB2 initial Configuration](../../.gitbook/assets/cbpi4_influxdb_initial_config.png)
 
-The system will show you an API Token for the admin user. Copy this token and keep it somewhere as you might need it at a laeter point of time. Then click on quick start.
+The system will show you an API Token for the admin user. Copy this token and keep it somewhere as you might need it at a later point of time. Then click on quick start.
 
 ![InfluxDB2 initial API Token](../../.gitbook/assets/cbpi4_influxdb_api_token.png)
 
@@ -68,26 +68,26 @@ Click on `Generate API token` and select `Custom Token`. Enter a description and
 
 ![InfluxDB2 API Tokens](../../.gitbook/assets/cbpi4_influxdb_generate_api_token.png)
 
-The server will generate an API token for your bucket for read and write data. Copy and store this token somewhere as you will require it for Grafana but also for the craftbeerpi settings
+The server will generate an API token for your bucket for read and write data. Copy and store this token somewhere as you will require it for Grafana but also for the CraftbeerPi 4 settings
 
 ![InfluxDB2 bucket API Token](../../.gitbook/assets/cbpi4_influxdb_toke_success.png)
 
-Open the Craftbeerpi Server settings page and comnfigure all influxdb settings. 
+Open the Craftbeerpi Server settings page and configure all influxdb settings. 
 
-- Set influxdb and influxdbcloud to `yes` (influxdb and influxdbcloud are using the same connmection settings)
+- Set influxdb and influxdbcloud to `yes` (influxdb and influxdbcloud are using the same connection settings)
 - Enter `measurement` into the influxdbmeasurement field
 - Enter the name of the bucket you have created into the influxdbname field (e.g. cbpi4)
 - Enter the bucket API token you have generated for read and write into the influxdbpassword field.
 - Enter the name of the organization you have created in the beginning for the influxdbuser (e.g. openbrewing)
 - To be on the safe side, restart cbpi
 
-![Craftbeerpi InfluxDB settungs](../../.gitbook/assets/cbpi4_influxdb_cbpi_settings.png)
+![Craftbeerpi InfluxDB settings](../../.gitbook/assets/cbpi4_influxdb_cbpi_settings.png)
 
 Create a sensor for testing if you have not already created sensors in your system.
 
 ![Craftbeerpi Test Sensor](../../.gitbook/assets/cbpi4_influxdb_dummy_sensor.png)
 
-Then to the influxdb interface and open the data explorer. Select under `From`your bucket (e.g. cbpi4). Under filter selecvt source and select your Sensor (e.g. Test). Press the `Submit` button and you should see the Sensor data. You can also select multiple sensors to display the data in one diagram.
+Then to the influxdb interface and open the data explorer. Select under `From`your bucket (e.g. cbpi4). Under filter select source and select your Sensor (e.g. Test). Press the `Submit` button and you should see the Sensor data. You can also select multiple sensors to display the data in one diagram.
 
 
 ![InfluxDB Data View](../../.gitbook/assets/cbpi4_influxdb_first_data.png)
@@ -98,7 +98,7 @@ Then to the influxdb interface and open the data explorer. Select under `From`yo
 
 Please follow the installation instructions for Grafana an scroll down to `Install Grafana` on this [page](https://grafana.com/tutorials/install-grafana-on-raspberry-pi/).
 
-Open a terminal and add the APT key used to authenticate packages. Ideally you are in your home directory as youi must have wrtie capabilities. 
+Open a terminal and add the APT key used to authenticate packages. Ideally you are in your home directory as you must have write access. 
 
 ```
 sudo mkdir -p /etc/apt/keyrings/
@@ -132,7 +132,7 @@ Log in to Grafana with the default username `admin`, and the default password `a
 
 Change the password for the admin user when asked.
 
-Navivagte to Connections and add a new InfluxDB based data connection:
+Navigate to Connections and add a new InfluxDB based data connection:
 ![Grafana Connection ](../../.gitbook/assets/cbpi4_grafana_connections.png)
 
 Then add a new data source:
@@ -141,15 +141,15 @@ Then add a new data source:
 
 - Select Flux as Query language
 - Enter `http://localhost:8086` in the URL field.
-- Disable Basic Authentication and everything else in Atuhentication
+- Disable Basic Authentication and everything else in Authentication
 - Enter your organization in the organization Field
-- Enter the bucket you created for your CraftbeerPi4 data in the defeult bucket field
+- Enter the bucket you created for your CraftbeerPi4 data in the default bucket field
 - Enter the API token for the bucket in the token field
 - Test Connection and you should see a message at the bottom, the Grafana is able to connect to the data source
 
 ![Grafana Connection to data source](../../.gitbook/assets/cbpi4_grafana_data_source.png)
 
-Navigate to Dashboards amd add a new dasboard
+Navigate to Dashboards amd add a new dashboard
 
 ![Grafana add new dashboard](../../.gitbook/assets/cbpi4_grafana_create_dashboard.png)
 
@@ -157,7 +157,7 @@ Then add a new visualization to the dashboard
 
 ![Grafana add new visualization](../../.gitbook/assets/cbpi4_grafana_add_visualization.png)
 
-Now select your datasource for the visualization that you have created earlier.
+Now select your data source for the visualization that you have created earlier.
 
 ![Grafana add source to visualization](../../.gitbook/assets/cbpi4_grafana_visualization_source.png)
 
@@ -169,7 +169,7 @@ To display the data for your Sensor in the visualization, you need to add a data
 If you are not used to the flux queries, you can go to the influxdb data explorer and select your sensor as you did above and open the script editor.
 ![InfluxDB data](../../.gitbook/assets/cbpi4_grafana_influx_script_editor.png)
 
-Now the corresponding flux query will be shown on the influxdb interface. Copy this query. and paste it into the query form for the grafana visualizaiton.
+Now the corresponding flux query will be shown on the influxdb interface. Copy this query. and paste it into the query form for the grafana visualization.
 
 ![InfluxDB query](../../.gitbook/assets/cbpi4_grafana_influx_script.png)
 {% endhint %}
@@ -182,7 +182,7 @@ Enter a name for your dashboard and click save.
 
 ![Grafana save dashboard](../../.gitbook/assets/cbpi4_grafana_save_dashboard.png)
 
-Now you should see the dashboard overview and cann acces your dashboard with a click on `CraftbeerPi4`
+Now you should see the dashboard overview and can access your dashboard with a click on `CraftbeerPi4`
 
 ![Grafana dashboard overview](../../.gitbook/assets/cbpi4_grafana_dashboard_overview.png)
 
@@ -192,14 +192,14 @@ The dashboard can be modified (e.g. adding another visualization) by clicking on
 If you want to edit the Sensor visualization, click at the top right and click on Edit in the context menu. Then you can edit the query, or the style.
 ![Grafana edit visualization](../../.gitbook/assets/cbpi4_grafana_edit_sensor.png)
 
-If you want to view the visualizastion at a lrger scale, click at the top right and click on view in the contrext menu.
+If you want to view the visualization at a larger scale, click at the top right and click on view in the context menu.
 ![Grafana view visualization](../../.gitbook/assets/cbpi4_grafana_view_dashboard.png)
 
 This will show you also the link to the visualization and the information you need to add a diagram to a CraftbeerPi 4 dashboard.
 ![Grafana dashboard link](../../.gitbook/assets/cbpi4_grafana_dashboard_link.png)
 
 
-### Configuration of the grafana.ini file to acces the diagrams fromn CraftbeerPi 4
+### Configuration of the grafana.ini file to access the diagrams fromn CraftbeerPi 4
 To access the diagrams from the cbpi server, you need to adapt a few settings in your grafana configuration.
 
 1. You need to allow [embedding](https://grafana.com/docs/grafana/latest/administration/configuration/#allow_embedding) of your charts.
@@ -231,7 +231,7 @@ Add this to feature toggle section
 enable = displayAnonymousStats
 ```
 
-Edit the next setion:
+Edit the next section:
 
 ```
 [auth.anonymous]
@@ -254,22 +254,23 @@ device_limit =
 
 As shown in the [dashboard](../craftbeerpi-4-server/dashboard.md#item-menu) section, you can also add a grafana chart to the dashboard.
 
+Click on the `GrafanaChart` item on the widget bar, position the item on the dashboard and configure it accordingly
 
-![Example of Grafana Chart in Dashboard](../../.gitbook/assets/cbpi4-grafana-chart.png)
+![Example of Grafana Chart in Dashboard](../../.gitbook/assets/cbpi4_grafana_craftbeerpi_configuration.png)
 
 Required Parameters are described briefly in the dashboard section. Below is an example, how to set the 'url' and 'panelID' for your chart.
 
-![Grafana URL Example](../../.gitbook/assets/cbpi4-grafana-url-example.png)
+![Grafana URL Example](../../.gitbook/assets/cbpi4_grafana_dashboard_link.png)
 
-The url for this chart on Grafana is: ```http://192.168.163.105:3000/d/m5Lx6uYnz/craftbeerpi-4?orgId=1&viewPanel=7```
+The url for this chart on Grafana is: ```hhttp://raspberrypi:3000/d/ded555kwjttz4b/craftbeerpi4?orgId=1&from=now-5m&to=now&timezone=browser&viewPanel=panel-1```
 
 You need to use the first part of the url prior to the `?` and replace the `d`with `d-solo` and enter this into the url parameter:
 
-```url: http://192.168.163.105:3000/d-solo/m5Lx6uYnz/craftbeerpi-4```
+```url: http://raspberrypi:3000/d-solo/ded555kwjttz4b/craftbeerpi4```
 
-In the `panelID` Parameter you need to enter just the number of the panel from the original url: `7`
+In the `panelID` Parameter you need to enter just the number of the panel from the original url: `1`
 
-```panelID: 7```
+```panelID: 1```
 
 In the `timeframe` Parameter you need to enter the timeframe you want to see in the chart until 'now'. It has to be entered in the grafana syntax:
 
@@ -282,8 +283,6 @@ In the `timeframe` Parameter you need to enter the timeframe you want to see in 
 ```2023-02-17 2:00``` shows data from this date until now.
 
 
-
-
 {% hint style="info" %}
 Depending on your setup on your pi, you may need to adapt also the chromium settings if the charts are displayed on another device, but not on your pi screen.
 
@@ -292,21 +291,3 @@ In this case, you need to allow all third party cookies in chromium. You need to
 and change the cookie setting accordingly.
 {% endhint %}
 
-
-
-
-
-
-
-
-Dashboard link
-http://raspberrypi:3000/d/ded555kwjttz4b/craftbeerpi4?orgId=1&from=now-5m&to=now&timezone=browser&viewPanel=panel-1
-
-
-Address: http://raspberrypi:3000/
-ID: ded555kwjttz4b
-Dashboard: craftbeerpi4
-Panel: panel-1 -> Panel id: 1
-
-url for grafana widget: http://raspberrypi:3000/d-solo/ded555kwjttz4b/craftbeerpi4
-Paneld ID for grafana widget: 1
