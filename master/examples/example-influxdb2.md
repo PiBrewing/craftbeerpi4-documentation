@@ -75,6 +75,7 @@ The server will generate an API token for your bucket for read and write data. C
 Open the Craftbeerpi Server settings page and configure all influxdb settings. 
 
 - Set influxdb and influxdbcloud to `yes` (influxdb and influxdbcloud are using the same connection settings)
+- Enter `http://localhost:8086` into the url field to use the local installation of influxdb
 - Enter `measurement` into the influxdbmeasurement field
 - Enter the name of the bucket you have created into the influxdbname field (e.g. cbpi4)
 - Enter the bucket API token you have generated for read and write into the influxdbpassword field.
