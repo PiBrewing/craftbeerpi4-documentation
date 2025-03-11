@@ -1,5 +1,55 @@
 # Changes
 
+## UI Version 0.3.18.1 and 0.3.18.2 has the following changes:
+
+### Maintenance:
+- Improve Recipe widget and add maxheight and scrollbar, if widget is higher than maxheight.
+- Minor tweaks to ispindle data pages (automatically reload data on currentdata page and improved behavior for xaxis range of diagrams)
+
+### Fixes:
+- Fix intermittent issue when changing between dashboards (empty dashboard appears). Improves also speed (issue #60)
+- Fix issue for temperature sliders when changing temp omn server side  (issue #61)
+
+
+
+
+## Server Version 4.5.1 has the following changes:
+
+### Fixes:
+- Minor adaptions to notification controller to prevent issues on the UI side (convert message to string)
+
+### Features:
+- Allow different Cooldown steps (Step Type must start with 'Cooldown') in order to support new [cooldown step plugin](https://github.com/PiBrewing/cbpi4-cooldown-braumeister)
+
+
+## UI Version 0.3.18 has the following changes:
+
+### Features:
+- Add Spindle data pages (iSpindle plugin >= 1.0.0 required)
+
+
+## Server Version 4.5.0 has the following changes:
+
+### Maintenance:
+- Add swagger descriptions for more api functions (e.g. bf upload)
+- Use SIGKILL instead of SIGTERM to stop service (working, but other solutions to be analyzed in future)
+- Remove asyncio_timeout from requirements and use python integrated version
+- Adapt log file controller to remove deprecated pandas operations (date_parser)
+- Close tasks in Notification controller
+- Sort Code with isort and black
+- Some changes in sattelite controller to close tasks (trying to address the sigterm/sigkill topic)
+
+### Features:
+- Add possibility to have 2nd status text for steps
+- Add next hop timer information to step widget
+- Add possibility to have extra pages in UI for ispindle plugin (ispindle plugin >= 1.0.0 and UI >= 0.3.18 required)
+
+
+## Server Version 4.4.8 has the following changes:
+
+### Fixes:
+- Recipe import from Kleiner Brauhelfer database (corrupted during brewfather V2 api update)
+
 ## Server Version 4.4.7 has the following changes:
 
 ### Maintenance:

@@ -230,6 +230,7 @@ The tables below shows the plugins that are currently available by type. At this
 
 | Name               | Description                                              | Link                                                           |
 | ------------------ | -------------------------------------------------------- | -------------------------------------------------------------- |
+| cbpi4-cooldown-braumeister | Cooldown Step Plugin with prediction of end time  | [Github Link](https://github.com/PiBrewing/cbpi4-cooldown-braumeister) |
 | cbpi4-BM\_Steps    | Example Plugin for custom Mash steps                     | [GitHub Link](https://github.com/PiBrewing/cbpi4-BM\_Steps)    |
 | cbpi4\_Fermenterstep | Plugin for Additional Fermenter steps                   | [GitHub Link](https://github.com/PiBrewing/cbpi4\_Fermenterstep)    |
 | cbpi4-RecipeImport | Example Plugin to customize automated recipe creation    | [GitHub Link](https://github.com/PiBrewing/cbpi4-RecipeImport) |
