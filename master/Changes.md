@@ -1,5 +1,10 @@
 # Changes
 
+## UI Version 0.3.18.3 has the following changes:
+
+### Fixes:
+- Fix proprtiy variable maxheight for steps and fermentersteps widget
+
 ## UI Version 0.3.18.1 and 0.3.18.2 has the following changes:
 
 ### Maintenance:
