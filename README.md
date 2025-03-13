@@ -6,11 +6,15 @@ description: Software for brewing and fermenting beer
 
 #### Versions:
 
-Documentation: 1.9.0
+Documentation: 1.9.1
 
 Valid for 
 - Server: [4.5.1](https://pypi.org/project/cbpi4/)
 - User Interface: [0.3.18.2](https://pypi.org/project/cbpi4gui/)
+
+### Warning:
+If you are installing server version 4.6.X (currently gpiotest branch and soon development branch), please read the [changes](master/Changes.md) section prior upgrade (in particular if you are using a Pi <=4).
+
 
 Requirements:
 - Python 3.11 (Python 3.9 and 3.10 should still be working)
