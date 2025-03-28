@@ -103,16 +103,26 @@ If there is a new version of a plugin you can simply re-install the plugin or ru
 #### Re-Installation:
 
 ```
+pipx runpip cbpi4 install --force cbpi4-pt100x
+```
+or directly from the repo
+
+```
 pipx runpip cbpi4 install --force https://github.com/PiBrewing/cbpi4-pt100x/archive/main.zip
 ```
 
 #### Upgrade:
 
 ```
+pipx runpip cbpi4 install --upgrade cbpi4-pt100x
+```
+or directly from the repo
+
+```
 pipx runpip cbpi4 install --upgrade https://github.com/PiBrewing/cbpi4-pt100x/archive/main.zip
 ```
 {% hint style="info" %}
-The update/upgrade or re-installation can be also done via pypi.org if the plugin has been published there via the plugin name as shown above.
+The update/upgrade or re-installation can be done via pypi.org if the plugin has been published there via the plugin name as shown above.
 {% endhint %}
 
 ## How to remove a plugin?
@@ -223,8 +233,8 @@ The tables below shows the plugins that are currently available by type. At this
 
 | Name                 | Description                                                                           | Link                                                          |
 | -------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| cbpi4-LCDisplay      | Modded Fork that allows also Display of Fermentation with Fermenter Hysteresis Plugin | [GitHub Link](https://github.com/PiBrewing/cbpi4-LCDisplay)   |
-| cbpi4-NEXTIONDisplay | Use Nextion Display on CraftbeerPi4                                                   | [GitHub Link](https://github.com/JamFfm/cbpi4-NEXTIONDisplay) |
+| cbpi4-LCDisplay      | Modded Fork that allows also Display of Fermentation    | [GitHub Link](https://github.com/PiBrewing/cbpi4-LCDisplay)   |
+| cbpi4-NEXTIONDisplay | Use Nextion Display on CraftbeerPi4                     | [GitHub Link](https://github.com/JamFfm/cbpi4-NEXTIONDisplay) |
 
 ### Utilities (Messaging, Custom Recipe Creation / Steps)
 
