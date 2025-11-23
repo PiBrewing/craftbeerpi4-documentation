@@ -77,6 +77,16 @@ Afterwards, you need to edit your mosquitto config file.
 
 `sudo nano /etc/mosquitto/mosquitto.conf`
 
+
+{% hint style="info" %}
+If you are installing mosquitto under trixie with password, you will need to chmod the passwdfile to 700 and the owner to mosquitto:mosquitto otherwise mosquitto won't be starting.
+
+```
+sudo chmod 700 /etc/mosquitto/mosquitto.conf
+sudo chown mosquitto:mosquitto /etc/mosquitto/mosquitto.conf
+```
+{% endhint %}
+
 And add three lines to the top of the file.
 
 ```
@@ -84,6 +94,8 @@ allow_anonymous false
 listener 1883 
 password_file /etc/mosquitto/passwdfile
 ```
+
+
 
 Once the file has been saved, you need to restart the MQTT broker:
 

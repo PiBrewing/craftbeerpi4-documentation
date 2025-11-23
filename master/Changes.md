@@ -1,6 +1,57 @@
 # Changes
 
-## Upcoming changes for Server Version 4.6.X (development):
+## Server Version 4.7.0 (23.11.25):
+### Codename: Winter Bock
+
+### Maintenance: 
+- Update required packages to latest versions.
+- Update dockerfile requirements.
+- adapt deprecated get_event_loops
+
+### Fixes:
+- Fix error handling for local recipe file loading.
+- Catch empty MQTT values (Error handling).
+- Change rights of log file if file is not accessible.
+
+### Features:
+- Add Chromium autostart feature for trixie os
+- Add function to transfer free memory value to GUI as well as minimum memory config parameter to reload browser page if memory becomes lower.
+- Use output value as alternative (Alternative actor plugin required to ensure higher resolution) instead of power (0-100%).
+- Add optional actor to boilstep for steam condensor or solenoid valve
+
+
+## UI Version 0.4.0 has the following changes (23.11.25):
+
+### Maintenance:
+- Add pyproject.toml file to support pip 25.3+.
+- Change sensor value in case of date from moment to string (might reduce memory usage).
+
+### Fixes:
+- Use cookies to determine current dashboard per browser in order to prevent false dashboard saving function if user is using multiple devices.
+- Check free memory every five minutes if dashboard is opened and reload page (without cache usage) if memory is below defined threshold. (This addresses increasing memory consumption with time). Memory leak still to be identified.
+
+### Features:
+- Use output value as alternative (Alternative actor plugin required to ensure higher resolution) instead of power (0-100%).
+- Preconnect to google fonts.
+- Define alternative local fonts to speed up UI if internet connection is not available.
+- Add scrollbar if Fermentersteps widget is not heigh enough to display all steps.
+- Allow SG as unit for ispindle plugin.
+
+
+## Server Version 4.6.1 (16.04.25):
+### Codename: Hop Master
+
+### Fixes:
+- Restore Config via raspberryPi did not work. Fix in system controller to check as well for 'application/zip' content type (Issue #162) (4.6.1.a1)
+- Fix MuMM json recipe import (4.6.1.a2)
+
+### Features:
+- Add whirlpool hop functionality - cool down to target (default is 80C), add notification step to add hops prior to further cool down (4.6.1.a2)
+- Add notification step in case of step temperature reduction (e.g. Matlasestep for Wheat beer) (4.6.1.a2)
+
+
+## Server Version 4.6.0 (20.03.25):
+### Codename: Hop Master
 
 <strong>The existing version of the PT100/PT1000 plugin is based on a really old package to read the max31865 chip. It creates false readings on newer systems and requires the filter i implemented some time ago. I am currently working on a newer version which will require the adafruit_circuitpython_max31865 package in order to get values from the max31865 chip (development branch 0.2.x). Test show, that this is working without issues and without false readings. However, the adafruit package is ging to install several dependencies and these packages install either RPi.GPIO for older Pis or rpi.lgpio for the Pi5. With cbpi4 version 4.3.0 I changed to rpi.lgpio for all Pi boards to ensure compatibility for the Pi5 and reduce complexity for installation and the possibility to have only one pre-configured image for all boards. I have to break this and modify the setup.py in order to use different gpio packages for older Pis and the Pi5. 
 I have already created a new branch in github with server version 4.6.x which takes this into account. If you have a Pi5, it'll use the existing rpi-lgpio package and you are good to go. Installation over the existing system should be no issue.
