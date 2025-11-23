@@ -6,34 +6,30 @@ description: Software for brewing and fermenting beer
 
 #### Versions:
 
-Documentation: 1.9.1
+Documentation: 2.0.0
 
 Valid for 
-- Server: [4.5.1](https://pypi.org/project/cbpi4/)
-- User Interface: [0.3.18.2](https://pypi.org/project/cbpi4gui/)
-
-### Warning:
-If you are installing server version 4.6.X (currently gpiotest branch and soon development branch), please read the [changes](master/Changes.md) section prior upgrade (in particular if you are using a Pi <=4).
-
+- Server: [4.7.0](https://pypi.org/project/cbpi4/)
+- User Interface: [0.4.0.0](https://pypi.org/project/cbpi4gui/)
 
 Requirements:
-- Python 3.11 (Python 3.9 and 3.10 should still be working)
-- Bookworm <strong>64bit</strong> is the recommended OS for the raspberry pi (32 bit system might not be working)
+- Python 3.13 (Python 3.9 and up should still be working)
+- Trixie <strong>64bit</strong> is the recommended OS for the raspberry pi (32 bit system might not be working)
 - !!! RapsberryPi that is able to run 64bit system is required as older versions will cause issues with server versions > 4.1.6 !!!
 - <strong>With 4.4.+ You will also need to install the libsystemd-dev package. Please read the changes carefully, before you upgrade!!!</strong>
 
 {% hint style="warning" %}
-Craftbeerpi4 is now compatible with bookworm OS, and with the new RaspberryPi 5. However, the package RPi.GPIO is not working on the Pi 5 and had to be replaced with rpi.lgpio. Hence, the RPi.GPIO package needs to be removed on systems such as the Pi4 and lower as it is installed as default (see adapted installation instructions). The new image has been created on a Pi 4 and might not be compatible with the Pi 5 as the new Raspberry Pi image asks for the Pi model during image creation. But the installation process according to the instructions in this manual has been successfully tested on a Pi5 by a user. Yu should be able to install cbpi4 on a Pi with a fresh bookworm image.
+Craftbeerpi4 is now compatible with trixie OS, and with the new RaspberryPi 5. However, the package RPi.GPIO is not working on the Pi 5 and had to be replaced with rpi.lgpio. Hence, the RPi.GPIO package needs to be removed on systems such as the Pi4 and lower as it is installed as default (see adapted installation instructions). The new image has been created on a Pi 4 and might not be compatible with the Pi 5 as the new Raspberry Pi image asks for the Pi model during image creation. But the installation process according to the instructions in this manual has been successfully tested on a Pi5 by a user. You should be able to install cbpi4 on a Pi with a fresh trixie image.
 
 If you update from cbpi 4.3.x to 4.4.x, you need to read the installation instructions first as you will also need to remove the RPi.GPIO package from your system and most likely also from the virtual environment. This is not automatically done with the cbpi4 installation / upgrade process.
 {% endhint %}
 
 ### Note:
 - A migration from cbpi3 to cbpi4 with the old settings / configuration is not possible
-- Migration from bullseye to bookworm is only recommended via installation of a new bookworm image.
+- Migration from bullseye or bookworm is only recommended via installation of a new trixie image.
 - PLEASE backup your config prior to installation of the new image and restore it, once you have installed cbpi and it's plugins.
-- Bookworm has moved from X11 to wayland window manager. This creates currently some issues with my touchscreen. Therefore I have switched back to X11 which can be done via raspi-config. I cannot guarantee, that chromium kiosk mode will work w/o issues under wayland. This might be adapted at a later point of time if required, once I can switch to wayland.
-- Newer OS such as bookworm won't allow the installation of cbpi with 'sudo pip'. pipx will be required which will install cbpi in a virtual environment.
+- Starting with Bookworm, the window manager has moved from X11 to wayland. In rare cases. some issues may appear with chromium and kiosk mode.
+- Newer OS such as bookworm/trixie won't allow the installation of cbpi with 'sudo pip'. pipx will be required which will install cbpi in a virtual environment.
 - Routines within cbpi have changed, that sudo is also not required to run cbpi. You can now also install cbpi under a different user than pi and have it running with autostart.
 
 ### [Changes](master/Changes.md)

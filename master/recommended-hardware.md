@@ -40,6 +40,13 @@ The first possibility is HDMI. Raspberry Pi 4 uses micro HDMI ports (2) so you n
 
 The second option is the installation of a display that is connected to the [DSI](https://de.wikipedia.org/wiki/Display\_Serial\_Interface)interface of the raspberry. There are several displays available. The original raspberry display has only 7" with a touch screen included but is working pretty reliable if you use also the multiple dashboard function.
 
+{% hint style="info" %}
+If you need to rotate your screen for instance by 90 or 180°, you can configure the display via the control center function Under the Main Menu / Preferences / Control Center / Screens. 
+
+You can also set the correct touchscreen device in this menu
+{% endhint %}
+
+
 ## CBPI Extension board
 
 It will be easier to set up your brewery if you use a CBPI extension board.
@@ -61,3 +68,24 @@ We recommend to check on the official website to find a Raspberry Pi Approved Re
 
 Let's have a look there : [https://www.raspberrypi.com/products/raspberry-pi-4-model-b/](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
 
+## Using a SSD with an USB to SATA adapter
+
+If you are using an USB3.0 to SATA adapter, the system might run extremely slow. This might be related to missing USB storage settings.
+
+You can identify the device id with lsusb:
+
+```
+01 lsusb
+02 ...
+03 Bus 002 Device 005: ID 152d:0578 JMicron Technology Corp. / JMicron USA Technology Corp. JMS567 SATA 6Gb/s bridge
+04 ...
+
+Add this to the front of your cmdline.txt
+
+`
+usb-storage.quirks=152d:0578:u console=serial0,115200 ...
+`
+
+Where the part after quirks is based on your device ID
+
+If you are using for instance a jmicron based adapter, you can also update the firmware. I have found the instructions [here](https://wiki.odroid.com/odroid-xu4/software/jms578_fw_update)
