@@ -73,19 +73,18 @@ And create password for the user pi:
 
 Now you need to enter the password you want to use twice.
 
-Afterwards, you need to edit your mosquitto config file.
-
-`sudo nano /etc/mosquitto/mosquitto.conf`
-
-
 {% hint style="info" %}
 If you are installing mosquitto under trixie with password, you will need to chmod the passwdfile to 700 and the owner to mosquitto:mosquitto otherwise mosquitto won't be starting.
 
 ```
-sudo chmod 700 /etc/mosquitto/mosquitto.conf
-sudo chown mosquitto:mosquitto /etc/mosquitto/mosquitto.conf
+sudo chmod 700 /etc/mosquitto/passwdfile
+sudo chown mosquitto:mosquitto /etc/mosquitto/passwdfile
 ```
 {% endhint %}
+
+Afterwards, you need to edit your mosquitto config file.
+
+`sudo nano /etc/mosquitto/mosquitto.conf`
 
 And add three lines to the top of the file.
 
