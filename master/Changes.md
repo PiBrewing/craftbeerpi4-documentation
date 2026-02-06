@@ -1,5 +1,33 @@
 # Changes
 
+## Server Version 4.7.2 (06.02.26):
+### Codename: Winter Bock
+
+### Maintenance: 
+- update requirements
+
+### Fixes:
+- adapt autostart delay for mqtt connectivity
+- fix onewire setup vie cli
+- fix github workflow (add setuptools)
+
+### Features:
+- Add firefox autostart command for trixie
+
+## UI Version 0.5.0 has the following changes (06.01.26):
+
+### Maintenance:
+- Usage of React 19.2.3 and Materialui 7.3.6 incl. code adaption.
+- Add checks for mounted elements/Hooks in Dashboard to prevent potential memory leaks.
+- Remove unused packages in package.json.
+- use alternative react-smooth-dnd package for compatibility reasons.
+
+### Fixes:
+- Change svg display when different svg is selected in draggable mode.
+
+### Features:
+- Add bold font option to several dashboard widgets.
+
 ## Server Version 4.7.0 (23.11.25):
 ### Codename: Winter Bock
 

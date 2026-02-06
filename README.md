@@ -6,14 +6,14 @@ description: Software for brewing and fermenting beer
 
 #### Versions:
 
-Documentation: 2.0.0
+Documentation: 2.1.0
 
 Valid for 
-- Server: [4.7.0](https://pypi.org/project/cbpi4/)
-- User Interface: [0.4.0.0](https://pypi.org/project/cbpi4gui/)
+- Server: [4.7.2](https://pypi.org/project/cbpi4/)
+- User Interface: [0.5.0](https://pypi.org/project/cbpi4gui/)
 
 Requirements:
-- Python 3.13 (Python 3.9 and up should still be working)
+- Python 3.13
 - Trixie <strong>64bit</strong> is the recommended OS for the raspberry pi (32 bit system might not be working)
 - !!! RapsberryPi that is able to run 64bit system is required as older versions will cause issues with server versions > 4.1.6 !!!
 - <strong>With 4.4.+ You will also need to install the libsystemd-dev package. Please read the changes carefully, before you upgrade!!!</strong>
