@@ -37,6 +37,14 @@ sudo apt install libatlas-base-dev libsystemd-dev
 ```
 {% endhint %}
 
+{% hint style="warning" %}
+If you want to use firefox autostart instead of chromium on Trixie with wayland as window manager, you will need to install two additional apps.
+
+```
+sudo apt install wlrctl wtype
+```
+{% endhint %}
+
 
 Starting with raspbian os 'bookworm' but also trixie, python programs can't be directly installed with pip to protect the system from being corrupted by the installation of non managed packages via pip. Therefore you need to install pipx and install cbpi4 via pipx in a virtual environment that is being created automatically by pipx.
 
@@ -353,49 +361,55 @@ To restart the server as service you can either reboot or just start it as servi
 sudo systemctl start craftbeerpi.service
 ```
 
-## Automatically start chromium in kiosk mode at startup
+## Automatically start chromium or firefox (starting from server 4.7.2 on under trixie) in kiosk mode at startup
 
-You can enable chromium kiosk mode via command line. If this is enabled, chromium will start after boot in kiosk mode with craftbeerpi4.
+You can enable chromium or firefox kiosk mode via command line. If this is enabled, chromium or firefox will start after boot in kiosk mode with craftbeerpi4.
 
 {% hint style="info" %}
-This has been tested on the full raspbian version where chromium is installed as default. For other setups you may need to install the chromium browser manually.
+This has been tested on the full raspbian version where chromium but also firefox is installed as default. For other setups you may need to install the chromium or firefox browser manually.
 {% endhint %}
 
 {% hint style="warning" %}
 With Chromium 98 on bullseye (32 and 64 bit), Chromium might start with a white screen and won't load the server on startup. If you experience this issue you need to disable hardware acceleration in Chromium settings.
 {% endhint %}
 
-To enable kiosk mode, you need to run the following command from the bash:
+To enable kiosk mode, you need to run the following command from the bash for chromium:
 
 ```
 cbpi chromium on
 ```
 
-You will see the following output that the required file has been copied to the autostart folder:
+For firefox just run:
 
 ```
-Add chromium.desktop to /etc/xdg/autostart/
-Copied chromium.desktop to /etc/xdg/autostart/
+cbpi firefox on
 ```
 
-You can also disable the kiosk mode via command line. Therefore, you need to run the following command:
+
+To disable the kiosk mode via command line, you need to run the following command:
 
 ```
 cbpi chromium off
 ```
 
-You will see the following output that the file has been removed from the autostart folder:
+or 
 
 ```
-Remove chromium.desktop from /etc/xdg/autostart/
-Deleted chromium.desktop from /etc/xdg/autostart/
+cbpi firefox off
 ```
 
-You can also see the status for Chromium kiosk mode if you run the following command:
+You can also see the status for Chromium / firefox kiosk mode if you run the following command:
 
 ```
 cbpi chromium status
 ```
+
+or
+
+```
+cbpi firefox status
+```
+
 
 ## Installation of Craftbeerpi 4 from a pre-configured image to your sd-card
 
