@@ -198,6 +198,7 @@ The tables below shows the plugins that are currently available by type. At this
 | cbpi4-dht22-temp-hum-sensor | Sensor for relative humidity and temperature | [GITHub Link](https://github.com/DanZee/cbpi4-dht22-temp-hum-sensor) |
 | cbpi4\_GroupedSensor | Groups up to 8 Sensors for avg, max or min calculation | [GITHub Link](https://github.com/PiBrewing/cbpi4_GroupedSensor) |
 | cbpi4-max6675 | Allows usage of max6675 board to connect k-type sensors and measure temps up to 1000°C (e.g. for gas burner control)| [GitHub Link](https://github.com/dimontau/cbpi4-max6675) |
+| cbpi4-ESPHome | Sensor for ESPHome nodes via the native API: reads CO2, temperature and humidity values (also contains an ESPHome switch actor, see Actors) | [GitHub Link](https://github.com/arcidodo/cbpi4-ESPHome) |
 
 ### Actors
 
@@ -212,6 +213,8 @@ The tables below shows the plugins that are currently available by type. At this
 | cbpi4-PCF8574-GPIO       | Extend PI's GPIO Actors by 8 via I2C device                        | [GitHub Link](https://github.com/PiBrewing/cbpi4-PCF8574-GPIO)       |
 | cbpi4-TriacHatActor     | Plugin for using Waveshare's 2CH Triac Hat for controlling actors in CraftBeerPi | [GitHub Link](https://github.com/netanelklein/cbpi4-TriacHatActor)|
 | cbpi4-compressorActor   | Plugin for usage of a compressor / fridge with delayed start of actor   | [GitHub Link](https://github.com/pascal1404/cbpi4_compressorActor)|
+| cbpi4-ESPHome | Actor for ESPHome nodes via the native API: switches ESPHome switch entities on/off (also contains an ESPHome sensor, see Sensors) | [GitHub Link](https://github.com/arcidodo/cbpi4-ESPHome) |
+| cbpi4-FermentorAutoStartSwitch | Virtual actor that switches the "AutoStart" setting of a fermenter (Autostart Fermenter on cbpi start) Yes/No, so it can be put as a button on the dashboard | [GitHub Link](https://github.com/arcidodo/cbpi4-FermentorAutoStartSwitch) |
 
 ### Kettle Controller
 
