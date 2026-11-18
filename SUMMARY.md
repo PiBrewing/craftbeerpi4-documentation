@@ -23,6 +23,7 @@
     * [Plugin Development](master/development/plugin_development.md)
       * [Sensor Plugin Example](master/development/example_sensor.md)
       * [Actor Plugin Example](master/development/example_actor.md)
+      * [Writing plugins that fail safe](master/development/plugins-fail-safe.md)
   * [Recommended Hardware](master/recommended-hardware.md)
   * [Examples](master/examples/README.md)
     * [Example System: Speidel Braumeister 20L (2015)](master/examples/example-Braumeister.md)

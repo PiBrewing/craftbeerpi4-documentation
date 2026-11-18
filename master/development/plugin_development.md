@@ -459,4 +459,6 @@ In this case, the function will add this parameter with the function `self.cbpi.
 ```
 You can see plenty of examples on how to add global cbpi settings in the `ConfigUpdate` extension, that comes with cbpi. This can be found [here](https://github.com/PiBrewing/craftbeerpi4/blob/master/cbpi/extension/ConfigUpdate/__init__.py).
 
+## Writing plugins that fail safe
 
+Logics and sensors drive heaters and coolers. [Writing plugins that fail safe](plugins-fail-safe.md) explains what the server does when a plugin crashes, and how a logic can avoid regulating on a missing, NaN or stale reading with `get_control_value()` and `stale_after`.
